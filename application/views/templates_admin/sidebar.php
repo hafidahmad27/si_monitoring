@@ -28,7 +28,7 @@
 				<ul class="treeview-menu">
 					<li class="<?php echo $uri == 'kelas' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>kelas"><i class="fa fa-circle-o"></i> Kelas</a></li>
 					<li class="<?php echo $uri == 'siswa' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>siswa"><i class="fa fa-circle-o"></i> Siswa</a></li>
-					<li class="<?php echo $uri == 'pelanggaran_tatib' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>pelanggaran_tatib"><i class="fa fa-circle-o"></i> Pelanggaran Tatib</a></li>
+					<li class="<?php echo $uri == 'pelanggaran_tatib' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>pelanggaran_tatib"><i class="fa fa-circle-o"></i> Pelanggaran Tata Tertib</a></li>
 					<li class="<?php echo $uri == 'tindakan' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>tindakan"><i class="fa fa-circle-o"></i> Tindakan</a></li>
 					<li class="<?php echo $uri == 'jenis_pembayaran' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>jenis_pembayaran"><i class="fa fa-circle-o"></i> Jenis Pembayaran</a></li>
 					<li class="<?php echo $uri == 'pegawai' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>pegawai"><i class="fa fa-circle-o"></i> Pegawai</a></li>
