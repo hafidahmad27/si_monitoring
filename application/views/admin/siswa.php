@@ -20,16 +20,17 @@
 				<div class="box">
 					<div class="box-header">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+						<button type="button" class="btn btn-primary btnTambahSiswa" data-toggle="modal" data-target="#staticBackdrop">
 							<i class="fa fa-plus"></i> Tambah
 						</button>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						<table id="example1" class="table table-bordered table-striped">
+						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>No. Induk</th>
+									<th>No</th>
+									<th>No Induk</th>
 									<th>Nama Lengkap</th>
 									<th>Kelas</th>
 									<th>Jenis Kelamin</th>
@@ -41,42 +42,26 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1234</td>
-									<td>Joshua Suherman
-									</td>
-									<td>XI TKR-1</td>
-									<td>Laki-Laki</td>
-									<td>Sidoarjo</td>
-									<td>28-04-2002</td>
-									<td>JL. Merpati Indah No. 34, Kec. Wonokromo, Kel. Karang Rejo, Surabaya</td>
-									<td>087843457878</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>1234</td>
-									<td>Joshua Suherman
-									</td>
-									<td>XI TKR-1</td>
-									<td>Laki-Laki</td>
-									<td>Sidoarjo</td>
-									<td>28-04-2002</td>
-									<td>JL. Merpati Indah No. 34, Kec. Wonokromo, Kel. Karang Rejo, Surabaya</td>
-									<td>087843457878</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>1234</td>
-									<td>Joshua Suherman
-									</td>
-									<td>XI TKR-1</td>
-									<td>Laki-Laki</td>
-									<td>Sidoarjo</td>
-									<td>28-04-2002</td>
-									<td>JL. Merpati Indah No. 34, Kec. Wonokromo, Kel. Karang Rejo, Surabaya</td>
-									<td>087843457878</td>
-									<td>Edit | Delete</td>
-								</tr>
+								<?php
+								$no = 1;
+								foreach ($siswa as $sisw) : ?>
+									<tr>
+										<td><?= $no++ ?></td>
+										<td><?= $sisw->no_induk ?></td>
+										<td><?= $sisw->nama_lengkap ?>
+										<td><?= $sisw->nama_kelas ?>
+										<td><?= $sisw->jenis_kelamin ?>
+										<td><?= $sisw->tempat_lahir ?>
+										<td><?= $sisw->tanggal_lahir ?>
+										<td><?= $sisw->alamat ?>
+										<td><?= $sisw->no_telp ?>
+										</td>
+										<td style="text-align: center;">
+											<a class="btn btn-success btn-sm btnEditSiswa" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $sisw->id_siswa; ?>"><i class="fa fa-edit"></i></a>
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Siswa/hapus/<?= $sisw->id_siswa; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -101,52 +86,54 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" id="" name="id_siswa" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>No. Induk</label>
-						<input type="number" id="" name="no_induk" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Nama Lengkap</label>
-						<input type="text" id="" name="nama_lengkap" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Kelas</label>
-						<select name="id_kelas" id="" class="form-control">
-							<option>X TKR-1</option>
-							<option>XI MM-2</option>
-							<option>XII PMSR-3</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Jenis Kelamin</label>
-						<select name="jenis_kelamin" id="" class="form-control">
-							<option>Laki-Laki</option>
-							<option>Perempuan</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Tempat Lahir</label>
-						<input type="text" id="" name="tempat_lahir" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Tanggal Lahir</label>
-						<input type="date" id="" name="tanggal_lahir" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Alamat</label>
-						<textarea name="" id="" name="alamat" cols="" rows="4" class="form-control"></textarea>
-					</div>
-					<div class="form-group">
-						<label>No. Telp</label>
-						<input type="number" id="" name="no_telp" class="form-control">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
-					</div>
+					<form action="<?= base_url() ?>Siswa/tambah_aksi" method="POST" id="formResetData">
+						<div class="form-group">
+							<input type="hidden" id="id_siswa" name="id_siswa" class="form-control" readonly>
+						</div>
+						<div class="form-group">
+							<label>No. Induk</label>
+							<input type="number" id="no_induk" name="no_induk" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Nama Lengkap</label>
+							<input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Kelas</label>
+							<select name="id_kelas" id="id_kelas" class="form-control">
+								<?php foreach ($kelas as $kls) : ?>
+									<option value="<?= $kls->id_kelas ?>"><?= $kls->nama_kelas ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Jenis Kelamin</label>
+							<select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+								<option>Laki-Laki</option>
+								<option>Perempuan</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Tempat Lahir</label>
+							<input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Tanggal Lahir</label>
+							<input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Alamat</label>
+							<textarea id="alamat" name="alamat" cols="" rows="4" class="form-control"></textarea>
+						</div>
+						<div class="form-group">
+							<label>No. Telp</label>
+							<input type="number" id="no_telp" name="no_telp" class="form-control">
+						</div>
+						<div class="modal-footer">
+							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

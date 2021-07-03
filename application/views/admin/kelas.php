@@ -20,13 +20,13 @@
 				<div class="box">
 					<div class="box-header">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+						<button type="button" class="btn btn-primary btnTambahKelas" data-toggle="modal" data-target="#staticBackdrop">
 							<i class="fa fa-plus"></i> Tambah
 						</button>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						<table id="example1" class="table table-bordered table-striped">
+						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
 									<th>No.</th>
@@ -35,27 +35,19 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Internet
-										Explorer 4.0
-									</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Internet
-										Explorer 5.0
-									</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Internet
-										Explorer 5.5
-									</td>
-									<td>Edit | Delete</td>
-								</tr>
+								<?php
+								$no = 1;
+								foreach ($kelas as $kls) : ?>
+									<tr>
+										<td><?= $no++ ?></td>
+										<td><?= $kls->nama_kelas ?>
+										</td>
+										<td style="text-align: center;">
+											<a class="btn btn-success btn-sm btnEditKelas" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $kls->id_kelas; ?>"><i class="fa fa-edit"></i></a>
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Kelas/hapus/<?= $kls->id_kelas; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -82,15 +74,15 @@
 				<div class="modal-body">
 					<form action="<?= base_url() ?>Kelas/tambah_aksi" method="POST" id="formResetData">
 						<div class="form-group">
-							<input type="hidden" id="" name="id_kelas" class="form-control" readonly>
+							<input type="hidden" id="id_kelas" name="id_kelas" class="form-control" readonly>
 						</div>
 						<div class="form-group">
 							<label>Nama Kelas</label>
-							<input type="text" id="" name="nama_kelas" class="form-control">
+							<input type="text" id="nama_kelas" name="nama_kelas" class="form-control">
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
+							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
 						</div>
 					</form>
 				</div>
