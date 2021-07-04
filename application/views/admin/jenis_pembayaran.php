@@ -20,7 +20,7 @@
 				<div class="box">
 					<div class="box-header">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+						<button type="button" class="btn btn-primary btnTambahJenisPembayaran" data-toggle="modal" data-target="#staticBackdrop">
 							<i class="fa fa-plus"></i> Tambah
 						</button>
 					</div>
@@ -35,27 +35,19 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Internet
-										Explorer 4.0
-									</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Internet
-										Explorer 5.0
-									</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Internet
-										Explorer 5.5
-									</td>
-									<td>Edit | Delete</td>
-								</tr>
+								<?php
+								$no = 1;
+								foreach ($jenis_pembayaran as $jpem) : ?>
+									<tr>
+										<td><?= $no++ ?></td>
+										<td><?= $jpem->jenis_pembayaran ?>
+										</td>
+										<td style="text-align: center;">
+											<a class="btn btn-success btn-sm btnEditJenisPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $jpem->id_jenis_pembayaran; ?>"><i class="fa fa-edit"></i></a>
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Jenis_Pembayaran/hapus/<?= $jpem->id_jenis_pembayaran; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -80,17 +72,19 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" id="" name="id_jenis_pembayaran" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>Jenis Pembayaran</label>
-						<input type="text" id="" name="jenis_pembayaran" class="form-control">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
-					</div>
+					<form action="<?= base_url() ?>Jenis_Pembayaran/tambah_aksi" method="POST" id="formResetData">
+						<div class="form-group">
+							<input type="hidden" id="id_jenis_pembayaran" name="id_jenis_pembayaran" class="form-control" readonly>
+						</div>
+						<div class="form-group">
+							<label>Jenis Pembayaran</label>
+							<input type="text" id="jenis_pembayaran" name="jenis_pembayaran" class="form-control">
+						</div>
+						<div class="modal-footer">
+							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

@@ -20,7 +20,7 @@
 				<div class="box">
 					<div class="box-header">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+						<button type="button" class="btn btn-primary btnTambahPelanggaranTatib" data-toggle="modal" data-target="#staticBackdrop">
 							<i class="fa fa-plus"></i> Tambah
 						</button>
 					</div>
@@ -29,34 +29,27 @@
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>No.</th>
+									<th>No</th>
 									<th>Bentuk Pelanggaran</th>
 									<th>Poin</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Mencopet
-									</td>
-									<td>30</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Membawa senjata tajam
-									</td>
-									<td>100</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Tidak memakai atribut lengkap</td>
-									<td>20
-									</td>
-									<td>Edit | Delete</td>
-								</tr>
+								<?php
+								$no = 1;
+								foreach ($pelanggaran_tatib as $plg_tatib) : ?>
+									<tr>
+										<td><?= $no++ ?></td>
+										<td><?= $plg_tatib->bentuk_pelanggaran ?>
+										<td><?= $plg_tatib->poin ?>
+										</td>
+										<td style="text-align: center;">
+											<a class="btn btn-success btn-sm btnEditPelanggaranTatib" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $plg_tatib->id_pelanggaran_tatib; ?>"><i class="fa fa-edit"></i></a>
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Pelanggaran_Tatib/hapus/<?= $plg_tatib->id_pelanggaran_tatib; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -81,21 +74,23 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" id="" name="id_pelanggaran_tatib" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>Bentuk Pelanggaran</label>
-						<input type="text" id="" name="bentuk_pelanggaran" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Poin</label>
-						<input type="number" id="" name="poin" class="form-control">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
-					</div>
+					<form action="<?= base_url() ?>Pelanggaran_Tatib/tambah_aksi" method="POST" id="formResetData">
+						<div class="form-group">
+							<input type="hidden" id="id_pelanggaran_tatib" name="id_pelanggaran_tatib" class="form-control" readonly>
+						</div>
+						<div class="form-group">
+							<label>Bentuk Pelanggaran</label>
+							<input type="text" id="bentuk_pelanggaran" name="bentuk_pelanggaran" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Poin</label>
+							<input type="number" id="poin" name="poin" class="form-control">
+						</div>
+						<div class="modal-footer">
+							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

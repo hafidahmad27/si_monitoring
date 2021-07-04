@@ -20,7 +20,7 @@
 				<div class="box">
 					<div class="box-header">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+						<button type="button" class="btn btn-primary btnTambahTindakan" data-toggle="modal" data-target="#staticBackdrop">
 							<i class="fa fa-plus"></i> Tambah
 						</button>
 					</div>
@@ -35,25 +35,19 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Peringatan 1
-									</td>
-									<td>Edit | Delete</td>
-
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Peringatan 2
-									</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Pemanggilan Orang Tua
-									</td>
-									<td>Edit | Delete</td>
-								</tr>
+								<?php
+								$no = 1;
+								foreach ($tindakan as $tindak) : ?>
+									<tr>
+										<td><?= $no++ ?></td>
+										<td><?= $tindak->nama_tindakan ?>
+										</td>
+										<td style="text-align: center;">
+											<a class="btn btn-success btn-sm btnEditTindakan" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tindak->id_tindakan; ?>"><i class="fa fa-edit"></i></a>
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Tindakan/hapus/<?= $tindak->id_tindakan; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -78,17 +72,17 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="<?= base_url() ?>Kelas/tambah_aksi" method="POST" id="formResetData">
+					<form action="<?= base_url() ?>Tindakan/tambah_aksi" method="POST" id="formResetData">
 						<div class="form-group">
-							<input type="hidden" id="" name="id_tindakan" class="form-control" readonly>
+							<input type="hidden" id="id_tindakan" name="id_tindakan" class="form-control" readonly>
 						</div>
 						<div class="form-group">
 							<label>Nama Tindakan</label>
-							<input type="text" id="" name="nama_tindakan" class="form-control">
+							<input type="text" id="nama_tindakan" name="nama_tindakan" class="form-control">
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
+							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
 						</div>
 					</form>
 				</div>

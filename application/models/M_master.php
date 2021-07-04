@@ -48,6 +48,22 @@ class M_master extends CI_Model
 	{
 		return $this->db->get_where('tb_siswa', array('id_siswa' => $id_siswa))->row();
 	}
+	public function getPelanggaranTatibById($id_pelanggaran_tatib)
+	{
+		return $this->db->get_where('tb_pelanggaran_tatib', array('id_pelanggaran_tatib' => $id_pelanggaran_tatib))->row();
+	}
+	public function getTindakanById($id_tindakan)
+	{
+		return $this->db->get_where('tb_tindakan', array('id_tindakan' => $id_tindakan))->row();
+	}
+	public function getJenisPembayaranById($id_jenis_pembayaran)
+	{
+		return $this->db->get_where('tb_jenis_pembayaran', array('id_jenis_pembayaran' => $id_jenis_pembayaran))->row();
+	}
+	public function getPegawaiById($id_pegawai)
+	{
+		return $this->db->get_where('tb_pegawai', array('id_pegawai' => $id_pegawai))->row();
+	}
 
 	public function getSiswa()
 	{

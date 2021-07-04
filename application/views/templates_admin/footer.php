@@ -245,6 +245,10 @@
 <!-- load script -->
 <script src="<?= base_url() ?>assets/dist/js/modalEditKelas.js"></script>
 <script src="<?= base_url() ?>assets/dist/js/modalEditSiswa.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/modalEditPelanggaranTatib.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/modalEditTindakan.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/modalEditJenisPembayaran.js"></script>
+<script src="<?= base_url() ?>assets/dist/js/modalEditPegawai.js"></script>
 <!-- page script -->
 <script>
 	$(function() {

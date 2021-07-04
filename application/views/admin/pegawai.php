@@ -20,7 +20,7 @@
 				<div class="box">
 					<div class="box-header">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+						<button type="button" class="btn btn-primary btnTambahPegawai" data-toggle="modal" data-target="#staticBackdrop">
 							<i class="fa fa-plus"></i> Tambah
 						</button>
 					</div>
@@ -38,33 +38,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Mister Tukul
-									</td>
-									<td>tukul</td>
-									<td>tkl234axz</td>
-									<td>Staff TU</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Jeremy Teti
-									</td>
-									<td>jeremy</td>
-									<td>12345</td>
-									<td>Guru BK</td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Kevin Volland
-									</td>
-									<td>kevoll34</td>
-									<td>and123xyz</td>
-									<td>Wali Kelas</td>
-									<td>Edit | Delete</td>
-								</tr>
+								<?php
+								$no = 1;
+								foreach ($pegawai as $peg) : ?>
+									<tr>
+										<td><?= $no++ ?></td>
+										<td><?= $peg->nama_pegawai ?>
+										<td><?= $peg->username ?>
+										<td><?= $peg->password ?>
+										<td><?= $peg->level ?>
+										</td>
+										<td style="text-align: center;">
+											<a class="btn btn-success btn-sm btnEditPegawai" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $peg->id_pegawai; ?>"><i class="fa fa-edit"></i></a>
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Pegawai/hapus/<?= $peg->id_pegawai; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -89,34 +78,35 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" id="" name="id_pegawai" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>Nama Pegawai</label>
-						<input type="text" id="" name="nama_pegawai" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Username</label>
-						<input type="text" id="" name="username" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Password</label>
-						<input type="password" id="" name="password" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Level</label>
-						<select name="level" id="" class="form-control">
-							<option>Admin</option>
-							<option>Guru BK</option>
-							<option>Wali Kelas</option>
-							<option>Staff TU</option>
-						</select>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
-					</div>
+					<form action="<?= base_url() ?>Pegawai/tambah_aksi" method="POST" id="formResetData">
+						<div class="form-group">
+							<input type="hidden" id="id_pegawai" name="id_pegawai" class="form-control" readonly>
+						</div>
+						<div class="form-group">
+							<label>Nama Pegawai</label>
+							<input type="text" id="nama_pegawai" name="nama_pegawai" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Username</label>
+							<input type="text" id="username" name="username" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="text" id="password" name="password" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Level</label>
+							<select name="level" id="level" class="form-control">
+								<?php foreach ($pegawai as $peg) : ?>
+									<option value="<?= $peg->level ?>"><?= $peg->level ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="modal-footer">
+							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

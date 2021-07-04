@@ -29,7 +29,7 @@
 						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>No</th>
+									<!-- <th>No</th> -->
 									<th>No Induk</th>
 									<th>Nama Lengkap</th>
 									<th>Kelas</th>
@@ -46,7 +46,7 @@
 								$no = 1;
 								foreach ($siswa as $sisw) : ?>
 									<tr>
-										<td><?= $no++ ?></td>
+										<!-- <td><?= $no++ ?></td> -->
 										<td><?= $sisw->no_induk ?></td>
 										<td><?= $sisw->nama_lengkap ?>
 										<td><?= $sisw->nama_kelas ?>
