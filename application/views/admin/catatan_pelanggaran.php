@@ -20,13 +20,13 @@
 				<div class="box">
 					<div class="box-header">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+						<button type="button" class="btn btn-primary btnTambahCatatanPelanggaran" data-toggle="modal" data-target="#staticBackdrop">
 							<i class="fa fa-plus"></i> Tambah
 						</button>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						<table id="example1" class="table table-bordered table-striped">
+						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
 									<th>Tanggal</th>
@@ -35,25 +35,30 @@
 									<th>Kelas</th>
 									<th>Bentuk Pelanggaran</th>
 									<th>Poin</th>
-									<th>Kategori</th>
+									<!-- <th>Kategori</th> -->
 									<th>Nama Tindakan</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>01-01-2021</td>
-									<td>1418
-									</td>
-									<td>Hendry Pratama</td>
-									<td>XI PMSR-2</td>
-									<td>Tidak memakai sepatu sesuai ketentuan</td>
-									<td>30</td>
-									<td>Ringan</td>
-									<td>Peringatan 1</td>
-									<td>Edit | Delete</td>
-								</tr>
-
+								<?php
+								$no = 1;
+								foreach ($catatan_pelanggaran as $catatplg) : ?>
+									<tr>
+										<td><?= $catatplg->tanggal ?></td>
+										<td><?= $catatplg->no_induk ?></td>
+										<td><?= $catatplg->nama_lengkap ?>
+										<td><?= $catatplg->nama_kelas ?>
+										<td><?= $catatplg->bentuk_pelanggaran ?>
+										<td><?= $catatplg->poin ?>
+										<td><?= $catatplg->nama_tindakan ?>
+										</td>
+										<td style="text-align: center;">
+											<a class="btn btn-success btn-sm btnEditCatatanPelanggaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $catatplg->id_catatan_pelanggaran; ?>"><i class="fa fa-edit"></i></a>
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Catatan_Pelanggaran/hapus/<?= $catatplg->id_catatan_pelanggaran; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -78,57 +83,43 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" id="" name="id_catatan_pelanggaran" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>Tanggal</label>
-						<input type="text" id="" name="tanggal" value="<?= date('d/m/Y') ?>" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>No. Induk</label>
-						<input type="number" id="" name="no_induk" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Nama Lengkap</label>
-						<select name="id_siswa" id="" class="form-control">
-							<option>Andhika Pratama</option>
-							<option>Joshua Suherman</option>
-							<option>Hendry Pratama</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Kelas</label>
-						<select name="id_kelas" id="" class="form-control">
-							<option>X TKR-1</option>
-							<option>XI MM-2</option>
-							<option>XII PMSR-3</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Bentuk Pelanggaran</label>
-						<select name="id_pelanggaran_tatib" id="" class="form-control">
-							<option>Tidak memakai atribut lengkap</option>
-							<option>Membawa senjata tajam</option>
-							<option>Mencopet</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Poin</label>
-						<input type="number" id="" name="poin" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Kategori</label>
-						<input type="text" id="" name="kategori" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Nama Tindakan</label>
-						<input type="text" id="" name="nama_tindakan" class="form-control">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
-					</div>
+					<form action="<?= base_url() ?>Catatan_Pelanggaran/tambah_aksi" method="POST" id="formResetData">
+						<div class="form-group">
+							<input type="hidden" id="id_catatan_pelanggaran" name="id_catatan_pelanggaran" class="form-control" readonly>
+						</div>
+						<div class="form-group">
+							<label>Tanggal</label>
+							<input type="text" id="tanggal" name="tanggal" value="<?= date('d/m/Y') ?>" class="form-control" readonly>
+						</div>
+						<div class="form-group">
+							<label>Nama Lengkap</label>
+							<select name="id_siswa" id="id_siswa" class="form-control">
+								<?php foreach ($siswa as $sisw) : ?>
+									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Bentuk Pelanggaran</label>
+							<select name="id_pelanggaran_tatib" id="id_pelanggaran_tatib" class="form-control">
+								<?php foreach ($pelanggaran_tatib as $plg) : ?>
+									<option value="<?= $plg->id_pelanggaran_tatib ?>"><?= $plg->bentuk_pelanggaran ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Tindakan</label>
+							<select name="id_tindakan" id="id_tindakan" class="form-control">
+								<?php foreach ($tindakan as $tnd) : ?>
+									<option value="<?= $tnd->id_tindakan ?>"><?= $tnd->nama_tindakan ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="modal-footer">
+							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

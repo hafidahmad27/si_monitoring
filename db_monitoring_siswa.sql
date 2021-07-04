@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2021 at 05:50 AM
+-- Generation Time: Jul 04, 2021 at 11:58 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -61,7 +61,7 @@ CREATE TABLE `tb_catatan_pelanggaran` (
   `id_siswa` int(11) NOT NULL,
   `id_pelanggaran_tatib` int(11) NOT NULL,
   `id_tindakan` int(11) NOT NULL,
-  `tanggal` date NOT NULL
+  `tanggal` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -73,7 +73,16 @@ INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_siswa`, `id_
 (2, 3, 3, 1, '2021-03-04'),
 (3, 1, 4, 2, '2021-03-08'),
 (4, 2, 2, 1, '2021-03-06'),
-(5, 2, 7, 2, '2021-03-06');
+(5, 2, 7, 2, '2021-03-06'),
+(9, 10, 8, 5, '04/07/2021'),
+(10, 10, 6, 1, '04/07/2021'),
+(12, 8, 5, 3, '04/07/2021'),
+(13, 1, 1, 1, '04/07/2021'),
+(15, 10, 3, 3, '04/07/2021'),
+(16, 14, 3, 3, '04/07/2021'),
+(17, 4, 2, 2, '04/07/2021'),
+(18, 7, 5, 1, '04/07/2021'),
+(19, 16, 2, 3, '04/07/2021');
 
 -- --------------------------------------------------------
 
@@ -153,9 +162,7 @@ INSERT INTO `tb_pegawai` (`id_pegawai`, `nama_pegawai`, `username`, `password`, 
 (1, 'Rachman Ariefq', 'rachariefq', 'ikipkerenw', 'admin'),
 (2, 'Ibu TU', '45678', '45678', 'staf_tu'),
 (3, 'Ibu BK', 'konseling', 'konseling', 'guru_bk'),
-(4, 'Ibu Wali Kelas', 'buwali', 'wali22', 'wali_kelas'),
-(5, 'Roy Ibrohim', 'ubunturoy', '123452ff', 'wali_kelas'),
-(6, 'sendy', 'dzuka', 'sd123zz', 'staf_tu');
+(5, 'Ibu Wali Kelas', 'walikelas', 'wk2021', 'wali_kelas');
 
 -- --------------------------------------------------------
 
@@ -177,11 +184,11 @@ INSERT INTO `tb_pelanggaran_tatib` (`id_pelanggaran_tatib`, `bentuk_pelanggaran`
 (1, 'Terlambat masuk sekolah', 10),
 (2, 'Membolos/tidak masuk tanpa keterangan 1 hari', 20),
 (3, 'Tidak mengikuti pelajaran tanpa ijin', 30),
-(4, 'Mencuri barang milik orang lain', 53),
+(4, 'Mencuri barang milik orang lain', 50),
 (5, 'Pakaian seragam tidak sesuai ketentuan yang ditetapkan oleh sekolah', 20),
 (6, 'Potongan rambut tidak sesuai dengan aturan sekolah', 10),
 (7, 'Menjadi pelaku perkelahian/provokator', 50),
-(8, 'sdvls bksdb ', 41);
+(8, 'Merokok di area sekolah', 40);
 
 -- --------------------------------------------------------
 
@@ -220,7 +227,8 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jen
 (12, 10, 1498, 'Firdausi Rahmadani', 'Perempuan', 'Surabaya', '1998-12-23', 'Jl. Menur Pumpungan No. 3, Surabaya', '081255674321'),
 (13, 8, 1502, 'Dinivi Widyianti', 'Perempuan', 'Pacitan', '1998-11-02', 'Jl. Tanjung Sari No. 21, Pacitan', '085672131611'),
 (14, 1, 1465, 'Jonathan Sutejo', 'Laki-Laki', 'Mojokerto', '2000-10-04', 'Medokan Sawah No. 23\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087765434321'),
-(15, 1, 7765, 'Ander Herrera', 'Laki-Laki', 'Washington', '1998-08-08', 'Jemur Wonosari Gg. Lebar No. 1\r\nKel. Wonocolo, Kec. Jemursari\r\nSurabaya, Jawa Timur', '087123453452');
+(15, 1, 7765, 'Ander Herrera', 'Laki-Laki', 'Washington', '1998-08-08', 'Jemur Wonosari Gg. Lebar No. 1\r\nKel. Wonocolo, Kec. Jemursari\r\nSurabaya, Jawa Timur', '087123453452'),
+(16, 2, 3432, 'Bowo', 'Laki-Laki', 'Surabaya', '2021-04-28', 'Wiyuuuuuuuuuuuuuuuung', '087648483737');
 
 -- --------------------------------------------------------
 
@@ -241,7 +249,7 @@ INSERT INTO `tb_tindakan` (`id_tindakan`, `nama_tindakan`) VALUES
 (1, 'Peringatan lisan oleh guru dan petugas ketertiban'),
 (2, 'Pembinaan oleh guru, wali kelas dan BKs'),
 (3, 'Pernyataan tertulis'),
-(5, 'hanoe');
+(5, 'SP 2');
 
 -- --------------------------------------------------------
 
@@ -347,7 +355,7 @@ ALTER TABLE `tb_absensi`
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
@@ -365,7 +373,7 @@ ALTER TABLE `tb_kelas`
 -- AUTO_INCREMENT for table `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_pelanggaran_tatib`
@@ -377,7 +385,7 @@ ALTER TABLE `tb_pelanggaran_tatib`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_tindakan`
