@@ -53,9 +53,10 @@ class M_transaksi extends CI_Model
 		return $this->db->get_where('tb_tunggakan_pembayaran', array('id_tunggakan_pembayaran' => $id_tunggakan_pembayaran))->row();
 	}
 
+
 	public function getCatatanPelanggaranSiswa()
 	{
-		$this->db->select('id_catatan_pelanggaran, tanggal, no_induk, nama_lengkap, nama_kelas, bentuk_pelanggaran, poin, nama_tindakan');
+		$this->db->select('*');
 		$this->db->from('tb_catatan_pelanggaran');
 		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa');
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
@@ -64,14 +65,17 @@ class M_transaksi extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+
 	public function getAbsensiSiswa()
 	{
 		$this->db->select('*');
-		$this->db->from('tb_kelas');
-		$this->db->join('tb_siswa', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->from('tb_absensi');
+		$this->db->join('tb_siswa', 'tb_absensi.id_siswa = tb_siswa.id_siswa');
+		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$query = $this->db->get();
 		return $query->result();
 	}
+
 	public function getTunggakanPembayaranSiswa()
 	{
 		$this->db->select('*');

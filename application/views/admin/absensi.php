@@ -20,39 +20,43 @@
 				<div class="box">
 					<div class="box-header">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+						<button type="button" class="btn btn-primary btnTambahAbsensi" data-toggle="modal" data-target="#staticBackdrop">
 							<i class="fa fa-plus"></i> Tambah
 						</button>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						<table id="example1" class="table table-bordered table-striped">
+						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
 									<th>Tanggal</th>
 									<th>No. Induk</th>
 									<th>Nama Lengkap</th>
 									<th>Kelas</th>
-									<th>Sakit</th>
-									<th>Izin</th>
-									<th>Alpa</th>
+									<th>Alasan</th>
 									<th>Keterangan</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>01-02-2021</td>
-									<td>1523
-									</td>
-									<td>Joshua Suherman</td>
-									<td>XII TKR-3</td>
-									<td>Tidak</td>
-									<td>Ya</td>
-									<td>Tidak</td>
-									<td>Acara Keluarga</td>
-									<td>Edit | Delete</td>
-								</tr>
+								<?php
+								$no = 1;
+								foreach ($absensi as $absen) : ?>
+									<tr>
+										<!-- <td><?= $no++ ?></td> -->
+										<td><?= $absen->tanggal_absensi ?></td>
+										<td><?= $absen->no_induk ?>
+										<td><?= $absen->nama_lengkap ?>
+										<td><?= $absen->nama_kelas ?>
+										<td><?= $absen->alasan ?>
+										<td><?= $absen->keterangan ?>
+										</td>
+										<td style="text-align: center;">
+											<a class="btn btn-success btn-sm btnEditAbsensi" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $absen->id_absensi; ?>"><i class="fa fa-edit"></i></a>
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Absensi/hapus/<?= $absen->id_absensi; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -77,59 +81,52 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" id="" name="id_absensi" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>Tanggal</label>
-						<input type="text" id="" name="tanggal_absensi" value="<?= date('d/m/Y') ?>" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>No. Induk</label>
-						<input type="number" id="" name="no_induk" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Nama Lengkap</label>
-						<select name="id_siswa" id="" class="form-control">
-							<option>Andhika Pratama</option>
-							<option>Joshua Suherman</option>
-							<option>Hendry Pratama</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Kelas</label>
-						<select name="id_kelas" id="" class="form-control">
-							<option>X TKR-1</option>
-							<option>XI MM-2</option>
-							<option>XII PMSR-3</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<div class="form-check radio-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-							<label class="form-check-label" for="inlineRadio1">Sakit</label>
+					<form action="<?= base_url() ?>Absensi/tambah_aksi" method="POST" id="formResetData">
+						<div class="form-group">
+							<input type="hidden" id="id_absensi" name="id_absensi" class="form-control" readonly>
 						</div>
-						<div class="form-check radio-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1">
-							<label class="form-check-label" for="inlineRadio2">Izin</label>
+						<div class="form-group">
+							<label>Tanggal</label>
+							<input type="text" id="tanggal_absensi" name="tanggal_absensi" value="<?= date('d/m/Y') ?>" class="form-control" readonly>
 						</div>
-						<div class="form-check radio-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1">
-							<label class="form-check-label" for="inlineRadio2">Alpa</label>
+						<div class="form-group">
+							<label>Nama Lengkap</label>
+							<select name="id_siswa" id="id_siswa" class="form-control">
+								<?php foreach ($siswa as $sisw) : ?>
+									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
+								<?php endforeach; ?>
+							</select>
 						</div>
-						<!-- <div class="form-check radio-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
-							<label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
-						</div> -->
-					</div>
-					<div class="form-group">
-						<label>Keterangan</label>
-						<input type="text" id="" name="keterangan" class="form-control">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
-					</div>
+						<div class="form-group">
+							<div class="radio-inline">
+								<label>
+									<input type="hidden" name="alasan" id="alasan" value="">
+									<input type="radio" name="alasan" id="alasan" value="Sakit">
+									Sakit
+								</label>
+							</div>
+							<div class="radio-inline">
+								<label>
+									<input type="radio" name="alasan" id="alasan" value="Izin">
+									Izin
+								</label>
+							</div>
+							<div class="radio-inline">
+								<label>
+									<input type="radio" name="alasan" id="alasan" value="Alpa">
+									Alpa
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Keterangan</label>
+							<input type="text" id="keterangan" name="keterangan" class="form-control">
+						</div>
+						<div class="modal-footer">
+							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

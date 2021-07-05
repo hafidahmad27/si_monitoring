@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2021 at 11:58 AM
+-- Generation Time: Jul 05, 2021 at 09:00 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -30,10 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `tb_absensi` (
   `id_absensi` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
-  `tanggal_absensi` date NOT NULL,
-  `sakit` tinyint(1) NOT NULL,
-  `izin` tinyint(1) NOT NULL,
-  `alpa` tinyint(1) NOT NULL,
+  `tanggal_absensi` varchar(10) NOT NULL,
+  `alasan` varchar(5) NOT NULL,
   `keterangan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,14 +39,14 @@ CREATE TABLE `tb_absensi` (
 -- Dumping data for table `tb_absensi`
 --
 
-INSERT INTO `tb_absensi` (`id_absensi`, `id_siswa`, `tanggal_absensi`, `sakit`, `izin`, `alpa`, `keterangan`) VALUES
-(1, 1, '2021-03-05', 0, 0, 1, 'Tidak ada keterangan'),
-(2, 3, '2021-03-08', 1, 0, 0, 'Sakit demam, dirawat jalan'),
-(3, 2, '2021-03-07', 0, 0, 0, ''),
-(4, 9, '2021-03-07', 0, 0, 0, ''),
-(5, 7, '2021-03-07', 0, 0, 0, ''),
-(6, 5, '2021-03-07', 0, 0, 1, 'mungkin membolos'),
-(7, 10, '2021-03-07', 0, 1, 0, 'Acara Keluarga');
+INSERT INTO `tb_absensi` (`id_absensi`, `id_siswa`, `tanggal_absensi`, `alasan`, `keterangan`) VALUES
+(1, 10, '05/07/2021', 'Alpa', 'Tanpa Keterangan'),
+(2, 1, '05/07/2021', 'Sakit', 'Demam, dirawat di RS'),
+(3, 9, '04/07/2021', 'Izin', 'Acara Keluarga'),
+(4, 11, '05/07/2021', 'Izin', 'Perpanjangan SIM'),
+(5, 6, '05/07/2021', 'Sakit', 'cedera, dirawat di rumah'),
+(6, 9, '05/07/2021', 'Sakit', 'Asma, dirawat di rumah'),
+(7, 5, '05/07/2021', 'Alpa', 'Tanpa Ketrngan');
 
 -- --------------------------------------------------------
 
@@ -82,7 +80,9 @@ INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_siswa`, `id_
 (16, 14, 3, 3, '04/07/2021'),
 (17, 4, 2, 2, '04/07/2021'),
 (18, 7, 5, 1, '04/07/2021'),
-(19, 16, 2, 3, '04/07/2021');
+(19, 16, 2, 3, '04/07/2021'),
+(20, 4, 5, 5, '05/07/2021'),
+(21, 7, 1, 3, '05/07/2021');
 
 -- --------------------------------------------------------
 
@@ -228,7 +228,8 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jen
 (13, 8, 1502, 'Dinivi Widyianti', 'Perempuan', 'Pacitan', '1998-11-02', 'Jl. Tanjung Sari No. 21, Pacitan', '085672131611'),
 (14, 1, 1465, 'Jonathan Sutejo', 'Laki-Laki', 'Mojokerto', '2000-10-04', 'Medokan Sawah No. 23\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087765434321'),
 (15, 1, 7765, 'Ander Herrera', 'Laki-Laki', 'Washington', '1998-08-08', 'Jemur Wonosari Gg. Lebar No. 1\r\nKel. Wonocolo, Kec. Jemursari\r\nSurabaya, Jawa Timur', '087123453452'),
-(16, 2, 3432, 'Bowo', 'Laki-Laki', 'Surabaya', '2021-04-28', 'Wiyuuuuuuuuuuuuuuuung', '087648483737');
+(16, 2, 3432, 'Bowo', 'Laki-Laki', 'Surabaya', '2021-04-28', 'Wiyuuuuuuuuuuuuuuuung', '087648483737'),
+(17, 18, 1555, 'Vino G. Bastoni', 'Laki-Laki', 'Surabaya', '2008-10-05', 'Medayu Utara 1 Melati No. 7\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '088844447777');
 
 -- --------------------------------------------------------
 
@@ -355,7 +356,7 @@ ALTER TABLE `tb_absensi`
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
@@ -385,7 +386,7 @@ ALTER TABLE `tb_pelanggaran_tatib`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_tindakan`
