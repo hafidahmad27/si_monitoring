@@ -27,17 +27,17 @@ class M_master extends CI_Model
 	public function hapus_data($where, $table)
 	{
 		$this->db->where($where);
-		$this->db->query("SET FOREIGN_KEY_CHECKS=0;");
+		// $this->db->query("SET FOREIGN_KEY_CHECKS=0;");
 		$this->db->delete($table);
-		$this->db->query("SET FOREIGN_KEY_CHECKS=1;");
+		// $this->db->query("SET FOREIGN_KEY_CHECKS=1;");
 		$this->db->query("ALTER TABLE " . $table . " AUTO_INCREMENT=1;");
 	}
 
 	public function hapus_semua_data($table)
 	{
-		$this->db->query("SET FOREIGN_KEY_CHECKS=0;");
+		// $this->db->query("SET FOREIGN_KEY_CHECKS=0;");
 		$this->db->truncate($table);
-		$this->db->query("SET FOREIGN_KEY_CHECKS=1;");
+		// $this->db->query("SET FOREIGN_KEY_CHECKS=1;");
 	}
 
 	public function getKelasById($id_kelas)

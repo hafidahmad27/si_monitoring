@@ -27,17 +27,17 @@ class M_transaksi extends CI_Model
 	public function hapus_data($where, $table)
 	{
 		$this->db->where($where);
-		$this->db->query("SET FOREIGN_KEY_CHECKS=0;");
+		// $this->db->query("SET FOREIGN_KEY_CHECKS=0;");
 		$this->db->delete($table);
-		$this->db->query("SET FOREIGN_KEY_CHECKS=1;");
+		// $this->db->query("SET FOREIGN_KEY_CHECKS=1;");
 		$this->db->query("ALTER TABLE " . $table . " AUTO_INCREMENT=1;");
 	}
 
 	public function hapus_semua_data($table)
 	{
-		$this->db->query("SET FOREIGN_KEY_CHECKS=0;");
+		// $this->db->query("SET FOREIGN_KEY_CHECKS=0;");
 		$this->db->truncate($table);
-		$this->db->query("SET FOREIGN_KEY_CHECKS=1;");
+		// $this->db->query("SET FOREIGN_KEY_CHECKS=1;");
 	}
 
 	public function getCatatanPelanggaranById($id_catatan_pelanggaran)
@@ -78,9 +78,13 @@ class M_transaksi extends CI_Model
 
 	public function getTunggakanPembayaranSiswa()
 	{
-		$this->db->select('*');
-		$this->db->from('tb_kelas');
-		$this->db->join('tb_siswa', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->select('id_tunggakan_pembayaran, no_induk, nama_lengkap, nama_kelas, jenis_pembayaran, bulan, tahun, biaya_pembayaran');
+		$this->db->from('tb_tunggakan_pembayaran');
+		$this->db->join('tb_siswa', 'tb_tunggakan_pembayaran.id_siswa = tb_siswa.id_siswa');
+		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
+		// $this->db->group_by('nama_lengkap');
+
 		$query = $this->db->get();
 		return $query->result();
 	}

@@ -26,7 +26,7 @@
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						<table id="example1" class="table table-bordered table-striped">
+						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
 									<th>No</th>
@@ -84,7 +84,7 @@
 						</div>
 						<div class="form-group">
 							<label>Poin</label>
-							<input type="number" id="poin" name="poin" class="form-control">
+							<input type="number" id="poin" name="poin" min="0" class="form-control">
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

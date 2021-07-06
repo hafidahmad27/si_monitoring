@@ -127,7 +127,7 @@
 						</div>
 						<div class="form-group">
 							<label>No. Telp</label>
-							<input type="number" id="no_telp" name="no_telp" class="form-control">
+							<input type="number" id="no_telp" name="no_telp" min="0" class="form-control">
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

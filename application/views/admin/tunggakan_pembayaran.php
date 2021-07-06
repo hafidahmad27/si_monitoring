@@ -20,13 +20,13 @@
 				<div class="box">
 					<div class="box-header">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+						<button type="button" class="btn btn-primary btnTambahTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop">
 							<i class="fa fa-plus"></i> Tambah
 						</button>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
-						<table id="example1" class="table table-bordered table-striped">
+						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
 									<th>No. Induk</th>
@@ -36,32 +36,28 @@
 									<th>Bulan</th>
 									<th>Tahun</th>
 									<th>Biaya Pembayaran</th>
+									<!-- <th>Total Tunggakan</th> -->
 									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1476</td>
-									<td>Andhika Pratama
-									</td>
-									<td>XII PMSR-2</td>
-									<td>DOP</td>
-									<td>01</td>
-									<td>2021</td>
-									<td style="text-align: right;"><?= number_format(5000000, 0, ',', '.') ?></td>
-									<td>Edit | Delete</td>
-								</tr>
-								<tr>
-									<td>1501</td>
-									<td>Hendry Pratama
-									</td>
-									<td>X TKR-1</td>
-									<td>SPP</td>
-									<td>09</td>
-									<td>2021</td>
-									<td style="text-align: right;"><?= number_format(1000000, 0, ',', '.') ?></td>
-									<td>Edit | Delete</td>
-								</tr>
+								<?php
+								foreach ($tunggakan_pembayaran as $tunggakan) : ?>
+									<tr>
+										<td><?= $tunggakan->no_induk ?></td>
+										<td><?= $tunggakan->nama_lengkap ?>
+										<td><?= $tunggakan->nama_kelas ?>
+										<td><?= $tunggakan->jenis_pembayaran ?>
+										<td><?= $tunggakan->bulan ?>
+										<td><?= $tunggakan->tahun ?>
+										<td style="text-align: right;"><?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?></td>
+										<!-- <td style="text-align: right;"><?= number_format($tunggakan->total_tunggakan, 0, ',', '.') ?></td> -->
+										<td style="text-align: center;">
+											<a class="btn btn-success btn-sm btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -86,53 +82,47 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" id="" name="id_catatan_pelanggaran" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>No. Induk</label>
-						<input type="number" id="" name="no_induk" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Nama Lengkap</label>
-						<select name="id_siswa" id="" class="form-control">
-							<option>Andhika Pratama</option>
-							<option>Joshua Suherman</option>
-							<option>Hendry Pratama</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Kelas</label>
-						<select name="id_kelas" id="" class="form-control">
-							<option>X TKR-1</option>
-							<option>XI MM-2</option>
-							<option>XII PMSR-3</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Jenis Pembayaran</label>
-						<select name="id_jenis_pembayaran" id="" class="form-control">
-							<option>DOP</option>
-							<option>SPP</option>
-							<option>Lain-Lain</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Bulan</label>
-						<input type="number" id="" name="bulan" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Tahun</label>
-						<input type="number" id="" name="tahun" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Biaya Pembayaran</label>
-						<input type="number" id="" name="biaya_pembayaran" class="form-control">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Simpan</button>
-					</div>
+					<form action="<?= base_url() ?>Tunggakan_Pembayaran/tambah_aksi" method="POST" id="formResetData">
+						<div class="form-group">
+							<input type="hidden" id="" name="id_tunggakan_pembayaran" class="form-control" readonly>
+						</div>
+						<div class="form-group">
+							<label>Nama Lengkap</label>
+							<select name="id_siswa" id="id_siswa" class="form-control">
+								<?php foreach ($siswa as $sisw) : ?>
+									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Jenis Pembayaran</label>
+							<select name="id_jenis_pembayaran" id="id_jenis_pembayaran" class="form-control">
+								<?php foreach ($jenis_pembayaran as $jp) : ?>
+									<option value="<?= $jp->id_jenis_pembayaran ?>"><?= $jp->jenis_pembayaran ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-5">
+									<label>Bulan</label>
+									<input type="number" id="bulan" name="bulan" min="1" max="12" class="form-control">
+								</div>
+								<div class="col-xs-7">
+									<label>Tahun</label>
+									<input type="number" id="tahun" name="tahun" min="2015" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Biaya Pembayaran</label>
+							<input type="number" id="biaya_pembayaran" name="biaya_pembayaran" min="0" class="form-control">
+						</div>
+						<div class="modal-footer">
+							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

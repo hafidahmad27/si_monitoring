@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2021 at 09:00 AM
+-- Generation Time: Jul 06, 2021 at 02:55 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -40,13 +40,13 @@ CREATE TABLE `tb_absensi` (
 --
 
 INSERT INTO `tb_absensi` (`id_absensi`, `id_siswa`, `tanggal_absensi`, `alasan`, `keterangan`) VALUES
-(1, 10, '05/07/2021', 'Alpa', 'Tanpa Keterangan'),
+(1, 10, '05/07/2021', 'Alpa', '-'),
 (2, 1, '05/07/2021', 'Sakit', 'Demam, dirawat di RS'),
 (3, 9, '04/07/2021', 'Izin', 'Acara Keluarga'),
 (4, 11, '05/07/2021', 'Izin', 'Perpanjangan SIM'),
 (5, 6, '05/07/2021', 'Sakit', 'cedera, dirawat di rumah'),
 (6, 9, '05/07/2021', 'Sakit', 'Asma, dirawat di rumah'),
-(7, 5, '05/07/2021', 'Alpa', 'Tanpa Ketrngan');
+(7, 13, '06/07/2021', 'Sakit', 'Pusing');
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,6 @@ CREATE TABLE `tb_catatan_pelanggaran` (
 
 INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_siswa`, `id_pelanggaran_tatib`, `id_tindakan`, `tanggal`) VALUES
 (1, 2, 1, 1, '2021-03-06'),
-(2, 3, 3, 1, '2021-03-04'),
 (3, 1, 4, 2, '2021-03-08'),
 (4, 2, 2, 1, '2021-03-06'),
 (5, 2, 7, 2, '2021-03-06'),
@@ -81,8 +80,10 @@ INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_siswa`, `id_
 (17, 4, 2, 2, '04/07/2021'),
 (18, 7, 5, 1, '04/07/2021'),
 (19, 16, 2, 3, '04/07/2021'),
-(20, 4, 5, 5, '05/07/2021'),
-(21, 7, 1, 3, '05/07/2021');
+(20, 4, 1, 1, '05/07/2021'),
+(21, 7, 1, 3, '05/07/2021'),
+(22, 5, 8, 5, '06/07/2021'),
+(23, 9, 8, 1, '06/07/2021');
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ INSERT INTO `tb_pegawai` (`id_pegawai`, `nama_pegawai`, `username`, `password`, 
 (1, 'Rachman Ariefq', 'rachariefq', 'ikipkerenw', 'admin'),
 (2, 'Ibu TU', '45678', '45678', 'staf_tu'),
 (3, 'Ibu BK', 'konseling', 'konseling', 'guru_bk'),
-(5, 'Ibu Wali Kelas', 'walikelas', 'wk2021', 'wali_kelas');
+(4, 'Ibu Wali Kelas', 'wkkelas', 'walas123', 'wali_kelas');
 
 -- --------------------------------------------------------
 
@@ -188,7 +189,7 @@ INSERT INTO `tb_pelanggaran_tatib` (`id_pelanggaran_tatib`, `bentuk_pelanggaran`
 (5, 'Pakaian seragam tidak sesuai ketentuan yang ditetapkan oleh sekolah', 20),
 (6, 'Potongan rambut tidak sesuai dengan aturan sekolah', 10),
 (7, 'Menjadi pelaku perkelahian/provokator', 50),
-(8, 'Merokok di area sekolah', 40);
+(8, 'Merokok di area sekolah', 45);
 
 -- --------------------------------------------------------
 
@@ -248,7 +249,7 @@ CREATE TABLE `tb_tindakan` (
 
 INSERT INTO `tb_tindakan` (`id_tindakan`, `nama_tindakan`) VALUES
 (1, 'Peringatan lisan oleh guru dan petugas ketertiban'),
-(2, 'Pembinaan oleh guru, wali kelas dan BKs'),
+(2, 'Pembinaan oleh guru, wali kelas dan BK'),
 (3, 'Pernyataan tertulis'),
 (5, 'SP 2');
 
@@ -262,7 +263,7 @@ CREATE TABLE `tb_tunggakan_pembayaran` (
   `id_tunggakan_pembayaran` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
   `id_jenis_pembayaran` int(11) NOT NULL,
-  `bulan` varchar(10) NOT NULL,
+  `bulan` int(2) NOT NULL,
   `tahun` int(4) NOT NULL,
   `biaya_pembayaran` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -272,9 +273,11 @@ CREATE TABLE `tb_tunggakan_pembayaran` (
 --
 
 INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_siswa`, `id_jenis_pembayaran`, `bulan`, `tahun`, `biaya_pembayaran`) VALUES
-(1, 1, 1, 'Januari', 2021, 200000),
-(2, 10, 2, 'September', 2020, 75000),
-(3, 1, 2, 'Agustus', 2020, 80000);
+(1, 1, 1, 1, 2021, 200000),
+(2, 10, 2, 2, 2020, 75000),
+(3, 1, 2, 4, 2020, 80000),
+(4, 9, 5, 5, 2020, 2000000),
+(5, 9, 1, 11, 2020, 4000000);
 
 --
 -- Indexes for dumped tables
@@ -356,7 +359,7 @@ ALTER TABLE `tb_absensi`
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
@@ -374,7 +377,7 @@ ALTER TABLE `tb_kelas`
 -- AUTO_INCREMENT for table `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_pelanggaran_tatib`
@@ -398,7 +401,7 @@ ALTER TABLE `tb_tindakan`
 -- AUTO_INCREMENT for table `tb_tunggakan_pembayaran`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
-  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
