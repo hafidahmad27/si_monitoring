@@ -29,15 +29,15 @@
 						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Tanggal</th>
-									<th>No. Induk</th>
-									<th>Nama Lengkap</th>
-									<th>Kelas</th>
-									<th>Bentuk Pelanggaran</th>
-									<th>Poin</th>
+									<th style="width: 1%; text-align: center;">Tanggal</th>
+									<th style="width: 7.8%; text-align: center;">No Induk</th>
+									<th style="width: 18%; text-align: center;">Nama Lengkap</th>
+									<th style="width: 3.6%; text-align: center;">Kelas</th>
+									<th style="width: 21.6%; text-align: center;">Bentuk Pelanggaran</th>
+									<th style="width: 1%; text-align: center;">Poin</th>
 									<!-- <th>Kategori</th> -->
-									<th>Nama Tindakan</th>
-									<th>Aksi</th>
+									<th style="width: 16%; text-align: center;">Nama Tindakan</th>
+									<th style="width: 3.7%; text-align: center;">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -46,16 +46,16 @@
 								foreach ($catatan_pelanggaran as $catatplg) : ?>
 									<tr>
 										<td><?= $catatplg->tanggal ?></td>
-										<td><?= $catatplg->no_induk ?></td>
+										<td style="text-align: center;"><?= $catatplg->no_induk ?></td>
 										<td><?= $catatplg->nama_lengkap ?>
 										<td><?= $catatplg->nama_kelas ?>
 										<td><?= $catatplg->bentuk_pelanggaran ?>
-										<td><?= $catatplg->poin ?>
+										<td style="float: right;"><?= $catatplg->poin ?>
 										<td><?= $catatplg->nama_tindakan ?>
 										</td>
 										<td style="text-align: center;">
-											<a class="btn btn-success btn-sm btnEditCatatanPelanggaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $catatplg->id_catatan_pelanggaran; ?>"><i class="fa fa-edit"></i></a>
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Catatan_Pelanggaran/hapus/<?= $catatplg->id_catatan_pelanggaran; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											<a class="btn btn-success btn-xs btnEditCatatanPelanggaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $catatplg->id_catatan_pelanggaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Catatan_Pelanggaran/hapus/<?= $catatplg->id_catatan_pelanggaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -92,8 +92,8 @@
 							<input type="text" id="tanggal" name="tanggal" value="<?= date('d/m/Y') ?>" class="form-control" readonly>
 						</div>
 						<div class="form-group">
-							<label>Nama Lengkap</label>
-							<select name="id_siswa" id="id_siswa" class="form-control">
+							<label>Nama Lengkap</label><br>
+							<select name="id_siswa" id="id_siswa" class="form-control select2" style="width: 100%;">
 								<?php foreach ($siswa as $sisw) : ?>
 									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
 								<?php endforeach; ?>

@@ -32,7 +32,7 @@
 									<th>No</th>
 									<th>Bentuk Pelanggaran</th>
 									<th>Poin</th>
-									<th>Aksi</th>
+									<th style="text-align: center;">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -45,8 +45,8 @@
 										<td><?= $plg_tatib->poin ?>
 										</td>
 										<td style="text-align: center;">
-											<a class="btn btn-success btn-sm btnEditPelanggaranTatib" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $plg_tatib->id_pelanggaran_tatib; ?>"><i class="fa fa-edit"></i></a>
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Pelanggaran_Tatib/hapus/<?= $plg_tatib->id_pelanggaran_tatib; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											<a class="btn btn-success btn-xs btnEditPelanggaranTatib" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $plg_tatib->id_pelanggaran_tatib; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Pelanggaran_Tatib/hapus/<?= $plg_tatib->id_pelanggaran_tatib; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 										</td>
 									</tr>
 								<?php endforeach; ?>

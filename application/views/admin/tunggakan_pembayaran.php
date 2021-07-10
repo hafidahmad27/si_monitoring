@@ -29,15 +29,15 @@
 						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>No. Induk</th>
-									<th>Nama Lengkap</th>
-									<th>Kelas</th>
-									<th>Jenis Pembayaran</th>
-									<th>Bulan</th>
-									<th>Tahun</th>
-									<th>Biaya Pembayaran</th>
+									<th style="width: 1%;">No Induk</th>
+									<th style="width: 18%; text-align: center;">Nama Lengkap</th>
+									<th style="width: 4%; text-align: center;">Kelas</th>
+									<th style="width: 18%; text-align: center;">Jenis Pembayaran</th>
+									<th style="width: 1%; text-align: center;">Bulan</th>
+									<th style="width: 1%; center;">Tahun</th>
+									<th style="width: 10%; text-align: center;">Biaya Pembayaran</th>
 									<!-- <th>Total Tunggakan</th> -->
-									<th>Aksi</th>
+									<th style="width: 4%; text-align: center;">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -48,13 +48,13 @@
 										<td><?= $tunggakan->nama_lengkap ?>
 										<td><?= $tunggakan->nama_kelas ?>
 										<td><?= $tunggakan->jenis_pembayaran ?>
-										<td><?= $tunggakan->bulan ?>
-										<td><?= $tunggakan->tahun ?>
+										<td style="text-align: center;"><?= $tunggakan->bulan ?>
+										<td style="text-align: center;"><?= $tunggakan->tahun ?>
 										<td style="text-align: right;"><?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?></td>
 										<!-- <td style="text-align: right;"><?= number_format($tunggakan->total_tunggakan, 0, ',', '.') ?></td> -->
-										<td style="text-align: center;">
-											<a class="btn btn-success btn-sm btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+										<td style="text-align: center; width: 7%;">
+											<a class="btn btn-success btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -84,7 +84,7 @@
 				<div class="modal-body">
 					<form action="<?= base_url() ?>Tunggakan_Pembayaran/tambah_aksi" method="POST" id="formResetData">
 						<div class="form-group">
-							<input type="hidden" id="" name="id_tunggakan_pembayaran" class="form-control" readonly>
+							<input type="hidden" id="id_tunggakan_pembayaran" name="id_tunggakan_pembayaran" class="form-control" readonly>
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label>

@@ -29,13 +29,13 @@
 						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Tanggal</th>
-									<th>No. Induk</th>
-									<th>Nama Lengkap</th>
-									<th>Kelas</th>
-									<th>Alasan</th>
-									<th>Keterangan</th>
-									<th>Aksi</th>
+									<th style="width: 1%; text-align: center;">Tanggal</th>
+									<th style="width: 1%; text-align: center;">No Induk</th>
+									<th style="width: 23%; text-align: center;">Nama Lengkap</th>
+									<th style="width: 8%; text-align: center;">Kelas</th>
+									<th style="text-align: center;">Alasan</th>
+									<th style="text-align: center;">Keterangan</th>
+									<th style="width: 7%; text-align: center;">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -45,15 +45,15 @@
 									<tr>
 										<!-- <td><?= $no++ ?></td> -->
 										<td><?= $absen->tanggal_absensi ?></td>
-										<td><?= $absen->no_induk ?>
+										<td style="text-align: center;"><?= $absen->no_induk ?>
 										<td><?= $absen->nama_lengkap ?>
 										<td><?= $absen->nama_kelas ?>
-										<td><?= $absen->alasan ?>
+										<td style="text-align: center; width: 10%;"><?= $absen->alasan ?>
 										<td><?= $absen->keterangan ?>
 										</td>
 										<td style="text-align: center;">
-											<a class="btn btn-success btn-sm btnEditAbsensi" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $absen->id_absensi; ?>"><i class="fa fa-edit"></i></a>
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Absensi/hapus/<?= $absen->id_absensi; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											<a class="btn btn-success btn-xs btnEditAbsensi" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $absen->id_absensi; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Absensi/hapus/<?= $absen->id_absensi; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -90,32 +90,35 @@
 							<input type="text" id="tanggal_absensi" name="tanggal_absensi" value="<?= date('d/m/Y') ?>" class="form-control" readonly>
 						</div>
 						<div class="form-group">
-							<label>Nama Lengkap</label>
-							<select name="id_siswa" id="id_siswa" class="form-control">
+							<label>Nama Lengkap</label><br>
+							<select name="id_siswa" id="id_siswa" class="form-control select2" style="width: 100%;">
 								<?php foreach ($siswa as $sisw) : ?>
 									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
 								<?php endforeach; ?>
 							</select>
 						</div>
 						<div class="form-group">
-							<div class="radio-inline">
-								<label>
-									<input type="hidden" name="alasan" id="alasan" value="">
-									<input type="radio" name="alasan" id="alasan" value="Sakit">
-									Sakit
-								</label>
-							</div>
-							<div class="radio-inline">
-								<label>
-									<input type="radio" name="alasan" id="alasan" value="Izin">
-									Izin
-								</label>
-							</div>
-							<div class="radio-inline">
-								<label>
-									<input type="radio" name="alasan" id="alasan" value="Alpa">
-									Alpa
-								</label>
+							<label>Alasan</label>
+							<div class="form-group">
+								<div class="radio-inline">
+									<label style="font-weight: normal;">
+										<input type="hidden" name="alasan" id="alasan" value="">
+										<input type="radio" name="alasan" id="alasan" value="Sakit">
+										Sakit
+									</label>
+								</div>
+								<div class="radio-inline">
+									<label style="font-weight: normal;">
+										<input type="radio" name="alasan" id="alasan" value="Izin">
+										Izin
+									</label>
+								</div>
+								<div class="radio-inline">
+									<label style="font-weight: normal;">
+										<input type="radio" name="alasan" id="alasan" value="Alpa">
+										Alpa
+									</label>
+								</div>
 							</div>
 						</div>
 						<div class="form-group">

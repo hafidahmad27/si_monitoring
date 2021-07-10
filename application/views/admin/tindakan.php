@@ -29,9 +29,9 @@
 						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>No.</th>
+									<th>No</th>
 									<th>Nama Tindakan</th>
-									<th>Aksi</th>
+									<th style="text-align: center;">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -43,8 +43,8 @@
 										<td><?= $tindak->nama_tindakan ?>
 										</td>
 										<td style="text-align: center;">
-											<a class="btn btn-success btn-sm btnEditTindakan" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tindak->id_tindakan; ?>"><i class="fa fa-edit"></i></a>
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Tindakan/hapus/<?= $tindak->id_tindakan; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											<a class="btn btn-success btn-xs btnEditTindakan" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tindak->id_tindakan; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Tindakan/hapus/<?= $tindak->id_tindakan; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 										</td>
 									</tr>
 								<?php endforeach; ?>

@@ -29,9 +29,9 @@
 						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>No.</th>
+									<th>No</th>
 									<th>Jenis Pembayaran</th>
-									<th>Aksi</th>
+									<th style="text-align: center;">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -43,8 +43,8 @@
 										<td><?= $jpem->jenis_pembayaran ?>
 										</td>
 										<td style="text-align: center;">
-											<a class="btn btn-success btn-sm btnEditJenisPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $jpem->id_jenis_pembayaran; ?>"><i class="fa fa-edit"></i></a>
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Jenis_Pembayaran/hapus/<?= $jpem->id_jenis_pembayaran; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											<a class="btn btn-success btn-xs btnEditJenisPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $jpem->id_jenis_pembayaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Jenis_Pembayaran/hapus/<?= $jpem->id_jenis_pembayaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 										</td>
 									</tr>
 								<?php endforeach; ?>

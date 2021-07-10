@@ -29,12 +29,12 @@
 						<table id="example1" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>No.</th>
+									<th>No</th>
 									<th>Nama Pegawai</th>
 									<th>Username</th>
 									<th>Password</th>
 									<th>Level</th>
-									<th>Aksi</th>
+									<th style="text-align: center;">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -49,8 +49,8 @@
 										<td><?= $peg->level ?>
 										</td>
 										<td style="text-align: center;">
-											<a class="btn btn-success btn-sm btnEditPegawai" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $peg->id_pegawai; ?>"><i class="fa fa-edit"></i></a>
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Pegawai/hapus/<?= $peg->id_pegawai; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											<a class="btn btn-success btn-xs btnEditPegawai" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $peg->id_pegawai; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Pegawai/hapus/<?= $peg->id_pegawai; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -97,9 +97,9 @@
 						<div class="form-group">
 							<label>Level</label>
 							<select name="level" id="level" class="form-control">
-								<?php foreach ($pegawai as $peg) : ?>
-									<option value="<?= $peg->level ?>"><?= $peg->level ?></option>
-								<?php endforeach; ?>
+								<option value="guru_bk">Guru BK</option>
+								<option value="wali_kelas">Wali Kelas</option>
+								<option value="staff_tu">Staff TU</option>
 							</select>
 						</div>
 						<div class="modal-footer">

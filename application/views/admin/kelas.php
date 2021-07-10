@@ -27,11 +27,11 @@
 					<!-- /.box-header -->
 					<div class="box-body">
 						<table id="example1" class="table table-bordered table-hover">
-							<thead>
+							<thead class="thead-dark">
 								<tr>
-									<th>No.</th>
+									<th>No</th>
 									<th>Nama Kelas</th>
-									<th>Aksi</th>
+									<th style="text-align: center;">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -43,8 +43,8 @@
 										<td><?= $kls->nama_kelas ?>
 										</td>
 										<td style="text-align: center;">
-											<a class="btn btn-success btn-sm btnEditKelas" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $kls->id_kelas; ?>"><i class="fa fa-edit"></i></a>
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Kelas/hapus/<?= $kls->id_kelas; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											<a class="btn btn-success btn-xs btnEditKelas" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $kls->id_kelas; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Kelas/hapus/<?= $kls->id_kelas; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 										</td>
 									</tr>
 								<?php endforeach; ?>

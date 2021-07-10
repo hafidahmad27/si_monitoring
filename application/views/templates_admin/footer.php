@@ -201,7 +201,8 @@
 <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/14e5be1572.js" crossorigin="anonymous"></script>
 <!-- jQuery 3 -->
 <script src="<?= base_url() ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- DataTables -->
@@ -240,6 +241,8 @@
 <script src="<?= base_url() ?>assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url() ?>assets/dist/js/pages/dashboard.js"></script>
+<!-- Select2 -->
+<script src="<?= base_url() ?>assets/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url() ?>assets/dist/js/demo.js"></script>
 <!-- load script -->
@@ -265,6 +268,9 @@
 			'autoWidth': false
 		})
 	})
+
+	//Initialize Select2 Elements
+	$('.select2').select2()
 </script>
 </body>
 

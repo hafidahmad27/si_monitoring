@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2021 at 02:55 AM
+-- Generation Time: Jul 10, 2021 at 09:48 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -46,7 +46,10 @@ INSERT INTO `tb_absensi` (`id_absensi`, `id_siswa`, `tanggal_absensi`, `alasan`,
 (4, 11, '05/07/2021', 'Izin', 'Perpanjangan SIM'),
 (5, 6, '05/07/2021', 'Sakit', 'cedera, dirawat di rumah'),
 (6, 9, '05/07/2021', 'Sakit', 'Asma, dirawat di rumah'),
-(7, 13, '06/07/2021', 'Sakit', 'Pusing');
+(7, 13, '06/07/2021', 'Sakit', 'Pusing'),
+(8, 18, '08/07/2021', 'Sakit', 'Panu'),
+(10, 17, '09/07/2021', 'Izin', 'Acara Keluarga'),
+(11, 4, '10/07/2021', 'Alpa', 'Mbolos');
 
 -- --------------------------------------------------------
 
@@ -67,23 +70,25 @@ CREATE TABLE `tb_catatan_pelanggaran` (
 --
 
 INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_siswa`, `id_pelanggaran_tatib`, `id_tindakan`, `tanggal`) VALUES
-(1, 2, 1, 1, '2021-03-06'),
-(3, 1, 4, 2, '2021-03-08'),
-(4, 2, 2, 1, '2021-03-06'),
-(5, 2, 7, 2, '2021-03-06'),
 (9, 10, 8, 5, '04/07/2021'),
-(10, 10, 6, 1, '04/07/2021'),
 (12, 8, 5, 3, '04/07/2021'),
 (13, 1, 1, 1, '04/07/2021'),
 (15, 10, 3, 3, '04/07/2021'),
 (16, 14, 3, 3, '04/07/2021'),
-(17, 4, 2, 2, '04/07/2021'),
+(17, 4, 3, 5, '04/07/2021'),
 (18, 7, 5, 1, '04/07/2021'),
 (19, 16, 2, 3, '04/07/2021'),
 (20, 4, 1, 1, '05/07/2021'),
 (21, 7, 1, 3, '05/07/2021'),
 (22, 5, 8, 5, '06/07/2021'),
-(23, 9, 8, 1, '06/07/2021');
+(23, 9, 8, 1, '06/07/2021'),
+(24, 18, 5, 3, '08/07/2021'),
+(25, 4, 5, 1, '08/07/2021'),
+(26, 19, 2, 1, '09/07/2021'),
+(27, 4, 1, 1, '09/07/2021'),
+(28, 1, 8, 5, '09/07/2021'),
+(29, 4, 8, 2, '09/07/2021'),
+(30, 9, 8, 5, '10/07/2021');
 
 -- --------------------------------------------------------
 
@@ -103,7 +108,7 @@ CREATE TABLE `tb_jenis_pembayaran` (
 INSERT INTO `tb_jenis_pembayaran` (`id_jenis_pembayaran`, `jenis_pembayaran`) VALUES
 (1, 'DOP (Dana Operasional Pembangunan)'),
 (2, 'Daftar Ulang'),
-(5, 'SPP');
+(3, 'SPP');
 
 -- --------------------------------------------------------
 
@@ -127,7 +132,7 @@ INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
 (4, 'XI BDP 2'),
 (5, 'XII BDP 1'),
 (6, 'XII BDP 2'),
-(7, 'X PMSR 18'),
+(7, 'X PMSR 1'),
 (8, 'X PMSR 2'),
 (9, 'XI PMSR 1'),
 (10, 'XI PMSR 2'),
@@ -138,8 +143,7 @@ INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
 (15, 'XI MM 1'),
 (16, 'XI MM 2'),
 (17, 'XII MM 1'),
-(18, 'XII AM 2'),
-(19, 'X1 TIK 2');
+(18, 'XII AM 2');
 
 -- --------------------------------------------------------
 
@@ -152,7 +156,7 @@ CREATE TABLE `tb_pegawai` (
   `nama_pegawai` varchar(50) NOT NULL,
   `username` varchar(15) NOT NULL,
   `password` varchar(15) NOT NULL,
-  `level` enum('admin','guru_bk','staf_tu','wali_kelas') NOT NULL
+  `level` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -160,10 +164,9 @@ CREATE TABLE `tb_pegawai` (
 --
 
 INSERT INTO `tb_pegawai` (`id_pegawai`, `nama_pegawai`, `username`, `password`, `level`) VALUES
-(1, 'Rachman Ariefq', 'rachariefq', 'ikipkerenw', 'admin'),
-(2, 'Ibu TU', '45678', '45678', 'staf_tu'),
-(3, 'Ibu BK', 'konseling', 'konseling', 'guru_bk'),
-(4, 'Ibu Wali Kelas', 'wkkelas', 'walas123', 'wali_kelas');
+(1, 'Ibu Guru BK', 'konselink', '12345', 'guru_bk'),
+(2, 'Ibu Wali Kelas', 'walas', 'w4las', 'wali_kelas'),
+(3, 'Staff TU', 'stafftu', 'tustaff', 'staff_tu');
 
 -- --------------------------------------------------------
 
@@ -219,18 +222,23 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jen
 (3, 12, 1439, 'Eva Anisawati', 'Perempuan', 'Surabaya', '1998-06-05', 'Jl. Jagir Sidomukti No. 22, Surabaya', '081234567890'),
 (4, 17, 1419, 'Ahmad Hafid Holy Saputra', 'Laki-Laki', 'Pacitan', '1999-01-27', 'Jl. Medayu Utara 1 Melati No. 3\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087834581787'),
 (5, 16, 1580, 'Mustakim', 'Laki-Laki', 'Sidoarjo', '1998-11-04', 'Jl. Gunung Anyar Timur IV No 40, Surabaya', '08881234543'),
-(6, 11, 1676, 'Dinda Rahmadani Putri', 'Perempuan', 'Surabaya', '1999-01-17', 'Medokan Semampir Tengah No 76, Surabaya', '087863668900'),
+(6, 11, 1676, 'Dinda Rahmadani Putri', 'Perempuan', 'Surabaya', '1999-01-17', 'Medokan Semampir Tengah No 75, Surabaya', '087863668900'),
 (7, 1, 1495, 'Laila Abidatul Amanah', 'Perempuan', 'Lamongan', '1999-05-05', 'Jl. Gunung Anyar Harapan VII No. 88, Surabaya', '081245675678'),
 (8, 11, 1501, 'Wahyu Atta Masruroh', 'Perempuan', 'Jombang', '1998-09-30', 'Medokan Sawah No. 33, Surabaya', '087733455656'),
 (9, 3, 1578, 'Raditya Pratama', 'Laki-Laki', 'Surabaya', '2000-01-01', 'Medayu Utara XXX, No. 69, Surabaya', '0881361851'),
 (10, 4, 1503, 'Chandra Wardhana', 'Laki-Laki', 'Sidoarjo', '1999-04-24', 'Pondok Candra Wardana Indah No. 21, Sidoarjo', '08823456789'),
-(11, 13, 1983, 'Muhammad Farezra', 'Laki-Laki', 'Sidoarjo', '1999-05-25', 'Jl. Garuda Sedati Agung 25, Sidoarjo', '087645452323'),
+(11, 13, 1983, 'Muhammad Farezra', 'Laki-Laki', 'Sidoarjo', '1999-05-25', 'Jl. Sedati Agung 25, Sidoarjo', '087645452323'),
 (12, 10, 1498, 'Firdausi Rahmadani', 'Perempuan', 'Surabaya', '1998-12-23', 'Jl. Menur Pumpungan No. 3, Surabaya', '081255674321'),
 (13, 8, 1502, 'Dinivi Widyianti', 'Perempuan', 'Pacitan', '1998-11-02', 'Jl. Tanjung Sari No. 21, Pacitan', '085672131611'),
 (14, 1, 1465, 'Jonathan Sutejo', 'Laki-Laki', 'Mojokerto', '2000-10-04', 'Medokan Sawah No. 23\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087765434321'),
 (15, 1, 7765, 'Ander Herrera', 'Laki-Laki', 'Washington', '1998-08-08', 'Jemur Wonosari Gg. Lebar No. 1\r\nKel. Wonocolo, Kec. Jemursari\r\nSurabaya, Jawa Timur', '087123453452'),
-(16, 2, 3432, 'Bowo', 'Laki-Laki', 'Surabaya', '2021-04-28', 'Wiyuuuuuuuuuuuuuuuung', '087648483737'),
-(17, 18, 1555, 'Vino G. Bastoni', 'Laki-Laki', 'Surabaya', '2008-10-05', 'Medayu Utara 1 Melati No. 7\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '088844447777');
+(16, 12, 3432, 'Bowo Ardiansyah', 'Laki-Laki', 'Surabaya', '2021-04-28', 'Wiyuuuuuuuuuuuuuuuung', '087648483737'),
+(17, 18, 1555, 'Vino G. Bastoni', 'Laki-Laki', 'Surabaya', '2008-10-05', 'Medayu Utara 1 Melati No. 7\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '088844447777'),
+(18, 12, 1595, 'Muhammad Haris Setiawan Adhi Mifta', 'Laki-Laki', 'Mojokerto', '1999-08-25', 'Jl. Raya Mojosari Pacet Kutorejo, No. 50', '087734565678'),
+(19, 18, 1345, 'Arga Krisna Pujangga Brahmana Permata Dewa', 'Laki-Laki', 'Surabaya', '1999-02-09', 'Jl. Putra Bangsa no 11, Medokan Ayu, Surabaya', '0878232456789'),
+(21, 11, 1999, 'Saputra Hafid Ahmad', 'Laki-Laki', 'Trenggalek', '1999-11-27', 'Jl. Kalijudan No. 1, Surabaya', '0314567890'),
+(22, 5, 1324, 'Ikhza Ainun Fiima', 'Laki-Laki', 'Jember', '1999-01-14', 'Jl. Medokan Kampung No. 4, Surabaya', '085734234859'),
+(23, 13, 1122, 'Andre Setyanto', 'Laki-Laki', 'Semarang', '2002-02-10', 'Jl. Kapas Krampung No.4, Surabaya', '087822334545');
 
 -- --------------------------------------------------------
 
@@ -274,10 +282,10 @@ CREATE TABLE `tb_tunggakan_pembayaran` (
 
 INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_siswa`, `id_jenis_pembayaran`, `bulan`, `tahun`, `biaya_pembayaran`) VALUES
 (1, 1, 1, 1, 2021, 200000),
-(2, 10, 2, 2, 2020, 75000),
+(2, 10, 2, 2, 2020, 80000),
 (3, 1, 2, 4, 2020, 80000),
-(4, 9, 5, 5, 2020, 2000000),
-(5, 9, 1, 11, 2020, 4000000);
+(5, 9, 1, 11, 2020, 4000000),
+(6, 18, 2, 5, 2021, 500000);
 
 --
 -- Indexes for dumped tables
@@ -353,13 +361,13 @@ ALTER TABLE `tb_tunggakan_pembayaran`
 -- AUTO_INCREMENT for table `tb_absensi`
 --
 ALTER TABLE `tb_absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
@@ -371,13 +379,13 @@ ALTER TABLE `tb_jenis_pembayaran`
 -- AUTO_INCREMENT for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_pelanggaran_tatib`
@@ -389,7 +397,7 @@ ALTER TABLE `tb_pelanggaran_tatib`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_tindakan`
@@ -401,7 +409,7 @@ ALTER TABLE `tb_tindakan`
 -- AUTO_INCREMENT for table `tb_tunggakan_pembayaran`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
-  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

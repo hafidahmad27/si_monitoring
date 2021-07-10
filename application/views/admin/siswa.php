@@ -30,15 +30,15 @@
 							<thead>
 								<tr>
 									<!-- <th>No</th> -->
-									<th>No Induk</th>
-									<th>Nama Lengkap</th>
-									<th>Kelas</th>
-									<th>Jenis Kelamin</th>
-									<th>Tempat Lahir</th>
-									<th>Tanggal Lahir</th>
-									<th style="width: 30%;">Alamat</th>
-									<th>No. Telp</th>
-									<th>Aksi</th>
+									<th style="width: 1%;">No Induk</th>
+									<th style="width: 20%; text-align: center;">Nama Lengkap</th>
+									<th style="width: 7.5%;">Kelas</th>
+									<th style="width: 1%;">Jenis Kelamin</th>
+									<th style="width: 1%;">Tempat Lahir</th>
+									<th style="width: 1%;">Tanggal Lahir</th>
+									<th style="width: 25%; text-align: center;">Alamat</th>
+									<th style="width: 1%; text-align: center;">No Telp</th>
+									<th style="width: 6.6%; text-align: center;">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -57,8 +57,8 @@
 										<td><?= $sisw->no_telp ?>
 										</td>
 										<td style="text-align: center;">
-											<a class="btn btn-success btn-sm btnEditSiswa" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $sisw->id_siswa; ?>"><i class="fa fa-edit"></i></a>
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Siswa/hapus/<?= $sisw->id_siswa; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											<a class="btn btn-success btn-xs btnEditSiswa" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $sisw->id_siswa; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Siswa/hapus/<?= $sisw->id_siswa; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -91,7 +91,7 @@
 							<input type="hidden" id="id_siswa" name="id_siswa" class="form-control" readonly>
 						</div>
 						<div class="form-group">
-							<label>No. Induk</label>
+							<label>No Induk</label>
 							<input type="number" id="no_induk" name="no_induk" class="form-control">
 						</div>
 						<div class="form-group">
@@ -99,34 +99,54 @@
 							<input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control">
 						</div>
 						<div class="form-group">
-							<label>Kelas</label>
-							<select name="id_kelas" id="id_kelas" class="form-control">
-								<?php foreach ($kelas as $kls) : ?>
-									<option value="<?= $kls->id_kelas ?>"><?= $kls->nama_kelas ?></option>
-								<?php endforeach; ?>
-							</select>
+							<div class="row">
+								<div class="col-xs-4">
+									<label>Kelas</label><br>
+									<select name="id_kelas" id="id_kelas" class="form-control select2" style="width: 100%;">
+										<?php foreach ($kelas as $kls) : ?>
+											<option value="<?= $kls->id_kelas ?>"><?= $kls->nama_kelas ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+								<div class="col-xs-5">
+									<label>Jenis Kelamin</label>
+									<div class="form-group">
+										<div class="radio-inline">
+											<label style="font-weight: normal;">
+												<input type="hidden" name="jenis_kelamin" id="jenis_kelamin" value="">
+												<input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Laki-Laki">
+												Laki-Laki
+											</label>
+										</div>
+										<div class="radio-inline">
+											<label style="font-weight: normal;">
+												<input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Perempuan">
+												Perempuan
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="form-group">
-							<label>Jenis Kelamin</label>
-							<select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
-								<option>Laki-Laki</option>
-								<option>Perempuan</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Tempat Lahir</label>
-							<input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control">
-						</div>
-						<div class="form-group">
-							<label>Tanggal Lahir</label>
-							<input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control">
+							<div class="row">
+								<div class="col-xs-4">
+									<label>Tempat Lahir</label>
+									<input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control">
+								</div>
+								<div class="col-xs-8">
+									<label>Tanggal Lahir</label>
+									<input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control">
+
+								</div>
+							</div>
 						</div>
 						<div class="form-group">
 							<label>Alamat</label>
 							<textarea id="alamat" name="alamat" cols="" rows="4" class="form-control"></textarea>
 						</div>
 						<div class="form-group">
-							<label>No. Telp</label>
+							<label>No Telp</label>
 							<input type="number" id="no_telp" name="no_telp" min="0" class="form-control">
 						</div>
 						<div class="modal-footer">
