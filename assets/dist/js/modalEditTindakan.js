@@ -1,4 +1,4 @@
-$(function () 
+$(function ()
 {
 	$(".btnTambahTindakan").on("click", function() {
         $("#staticBackdropLabel").html("Form Input Tindakan");
@@ -9,7 +9,7 @@ $(function ()
 		);
 		document.getElementById('formResetData').reset();
 	});
-	
+
 	$(".btnEditTindakan").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Tindakan");
 		$(".modal-footer button[type=submit]").html("Edit");

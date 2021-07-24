@@ -1,4 +1,4 @@
-$(function () 
+$(function ()
 {
 	$(".btnTambahTunggakanPembayaran").on("click", function() {
         $("#staticBackdropLabel").html("Form Transaksi Tunggakan Pembayaran Siswa");
@@ -9,7 +9,7 @@ $(function ()
 		);
 		document.getElementById('formResetData').reset();
 	});
-	
+
 	$(".btnEditTunggakanPembayaran").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Transaksi Tunggakan Pembayaran Siswa");
 		$(".modal-footer button[type=submit]").html("Edit");

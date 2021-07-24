@@ -1,4 +1,4 @@
-$(function () 
+$(function ()
 {
 	$(".btnTambahPegawai").on("click", function() {
         $("#staticBackdropLabel").html("Form Input Pegawai");
@@ -9,7 +9,7 @@ $(function ()
 		);
 		document.getElementById('formResetData').reset();
 	});
-	
+
 	$(".btnEditPegawai").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Pegawai");
 		$(".modal-footer button[type=submit]").html("Edit");

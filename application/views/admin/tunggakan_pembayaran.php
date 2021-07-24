@@ -1,73 +1,77 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<h1>
-			Tunggakan Pembayaran Siswa
-			<small> </small>
-		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li><a href="#">Tables</a></li>
-			<li class="active">Data tables</li>
-		</ol>
-	</section>
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1 class="m-0">Manage Tunggakan Pembayaran Siswa</h1>
+				</div><!-- /.col -->
+				<div class="col-sm-6">
+					<!-- <ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active">Dashboard v1</li>
+					</ol> -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container-fluid -->
+	</div>
+	<!-- /.content-header -->
 
 	<!-- Main content -->
 	<section class="content">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="box">
-					<div class="box-header">
-						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary btnTambahTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop">
-							<i class="fa fa-plus"></i> Tambah
-						</button>
-					</div>
-					<!-- /.box-header -->
-					<div class="box-body">
-						<table id="example1" class="table table-bordered table-hover">
-							<thead>
-								<tr>
-									<th style="width: 1%;">No Induk</th>
-									<th style="width: 18%; text-align: center;">Nama Lengkap</th>
-									<th style="width: 4%; text-align: center;">Kelas</th>
-									<th style="width: 18%; text-align: center;">Jenis Pembayaran</th>
-									<th style="width: 1%; text-align: center;">Bulan</th>
-									<th style="width: 1%; center;">Tahun</th>
-									<th style="width: 10%; text-align: center;">Biaya Pembayaran</th>
-									<!-- <th>Total Tunggakan</th> -->
-									<th style="width: 4%; text-align: center;">Aksi</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-								foreach ($tunggakan_pembayaran as $tunggakan) : ?>
+		<div class="container-fluid">
+			<!-- Small boxes (Stat box) -->
+			<div class="row">
+				<div class="col-12">
+					<button type="button" class="btn btn-primary btnTambahTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop">
+						<i class="fa fa-plus"></i> Tambah
+					</button>
+					<div class="card mt-1">
+						<div class="card-body">
+							<table id="example1" class="table table-bordered table-striped">
+								<thead>
 									<tr>
-										<td><?= $tunggakan->no_induk ?></td>
-										<td><?= $tunggakan->nama_lengkap ?>
-										<td><?= $tunggakan->nama_kelas ?>
-										<td><?= $tunggakan->jenis_pembayaran ?>
-										<td style="text-align: center;"><?= $tunggakan->bulan ?>
-										<td style="text-align: center;"><?= $tunggakan->tahun ?>
-										<td style="text-align: right;"><?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?></td>
-										<!-- <td style="text-align: right;"><?= number_format($tunggakan->total_tunggakan, 0, ',', '.') ?></td> -->
-										<td style="text-align: center; width: 7%;">
-											<a class="btn btn-success btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
-										</td>
+										<th style="width: 1%;">No Induk</th>
+										<th style="width: 18%; text-align: center;">Nama Lengkap</th>
+										<th style="width: 4%; text-align: center;">Kelas</th>
+										<th style="width: 18%; text-align: center;">Jenis Pembayaran</th>
+										<th style="width: 1%; text-align: center;">Bulan</th>
+										<th style="width: 1%; text-align: center;">Tahun</th>
+										<th style="width: 10%; text-align: center;">Biaya Pembayaran</th>
+										<!-- <th>Total Tunggakan</th> -->
+										<th style="width: 4%; text-align: center;">Aksi</th>
 									</tr>
-								<?php endforeach; ?>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									<?php
+									foreach ($tunggakan_pembayaran as $tunggakan) : ?>
+										<tr>
+											<td><?= $tunggakan->no_induk ?></td>
+											<td><?= $tunggakan->nama_lengkap ?>
+											<td><?= $tunggakan->nama_kelas ?>
+											<td><?= $tunggakan->jenis_pembayaran ?>
+											<td style="text-align: center;"><?= $tunggakan->bulan ?>
+											<td style="text-align: center;"><?= $tunggakan->tahun ?>
+											<td style="text-align: right;"><?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?></td>
+											<!-- <td style="text-align: right;"><?= number_format($tunggakan->total_tunggakan, 0, ',', '.') ?></td> -->
+											<td style="text-align: center; width: 7%;">
+												<a class="btn btn-success btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+											</td>
+										</tr>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+						<!-- /.card-body -->
 					</div>
-					<!-- /.box-body -->
+					<!-- /.card -->
 				</div>
-				<!-- /.box -->
+				<!-- /.col -->
 			</div>
-			<!-- /.col -->
-		</div>
-		<!-- /.row -->
+			<!-- /.row (main row) -->
+		</div><!-- /.container-fluid -->
 	</section>
 	<!-- /.content -->
 
@@ -76,7 +80,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title" id="staticBackdropLabel">Form Transaksi Tunggakan Pembayaran Siswa</h3>
+					<h3 class="modal-title" id="staticBackdropLabel">Form Input Tunggakan Pembayaran Siswa</h3>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -104,11 +108,11 @@
 						</div>
 						<div class="form-group">
 							<div class="row">
-								<div class="col-xs-5">
+								<div class="col-md-5">
 									<label>Bulan</label>
 									<input type="number" id="bulan" name="bulan" min="1" max="12" class="form-control">
 								</div>
-								<div class="col-xs-7">
+								<div class="col-md-7">
 									<label>Tahun</label>
 									<input type="number" id="tahun" name="tahun" min="2015" class="form-control">
 								</div>
@@ -127,5 +131,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <!-- /.content-wrapper -->

@@ -1,4 +1,4 @@
-$(function () 
+$(function ()
 {
 	$(".btnTambahCatatanPelanggaran").on("click", function() {
         $("#staticBackdropLabel").html("Form Transaksi Catatan Pelanggaran Siswa");
@@ -9,7 +9,7 @@ $(function ()
 		);
 		document.getElementById('formResetData').reset();
 	});
-	
+
 	$(".btnEditCatatanPelanggaran").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Transaksi Catatan Pelanggaran Siswa");
 		$(".modal-footer button[type=submit]").html("Edit");

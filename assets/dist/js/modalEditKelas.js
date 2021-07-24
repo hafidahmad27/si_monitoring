@@ -1,4 +1,4 @@
-$(function () 
+$(function ()
 {
 	$(".btnTambahKelas").on("click", function() {
         $("#staticBackdropLabel").html("Form Input Kelas");
@@ -9,7 +9,7 @@ $(function ()
 		);
 		document.getElementById('formResetData').reset();
 	});
-	
+
 	$(".btnEditKelas").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Kelas");
 		$(".modal-footer button[type=submit]").html("Edit");

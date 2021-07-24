@@ -1,34 +1,167 @@
-<!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
-	<!-- sidebar: style can be found in sidebar.less -->
-	<section class="sidebar">
-		<!-- Sidebar user panel -->
-		<div class="user-panel">
-			<div class="pull-left image">
-				<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+	<!-- Brand Logo -->
+	<a href="#" class="brand-link">
+		<img src="<?= base_url() ?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+		<span class="brand-text font-weight-light">Monitoring <i>System</i></span>
+	</a>
+
+	<!-- Sidebar -->
+	<div class="sidebar">
+		<!-- Sidebar user panel (optional) -->
+		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+			<div class="image">
+				<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
 			</div>
-			<div class="pull-left info">
-				<p>Admin</p>
-				<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+			<div class="info">
+				<a href="#" class="d-block"><?= $this->session->userdata('level'); ?></a>
 			</div>
 		</div>
-		<?php $uri = $this->uri->segment(1) ?>
-		<!-- sidebar menu: : style can be found in sidebar.less -->
-		<ul class="sidebar-menu" data-widget="tree">
-			<li class="header"></li>
-			<li class="<?php echo $uri == 'admin' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-			<li class="header">MASTER DATA</li>
-			<li class="<?php echo $uri == 'kelas' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>kelas"><i class="fas fa-door-open"></i>&nbsp; <span> Kelas</span></a></li>
-			<li class="<?php echo $uri == 'siswa' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>siswa"><i class="far fa-id-card"></i>&nbsp;&nbsp; <span>Siswa</span></a></li>
-			<li class="<?php echo $uri == 'pelanggaran_tatib' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>pelanggaran_tatib"><i class="fas fa-book-open"></i>&nbsp;&nbsp; <span>Pelanggaran Tata Tertib</span></a></li>
-			<li class="<?php echo $uri == 'tindakan' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>tindakan"><i class="fas fa-gavel"></i>&nbsp;&nbsp;&nbsp; <span>Tindakan</span></a></li>
-			<li class="<?php echo $uri == 'jenis_pembayaran' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>jenis_pembayaran"><i class="fas fa-funnel-dollar"></i>&nbsp;&nbsp; <span>Jenis Pembayaran</span></a></li>
-			<li class="<?php echo $uri == 'pegawai' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>pegawai"><i class="fas fa-user-lock"></i>&nbsp;&nbsp; <span>Pegawai</span></a></li>
-			<li class="header">TRANSAKSI</li>
-			<li class="<?php echo $uri == 'catatan_pelanggaran' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>catatan_pelanggaran"><i class="fas fa-user-edit"></i>&nbsp; <span>Catatan Pelanggaran</span></a></li>
-			<li class="<?php echo $uri == 'absensi' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>absensi"><i class="fas fa-clipboard-list"></i>&nbsp;&nbsp;&nbsp; <span>Absensi</span></a></li>
-			<li class="<?php echo $uri == 'tunggakan_pembayaran' ? 'active' : 'no' ?>"><a href="<?= base_url() ?>tunggakan_pembayaran"><i class="fas fa-file-invoice-dollar"></i>&nbsp;&nbsp;&nbsp; <span>Tunggakan Pembayaran</span></a></li>
-		</ul>
-	</section>
+
+		<!-- Sidebar Menu -->
+		<nav class="mt-2">
+			<?php $uri = $this->uri->segment(1) ?>
+			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+				<!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+				<?php if ($this->session->userdata('level') == 'admin') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>admin" class="nav-link <?php echo $uri == 'admin' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-tachometer-alt"></i>
+							<p>
+								Dashboard
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<li class="nav-header">MASTER DATA</li>
+				<?php if ($this->session->userdata('level') == 'admin') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>kelas" class="nav-link <?php echo $uri == 'kelas' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-door-open"></i>
+							<p>
+								Kelas
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>siswa" class="nav-link <?php echo $uri == 'siswa' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-id-card"></i>
+							<p>
+								Siswa
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'guru_bk') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>pelanggaran_tatib" class="nav-link <?php echo $uri == 'pelanggaran_tatib' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-book-open"></i>
+							<p>
+								Pelanggaran Tata Tertib
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>tindakan" class="nav-link <?php echo $uri == 'tindakan' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-gavel"></i>
+							<p>
+								Tindakan
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'staff_tu') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>jenis_pembayaran" class="nav-link <?php echo $uri == 'jenis_pembayaran' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-funnel-dollar"></i>
+							<p>
+								Jenis Pembayaran
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php if ($this->session->userdata('level') == 'admin') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>pegawai" class="nav-link <?php echo $uri == 'pegawai' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-user-lock"></i>
+							<p>
+								Pegawai
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<li class="nav-header">TRANSAKSI</li>
+				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'guru_bk') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>catatan_pelanggaran" class="nav-link <?php echo $uri == 'catatan_pelanggaran' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-user-edit"></i>
+							<p>
+								Catatan Pelanggaran
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'wali_kelas') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>absensi" class="nav-link <?php echo $uri == 'absensi' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-clipboard-list"></i>
+							<p>
+								Absensi
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'staff_tu') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>tunggakan_pembayaran" class="nav-link <?php echo $uri == 'tunggakan_pembayaran' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-file-invoice-dollar"></i>
+							<p>
+								Tunggakan Pembayaran
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+				<!-- dengan dropdown -->
+				<!-- <li class="nav-item menu-open">
+					<a href="#" class="nav-link active">
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>
+							Dashboard
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="./index.html" class="nav-link active">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Dashboard v1</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="./index2.html" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Dashboard v2</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="./index3.html" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Dashboard v3</p>
+							</a>
+						</li>
+					</ul>
+				</li> -->
+			</ul>
+		</nav>
+		<!-- /.sidebar-menu -->
+	</div>
 	<!-- /.sidebar -->
 </aside>

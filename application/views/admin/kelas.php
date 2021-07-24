@@ -1,63 +1,67 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<h1>
-			Data Kelas
-			<small> </small>
-		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li><a href="#">Tables</a></li>
-			<li class="active">Data tables</li>
-		</ol>
-	</section>
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1 class="m-0">Manage Kelas</h1>
+				</div><!-- /.col -->
+				<div class="col-sm-6">
+					<!-- <ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active">Dashboard v1</li>
+					</ol> -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container-fluid -->
+	</div>
+	<!-- /.content-header -->
 
 	<!-- Main content -->
 	<section class="content">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="box">
-					<div class="box-header">
-						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary btnTambahKelas" data-toggle="modal" data-target="#staticBackdrop">
-							<i class="fa fa-plus"></i> Tambah
-						</button>
-					</div>
-					<!-- /.box-header -->
-					<div class="box-body">
-						<table id="example1" class="table table-bordered table-hover">
-							<thead class="thead-dark">
-								<tr>
-									<th>No</th>
-									<th>Nama Kelas</th>
-									<th style="text-align: center;">Aksi</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-								$no = 1;
-								foreach ($kelas as $kls) : ?>
+		<div class="container-fluid">
+			<!-- Small boxes (Stat box) -->
+			<div class="row">
+				<div class="col-12">
+					<button type="button" class="btn btn-primary btnTambahKelas" data-toggle="modal" data-target="#staticBackdrop">
+						<i class="fa fa-plus"></i> Tambah
+					</button>
+					<div class="card mt-1">
+						<div class="card-body">
+							<table id="example1" class="table table-bordered table-striped">
+								<thead>
 									<tr>
-										<td><?= $no++ ?></td>
-										<td><?= $kls->nama_kelas ?>
-										</td>
-										<td style="text-align: center;">
-											<a class="btn btn-success btn-xs btnEditKelas" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $kls->id_kelas; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Kelas/hapus/<?= $kls->id_kelas; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
-										</td>
+										<th>No</th>
+										<th>Nama Kelas</th>
+										<th style="text-align: center;">Aksi</th>
 									</tr>
-								<?php endforeach; ?>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									<?php
+									$no = 1;
+									foreach ($kelas as $kls) : ?>
+										<tr>
+											<td><?= $no++ ?></td>
+											<td><?= $kls->nama_kelas ?>
+											</td>
+											<td style="text-align: center;">
+												<a class="btn btn-success btn-xs btnEditKelas" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $kls->id_kelas; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Kelas/hapus/<?= $kls->id_kelas; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+											</td>
+										</tr>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+						<!-- /.card-body -->
 					</div>
-					<!-- /.box-body -->
+					<!-- /.card -->
 				</div>
-				<!-- /.box -->
+				<!-- /.col -->
 			</div>
-			<!-- /.col -->
-		</div>
-		<!-- /.row -->
+			<!-- /.row (main row) -->
+		</div><!-- /.container-fluid -->
 	</section>
 	<!-- /.content -->
 

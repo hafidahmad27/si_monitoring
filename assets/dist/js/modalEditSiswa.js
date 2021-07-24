@@ -1,4 +1,4 @@
-$(function () 
+$(function ()
 {
 	$(".btnTambahSiswa").on("click", function() {
         $("#staticBackdropLabel").html("Form Input Siswa");
@@ -9,7 +9,7 @@ $(function ()
 		);
 		document.getElementById('formResetData').reset();
 	});
-	
+
 	$(".btnEditSiswa").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Siswa");
 		$(".modal-footer button[type=submit]").html("Edit");

@@ -1,4 +1,4 @@
-$(function () 
+$(function ()
 {
 	$(".btnTambahAbsensi").on("click", function() {
         $("#staticBackdropLabel").html("Form Transaksi Absensi");
@@ -9,7 +9,7 @@ $(function ()
 		);
 		document.getElementById('formResetData').reset();
 	});
-	
+
 	$(".btnEditAbsensi").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Transaksi Absensi");
 		$(".modal-footer button[type=submit]").html("Edit");

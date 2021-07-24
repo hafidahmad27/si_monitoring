@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2021 at 09:48 AM
+-- Generation Time: Jul 24, 2021 at 05:49 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -88,7 +88,8 @@ INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_siswa`, `id_
 (27, 4, 1, 1, '09/07/2021'),
 (28, 1, 8, 5, '09/07/2021'),
 (29, 4, 8, 2, '09/07/2021'),
-(30, 9, 8, 5, '10/07/2021');
+(30, 9, 8, 5, '10/07/2021'),
+(31, 5, 6, 5, '13/07/2021');
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,8 @@ CREATE TABLE `tb_jenis_pembayaran` (
 INSERT INTO `tb_jenis_pembayaran` (`id_jenis_pembayaran`, `jenis_pembayaran`) VALUES
 (1, 'DOP (Dana Operasional Pembangunan)'),
 (2, 'Daftar Ulang'),
-(3, 'SPP');
+(3, 'SPP'),
+(6, 'Kas');
 
 -- --------------------------------------------------------
 
@@ -127,7 +129,7 @@ CREATE TABLE `tb_kelas` (
 
 INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
 (1, 'X BDP 1'),
-(2, 'X BDP 2'),
+(2, 'X BDP 3'),
 (3, 'XI BDP 1'),
 (4, 'XI BDP 2'),
 (5, 'XII BDP 1'),
@@ -143,7 +145,9 @@ INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
 (15, 'XI MM 1'),
 (16, 'XI MM 2'),
 (17, 'XII MM 1'),
-(18, 'XII AM 2');
+(18, 'XII AM 2'),
+(19, 'asfsaf'),
+(20, 'kkks');
 
 -- --------------------------------------------------------
 
@@ -164,9 +168,11 @@ CREATE TABLE `tb_pegawai` (
 --
 
 INSERT INTO `tb_pegawai` (`id_pegawai`, `nama_pegawai`, `username`, `password`, `level`) VALUES
-(1, 'Ibu Guru BK', 'konselink', '12345', 'guru_bk'),
+(1, 'Rachman Arief', 'bpk_rachman', '789', 'admin'),
 (2, 'Ibu Wali Kelas', 'walas', 'w4las', 'wali_kelas'),
-(3, 'Staff TU', 'stafftu', 'tustaff', 'staff_tu');
+(3, 'Staff TU', 'stafftu', 'tustaff', 'staff_tu'),
+(4, 'Rendy', 'rendy123', '321', 'wali_kelas'),
+(5, 'Hendry Pratama', 'hendri', '123', 'guru_bk');
 
 -- --------------------------------------------------------
 
@@ -282,10 +288,11 @@ CREATE TABLE `tb_tunggakan_pembayaran` (
 
 INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_siswa`, `id_jenis_pembayaran`, `bulan`, `tahun`, `biaya_pembayaran`) VALUES
 (1, 1, 1, 1, 2021, 200000),
-(2, 10, 2, 2, 2020, 80000),
+(2, 10, 2, 2, 2020, 85000),
 (3, 1, 2, 4, 2020, 80000),
 (5, 9, 1, 11, 2020, 4000000),
-(6, 18, 2, 5, 2021, 500000);
+(6, 18, 2, 5, 2021, 500000),
+(8, 1, 1, 5, 2021, 50000);
 
 --
 -- Indexes for dumped tables
@@ -367,25 +374,25 @@ ALTER TABLE `tb_absensi`
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
 --
 ALTER TABLE `tb_jenis_pembayaran`
-  MODIFY `id_jenis_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_jenis_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_pelanggaran_tatib`
@@ -409,7 +416,7 @@ ALTER TABLE `tb_tindakan`
 -- AUTO_INCREMENT for table `tb_tunggakan_pembayaran`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
-  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

@@ -1,72 +1,76 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<h1>
-			Absensi Siswa
-			<small> </small>
-		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li><a href="#">Tables</a></li>
-			<li class="active">Data tables</li>
-		</ol>
-	</section>
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1 class="m-0">Manage Absensi Siswa</h1>
+				</div><!-- /.col -->
+				<div class="col-sm-6">
+					<!-- <ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active">Dashboard v1</li>
+					</ol> -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container-fluid -->
+	</div>
+	<!-- /.content-header -->
 
 	<!-- Main content -->
 	<section class="content">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="box">
-					<div class="box-header">
-						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary btnTambahAbsensi" data-toggle="modal" data-target="#staticBackdrop">
-							<i class="fa fa-plus"></i> Tambah
-						</button>
-					</div>
-					<!-- /.box-header -->
-					<div class="box-body">
-						<table id="example1" class="table table-bordered table-hover">
-							<thead>
-								<tr>
-									<th style="width: 1%; text-align: center;">Tanggal</th>
-									<th style="width: 1%; text-align: center;">No Induk</th>
-									<th style="width: 23%; text-align: center;">Nama Lengkap</th>
-									<th style="width: 8%; text-align: center;">Kelas</th>
-									<th style="text-align: center;">Alasan</th>
-									<th style="text-align: center;">Keterangan</th>
-									<th style="width: 7%; text-align: center;">Aksi</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-								$no = 1;
-								foreach ($absensi as $absen) : ?>
+		<div class="container-fluid">
+			<!-- Small boxes (Stat box) -->
+			<div class="row">
+				<div class="col-12">
+					<button type="button" class="btn btn-primary btnTambahAbsensi" data-toggle="modal" data-target="#staticBackdrop">
+						<i class="fa fa-plus"></i> Tambah
+					</button>
+					<div class="card mt-1">
+						<div class="card-body">
+							<table id="example1" class="table table-bordered table-striped">
+								<thead>
 									<tr>
-										<!-- <td><?= $no++ ?></td> -->
-										<td><?= $absen->tanggal_absensi ?></td>
-										<td style="text-align: center;"><?= $absen->no_induk ?>
-										<td><?= $absen->nama_lengkap ?>
-										<td><?= $absen->nama_kelas ?>
-										<td style="text-align: center; width: 10%;"><?= $absen->alasan ?>
-										<td><?= $absen->keterangan ?>
-										</td>
-										<td style="text-align: center;">
-											<a class="btn btn-success btn-xs btnEditAbsensi" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $absen->id_absensi; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Absensi/hapus/<?= $absen->id_absensi; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
-										</td>
+										<th style="width: 1%; text-align: center;">Tanggal</th>
+										<th style="width: 1%; text-align: center;">No Induk</th>
+										<th style="width: 23%; text-align: center;">Nama Lengkap</th>
+										<th style="width: 8%; text-align: center;">Kelas</th>
+										<th style="text-align: center;">Alasan</th>
+										<th style="text-align: center;">Keterangan</th>
+										<th style="width: 8%; text-align: center;">Aksi</th>
 									</tr>
-								<?php endforeach; ?>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									<?php
+									$no = 1;
+									foreach ($absensi as $absen) : ?>
+										<tr>
+											<!-- <td><?= $no++ ?></td> -->
+											<td><?= $absen->tanggal_absensi ?></td>
+											<td style="text-align: center;"><?= $absen->no_induk ?>
+											<td><?= $absen->nama_lengkap ?>
+											<td><?= $absen->nama_kelas ?>
+											<td style="text-align: center; width: 10%;"><?= $absen->alasan ?>
+											<td><?= $absen->keterangan ?>
+											</td>
+											<td style="text-align: center;">
+												<a class="btn btn-success btn-xs btnEditAbsensi" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $absen->id_absensi; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Absensi/hapus/<?= $absen->id_absensi; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+											</td>
+										</tr>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+						<!-- /.card-body -->
 					</div>
-					<!-- /.box-body -->
+					<!-- /.card -->
 				</div>
-				<!-- /.box -->
+				<!-- /.col -->
 			</div>
-			<!-- /.col -->
-		</div>
-		<!-- /.row -->
+			<!-- /.row (main row) -->
+		</div><!-- /.container-fluid -->
 	</section>
 	<!-- /.content -->
 
@@ -75,7 +79,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title" id="staticBackdropLabel">Form Transaksi Absensi Siswa</h3>
+					<h3 class="modal-title" id="staticBackdropLabel">Form Input Absensi Siswa</h3>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -106,14 +110,14 @@
 										<input type="radio" name="alasan" id="alasan" value="Sakit">
 										Sakit
 									</label>
-								</div>
-								<div class="radio-inline">
+									&nbsp;
+									&nbsp;
 									<label style="font-weight: normal;">
 										<input type="radio" name="alasan" id="alasan" value="Izin">
 										Izin
 									</label>
-								</div>
-								<div class="radio-inline">
+									&nbsp;
+									&nbsp;
 									<label style="font-weight: normal;">
 										<input type="radio" name="alasan" id="alasan" value="Alpa">
 										Alpa
@@ -134,5 +138,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <!-- /.content-wrapper -->

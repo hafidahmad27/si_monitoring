@@ -1,4 +1,4 @@
-$(function () 
+$(function ()
 {
 	$(".btnTambahPelanggaranTatib").on("click", function() {
         $("#staticBackdropLabel").html("Form Input Pelanggaran Tata Tertib");
@@ -9,7 +9,7 @@ $(function ()
 		);
 		document.getElementById('formResetData').reset();
 	});
-	
+
 	$(".btnEditPelanggaranTatib").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Pelanggaran Tata Tertib");
 		$(".modal-footer button[type=submit]").html("Edit");

@@ -1,4 +1,4 @@
-$(function () 
+$(function ()
 {
 	$(".btnTambahJenisPembayaran").on("click", function() {
         $("#staticBackdropLabel").html("Form Input Jenis Pembayaran");
@@ -9,7 +9,7 @@ $(function ()
 		);
 		document.getElementById('formResetData').reset();
 	});
-	
+
 	$(".btnEditJenisPembayaran").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Jenis Pembayaran");
 		$(".modal-footer button[type=submit]").html("Edit");

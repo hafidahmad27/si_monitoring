@@ -1,77 +1,81 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<h1>
-			Data Siswa
-			<small> </small>
-		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li><a href="#">Tables</a></li>
-			<li class="active">Data tables</li>
-		</ol>
-	</section>
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1 class="m-0">Manage Siswa</h1>
+				</div><!-- /.col -->
+				<div class="col-sm-6">
+					<!-- <ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active">Dashboard v1</li>
+					</ol> -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container-fluid -->
+	</div>
+	<!-- /.content-header -->
 
 	<!-- Main content -->
 	<section class="content">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="box">
-					<div class="box-header">
-						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary btnTambahSiswa" data-toggle="modal" data-target="#staticBackdrop">
-							<i class="fa fa-plus"></i> Tambah
-						</button>
-					</div>
-					<!-- /.box-header -->
-					<div class="box-body">
-						<table id="example1" class="table table-bordered table-hover">
-							<thead>
-								<tr>
-									<!-- <th>No</th> -->
-									<th style="width: 1%;">No Induk</th>
-									<th style="width: 20%; text-align: center;">Nama Lengkap</th>
-									<th style="width: 7.5%;">Kelas</th>
-									<th style="width: 1%;">Jenis Kelamin</th>
-									<th style="width: 1%;">Tempat Lahir</th>
-									<th style="width: 1%;">Tanggal Lahir</th>
-									<th style="width: 25%; text-align: center;">Alamat</th>
-									<th style="width: 1%; text-align: center;">No Telp</th>
-									<th style="width: 6.6%; text-align: center;">Aksi</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-								$no = 1;
-								foreach ($siswa as $sisw) : ?>
+		<div class="container-fluid">
+			<!-- Small boxes (Stat box) -->
+			<div class="row">
+				<div class="col-12">
+					<button type="button" class="btn btn-primary btnTambahSiswa" data-toggle="modal" data-target="#staticBackdrop">
+						<i class="fa fa-plus"></i> Tambah
+					</button>
+					<div class="card mt-1">
+						<div class="card-body">
+							<table id="example1" class="table table-bordered table-striped">
+								<thead>
 									<tr>
-										<!-- <td><?= $no++ ?></td> -->
-										<td><?= $sisw->no_induk ?></td>
-										<td><?= $sisw->nama_lengkap ?>
-										<td><?= $sisw->nama_kelas ?>
-										<td><?= $sisw->jenis_kelamin ?>
-										<td><?= $sisw->tempat_lahir ?>
-										<td><?= $sisw->tanggal_lahir ?>
-										<td><?= $sisw->alamat ?>
-										<td><?= $sisw->no_telp ?>
-										</td>
-										<td style="text-align: center;">
-											<a class="btn btn-success btn-xs btnEditSiswa" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $sisw->id_siswa; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-											<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Siswa/hapus/<?= $sisw->id_siswa; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
-										</td>
+										<!-- <th>No</th> -->
+										<th style="width: 1%;">No</th>
+										<th style="width: 29%; text-align: center;">Nama Lengkap</th>
+										<th style="width: 13.3%;">Kelas</th>
+										<th style="width: 1%;">Jenis Kelamin</th>
+										<th style="width: 1%;">Tempat Lahir</th>
+										<th style="width: 1%;">Tanggal Lahir</th>
+										<th style="width: 20%; text-align: center;">Alamat</th>
+										<th style="width: 1%; text-align: center;">No Telp</th>
+										<th style="width: 8%; text-align: center;">Aksi</th>
 									</tr>
-								<?php endforeach; ?>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									<?php
+									$no = 1;
+									foreach ($siswa as $sisw) : ?>
+										<tr>
+											<!-- <td><?= $no++ ?></td> -->
+											<td><?= $sisw->no_induk ?></td>
+											<td><?= $sisw->nama_lengkap ?>
+											<td><?= $sisw->nama_kelas ?>
+											<td><?= $sisw->jenis_kelamin ?>
+											<td><?= $sisw->tempat_lahir ?>
+											<td><?= $sisw->tanggal_lahir ?>
+											<td><?= $sisw->alamat ?>
+											<td><?= $sisw->no_telp ?>
+											</td>
+											<td style="text-align: center;">
+												<a class="btn btn-success btn-xs btnEditSiswa" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $sisw->id_siswa; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Siswa/hapus/<?= $sisw->id_siswa; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+											</td>
+										</tr>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+						<!-- /.card-body -->
 					</div>
-					<!-- /.box-body -->
+					<!-- /.card -->
 				</div>
-				<!-- /.box -->
+				<!-- /.col -->
 			</div>
-			<!-- /.col -->
-		</div>
-		<!-- /.row -->
+			<!-- /.row (main row) -->
+		</div><!-- /.container-fluid -->
 	</section>
 	<!-- /.content -->
 
@@ -98,9 +102,9 @@
 							<label>Nama Lengkap</label>
 							<input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control">
 						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-4">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
 									<label>Kelas</label><br>
 									<select name="id_kelas" id="id_kelas" class="form-control select2" style="width: 100%;">
 										<?php foreach ($kelas as $kls) : ?>
@@ -108,36 +112,34 @@
 										<?php endforeach; ?>
 									</select>
 								</div>
-								<div class="col-xs-5">
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
 									<label>Jenis Kelamin</label>
-									<div class="form-group">
-										<div class="radio-inline">
-											<label style="font-weight: normal;">
-												<input type="hidden" name="jenis_kelamin" id="jenis_kelamin" value="">
-												<input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Laki-Laki">
-												Laki-Laki
-											</label>
-										</div>
-										<div class="radio-inline">
-											<label style="font-weight: normal;">
-												<input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Perempuan">
-												Perempuan
-											</label>
-										</div>
+									<div class="radio-inline">
+										<label style="font-weight: normal;">
+											<input type="hidden" name="jenis_kelamin" id="jenis_kelamin" value="">
+											<input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Laki-Laki">
+											Laki-Laki
+										</label>
+										&nbsp;
+										<label style="font-weight: normal;">
+											<input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Perempuan">
+											Perempuan
+										</label>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-4">
+							<div class="col-sm-6">
+								<div class="form-group">
 									<label>Tempat Lahir</label>
 									<input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control">
 								</div>
-								<div class="col-xs-8">
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
 									<label>Tanggal Lahir</label>
 									<input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control">
-
 								</div>
 							</div>
 						</div>
@@ -158,5 +160,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <!-- /.content-wrapper -->
