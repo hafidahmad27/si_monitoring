@@ -11,7 +11,8 @@ class Kelas extends CI_Controller
 
 	public function index()
 	{
-		$data['kelas'] = $this->M_master->tampil_data('tb_kelas')->result();
+		$data['pegawai'] = $this->M_master->tampil_data('tb_pegawai')->result();
+		$data['kelas'] = $this->M_master->getKelas();
 
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/sidebar');
@@ -21,9 +22,11 @@ class Kelas extends CI_Controller
 
 	public function tambah_aksi()
 	{
+		$id_pegawai = $this->input->post('id_pegawai');
 		$nama_kelas = $this->input->post('nama_kelas');
 
 		$data = array(
+			'id_pegawai' => $id_pegawai,
 			'nama_kelas' => $nama_kelas
 		);
 
@@ -45,9 +48,11 @@ class Kelas extends CI_Controller
 	public function update()
 	{
 		$id_kelas = $this->input->post('id_kelas');
+		$id_pegawai = $this->input->post('id_pegawai');
 		$nama_kelas = $this->input->post('nama_kelas');
 
 		$data = array(
+			'id_pegawai' => $id_pegawai,
 			'nama_kelas' => $nama_kelas
 		);
 

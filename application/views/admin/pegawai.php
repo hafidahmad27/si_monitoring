@@ -34,9 +34,7 @@
 									<tr>
 										<th>No</th>
 										<th>Nama Pegawai</th>
-										<th>Username</th>
-										<th>Password</th>
-										<th>Level</th>
+										<th>Telepon</th>
 										<th style="text-align: center;">Aksi</th>
 									</tr>
 								</thead>
@@ -47,13 +45,11 @@
 										<tr>
 											<td><?= $no++ ?></td>
 											<td><?= $peg->nama_pegawai ?>
-											<td><?= $peg->username ?>
-											<td><?= $peg->password ?>
-											<td><?= $peg->level ?>
+											<td><?= $peg->telepon ?>
 											</td>
 											<td style="text-align: center;">
 												<a class="btn btn-success btn-xs btnEditPegawai" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $peg->id_pegawai; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Pegawai/hapus/<?= $peg->id_pegawai; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/pegawai/hapus/<?= $peg->id_pegawai; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -91,20 +87,8 @@
 							<input type="text" id="nama_pegawai" name="nama_pegawai" class="form-control">
 						</div>
 						<div class="form-group">
-							<label>Username</label>
-							<input type="text" id="username" name="username" class="form-control">
-						</div>
-						<div class="form-group">
-							<label>Password</label>
-							<input type="text" id="password" name="password" class="form-control">
-						</div>
-						<div class="form-group">
-							<label>Level</label>
-							<select name="level" id="level" class="form-control">
-								<option value="guru_bk">Guru BK</option>
-								<option value="wali_kelas">Wali Kelas</option>
-								<option value="staff_tu">Staff TU</option>
-							</select>
+							<label>Telepon</label>
+							<input type="number" id="telepon" name="telepon" class="form-control">
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

@@ -33,14 +33,13 @@
 								<thead>
 									<tr>
 										<th style="width: 1%; text-align: center;">Tanggal</th>
-										<th style="width: 7.8%; text-align: center;">No Induk</th>
+										<th style="width: 1%; text-align: center;">No Induk</th>
 										<th style="width: 18%; text-align: center;">Nama Lengkap</th>
-										<th style="width: 3.6%; text-align: center;">Kelas</th>
+										<th style="width: 8.8%; text-align: center;">Kelas</th>
 										<th style="width: 21.6%; text-align: center;">Bentuk Pelanggaran</th>
 										<th style="width: 1%; text-align: center;">Poin</th>
-										<!-- <th>Kategori</th> -->
 										<th style="width: 16%; text-align: center;">Nama Tindakan</th>
-										<th style="width: 3.7%; text-align: center;">Aksi</th>
+										<th style="width: 6.2%; text-align: center;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>

@@ -34,7 +34,7 @@
 									<tr>
 										<th style="width: 1%;">No Induk</th>
 										<th style="width: 18%; text-align: center;">Nama Lengkap</th>
-										<th style="width: 4%; text-align: center;">Kelas</th>
+										<th style="width: 7.5%; text-align: center;">Kelas</th>
 										<th style="width: 18%; text-align: center;">Jenis Pembayaran</th>
 										<th style="width: 1%; text-align: center;">Bulan</th>
 										<th style="width: 1%; text-align: center;">Tahun</th>

@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 	<!-- Brand Logo -->
 	<a href="#" class="brand-link">
-		<img src="<?= base_url() ?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+		<img src="<?= base_url() ?>assets/image/cctv.png" alt="AdminLTE Logo" class="brand-image" style="width: 18%;">
 		<span class="brand-text font-weight-light">Monitoring <i>System</i></span>
 	</a>
 
@@ -88,9 +88,20 @@
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-item">
 						<a href="<?= base_url() ?>pegawai" class="nav-link <?php echo $uri == 'pegawai' ? 'active' : 'no' ?>">
-							<i class="nav-icon fas fa-user-lock"></i>
+							<i class="nav-icon fas fa-user-tie"></i>
 							<p>
 								Pegawai
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php if ($this->session->userdata('level') == 'admin') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>user" class="nav-link <?php echo $uri == 'user' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-user-lock"></i>
+							<p>
+								User
 							</p>
 						</a>
 					</li>

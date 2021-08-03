@@ -21,7 +21,7 @@ class Login extends CI_Controller
 		$cek = $this->M_auth->cekLogin($user, $pass);
 
 		if ($cek > 0) {
-			$data_login = $this->db->get_where('tb_pegawai', array('username' => $user, 'password' => $pass))->row();
+			$data_login = $this->db->get_where('tb_user', array('username' => $user, 'password' => $pass))->row();
 			$level = $data_login->level;
 			$data = array(
 				'user' => $user,

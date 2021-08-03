@@ -22,19 +22,15 @@ class Pegawai extends CI_Controller
 	public function tambah_aksi()
 	{
 		$nama_pegawai = $this->input->post('nama_pegawai');
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$level = $this->input->post('level');
+		$telepon = $this->input->post('telepon');
 
 		$data = array(
 			'nama_pegawai' => $nama_pegawai,
-			'username' => $username,
-			'password' => $password,
-			'level' => $level
+			'telepon' => $telepon
 		);
 
 		$this->M_master->input_data($data, 'tb_pegawai');
-		redirect('Pegawai/index');
+		redirect('pegawai/index');
 	}
 
 	public function edit($id_pegawai)
@@ -52,15 +48,11 @@ class Pegawai extends CI_Controller
 	{
 		$id_pegawai = $this->input->post('id_pegawai');
 		$nama_pegawai = $this->input->post('nama_pegawai');
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$level = $this->input->post('level');
+		$telepon = $this->input->post('telepon');
 
 		$data = array(
 			'nama_pegawai' => $nama_pegawai,
-			'username' => $username,
-			'password' => $password,
-			'level' => $level
+			'telepon' => $telepon
 		);
 
 		$where = array(
@@ -68,20 +60,20 @@ class Pegawai extends CI_Controller
 		);
 
 		$this->M_master->update_data($where, $data, 'tb_pegawai');
-		redirect('Pegawai/index');
+		redirect('pegawai/index');
 	}
 
 	public function hapus($id_pegawai)
 	{
 		$where = array('id_pegawai' => $id_pegawai);
 		$this->M_master->hapus_data($where, 'tb_pegawai');
-		redirect('Pegawai/index');
+		redirect('pegawai/index');
 	}
 
 	public function hapus_semua()
 	{
 		$this->M_master->hapus_semua_data('tb_pegawai');
-		redirect('Pegawai/index');
+		redirect('pegawai/index');
 	}
 
 	public function getUbah()

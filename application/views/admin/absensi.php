@@ -35,7 +35,7 @@
 										<th style="width: 1%; text-align: center;">Tanggal</th>
 										<th style="width: 1%; text-align: center;">No Induk</th>
 										<th style="width: 23%; text-align: center;">Nama Lengkap</th>
-										<th style="width: 8%; text-align: center;">Kelas</th>
+										<th style="width: 9.5%; text-align: center;">Kelas</th>
 										<th style="text-align: center;">Alasan</th>
 										<th style="text-align: center;">Keterangan</th>
 										<th style="width: 8%; text-align: center;">Aksi</th>

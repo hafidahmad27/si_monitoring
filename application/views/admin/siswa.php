@@ -41,7 +41,7 @@
 										<th style="width: 1%;">Tanggal Lahir</th>
 										<th style="width: 20%; text-align: center;">Alamat</th>
 										<th style="width: 1%; text-align: center;">No Telp</th>
-										<th style="width: 8%; text-align: center;">Aksi</th>
+										<th style="width: 8.2%; text-align: center;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>

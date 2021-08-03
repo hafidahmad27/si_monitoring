@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2021 at 05:49 AM
+-- Generation Time: Aug 04, 2021 at 12:38 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -120,6 +120,7 @@ INSERT INTO `tb_jenis_pembayaran` (`id_jenis_pembayaran`, `jenis_pembayaran`) VA
 
 CREATE TABLE `tb_kelas` (
   `id_kelas` int(11) NOT NULL,
+  `id_pegawai` int(11) NOT NULL,
   `nama_kelas` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -127,27 +128,32 @@ CREATE TABLE `tb_kelas` (
 -- Dumping data for table `tb_kelas`
 --
 
-INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
-(1, 'X BDP 1'),
-(2, 'X BDP 3'),
-(3, 'XI BDP 1'),
-(4, 'XI BDP 2'),
-(5, 'XII BDP 1'),
-(6, 'XII BDP 2'),
-(7, 'X PMSR 1'),
-(8, 'X PMSR 2'),
-(9, 'XI PMSR 1'),
-(10, 'XI PMSR 2'),
-(11, 'XII PMSR 1'),
-(12, 'XII PMSR 2'),
-(13, 'X MM 1'),
-(14, 'X MM 2'),
-(15, 'XI MM 1'),
-(16, 'XI MM 2'),
-(17, 'XII MM 1'),
-(18, 'XII AM 2'),
-(19, 'asfsaf'),
-(20, 'kkks');
+INSERT INTO `tb_kelas` (`id_kelas`, `id_pegawai`, `nama_kelas`) VALUES
+(1, 3, 'X BDP 1'),
+(2, 0, 'X BDP 3'),
+(3, 0, 'XI BDP 1'),
+(4, 6, 'XI BDP 2'),
+(5, 0, 'XII BDP 1'),
+(6, 0, 'XII BDP 2'),
+(7, 0, 'X PMSR 1'),
+(8, 0, 'X PMSR 2'),
+(9, 0, 'XI PMSR 1'),
+(10, 0, 'XI PMSR 2'),
+(11, 0, 'XII PMSR 1'),
+(12, 2, 'XII PMSR 2'),
+(13, 5, 'X MM 1'),
+(14, 7, 'X MM 2'),
+(15, 0, 'XI MM 1'),
+(16, 0, 'XI MM 2'),
+(17, 0, 'XII MM 1'),
+(18, 0, 'XII AM 2'),
+(19, 0, 'asfsaf'),
+(20, 4, 'kkks'),
+(21, 8, 'X Hapus'),
+(22, 9, 'XII AGAMA'),
+(23, 10, 'XII IPS 1'),
+(24, 11, 'XII MM 3'),
+(25, 12, 'XII Pansos');
 
 -- --------------------------------------------------------
 
@@ -158,21 +164,26 @@ INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
 CREATE TABLE `tb_pegawai` (
   `id_pegawai` int(11) NOT NULL,
   `nama_pegawai` varchar(50) NOT NULL,
-  `username` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL,
-  `level` varchar(10) NOT NULL
+  `telepon` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_pegawai`
 --
 
-INSERT INTO `tb_pegawai` (`id_pegawai`, `nama_pegawai`, `username`, `password`, `level`) VALUES
-(1, 'Rachman Arief', 'bpk_rachman', '789', 'admin'),
-(2, 'Ibu Wali Kelas', 'walas', 'w4las', 'wali_kelas'),
-(3, 'Staff TU', 'stafftu', 'tustaff', 'staff_tu'),
-(4, 'Rendy', 'rendy123', '321', 'wali_kelas'),
-(5, 'Hendry Pratama', 'hendri', '123', 'guru_bk');
+INSERT INTO `tb_pegawai` (`id_pegawai`, `nama_pegawai`, `telepon`) VALUES
+(1, 'rachman arief', '08170483572'),
+(2, 'andy rachman', '085678794342'),
+(3, 'Pita Putri', '088822224456'),
+(4, 'Indah Putri', '087745465657'),
+(5, 'kurniawan', '082134561234'),
+(6, 'Siswanto', '012482174'),
+(7, 'Erik', '052359'),
+(8, 'Anu Hapus', '0239530'),
+(9, 'Kapid', '03334'),
+(10, 'Tomas Alief', '08773456678'),
+(11, 'Johnny Sins', '0314567890'),
+(12, 'bernardy', '081703786453');
 
 -- --------------------------------------------------------
 
@@ -226,7 +237,7 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jen
 (1, 1, 1401, 'Andhika Pratama', 'Laki-Laki', 'Surabaya', '2002-04-02', 'Jalan Pesapen Utara No. 112, Surabaya', '087712345678'),
 (2, 14, 1405, 'Arifio Juliantara Sunaryo', 'Perempuan', 'Sidoarjo', '1998-07-15', 'Perumahan Tropodo Indah No. 16, Sidoarja', '082188776969'),
 (3, 12, 1439, 'Eva Anisawati', 'Perempuan', 'Surabaya', '1998-06-05', 'Jl. Jagir Sidomukti No. 22, Surabaya', '081234567890'),
-(4, 17, 1419, 'Ahmad Hafid Holy Saputra', 'Laki-Laki', 'Pacitan', '1999-01-27', 'Jl. Medayu Utara 1 Melati No. 3\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087834581787'),
+(4, 13, 1419, 'Ahmad Hafid Holy Saputra', 'Laki-Laki', 'Pacitan', '1999-01-27', 'Jl. Medayu Utara 1 Melati No. 3\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087834581787'),
 (5, 16, 1580, 'Mustakim', 'Laki-Laki', 'Sidoarjo', '1998-11-04', 'Jl. Gunung Anyar Timur IV No 40, Surabaya', '08881234543'),
 (6, 11, 1676, 'Dinda Rahmadani Putri', 'Perempuan', 'Surabaya', '1999-01-17', 'Medokan Semampir Tengah No 75, Surabaya', '087863668900'),
 (7, 1, 1495, 'Laila Abidatul Amanah', 'Perempuan', 'Lamongan', '1999-05-05', 'Jl. Gunung Anyar Harapan VII No. 88, Surabaya', '081245675678'),
@@ -244,7 +255,9 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jen
 (19, 18, 1345, 'Arga Krisna Pujangga Brahmana Permata Dewa', 'Laki-Laki', 'Surabaya', '1999-02-09', 'Jl. Putra Bangsa no 11, Medokan Ayu, Surabaya', '0878232456789'),
 (21, 11, 1999, 'Saputra Hafid Ahmad', 'Laki-Laki', 'Trenggalek', '1999-11-27', 'Jl. Kalijudan No. 1, Surabaya', '0314567890'),
 (22, 5, 1324, 'Ikhza Ainun Fiima', 'Laki-Laki', 'Jember', '1999-01-14', 'Jl. Medokan Kampung No. 4, Surabaya', '085734234859'),
-(23, 13, 1122, 'Andre Setyanto', 'Laki-Laki', 'Semarang', '2002-02-10', 'Jl. Kapas Krampung No.4, Surabaya', '087822334545');
+(23, 13, 1122, 'Andre Setyanto', 'Laki-Laki', 'Semarang', '2002-02-10', 'Jl. Kapas Krampung No.4, Surabaya', '087822334545'),
+(24, 22, 4329, 'Ahsan Hendra', 'Laki-Laki', 'Mamuju', '1983-04-21', 'Jl. Pekalongan', '084239999'),
+(25, 25, 3669, 'Asep Kristiawan', 'Laki-Laki', 'Purworejo', '1995-11-01', 'Jl. Terserah 20, Purworejo\r\nJawa Tengah', '08123457654');
 
 -- --------------------------------------------------------
 
@@ -294,6 +307,35 @@ INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_siswa`, `i
 (6, 18, 2, 5, 2021, 500000),
 (8, 1, 1, 5, 2021, 50000);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_user`
+--
+
+CREATE TABLE `tb_user` (
+  `id_user` int(11) NOT NULL,
+  `id_pegawai` int(11) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(15) NOT NULL,
+  `level` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_user`
+--
+
+INSERT INTO `tb_user` (`id_user`, `id_pegawai`, `username`, `password`, `level`) VALUES
+(1, 1, 'rach_adm', 'admin', 'admin'),
+(2, 5, 'kurkur', 'walas1', 'wali_kelas'),
+(3, 2, 'andyrach', 'walas2', 'wali_kelas'),
+(4, 3, 'pita', '123', 'guru_bk'),
+(5, 4, 'indah', '456', 'staff_tu'),
+(9, 7, 'eriko', 'mboh', 'wali_kelas'),
+(10, 10, 'halo', 'halohai', 'wali_kelas'),
+(11, 9, 'kap', 'poo', 'wali_kelas'),
+(12, 12, 'bernad', 'bernad123', 'wali_kelas');
+
 --
 -- Indexes for dumped tables
 --
@@ -324,7 +366,8 @@ ALTER TABLE `tb_jenis_pembayaran`
 -- Indexes for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  ADD PRIMARY KEY (`id_kelas`);
+  ADD PRIMARY KEY (`id_kelas`),
+  ADD KEY `id_pegawai` (`id_pegawai`);
 
 --
 -- Indexes for table `tb_pegawai`
@@ -361,6 +404,13 @@ ALTER TABLE `tb_tunggakan_pembayaran`
   ADD KEY `id_jenis_pembayaran` (`id_jenis_pembayaran`);
 
 --
+-- Indexes for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`id_user`),
+  ADD KEY `id_pegawai` (`id_pegawai`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -386,13 +436,13 @@ ALTER TABLE `tb_jenis_pembayaran`
 -- AUTO_INCREMENT for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_pelanggaran_tatib`
@@ -404,7 +454,7 @@ ALTER TABLE `tb_pelanggaran_tatib`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_tindakan`
@@ -417,6 +467,12 @@ ALTER TABLE `tb_tindakan`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
   MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
@@ -437,6 +493,12 @@ ALTER TABLE `tb_catatan_pelanggaran`
   ADD CONSTRAINT `tb_catatan_pelanggaran_ibfk_3` FOREIGN KEY (`id_tindakan`) REFERENCES `tb_tindakan` (`id_tindakan`);
 
 --
+-- Constraints for table `tb_kelas`
+--
+ALTER TABLE `tb_kelas`
+  ADD CONSTRAINT `tb_kelas_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `tb_pegawai` (`id_pegawai`);
+
+--
 -- Constraints for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
@@ -448,6 +510,12 @@ ALTER TABLE `tb_siswa`
 ALTER TABLE `tb_tunggakan_pembayaran`
   ADD CONSTRAINT `tb_tunggakan_pembayaran_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `tb_siswa` (`id_siswa`),
   ADD CONSTRAINT `tb_tunggakan_pembayaran_ibfk_2` FOREIGN KEY (`id_jenis_pembayaran`) REFERENCES `tb_jenis_pembayaran` (`id_jenis_pembayaran`);
+
+--
+-- Constraints for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD CONSTRAINT `tb_user_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `tb_pegawai` (`id_pegawai`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

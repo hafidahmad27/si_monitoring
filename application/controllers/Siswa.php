@@ -22,7 +22,6 @@ class Siswa extends CI_Controller
 
 	public function tambah_aksi()
 	{
-		$id_siswa = $this->input->post('id_siswa');
 		$no_induk = $this->input->post('no_induk');
 		$nama_lengkap = $this->input->post('nama_lengkap');
 		$id_kelas = $this->input->post('id_kelas');
@@ -33,7 +32,6 @@ class Siswa extends CI_Controller
 		$no_telp = $this->input->post('no_telp');
 
 		$data = array(
-			'id_siswa' => $id_siswa,
 			'no_induk' => $no_induk,
 			'nama_lengkap' => $nama_lengkap,
 			'id_kelas' => $id_kelas,
@@ -72,7 +70,6 @@ class Siswa extends CI_Controller
 		$no_telp = $this->input->post('no_telp');
 
 		$data = array(
-			'id_siswa' => $id_siswa,
 			'no_induk' => $no_induk,
 			'nama_lengkap' => $nama_lengkap,
 			'id_kelas' => $id_kelas,

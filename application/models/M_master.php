@@ -60,6 +60,10 @@ class M_master extends CI_Model
 	{
 		return $this->db->get_where('tb_jenis_pembayaran', array('id_jenis_pembayaran' => $id_jenis_pembayaran))->row();
 	}
+	public function getUserById($id_user)
+	{
+		return $this->db->get_where('tb_user', array('id_user' => $id_user))->row();
+	}
 	public function getPegawaiById($id_pegawai)
 	{
 		return $this->db->get_where('tb_pegawai', array('id_pegawai' => $id_pegawai))->row();
@@ -70,6 +74,24 @@ class M_master extends CI_Model
 		$this->db->select('*');
 		$this->db->from('tb_kelas');
 		$this->db->join('tb_siswa', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getKelas()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_kelas');
+		$this->db->join('tb_pegawai', 'tb_kelas.id_pegawai = tb_pegawai.id_pegawai', 'LEFT');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getUser()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_user');
+		$this->db->join('tb_pegawai', 'tb_user.id_pegawai = tb_pegawai.id_pegawai');
 		$query = $this->db->get();
 		return $query->result();
 	}
