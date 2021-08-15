@@ -8,11 +8,19 @@ class Absensi extends CI_Controller
 		parent::__construct();
 		$this->load->model('M_master');
 		$this->load->model('M_transaksi');
+
+		if (!$this->session->userdata('level')) {
+			redirect('admin');
+		}
 	}
 
 	public function index()
 	{
-		$data['siswa'] = $this->M_master->tampil_data('tb_siswa')->result();
+		if ($this->session->userdata('level') == 'admin') {
+			$data['siswa'] = $this->M_master->tampil_data('tb_siswa')->result();
+		} elseif ($this->session->userdata('level') == 'wali_kelas') {
+			$data['siswaByKelas'] = $this->M_transaksi->getSiswaByKelas();
+		}
 		$data['absensi'] = $this->M_transaksi->getAbsensiSiswa();
 
 		$this->load->view('templates_admin/header');

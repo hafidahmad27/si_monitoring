@@ -9,12 +9,19 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-	<title>Hello, world!</title>
+	<title>Landing Page - Sistem Informasi Monitoring Siswa</title>
 </head>
 
 <body>
-	<h1>Hello, world!</h1>
 
+	<section id="menu" class="d-flex align-items-center">
+		<div class="container d-flex flex-column align-items-center justify-content-center" data-aos="fade-up" style="margin-top: 290px;">
+			<a href="<?= base_url() ?>admin" class="btn btn-primary" target="_blank">Halaman Pegawai Sekolah</a><br><br>
+			<a href="<?= base_url() ?>wali_murid/profil_siswa" class="btn btn-info" target="_blank">Halaman Wali Murid</a>
+
+		</div>
+
+	</section><!-- End Hero -->
 	<!-- Optional JavaScript; choose one of the two! -->
 
 	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

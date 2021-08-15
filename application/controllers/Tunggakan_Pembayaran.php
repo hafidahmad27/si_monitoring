@@ -6,9 +6,12 @@ class Tunggakan_Pembayaran extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		// date_default_timezone_set('Asia/Jakarta');
 		$this->load->model('M_master');
 		$this->load->model('M_transaksi');
+
+		if (!$this->session->userdata('level')) {
+			redirect('admin');
+		}
 	}
 
 	public function index()
@@ -36,7 +39,7 @@ class Tunggakan_Pembayaran extends CI_Controller
 			'id_jenis_pembayaran' => $id_jenis_pembayaran,
 			'bulan' => $bulan,
 			'tahun' => $tahun,
-			'biaya_pembayaran' => $biaya_pembayaran
+			'biaya_pembayaran' => str_replace(".", "", $biaya_pembayaran)
 		);
 
 		$this->M_transaksi->input_data($data, 'tb_tunggakan_pembayaran');
@@ -68,7 +71,7 @@ class Tunggakan_Pembayaran extends CI_Controller
 			'id_jenis_pembayaran' => $id_jenis_pembayaran,
 			'bulan' => $bulan,
 			'tahun' => $tahun,
-			'biaya_pembayaran' => $biaya_pembayaran
+			'biaya_pembayaran' => str_replace(".", "", $biaya_pembayaran)
 		);
 
 		$where = array(

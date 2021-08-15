@@ -11,39 +11,40 @@ class Login extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('login');
+		$this->load->view('login_wali_murid');
 	}
 
 	public function prosesLogin()
 	{
-		$user = $this->input->post('user', true);
-		$pass = $this->input->post('pass', true);
-		$cek = $this->M_auth->cekLogin($user, $pass);
+		$no_induk = $this->input->post('no_induk');
+		$tanggal_lahir = $this->input->post('tanggal_lahir');
+		$cek = $this->M_auth->check_login_siswa($no_induk, $tanggal_lahir);
 
-		if ($cek > 0) {
-			$data_login = $this->db->get_where('tb_user', array('username' => $user, 'password' => $pass))->row();
-			$level = $data_login->level;
-			$data = array(
-				'user' => $user,
-				'level' => $level
-			);
-			$this->session->set_userdata($data);
-			if ($level == 'admin') {
-				redirect('admin');
-			} elseif ($level == 'guru_bk') {
-				redirect('catatan_pelanggaran');
-			} elseif ($level == 'wali_kelas') {
-				redirect('absensi');
-			} elseif ($level == 'staff_tu') {
-				redirect('tunggakan_pembayaran');
+		if ($cek->num_rows() > 0) {
+			foreach ($cek->result() as $row) {
+				$sess = array(
+					'no_induk' => $row->no_induk,
+					'tanggal_lahir' => $row->tanggal_lahir,
+					'nama_lengkap' => $row->nama_lengkap,
+					'nama_kelas' => $row->nama_kelas,
+					'jenis_kelamin' => $row->jenis_kelamin,
+					'tempat_lahir' => $row->tempat_lahir,
+					'tanggal_lahir' => $row->tanggal_lahir,
+					'alamat' => $row->alamat,
+					'no_telp' => $row->no_telp
+				);
 			}
+			$this->session->set_userdata($sess);
+			redirect('wali_murid/profil_siswa');
 		} else {
-			echo $cek;
+			$this->session->set_flashdata('info', 'Maaf, username atau password anda salah !');
+			redirect('login');
 		}
 	}
 
 	public function logout()
 	{
+		$this->session->set_userdata('no_induk', FALSE);
 		$this->session->sess_destroy();
 		redirect('login');
 	}

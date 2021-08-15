@@ -6,9 +6,12 @@ class Catatan_Pelanggaran extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		// date_default_timezone_set('Asia/Jakarta');
 		$this->load->model('M_master');
 		$this->load->model('M_transaksi');
+
+		if (!$this->session->userdata('level')) {
+			redirect('admin');
+		}
 	}
 
 	public function index()

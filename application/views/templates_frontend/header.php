@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>SI Monitoring | Halaman Pegawai Sekolah</title>
+	<title>SI Monitoring | Halaman Wali Murid</title>
 
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -39,7 +39,7 @@
 	<div class="wrapper">
 
 		<!-- Navbar -->
-		<nav class="main-header navbar navbar-expand navbar-dark-primary navbar-light">
+		<nav class="main-header navbar navbar-expand navbar-dark">
 			<!-- Left navbar links -->
 			<ul class="navbar-nav">
 				<li class="nav-item">
@@ -80,7 +80,7 @@
 					<!-- <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
 						<i class="fas fa-th-large"></i>
 					</a> -->
-					<a href="<?= base_url() ?>admin/logout" class="btn btn-primary btn-block"><i class="fas fa-sign-out-alt"></i> Log out</a>
+					<a href="<?= base_url() ?>login/logout" class="btn btn-light btn-block"><i class="fas fa-sign-out-alt"></i> Log out</a>
 				</li>
 			</ul>
 		</nav>

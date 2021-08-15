@@ -96,9 +96,16 @@
 						<div class="form-group">
 							<label>Nama Lengkap</label><br>
 							<select name="id_siswa" id="id_siswa" class="form-control select2" style="width: 100%;">
-								<?php foreach ($siswa as $sisw) : ?>
-									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
-								<?php endforeach; ?>
+								<?php if ($this->session->userdata('level') == 'admin') : ?>
+									<?php foreach ($siswa as $sisw) : ?>
+										<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
+									<?php endforeach; ?>
+								<?php endif; ?>
+								<?php if ($this->session->userdata('level') == 'wali_kelas') : ?>
+									<?php foreach ($siswaByKelas as $sisw) : ?>
+										<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
+									<?php endforeach; ?>
+								<?php endif; ?>
 							</select>
 						</div>
 						<div class="form-group">

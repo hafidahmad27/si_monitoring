@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>AdminLTE 3 | Log in</title>
+	<title>Halaman Login - Pegawai Sekolah</title>
 
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -19,16 +19,21 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="#"><b>Form</b>Login</a>
+			<a href="#"><b>Monitoring</b>System</a>
 		</div>
 		<!-- /.login-logo -->
 		<div class="card">
 			<div class="card-body login-card-body">
-				<p class="login-box-msg">Masukkan username dan password anda untuk menggunakan sistem</p>
+				<p class="login-box-msg">Login Pegawai Sekolah</p>
 
-				<form action="<?= base_url() ?>Login/prosesLogin" method="post">
+				<form action="<?= base_url() ?>admin/prosesLogin" method="post">
+					<span class="badge badge-danger"><?php $info = $this->session->flashdata('info');
+														if (!empty($info)) {
+															echo $info;
+														}
+														?></span>
 					<div class="input-group mb-3">
-						<input type="text" name="user" class="form-control" placeholder="Masukkan username...">
+						<input type="text" name="username" class="form-control" placeholder="Masukkan username...">
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-user"></span>
@@ -36,7 +41,7 @@
 						</div>
 					</div>
 					<div class="input-group mb-3">
-						<input type="password" name="pass" class="form-control" placeholder="Masukkan password...">
+						<input type="password" name="password" class="form-control" placeholder="Masukkan password...">
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>
@@ -46,7 +51,7 @@
 					<div class="row">
 						<!-- /.col -->
 						<div class="col-12">
-							<button type="submit" name="login" value="LOGIN" class="btn btn-primary btn-block">Sign In</button>
+							<button type="submit" name="login" value="LOGIN" class="btn btn-primary btn-block">Log In</button>
 						</div>
 						<!-- /.col -->
 					</div>

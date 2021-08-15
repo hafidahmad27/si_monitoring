@@ -7,6 +7,10 @@ class Pegawai extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_master');
+
+		if (!$this->session->userdata('level')) {
+			redirect('admin');
+		}
 	}
 
 	public function index()

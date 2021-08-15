@@ -120,7 +120,7 @@
 						</div>
 						<div class="form-group">
 							<label>Biaya Pembayaran</label>
-							<input type="number" id="biaya_pembayaran" name="biaya_pembayaran" min="0" class="form-control">
+							<input type="text" id="biaya_pembayaran" name="biaya_pembayaran" maxlength="11" class="form-control">
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

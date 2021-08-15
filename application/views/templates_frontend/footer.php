@@ -7,7 +7,7 @@
 </footer>
 
 <!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
+<aside class="control-sidebar control-sidebar-info">
 	<!-- Control sidebar content goes here -->
 </aside>
 <!-- /.control-sidebar -->
@@ -82,6 +82,8 @@
 			"lengthChange": true,
 			"autoWidth": false,
 			// "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+			"paging": false,
+			"info": false,
 			"iDisplayLength": 100
 		}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 		$('#example2').DataTable({
@@ -95,31 +97,6 @@
 		});
 		$('.select2').select2()
 	});
-</script>
-<script>
-	var biaya_pembayaran = document.getElementById("biaya_pembayaran");
-	biaya_pembayaran.addEventListener("keyup", function(e) {
-		// gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-		biaya_pembayaran.value = formatRupiah(this.value);
-	});
-
-	/* Fungsi formatRupiah */
-	function formatRupiah(angka, prefix) {
-		var number_string = angka.replace(/[^,\d]/g, "").toString(),
-			split = number_string.split(","),
-			sisa = split[0].length % 3,
-			biaya_pembayaran = split[0].substr(0, sisa),
-			ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-		// tambahkan titik jika yang di input sudah menjadi angka ribuan
-		if (ribuan) {
-			separator = sisa ? "." : "";
-			biaya_pembayaran += separator + ribuan.join(".");
-		}
-
-		biaya_pembayaran = split[1] != undefined ? biaya_pembayaran + "," + split[1] : biaya_pembayaran;
-		return prefix == undefined ? biaya_pembayaran : biaya_pembayaran ? +biaya_pembayaran : "";
-	}
 </script>
 <script>
 	$(function() {

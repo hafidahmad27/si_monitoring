@@ -66,12 +66,48 @@ class M_transaksi extends CI_Model
 		return $query->result();
 	}
 
+	// public function getAbsensiSiswa()
+	// {
+	// 	$this->db->select('*');
+	// 	$this->db->from('tb_absensi');
+	// 	$this->db->join('tb_siswa', 'tb_absensi.id_siswa = tb_siswa.id_siswa');
+	// 	$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+	// 	$query = $this->db->get();
+	// 	return $query->result();
+	// }
+
 	public function getAbsensiSiswa()
 	{
+		if ($this->session->userdata('level') == 'admin') {
+			$this->db->select('*');
+			$this->db->from('tb_absensi');
+			$this->db->join('tb_siswa', 'tb_absensi.id_siswa = tb_siswa.id_siswa');
+			$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+			// $this->db->join('tb_pegawai', 'tb_kelas.id_pegawai = tb_pegawai.id_pegawai');
+			// $this->db->join('tb_user', 'tb_user.id_pegawai = tb_pegawai.id_pegawai');
+			$query = $this->db->get();
+			return $query->result();
+		} elseif ($this->session->userdata('level') == 'wali_kelas') {
+			$this->db->select('*');
+			$this->db->from('tb_absensi');
+			$this->db->join('tb_siswa', 'tb_absensi.id_siswa = tb_siswa.id_siswa');
+			$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+			$this->db->join('tb_pegawai', 'tb_kelas.id_pegawai = tb_pegawai.id_pegawai');
+			$this->db->join('tb_user', 'tb_user.id_pegawai = tb_pegawai.id_pegawai');
+			$this->db->where('username="' . $this->session->userdata('username') . '" AND password="' . $this->session->userdata('password') . '"');
+			$query = $this->db->get();
+			return $query->result();
+		}
+	}
+
+	public function getSiswaByKelas()
+	{
 		$this->db->select('*');
-		$this->db->from('tb_absensi');
-		$this->db->join('tb_siswa', 'tb_absensi.id_siswa = tb_siswa.id_siswa');
+		$this->db->from('tb_siswa');
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->join('tb_pegawai', 'tb_kelas.id_pegawai = tb_pegawai.id_pegawai');
+		$this->db->join('tb_user', 'tb_user.id_pegawai = tb_pegawai.id_pegawai');
+		$this->db->where('username="' . $this->session->userdata('username') . '" AND password="' . $this->session->userdata('password') . '"');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -83,6 +119,91 @@ class M_transaksi extends CI_Model
 		$this->db->join('tb_siswa', 'tb_tunggakan_pembayaran.id_siswa = tb_siswa.id_siswa');
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
+		// $this->db->group_by('nama_lengkap');
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getInfoCatatanPelanggaran()
+	{
+		// $this->session->userdata('no_induk')
+		$no_induk = $this->session->userdata('no_induk');
+		$tanggal_lahir = $this->session->userdata('tanggal_lahir');
+
+		$this->db->select('*');
+		$this->db->from('tb_catatan_pelanggaran');
+		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa');
+		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->join('tb_pelanggaran_tatib', 'tb_catatan_pelanggaran.id_pelanggaran_tatib = tb_pelanggaran_tatib.id_pelanggaran_tatib');
+		$this->db->join('tb_tindakan', 'tb_catatan_pelanggaran.id_tindakan = tb_tindakan.id_tindakan');
+		$this->db->where('no_induk="' . $no_induk . '" AND tanggal_lahir="' . $tanggal_lahir . '"');
+		$this->db->order_by('tanggal', 'DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function getTotalPoin()
+	{
+		// $this->session->userdata('no_induk')
+		$no_induk = $this->session->userdata('no_induk');
+		$tanggal_lahir = $this->session->userdata('tanggal_lahir');
+
+		$this->db->select('SUM(poin) as total_poin');
+		$this->db->from('tb_catatan_pelanggaran');
+		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa');
+		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->join('tb_pelanggaran_tatib', 'tb_catatan_pelanggaran.id_pelanggaran_tatib = tb_pelanggaran_tatib.id_pelanggaran_tatib');
+		$this->db->join('tb_tindakan', 'tb_catatan_pelanggaran.id_tindakan = tb_tindakan.id_tindakan');
+		$this->db->where('no_induk="' . $no_induk . '" AND tanggal_lahir="' . $tanggal_lahir . '"');
+		$this->db->order_by('tanggal', 'DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getInfoAbsensi()
+	{
+		$no_induk = $this->session->userdata('no_induk');
+		$tanggal_lahir = $this->session->userdata('tanggal_lahir');
+
+		$this->db->select('*');
+		$this->db->from('tb_absensi');
+		$this->db->join('tb_siswa', 'tb_absensi.id_siswa = tb_siswa.id_siswa');
+		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->where('no_induk="' . $no_induk . '" AND tanggal_lahir="' . $tanggal_lahir . '"');
+		$this->db->order_by('tanggal_absensi', 'DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getInfoTunggakanPembayaran()
+	{
+		$no_induk = $this->session->userdata('no_induk');
+		$tanggal_lahir = $this->session->userdata('tanggal_lahir');
+
+		$this->db->select('*');
+		$this->db->from('tb_tunggakan_pembayaran');
+		$this->db->join('tb_siswa', 'tb_tunggakan_pembayaran.id_siswa = tb_siswa.id_siswa');
+		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
+		$this->db->where('no_induk="' . $no_induk . '" AND tanggal_lahir="' . $tanggal_lahir . '"');
+		$this->db->order_by('tahun', 'DESC');
+		// $this->db->group_by('nama_lengkap');
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function getTotalTunggakan()
+	{
+		$no_induk = $this->session->userdata('no_induk');
+		$tanggal_lahir = $this->session->userdata('tanggal_lahir');
+
+		$this->db->select('SUM(biaya_pembayaran) as tot_biaya');
+		$this->db->from('tb_tunggakan_pembayaran');
+		$this->db->join('tb_siswa', 'tb_tunggakan_pembayaran.id_siswa = tb_siswa.id_siswa');
+		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
+		$this->db->where('no_induk="' . $no_induk . '" AND tanggal_lahir="' . $tanggal_lahir . '"');
+		$this->db->order_by('tahun', 'DESC');
 		// $this->db->group_by('nama_lengkap');
 
 		$query = $this->db->get();

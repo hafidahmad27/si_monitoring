@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 	<!-- Brand Logo -->
 	<a href="#" class="brand-link">
-		<img src="<?= base_url() ?>assets/image/cctv.png" alt="AdminLTE Logo" class="brand-image" style="width: 18%;">
+		<img src="<?= base_url() ?>assets/dist/img/cctv.png" alt="AdminLTE Logo" class="brand-image" style="width: 18%;">
 		<span class="brand-text font-weight-light">Monitoring <i>System</i></span>
 	</a>
 
@@ -14,7 +14,7 @@
 				<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
 			</div>
 			<div class="info">
-				<a href="#" class="d-block"><?= $this->session->userdata('level'); ?></a>
+				<a href="#" class="d-block"><?= $this->session->userdata('username'); ?></a>
 			</div>
 		</div>
 
@@ -26,7 +26,7 @@
                with font-awesome or any other icon font library -->
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>admin" class="nav-link <?php echo $uri == 'admin' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>dashboard" class="nav-link <?php echo $uri == 'dashboard' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-tachometer-alt"></i>
 							<p>
 								Dashboard
