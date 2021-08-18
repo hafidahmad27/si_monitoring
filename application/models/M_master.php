@@ -40,6 +40,10 @@ class M_master extends CI_Model
 		// $this->db->query("SET FOREIGN_KEY_CHECKS=1;");
 	}
 
+	public function getTahunAjaranById($id_tahun_ajaran)
+	{
+		return $this->db->get_where('tb_tahun_ajaran', array('id_tahun_ajaran' => $id_tahun_ajaran))->row();
+	}
 	public function getKelasById($id_kelas)
 	{
 		return $this->db->get_where('tb_kelas', array('id_kelas' => $id_kelas))->row();

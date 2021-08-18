@@ -19,6 +19,7 @@ class Tunggakan_Pembayaran extends CI_Controller
 		$data['jenis_pembayaran'] = $this->M_master->tampil_data('tb_jenis_pembayaran')->result();
 		$data['siswa'] = $this->M_master->getSiswa();
 		$data['tunggakan_pembayaran'] = $this->M_transaksi->getTunggakanPembayaranSiswa();
+		$this->M_transaksi->getStatusTahunAjaran();
 
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/sidebar');
@@ -28,6 +29,7 @@ class Tunggakan_Pembayaran extends CI_Controller
 
 	public function tambah_aksi()
 	{
+		$id_tahun_ajaran = $this->input->post('id_tahun_ajaran');
 		$id_siswa = $this->input->post('id_siswa');
 		$id_jenis_pembayaran = $this->input->post('id_jenis_pembayaran');
 		$bulan = $this->input->post('bulan');
@@ -35,6 +37,7 @@ class Tunggakan_Pembayaran extends CI_Controller
 		$biaya_pembayaran = $this->input->post('biaya_pembayaran');
 
 		$data = array(
+			'id_tahun_ajaran' => $id_tahun_ajaran,
 			'id_siswa' => $id_siswa,
 			'id_jenis_pembayaran' => $id_jenis_pembayaran,
 			'bulan' => $bulan,
@@ -60,6 +63,7 @@ class Tunggakan_Pembayaran extends CI_Controller
 	public function update()
 	{
 		$id_tunggakan_pembayaran = $this->input->post('id_tunggakan_pembayaran');
+		$id_tahun_ajaran = $this->input->post('id_tahun_ajaran');
 		$id_siswa = $this->input->post('id_siswa');
 		$id_jenis_pembayaran = $this->input->post('id_jenis_pembayaran');
 		$bulan = $this->input->post('bulan');
@@ -67,6 +71,7 @@ class Tunggakan_Pembayaran extends CI_Controller
 		$biaya_pembayaran = $this->input->post('biaya_pembayaran');
 
 		$data = array(
+			'id_tahun_ajaran' => $id_tahun_ajaran,
 			'id_siswa' => $id_siswa,
 			'id_jenis_pembayaran' => $id_jenis_pembayaran,
 			'bulan' => $bulan,

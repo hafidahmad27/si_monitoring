@@ -32,13 +32,14 @@
 							<table id="example1" class="table table-bordered table-striped">
 								<thead>
 									<tr>
+										<th style="width: 10%; text-align: center;">Tahun Ajaran</th>
 										<th style="width: 1%; text-align: center;">Tanggal</th>
 										<th style="width: 1%; text-align: center;">No Induk</th>
-										<th style="width: 23%; text-align: center;">Nama Lengkap</th>
-										<th style="width: 9.5%; text-align: center;">Kelas</th>
-										<th style="text-align: center;">Alasan</th>
-										<th style="text-align: center;">Keterangan</th>
-										<th style="width: 8%; text-align: center;">Aksi</th>
+										<th style="width: 17%; text-align: center;">Nama Lengkap</th>
+										<th style="width: 1%; text-align: center;">Kelas</th>
+										<th style="text-align: center; width: 1%;">Alasan</th>
+										<th style="text-align: center; width: 14%;">Keterangan</th>
+										<th style="width: 1%; text-align: center;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -47,11 +48,12 @@
 									foreach ($absensi as $absen) : ?>
 										<tr>
 											<!-- <td><?= $no++ ?></td> -->
-											<td><?= $absen->tanggal_absensi ?></td>
+											<td><?= $absen->nama_tahun_ajaran ?></td>
+											<td><?= date('d-m-Y', strtotime($absen->tanggal_absensi)) ?></td>
 											<td style="text-align: center;"><?= $absen->no_induk ?>
 											<td><?= $absen->nama_lengkap ?>
 											<td><?= $absen->nama_kelas ?>
-											<td style="text-align: center; width: 10%;"><?= $absen->alasan ?>
+											<td style="text-align: center;"><?= $absen->alasan ?>
 											<td><?= $absen->keterangan ?>
 											</td>
 											<td style="text-align: center;">
@@ -90,8 +92,14 @@
 							<input type="hidden" id="id_absensi" name="id_absensi" class="form-control" readonly>
 						</div>
 						<div class="form-group">
+							<label>Tahun Ajaran</label>
+							<input type="hidden" id="id_tahun_ajaran" name="id_tahun_ajaran" value="<?= $this->session->userdata('id_tahun_ajaran'); ?>" class="form-control" readonly>
+							<input type="text" id="" name="" value="<?= $this->session->userdata('nama_tahun_ajaran'); ?>" class="form-control" readonly>
+						</div>
+						<div class="form-group">
 							<label>Tanggal</label>
-							<input type="text" id="tanggal_absensi" name="tanggal_absensi" value="<?= date('d/m/Y') ?>" class="form-control" readonly>
+							<input type="hidden" id="tanggal_absensi" name="tanggal_absensi" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
+							<input type="text" id="" name="" value="<?= date('d-m-Y') ?>" class="form-control" readonly>
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label><br>

@@ -1,7 +1,7 @@
 $(function ()
 {
 	$(".btnTambahCatatanPelanggaran").on("click", function() {
-        $("#staticBackdropLabel").html("Form Transaksi Catatan Pelanggaran Siswa");
+        $("#staticBackdropLabel").html("Form Transaksi Catatan Pelanggaran");
 		$(".modal-footer button[type=submit]").html("Simpan");
 		$(".modal-body form").attr(
 			"action",
@@ -11,7 +11,7 @@ $(function ()
 	});
 
 	$(".btnEditCatatanPelanggaran").on("click", function () {
-		$("#staticBackdropLabel").html("Form Edit Transaksi Catatan Pelanggaran Siswa");
+		$("#staticBackdropLabel").html("Form Edit Transaksi Catatan Pelanggaran");
 		$(".modal-footer button[type=submit]").html("Edit");
 		$(".modal-body form").attr(
 			"action",
@@ -30,6 +30,7 @@ $(function ()
 			success: function (data) {
 				console.log(data);
 				$("#id_catatan_pelanggaran").val(data.id_catatan_pelanggaran);
+				$("#id_tahun_ajaran").val(data.id_tahun_ajaran);
 				$("#id_siswa").val(data.id_siswa);
 				$("#id_pelanggaran_tatib").val(data.id_pelanggaran_tatib);
 				$("#id_tindakan").val(data.id_tindakan);

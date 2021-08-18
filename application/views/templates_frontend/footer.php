@@ -64,16 +64,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url() ?>assets/dist/js/pages/dashboard.js"></script>
 <!-- load script -->
-<script src="<?= base_url() ?>assets/dist/js/modalEditKelas.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditSiswa.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditPelanggaranTatib.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditTindakan.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditJenisPembayaran.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditPegawai.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditUser.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditCatatanPelanggaran.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditAbsensi.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditTunggakanPembayaran.js"></script>
+
 <!-- Page specific script -->
 <script>
 	$(function() {

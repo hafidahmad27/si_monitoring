@@ -5,10 +5,13 @@ class M_auth extends CI_Model
 {
 	public function check_login_pegawai($username, $password)
 	{
+		$this->db->select('*');
+		$this->db->from('tb_user');
+		$this->db->join('tb_pegawai', 'tb_user.id_pegawai = tb_pegawai.id_pegawai');
 		$this->db->where('username', $username);
 		$this->db->where('password', $password);
 
-		return $this->db->get('tb_user');
+		return $this->db->get();
 	}
 
 	public function check_login_siswa($no_induk, $tanggal_lahir)

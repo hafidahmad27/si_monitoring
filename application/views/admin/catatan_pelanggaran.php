@@ -32,14 +32,15 @@
 							<table id="example1" class="table table-bordered table-striped">
 								<thead>
 									<tr>
+										<th style="width: 1%; text-align: center;">Tahun Ajaran</th>
 										<th style="width: 1%; text-align: center;">Tanggal</th>
-										<th style="width: 1%; text-align: center;">No Induk</th>
-										<th style="width: 18%; text-align: center;">Nama Lengkap</th>
-										<th style="width: 8.8%; text-align: center;">Kelas</th>
-										<th style="width: 21.6%; text-align: center;">Bentuk Pelanggaran</th>
+										<th style="width: 1%; text-align: center;">No</th>
+										<th style="width: 17.9%; text-align: center;">Nama Lengkap</th>
+										<th style="width: 1%; text-align: center;">Kelas</th>
+										<th style="width: 19%; text-align: center;">Bentuk Pelanggaran</th>
 										<th style="width: 1%; text-align: center;">Poin</th>
-										<th style="width: 16%; text-align: center;">Nama Tindakan</th>
-										<th style="width: 6.2%; text-align: center;">Aksi</th>
+										<th style="width: 14%; text-align: center;">Nama Tindakan</th>
+										<th style="width: 7.2%; text-align: center;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -47,12 +48,13 @@
 									$no = 1;
 									foreach ($catatan_pelanggaran as $catatplg) : ?>
 										<tr>
-											<td><?= $catatplg->tanggal ?></td>
+											<td><?= $catatplg->nama_tahun_ajaran ?></td>
+											<td><?= date('d-m-Y', strtotime($catatplg->tanggal)) ?></td>
 											<td style="text-align: center;"><?= $catatplg->no_induk ?></td>
-											<td><?= $catatplg->nama_lengkap ?>
-											<td><?= $catatplg->nama_kelas ?>
-											<td><?= $catatplg->bentuk_pelanggaran ?>
-											<td style="float: right;"><?= $catatplg->poin ?>
+											<td><?= $catatplg->nama_lengkap ?> </td>
+											<td><?= $catatplg->nama_kelas ?> </td>
+											<td><?= $catatplg->bentuk_pelanggaran ?> </td>
+											<td style="float: right;"><?= $catatplg->poin ?> </td>
 											<td><?= $catatplg->nama_tindakan ?>
 											</td>
 											<td style="text-align: center;">
@@ -91,8 +93,14 @@
 							<input type="hidden" id="id_catatan_pelanggaran" name="id_catatan_pelanggaran" class="form-control" readonly>
 						</div>
 						<div class="form-group">
+							<label>Tahun Ajaran</label>
+							<input type="hidden" id="id_tahun_ajaran" name="id_tahun_ajaran" value="<?= $this->session->userdata('id_tahun_ajaran'); ?>" class="form-control" readonly>
+							<input type="text" id="" name="" value="<?= $this->session->userdata('nama_tahun_ajaran'); ?>" class="form-control" readonly>
+						</div>
+						<div class="form-group">
 							<label>Tanggal</label>
-							<input type="text" id="tanggal" name="tanggal" value="<?= date('d/m/Y') ?>" class="form-control" readonly>
+							<input type="hidden" id="tanggal" name="tanggal" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
+							<input type="text" id="" name="" value="<?= date('d-m-Y') ?>" class="form-control" readonly>
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label><br>

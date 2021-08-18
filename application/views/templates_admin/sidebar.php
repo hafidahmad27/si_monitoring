@@ -14,7 +14,7 @@
 				<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
 			</div>
 			<div class="info">
-				<a href="#" class="d-block"><?= $this->session->userdata('username'); ?></a>
+				<a href="#" class="d-block"><?= $this->session->userdata('nama_pegawai'); ?> (<?= $this->session->userdata('level'); ?>)</a>
 			</div>
 		</div>
 
@@ -26,7 +26,7 @@
                with font-awesome or any other icon font library -->
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>dashboard" class="nav-link <?php echo $uri == 'dashboard' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>admin/dashboard" class="nav-link <?php echo $this->uri->segment(2) == 'dashboard' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-tachometer-alt"></i>
 							<p>
 								Dashboard
@@ -37,6 +37,14 @@
 
 				<li class="nav-header">MASTER DATA</li>
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>tahun_ajaran" class="nav-link <?php echo $uri == 'tahun_ajaran' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-calendar-week"></i>
+							<p>
+								Tahun Ajaran
+							</p>
+						</a>
+					</li>
 					<li class="nav-item">
 						<a href="<?= base_url() ?>kelas" class="nav-link <?php echo $uri == 'kelas' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-door-open"></i>

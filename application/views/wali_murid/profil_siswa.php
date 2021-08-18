@@ -48,7 +48,7 @@
 										</tr>
 										<tr>
 											<td>Tempat, Tanggal Lahir : </td>
-											<td><?= $this->session->userdata('tempat_lahir'); ?>, <?= $this->session->userdata('tanggal_lahir'); ?></td>
+											<td><?= $this->session->userdata('tempat_lahir'); ?>, <?= date('d-m-Y', strtotime($this->session->userdata('tanggal_lahir'))); ?></td>
 										</tr>
 										<tr>
 											<td>Alamat : </td>

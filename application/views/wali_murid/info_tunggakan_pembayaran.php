@@ -4,15 +4,15 @@
 	<div class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
-				<div class="col-sm-6">
+				<div class="col-sm-10">
 					<h1 class="m-0">Daftar Tunggakan Pembayaran Siswa</h1>
 				</div><!-- /.col -->
-				<div class="col-sm-6">
-					<!-- <ol class="breadcrumb float-sm-right">
+				<!-- <div class="col-sm-6"> -->
+				<!-- <ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
 						<li class="breadcrumb-item active">Dashboard v1</li>
 					</ol> -->
-				</div><!-- /.col -->
+				<!-- </div> -->
 			</div><!-- /.row -->
 		</div><!-- /.container-fluid -->
 	</div>
@@ -30,6 +30,7 @@
 								<thead>
 									<tr>
 										<th>No</th>
+										<th>Tahun Ajaran</th>
 										<th>Jenis Pembayaran</th>
 										<th>Bulan</th>
 										<th>Tahun</th>
@@ -43,6 +44,7 @@
 									foreach ($info_tunggakan_pembayaran as $tunggakan) : ?>
 										<tr>
 											<td><?= $no++ ?></td>
+											<td><?= $tunggakan->nama_tahun_ajaran ?>
 											<td><?= $tunggakan->jenis_pembayaran ?>
 											<td style="text-align: center;"><?= $tunggakan->bulan ?>
 											<td style="text-align: center;"><?= $tunggakan->tahun ?>
@@ -55,8 +57,8 @@
 									$no = 1;
 									foreach ($get_total_tunggakan as $tot) : ?>
 										<tr>
-											<td colspan="4" align="right"><strong>Total Tunggakan = </strong></td>
-											<td colspan="5" align="right">
+											<td colspan="5" align="right"><strong>Total Tunggakan = </strong></td>
+											<td colspan="6" align="right">
 												<strong><?= number_format($tot->tot_biaya, 0, ',', '.') ?></strong>
 											</td>
 										</tr>

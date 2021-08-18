@@ -4,15 +4,15 @@
 	<div class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
-				<div class="col-sm-6">
+				<div class="col-sm-10">
 					<h1 class="m-0">Daftar Catatan Pelanggaran Siswa</h1>
 				</div><!-- /.col -->
-				<div class="col-sm-6">
-					<!-- <ol class="breadcrumb float-sm-right">
+				<!-- <div class="col-sm-6"> -->
+				<!-- <ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
 						<li class="breadcrumb-item active">Dashboard v1</li>
 					</ol> -->
-				</div><!-- /.col -->
+				<!-- </div> -->
 			</div><!-- /.row -->
 		</div><!-- /.container-fluid -->
 	</div>
@@ -30,8 +30,9 @@
 								<thead>
 									<tr>
 										<th style="width: 1%;">No</th>
+										<th style="width: 10%;">Tahun Ajaran</th>
 										<th style="width: 1%;">Tanggal</th>
-										<th style="width: 30%;">Bentuk Pelanggaran</th>
+										<th style="width: 25%;">Bentuk Pelanggaran</th>
 										<th style="width: 1%;">Poin</th>
 										<th style="width: 20%;">Nama Tindakan</th>
 									</tr>
@@ -42,7 +43,8 @@
 									foreach ($catatan_pelanggaran as $catatplg) : ?>
 										<tr>
 											<td><?= $no++ ?></td>
-											<td><?= $catatplg->tanggal ?></td>
+											<td><?= $catatplg->nama_tahun_ajaran ?></td>
+											<td><?= date('d-m-Y', strtotime($catatplg->tanggal)) ?></td>
 											<td><?= $catatplg->bentuk_pelanggaran ?>
 											<td align="right"><?= $catatplg->poin ?>
 											<td><?= $catatplg->nama_tindakan ?>
@@ -55,7 +57,7 @@
 									$no = 1;
 									foreach ($get_total_poin as $tot) : ?>
 										<tr>
-											<td colspan="4" align="right">
+											<td colspan="5" align="right">
 												<strong>Total Poin = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?= $tot->total_poin; ?></strong>
 											</td>
 											<td></td>

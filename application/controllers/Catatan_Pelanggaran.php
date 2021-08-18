@@ -20,6 +20,7 @@ class Catatan_Pelanggaran extends CI_Controller
 		$data['pelanggaran_tatib'] = $this->M_master->tampil_data('tb_pelanggaran_tatib')->result();
 		$data['siswa'] = $this->M_master->getSiswa();
 		$data['catatan_pelanggaran'] = $this->M_transaksi->getCatatanPelanggaranSiswa();
+		$this->M_transaksi->getStatusTahunAjaran();
 
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/sidebar');
@@ -29,12 +30,14 @@ class Catatan_Pelanggaran extends CI_Controller
 
 	public function tambah_aksi()
 	{
+		$id_tahun_ajaran = $this->input->post('id_tahun_ajaran');
 		$id_siswa = $this->input->post('id_siswa');
 		$id_pelanggaran_tatib = $this->input->post('id_pelanggaran_tatib');
 		$id_tindakan = $this->input->post('id_tindakan');
 		$tanggal = $this->input->post('tanggal');
 
 		$data = array(
+			'id_tahun_ajaran' => $id_tahun_ajaran,
 			'id_siswa' => $id_siswa,
 			'id_pelanggaran_tatib' => $id_pelanggaran_tatib,
 			'id_tindakan' => $id_tindakan,
@@ -59,12 +62,14 @@ class Catatan_Pelanggaran extends CI_Controller
 	public function update()
 	{
 		$id_catatan_pelanggaran = $this->input->post('id_catatan_pelanggaran');
+		$id_tahun_ajaran = $this->input->post('id_tahun_ajaran');
 		$id_siswa = $this->input->post('id_siswa');
 		$id_pelanggaran_tatib = $this->input->post('id_pelanggaran_tatib');
 		$id_tindakan = $this->input->post('id_tindakan');
 		$tanggal = $this->input->post('tanggal');
 
 		$data = array(
+			'id_tahun_ajaran' => $id_tahun_ajaran,
 			'id_siswa' => $id_siswa,
 			'id_pelanggaran_tatib' => $id_pelanggaran_tatib,
 			'id_tindakan' => $id_tindakan,

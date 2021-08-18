@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2021 at 05:49 AM
+-- Generation Time: Aug 18, 2021 at 04:45 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -29,8 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_absensi` (
   `id_absensi` int(11) NOT NULL,
+  `id_tahun_ajaran` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
-  `tanggal_absensi` varchar(10) NOT NULL,
+  `tanggal_absensi` date NOT NULL,
   `alasan` varchar(5) NOT NULL,
   `keterangan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,21 +40,22 @@ CREATE TABLE `tb_absensi` (
 -- Dumping data for table `tb_absensi`
 --
 
-INSERT INTO `tb_absensi` (`id_absensi`, `id_siswa`, `tanggal_absensi`, `alasan`, `keterangan`) VALUES
-(1, 10, '05/07/2021', 'Alpa', '-'),
-(2, 1, '05/07/2021', 'Sakit', 'Demam, dirawat di RS'),
-(3, 9, '04/07/2021', 'Izin', 'Acara Keluarga'),
-(4, 11, '05/07/2021', 'Izin', 'Perpanjangan SIM'),
-(5, 6, '05/07/2021', 'Sakit', 'cedera, dirawat di rumah'),
-(6, 9, '05/07/2021', 'Sakit', 'Asma, dirawat di rumah'),
-(7, 13, '06/07/2021', 'Sakit', 'Pusing'),
-(8, 18, '08/07/2021', 'Sakit', 'Panu'),
-(11, 4, '10/07/2021', 'Alpa', '-'),
-(12, 23, '04/08/2021', 'Alpa', 'tidak ada keterangan'),
-(13, 16, '07/08/2021', 'Izin', 'tidur'),
-(14, 4, '12/08/2021', 'Izin', 'Acara keluarga'),
-(15, 22, '13/08/2021', 'Alpa', '-'),
-(16, 4, '15/08/2021', 'Sakit', 'panas, rawat inap');
+INSERT INTO `tb_absensi` (`id_absensi`, `id_tahun_ajaran`, `id_siswa`, `tanggal_absensi`, `alasan`, `keterangan`) VALUES
+(1, 2, 10, '2021-07-12', 'Alpa', '-'),
+(2, 2, 1, '2021-07-06', 'Sakit', 'Demam, dirawat di RS'),
+(3, 2, 9, '2021-06-23', 'Izin', 'Acara Keluarga'),
+(4, 2, 11, '2021-06-07', 'Izin', 'Perpanjangan SIM'),
+(5, 2, 6, '2021-06-04', 'Sakit', 'cedera, dirawat di rumah'),
+(6, 2, 9, '2021-05-31', 'Sakit', 'Asma, dirawat di rumah'),
+(7, 2, 13, '2021-05-17', 'Sakit', 'Pusing'),
+(8, 2, 18, '2021-05-07', 'Sakit', 'Panu'),
+(11, 2, 4, '2021-04-14', 'Alpa', '-'),
+(12, 2, 23, '2021-03-16', 'Alpa', 'tidak ada keterangan'),
+(13, 2, 16, '2021-03-10', 'Izin', 'tidur'),
+(14, 1, 4, '2021-01-18', 'Izin', 'Acara keluarga'),
+(15, 1, 22, '2020-11-19', 'Alpa', '-'),
+(16, 1, 4, '2020-10-05', 'Sakit', 'panas, rawat inap'),
+(17, 3, 4, '2021-08-18', 'Alpa', 'ke warung');
 
 -- --------------------------------------------------------
 
@@ -63,36 +65,39 @@ INSERT INTO `tb_absensi` (`id_absensi`, `id_siswa`, `tanggal_absensi`, `alasan`,
 
 CREATE TABLE `tb_catatan_pelanggaran` (
   `id_catatan_pelanggaran` int(11) NOT NULL,
+  `id_tahun_ajaran` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
   `id_pelanggaran_tatib` int(11) NOT NULL,
   `id_tindakan` int(11) NOT NULL,
-  `tanggal` varchar(10) NOT NULL
+  `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_catatan_pelanggaran`
 --
 
-INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_siswa`, `id_pelanggaran_tatib`, `id_tindakan`, `tanggal`) VALUES
-(9, 10, 8, 5, '04/07/2021'),
-(12, 8, 5, 3, '04/07/2021'),
-(13, 1, 1, 1, '04/07/2021'),
-(15, 10, 3, 3, '04/07/2021'),
-(16, 14, 3, 3, '04/07/2021'),
-(17, 4, 3, 5, '04/07/2021'),
-(18, 7, 5, 1, '04/07/2021'),
-(19, 16, 2, 3, '04/07/2021'),
-(20, 4, 1, 1, '05/07/2021'),
-(21, 7, 1, 3, '05/07/2021'),
-(23, 9, 8, 1, '06/07/2021'),
-(24, 18, 5, 3, '08/07/2021'),
-(25, 4, 5, 1, '08/07/2021'),
-(27, 4, 1, 1, '09/07/2021'),
-(28, 1, 8, 5, '09/07/2021'),
-(29, 4, 8, 2, '09/07/2021'),
-(30, 9, 8, 5, '10/07/2021'),
-(32, 4, 8, 3, '12/08/2021'),
-(33, 4, 2, 3, '15/08/2021');
+INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_tahun_ajaran`, `id_siswa`, `id_pelanggaran_tatib`, `id_tindakan`, `tanggal`) VALUES
+(9, 2, 10, 8, 5, '2021-07-29'),
+(12, 2, 8, 5, 3, '2021-07-09'),
+(13, 2, 1, 1, 1, '2021-07-04'),
+(15, 2, 10, 3, 3, '2021-06-22'),
+(16, 2, 14, 3, 3, '2021-06-05'),
+(17, 2, 4, 3, 5, '2021-06-24'),
+(18, 2, 7, 5, 1, '2021-05-10'),
+(19, 2, 16, 2, 3, '2021-05-27'),
+(20, 2, 4, 1, 1, '2021-05-03'),
+(21, 2, 7, 1, 3, '2021-04-28'),
+(23, 2, 9, 8, 1, '2021-04-09'),
+(24, 2, 18, 5, 3, '2021-04-01'),
+(25, 2, 4, 5, 1, '2021-03-31'),
+(27, 2, 4, 1, 1, '2021-03-29'),
+(28, 2, 1, 8, 5, '2021-03-04'),
+(29, 1, 4, 8, 2, '2021-01-11'),
+(30, 1, 9, 8, 5, '2020-12-23'),
+(32, 1, 4, 8, 3, '2020-11-25'),
+(33, 1, 4, 2, 3, '2020-10-07'),
+(34, 3, 4, 4, 5, '2021-08-18'),
+(35, 2, 4, 2, 5, '2021-08-18');
 
 -- --------------------------------------------------------
 
@@ -254,7 +259,30 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jen
 (18, 12, 1595, 'Muhammad Haris Setiawan Adhi Mifta', 'Laki-Laki', 'Mojokerto', '1999-08-25', 'Jl. Raya Mojosari Pacet Kutorejo, No. 50', '087734565678'),
 (21, 11, 1999, 'Saputra Hafid Ahmad', 'Laki-Laki', 'Trenggalek', '1999-11-27', 'Jl. Kalijudan No. 1, Surabaya', '0314567890'),
 (22, 5, 1324, 'Ikhza Ainun Fiima', 'Laki-Laki', 'Jember', '1999-01-14', 'Jl. Medokan Kampung No. 4, Surabaya', '085734234859'),
-(23, 13, 1122, 'Andre Setyanto', 'Laki-Laki', 'Semarang', '2002-02-10', 'Jl. Kapas Krampung No.4, Surabaya', '087822334545');
+(23, 13, 1122, 'Andre Setyanto', 'Laki-Laki', 'Semarang', '2002-02-10', 'Jl. Kapas Krampung No.4, Surabaya', '087822334545'),
+(24, 20, 1997, 'Anandita', 'Perempuan', 'Bandung', '2003-10-15', 'Jl. Gunung Anyar Timur IV No 40, Surabaya', '0312215520');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_tahun_ajaran`
+--
+
+CREATE TABLE `tb_tahun_ajaran` (
+  `id_tahun_ajaran` int(11) NOT NULL,
+  `nama_tahun_ajaran` varchar(16) NOT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_tahun_ajaran`
+--
+
+INSERT INTO `tb_tahun_ajaran` (`id_tahun_ajaran`, `nama_tahun_ajaran`, `status`) VALUES
+(1, '2020/2021 Gasal', 0),
+(2, '2020/2021 Genap', 1),
+(3, '2021/2022 Gasal', 0),
+(5, '2029/2030 Gasal', 0);
 
 -- --------------------------------------------------------
 
@@ -285,6 +313,7 @@ INSERT INTO `tb_tindakan` (`id_tindakan`, `nama_tindakan`) VALUES
 
 CREATE TABLE `tb_tunggakan_pembayaran` (
   `id_tunggakan_pembayaran` int(11) NOT NULL,
+  `id_tahun_ajaran` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
   `id_jenis_pembayaran` int(11) NOT NULL,
   `bulan` int(2) NOT NULL,
@@ -296,17 +325,22 @@ CREATE TABLE `tb_tunggakan_pembayaran` (
 -- Dumping data for table `tb_tunggakan_pembayaran`
 --
 
-INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_siswa`, `id_jenis_pembayaran`, `bulan`, `tahun`, `biaya_pembayaran`) VALUES
-(1, 1, 1, 1, 2021, 200000),
-(5, 9, 1, 11, 2020, 200000),
-(8, 1, 1, 5, 2021, 100000),
-(15, 1, 6, 4, 2021, 50000),
-(16, 1, 6, 7, 2021, 10000),
-(17, 9, 6, 9, 2021, 50000),
-(18, 9, 6, 10, 2021, 10000),
-(19, 4, 6, 1, 2021, 30000),
-(20, 4, 1, 3, 2021, 176000),
-(21, 4, 6, 9, 2021, 30000);
+INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_tahun_ajaran`, `id_siswa`, `id_jenis_pembayaran`, `bulan`, `tahun`, `biaya_pembayaran`) VALUES
+(1, 2, 1, 1, 1, 2021, 200000),
+(5, 2, 9, 1, 11, 2020, 200000),
+(8, 2, 1, 1, 5, 2021, 100000),
+(15, 2, 1, 6, 4, 2021, 50000),
+(16, 2, 1, 6, 7, 2021, 10000),
+(17, 2, 9, 6, 9, 2021, 50000),
+(18, 1, 9, 6, 10, 2021, 10000),
+(19, 1, 4, 6, 1, 2021, 30000),
+(20, 1, 4, 1, 3, 2021, 176000),
+(21, 1, 4, 6, 9, 2021, 30000),
+(22, 3, 4, 6, 2, 2021, 101010),
+(23, 3, 4, 1, 1, 2021, 1111),
+(24, 3, 4, 1, 9, 2021, 99999),
+(25, 5, 4, 6, 1, 2021, 222),
+(26, 2, 4, 1, 3, 2021, 8000);
 
 -- --------------------------------------------------------
 
@@ -358,7 +392,8 @@ INSERT INTO `tb_user` (`id_user`, `id_pegawai`, `username`, `password`, `level`)
 --
 ALTER TABLE `tb_absensi`
   ADD PRIMARY KEY (`id_absensi`),
-  ADD KEY `id_siswa` (`id_siswa`);
+  ADD KEY `id_siswa` (`id_siswa`),
+  ADD KEY `id_tahun_ajaran` (`id_tahun_ajaran`);
 
 --
 -- Indexes for table `tb_catatan_pelanggaran`
@@ -367,7 +402,8 @@ ALTER TABLE `tb_catatan_pelanggaran`
   ADD PRIMARY KEY (`id_catatan_pelanggaran`),
   ADD KEY `tb_catatan_pelanggaran_ibfk_1` (`id_siswa`),
   ADD KEY `id_pelanggaran_tatib` (`id_pelanggaran_tatib`),
-  ADD KEY `id_tindakan` (`id_tindakan`);
+  ADD KEY `id_tindakan` (`id_tindakan`),
+  ADD KEY `id_tahun_ajaran` (`id_tahun_ajaran`);
 
 --
 -- Indexes for table `tb_jenis_pembayaran`
@@ -403,6 +439,12 @@ ALTER TABLE `tb_siswa`
   ADD KEY `id_kelas` (`id_kelas`);
 
 --
+-- Indexes for table `tb_tahun_ajaran`
+--
+ALTER TABLE `tb_tahun_ajaran`
+  ADD PRIMARY KEY (`id_tahun_ajaran`);
+
+--
 -- Indexes for table `tb_tindakan`
 --
 ALTER TABLE `tb_tindakan`
@@ -414,7 +456,8 @@ ALTER TABLE `tb_tindakan`
 ALTER TABLE `tb_tunggakan_pembayaran`
   ADD PRIMARY KEY (`id_tunggakan_pembayaran`),
   ADD KEY `id_siswa` (`id_siswa`),
-  ADD KEY `id_jenis_pembayaran` (`id_jenis_pembayaran`);
+  ADD KEY `id_jenis_pembayaran` (`id_jenis_pembayaran`),
+  ADD KEY `id_tahun_ajaran` (`id_tahun_ajaran`);
 
 --
 -- Indexes for table `tb_user`
@@ -431,13 +474,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_absensi`
 --
 ALTER TABLE `tb_absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
@@ -467,7 +510,13 @@ ALTER TABLE `tb_pelanggaran_tatib`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `tb_tahun_ajaran`
+--
+ALTER TABLE `tb_tahun_ajaran`
+  MODIFY `id_tahun_ajaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_tindakan`
@@ -479,7 +528,7 @@ ALTER TABLE `tb_tindakan`
 -- AUTO_INCREMENT for table `tb_tunggakan_pembayaran`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
-  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
@@ -495,7 +544,8 @@ ALTER TABLE `tb_user`
 -- Constraints for table `tb_absensi`
 --
 ALTER TABLE `tb_absensi`
-  ADD CONSTRAINT `tb_absensi_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `tb_siswa` (`id_siswa`);
+  ADD CONSTRAINT `tb_absensi_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `tb_siswa` (`id_siswa`),
+  ADD CONSTRAINT `tb_absensi_ibfk_2` FOREIGN KEY (`id_tahun_ajaran`) REFERENCES `tb_tahun_ajaran` (`id_tahun_ajaran`);
 
 --
 -- Constraints for table `tb_catatan_pelanggaran`
@@ -503,7 +553,8 @@ ALTER TABLE `tb_absensi`
 ALTER TABLE `tb_catatan_pelanggaran`
   ADD CONSTRAINT `tb_catatan_pelanggaran_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `tb_siswa` (`id_siswa`),
   ADD CONSTRAINT `tb_catatan_pelanggaran_ibfk_2` FOREIGN KEY (`id_pelanggaran_tatib`) REFERENCES `tb_pelanggaran_tatib` (`id_pelanggaran_tatib`),
-  ADD CONSTRAINT `tb_catatan_pelanggaran_ibfk_3` FOREIGN KEY (`id_tindakan`) REFERENCES `tb_tindakan` (`id_tindakan`);
+  ADD CONSTRAINT `tb_catatan_pelanggaran_ibfk_3` FOREIGN KEY (`id_tindakan`) REFERENCES `tb_tindakan` (`id_tindakan`),
+  ADD CONSTRAINT `tb_catatan_pelanggaran_ibfk_4` FOREIGN KEY (`id_tahun_ajaran`) REFERENCES `tb_tahun_ajaran` (`id_tahun_ajaran`);
 
 --
 -- Constraints for table `tb_kelas`
@@ -522,7 +573,8 @@ ALTER TABLE `tb_siswa`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
   ADD CONSTRAINT `tb_tunggakan_pembayaran_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `tb_siswa` (`id_siswa`),
-  ADD CONSTRAINT `tb_tunggakan_pembayaran_ibfk_2` FOREIGN KEY (`id_jenis_pembayaran`) REFERENCES `tb_jenis_pembayaran` (`id_jenis_pembayaran`);
+  ADD CONSTRAINT `tb_tunggakan_pembayaran_ibfk_2` FOREIGN KEY (`id_jenis_pembayaran`) REFERENCES `tb_jenis_pembayaran` (`id_jenis_pembayaran`),
+  ADD CONSTRAINT `tb_tunggakan_pembayaran_ibfk_3` FOREIGN KEY (`id_tahun_ajaran`) REFERENCES `tb_tahun_ajaran` (`id_tahun_ajaran`);
 
 --
 -- Constraints for table `tb_user`

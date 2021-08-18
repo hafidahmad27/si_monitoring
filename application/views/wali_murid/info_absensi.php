@@ -4,15 +4,15 @@
 	<div class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
-				<div class="col-sm-6">
+				<div class="col-sm-10">
 					<h1 class="m-0">Daftar Absensi Siswa</h1>
 				</div><!-- /.col -->
-				<div class="col-sm-6">
-					<!-- <ol class="breadcrumb float-sm-right">
+				<!-- <div class="col-sm-6"> -->
+				<!-- <ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
 						<li class="breadcrumb-item active">Dashboard v1</li>
 					</ol> -->
-				</div><!-- /.col -->
+				<!-- </div> -->
 			</div><!-- /.row -->
 		</div><!-- /.container-fluid -->
 	</div>
@@ -29,10 +29,11 @@
 							<table id="example1" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>No</th>
-										<th>Tanggal</th>
-										<th>Alasan</th>
-										<th>Keterangan</th>
+										<th style="width: 1%;">No</th>
+										<th style="width: 7.5%;">Tahun Ajaran</th>
+										<th style="width: 10%; text-align: center;">Tanggal</th>
+										<th style="width: 10%; text-align: center;">Alasan</th>
+										<th style="width: 30%; text-align: center;">Keterangan</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -41,7 +42,8 @@
 									foreach ($info_absensi as $absen) : ?>
 										<tr>
 											<td><?= $no++ ?></td>
-											<td><?= $absen->tanggal_absensi ?></td>
+											<td><?= $absen->nama_tahun_ajaran ?></td>
+											<td align="center"><?= date('d-m-Y', strtotime($absen->tanggal_absensi)) ?></td>
 											<td style="text-align: center; width: 10%;"><?= $absen->alasan ?>
 											<td><?= $absen->keterangan ?>
 											</td>

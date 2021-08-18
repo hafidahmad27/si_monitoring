@@ -32,6 +32,7 @@
 							<table id="example1" class="table table-bordered table-striped">
 								<thead>
 									<tr>
+										<th style="width: 10%; text-align: center;">Tahun Ajaran</th>
 										<th style="width: 1%;">No Induk</th>
 										<th style="width: 18%; text-align: center;">Nama Lengkap</th>
 										<th style="width: 7.5%; text-align: center;">Kelas</th>
@@ -47,6 +48,7 @@
 									<?php
 									foreach ($tunggakan_pembayaran as $tunggakan) : ?>
 										<tr>
+											<td><?= $tunggakan->nama_tahun_ajaran ?></td>
 											<td><?= $tunggakan->no_induk ?></td>
 											<td><?= $tunggakan->nama_lengkap ?>
 											<td><?= $tunggakan->nama_kelas ?>
@@ -55,7 +57,7 @@
 											<td style="text-align: center;"><?= $tunggakan->tahun ?>
 											<td style="text-align: right;"><?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?></td>
 											<!-- <td style="text-align: right;"><?= number_format($tunggakan->total_tunggakan, 0, ',', '.') ?></td> -->
-											<td style="text-align: center; width: 7%;">
+											<td style="text-align: center; width: 7.3%;">
 												<a class="btn btn-success btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
 												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 											</td>
@@ -91,6 +93,11 @@
 							<input type="hidden" id="id_tunggakan_pembayaran" name="id_tunggakan_pembayaran" class="form-control" readonly>
 						</div>
 						<div class="form-group">
+							<label>Tahun Ajaran</label>
+							<input type="hidden" id="id_tahun_ajaran" name="id_tahun_ajaran" value="<?= $this->session->userdata('id_tahun_ajaran'); ?>" class="form-control" readonly>
+							<input type="text" id="" name="" value="<?= $this->session->userdata('nama_tahun_ajaran'); ?>" class="form-control" readonly>
+						</div>
+						<div class="form-group">
 							<label>Nama Lengkap</label>
 							<select name="id_siswa" id="id_siswa" class="form-control">
 								<?php foreach ($siswa as $sisw) : ?>
@@ -114,7 +121,7 @@
 								</div>
 								<div class="col-md-7">
 									<label>Tahun</label>
-									<input type="number" id="tahun" name="tahun" min="2015" class="form-control">
+									<input type="number" id="tahun" name="tahun" min="2015" max="2099" class="form-control">
 								</div>
 							</div>
 						</div>

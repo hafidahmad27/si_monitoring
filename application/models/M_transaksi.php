@@ -58,6 +58,7 @@ class M_transaksi extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('tb_catatan_pelanggaran');
+		$this->db->join('tb_tahun_ajaran', 'tb_catatan_pelanggaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
 		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa');
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->join('tb_pelanggaran_tatib', 'tb_catatan_pelanggaran.id_pelanggaran_tatib = tb_pelanggaran_tatib.id_pelanggaran_tatib');
@@ -81,6 +82,7 @@ class M_transaksi extends CI_Model
 		if ($this->session->userdata('level') == 'admin') {
 			$this->db->select('*');
 			$this->db->from('tb_absensi');
+			$this->db->join('tb_tahun_ajaran', 'tb_absensi.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
 			$this->db->join('tb_siswa', 'tb_absensi.id_siswa = tb_siswa.id_siswa');
 			$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 			// $this->db->join('tb_pegawai', 'tb_kelas.id_pegawai = tb_pegawai.id_pegawai');
@@ -90,6 +92,7 @@ class M_transaksi extends CI_Model
 		} elseif ($this->session->userdata('level') == 'wali_kelas') {
 			$this->db->select('*');
 			$this->db->from('tb_absensi');
+			$this->db->join('tb_tahun_ajaran', 'tb_absensi.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
 			$this->db->join('tb_siswa', 'tb_absensi.id_siswa = tb_siswa.id_siswa');
 			$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 			$this->db->join('tb_pegawai', 'tb_kelas.id_pegawai = tb_pegawai.id_pegawai');
@@ -114,8 +117,9 @@ class M_transaksi extends CI_Model
 
 	public function getTunggakanPembayaranSiswa()
 	{
-		$this->db->select('id_tunggakan_pembayaran, no_induk, nama_lengkap, nama_kelas, jenis_pembayaran, bulan, tahun, biaya_pembayaran');
+		$this->db->select('*');
 		$this->db->from('tb_tunggakan_pembayaran');
+		$this->db->join('tb_tahun_ajaran', 'tb_tunggakan_pembayaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
 		$this->db->join('tb_siswa', 'tb_tunggakan_pembayaran.id_siswa = tb_siswa.id_siswa');
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
@@ -133,6 +137,7 @@ class M_transaksi extends CI_Model
 
 		$this->db->select('*');
 		$this->db->from('tb_catatan_pelanggaran');
+		$this->db->join('tb_tahun_ajaran', 'tb_catatan_pelanggaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
 		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa');
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->join('tb_pelanggaran_tatib', 'tb_catatan_pelanggaran.id_pelanggaran_tatib = tb_pelanggaran_tatib.id_pelanggaran_tatib');
@@ -167,6 +172,7 @@ class M_transaksi extends CI_Model
 
 		$this->db->select('*');
 		$this->db->from('tb_absensi');
+		$this->db->join('tb_tahun_ajaran', 'tb_absensi.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
 		$this->db->join('tb_siswa', 'tb_absensi.id_siswa = tb_siswa.id_siswa');
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->where('no_induk="' . $no_induk . '" AND tanggal_lahir="' . $tanggal_lahir . '"');
@@ -182,6 +188,7 @@ class M_transaksi extends CI_Model
 
 		$this->db->select('*');
 		$this->db->from('tb_tunggakan_pembayaran');
+		$this->db->join('tb_tahun_ajaran', 'tb_tunggakan_pembayaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
 		$this->db->join('tb_siswa', 'tb_tunggakan_pembayaran.id_siswa = tb_siswa.id_siswa');
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
@@ -208,5 +215,23 @@ class M_transaksi extends CI_Model
 
 		$query = $this->db->get();
 		return $query->result();
+	}
+
+	public function getStatusTahunAjaran()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_tahun_ajaran');
+		$this->db->where('status', 1);
+
+		$query = $this->db->get();
+		foreach ($query->result() as $row) {
+			$sess = array(
+				'id_tahun_ajaran' => $row->id_tahun_ajaran,
+				'nama_tahun_ajaran' => $row->nama_tahun_ajaran
+			);
+		}
+		$this->session->set_userdata($sess);
+		// $this->session->set_flashdata('info', 'Maaf, username atau password anda salah !');
+		// 	redirect('login');
 	}
 }

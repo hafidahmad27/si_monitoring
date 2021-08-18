@@ -44,7 +44,6 @@ class Login extends CI_Controller
 
 	public function logout()
 	{
-		$this->session->set_userdata('no_induk', FALSE);
 		$this->session->sess_destroy();
 		redirect('login');
 	}

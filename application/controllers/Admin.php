@@ -23,6 +23,7 @@ class Admin extends CI_Controller
 		if ($cek->num_rows() > 0) {
 			foreach ($cek->result() as $row) {
 				$sess = array(
+					'nama_pegawai' => $row->nama_pegawai,
 					'username' => $row->username,
 					'password' => $row->password,
 					'level' => $row->level
@@ -31,7 +32,7 @@ class Admin extends CI_Controller
 			$this->session->set_userdata($sess);
 
 			if ($row->level == 'admin') {
-				redirect('dashboard');
+				redirect('admin/dashboard');
 			} elseif ($row->level == 'guru_bk') {
 				redirect('catatan_pelanggaran');
 			} elseif ($row->level == 'wali_kelas') {
@@ -49,5 +50,17 @@ class Admin extends CI_Controller
 	{
 		$this->session->sess_destroy();
 		redirect('admin');
+	}
+
+	public function dashboard()
+	{
+		if (!$this->session->userdata('level')) {
+			redirect('admin');
+		}
+
+		$this->load->view('templates_admin/header');
+		$this->load->view('templates_admin/sidebar');
+		$this->load->view('admin/dashboard');
+		$this->load->view('templates_admin/footer');
 	}
 }

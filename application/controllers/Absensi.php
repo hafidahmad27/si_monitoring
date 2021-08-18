@@ -22,6 +22,7 @@ class Absensi extends CI_Controller
 			$data['siswaByKelas'] = $this->M_transaksi->getSiswaByKelas();
 		}
 		$data['absensi'] = $this->M_transaksi->getAbsensiSiswa();
+		$this->M_transaksi->getStatusTahunAjaran();
 
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/sidebar');
@@ -31,12 +32,14 @@ class Absensi extends CI_Controller
 
 	public function tambah_aksi()
 	{
+		$id_tahun_ajaran = $this->input->post('id_tahun_ajaran');
 		$id_siswa = $this->input->post('id_siswa');
 		$tanggal_absensi = $this->input->post('tanggal_absensi');
 		$alasan = $this->input->post('alasan');
 		$keterangan = $this->input->post('keterangan');
 
 		$data = array(
+			'id_tahun_ajaran' => $id_tahun_ajaran,
 			'id_siswa' => $id_siswa,
 			'tanggal_absensi' => $tanggal_absensi,
 			'alasan' => $alasan,
@@ -61,12 +64,14 @@ class Absensi extends CI_Controller
 	public function update()
 	{
 		$id_absensi = $this->input->post('id_absensi');
+		$id_tahun_ajaran = $this->input->post('id_tahun_ajaran');
 		$id_siswa = $this->input->post('id_siswa');
 		$tanggal_absensi = $this->input->post('tanggal_absensi');
 		$alasan = $this->input->post('alasan');
 		$keterangan = $this->input->post('keterangan');
 
 		$data = array(
+			'id_tahun_ajaran' => $id_tahun_ajaran,
 			'id_siswa' => $id_siswa,
 			'tanggal_absensi' => $tanggal_absensi,
 			'alasan' => $alasan,

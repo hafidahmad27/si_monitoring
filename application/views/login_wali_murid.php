@@ -95,7 +95,7 @@
 																			}
 																			?></span>
 										<div class="input-group mb-3">
-											<input type="text" class="form-control" name="no_induk" placeholder="No. Induk" required>
+											<input type="number" class="form-control" name="no_induk" placeholder="No. Induk" required>
 											<div class="input-group-append">
 												<div class="input-group-text">
 													<span class="fas fa-user"></span>
