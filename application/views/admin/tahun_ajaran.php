@@ -45,9 +45,14 @@
 										<tr>
 											<td><?= $no++ ?></td>
 											<td><?= $thn_ajaran->nama_tahun_ajaran; ?></td>
-											<td><?php echo $thn_ajaran->status == '0' ? 'Tidak Aktif' : 'Aktif' ?>
+											<td><?= $thn_ajaran->status == '0' ? 'Tidak Aktif' : 'Aktif' ?>
 											</td>
 											<td style="text-align: center;">
+												<!-- <a class="btn <?= $thn_ajaran->status == 0 ? 'btn-success' : 'btn-warning disabled' ?> btn-xs" href="<?= base_url() ?>/Tahun_Ajaran/ubah_status/<?= $thn_ajaran->id_tahun_ajaran; ?>" <?php if ($thn_ajaran->status == 0) : ?> onclick="return confirm('Yakin ingin MENGAKTIFKAN Tahun Ajaran ini?')" <?php else : ?> onclick="return confirm('Yakin ingin MENONAKTIFKAN Tahun Ajaran ini?')" <?php endif; ?> <?php if ($thn_ajaran->status == 0) : ?> <i class="nav-icon fas fa-check"></i> Aktifkan
+												<?php else : ?> <i class="nav-icon fas fa-times">
+													</i> Nonaktifkan
+												<?php endif; ?>
+												</a> -->
 												<a class="btn btn-success btn-xs btnEditTahunAjaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $thn_ajaran->id_tahun_ajaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
 												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Tahun_Ajaran/hapus/<?= $thn_ajaran->id_tahun_ajaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
 											</td>

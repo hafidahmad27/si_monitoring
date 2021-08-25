@@ -13,15 +13,42 @@
 </head>
 
 <body>
-
-	<section id="menu" class="d-flex align-items-center">
-		<div class="container d-flex flex-column align-items-center justify-content-center" data-aos="fade-up" style="margin-top: 290px;">
-			<a href="<?= base_url() ?>admin" class="btn btn-primary" target="_blank">Halaman Pegawai Sekolah</a><br><br>
-			<a href="<?= base_url() ?>wali_murid/profil_siswa" class="btn btn-info" target="_blank">Halaman Wali Murid</a>
-
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+		<a class="navbar-brand text-white" href="#">
+			<img src="<?= base_url() ?>assets/dist/img/logo-smk-ikip.png" width="40" height="40" class="d-inline-block align-top" alt="">
+			<small>SI Monitoring Siswa</small>
+			<small>| SMK IKIP Surabaya</small>
+		</a>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav ml-auto">
+				<!-- <li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Contact</a>
+				</li> -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Login
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="<?= base_url() ?>admin" class="dropdown-item" target="_blank">Halaman Pegawai Sekolah</a>
+						<a href="<?= base_url() ?>wali_murid/profil_siswa" class="dropdown-item" target="_blank">Halaman Wali Murid</a>
+					</div>
+				</li>
+			</ul>
 		</div>
+	</nav>
+	<div class="jumbotron">
+		<h1 class="display-4">Sistem Informasi Monitoring Siswa</h1>
+		<p class="lead">Website untuk memonitoring putra-putri anda di sekolah</p>
+		<hr class="my-4">
+		<p class="lead">Untuk memonitoring putra-putri anda, Silahkan login dengan menekan tombol login di pojok kanan atas</p>
+	</div>
 
-	</section><!-- End Hero -->
 	<!-- Optional JavaScript; choose one of the two! -->
 
 	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

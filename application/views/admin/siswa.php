@@ -106,7 +106,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>Kelas</label><br>
-									<select name="id_kelas" id="id_kelas" class="form-control select2" style="width: 100%;">
+									<select name="id_kelas" id="id_kelas" class="form-control" style="width: 100%;">
 										<?php foreach ($kelas as $kls) : ?>
 											<option value="<?= $kls->id_kelas ?>"><?= $kls->nama_kelas ?></option>
 										<?php endforeach; ?>

@@ -1,0 +1,12 @@
+
+document.getElementById("myAnchor").removeAttribute("href");
+
+
+<?php if ($this->session->userdata('level') == 'wali_kelas') : ?>
+					document.getElementById("myAnchor").removeAttribute("href");
+				<?php endif; ?>
+
+var div_form_group = document.getElementById("thn_ajar");
+							if (div_form_group.hasChildNodes()) {
+								div_form_group.removeChild(div_form_group.childNodes[2]);
+							}

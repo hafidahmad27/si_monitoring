@@ -35,7 +35,7 @@
 					</li>
 				<?php endif; ?>
 
-				<li class="nav-header">MASTER DATA</li>
+				<li id="nav-master" class="nav-header">MASTER DATA</li>
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-item">
 						<a href="<?= base_url() ?>tahun_ajaran" class="nav-link <?php echo $uri == 'tahun_ajaran' ? 'active' : 'no' ?>">
@@ -136,6 +136,14 @@
 							</p>
 						</a>
 					</li>
+					<?php if ($this->session->userdata('level') == 'wali_kelas') : ?>
+						<script>
+							var list = document.getElementById("nav-master");
+							if (list.hasChildNodes()) {
+								list.removeChild(list.childNodes[0]);
+							}
+						</script>
+					<?php endif; ?>
 				<?php endif; ?>
 
 				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'staff_tu') : ?>
@@ -144,6 +152,18 @@
 							<i class="nav-icon fas fa-file-invoice-dollar"></i>
 							<p>
 								Tunggakan Pembayaran
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<li class="nav-header">LAPORAN</li>
+				<?php if ($this->session->userdata('level') == 'admin') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>laporan" class="nav-link <?php echo $uri == 'laporan' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-file-alt"></i>
+							<p>
+								Laporan Monitoring
 							</p>
 						</a>
 					</li>

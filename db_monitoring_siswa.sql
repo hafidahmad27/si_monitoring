@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2021 at 04:45 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.4.20
+-- Generation Time: Aug 25, 2021 at 02:17 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,13 +49,14 @@ INSERT INTO `tb_absensi` (`id_absensi`, `id_tahun_ajaran`, `id_siswa`, `tanggal_
 (6, 2, 9, '2021-05-31', 'Sakit', 'Asma, dirawat di rumah'),
 (7, 2, 13, '2021-05-17', 'Sakit', 'Pusing'),
 (8, 2, 18, '2021-05-07', 'Sakit', 'Panu'),
-(11, 2, 4, '2021-04-14', 'Alpa', '-'),
-(12, 2, 23, '2021-03-16', 'Alpa', 'tidak ada keterangan'),
-(13, 2, 16, '2021-03-10', 'Izin', 'tidur'),
-(14, 1, 4, '2021-01-18', 'Izin', 'Acara keluarga'),
-(15, 1, 22, '2020-11-19', 'Alpa', '-'),
-(16, 1, 4, '2020-10-05', 'Sakit', 'panas, rawat inap'),
-(17, 3, 4, '2021-08-18', 'Alpa', 'ke warung');
+(9, 2, 4, '2021-04-14', 'Alpa', '-'),
+(10, 2, 23, '2021-03-16', 'Alpa', 'tidak ada keterangan'),
+(11, 2, 16, '2021-03-10', 'Izin', 'tidur'),
+(12, 1, 4, '2021-01-18', 'Izin', 'Acara keluarga'),
+(13, 1, 22, '2020-11-19', 'Alpa', '-'),
+(14, 1, 4, '2020-10-05', 'Sakit', 'panas, rawat inap'),
+(15, 3, 4, '2021-08-18', 'Alpa', 'ke warung'),
+(16, 1, 9, '2021-08-23', 'Sakit', 'Asma');
 
 -- --------------------------------------------------------
 
@@ -77,27 +78,28 @@ CREATE TABLE `tb_catatan_pelanggaran` (
 --
 
 INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_tahun_ajaran`, `id_siswa`, `id_pelanggaran_tatib`, `id_tindakan`, `tanggal`) VALUES
-(9, 2, 10, 8, 5, '2021-07-29'),
-(12, 2, 8, 5, 3, '2021-07-09'),
-(13, 2, 1, 1, 1, '2021-07-04'),
-(15, 2, 10, 3, 3, '2021-06-22'),
-(16, 2, 14, 3, 3, '2021-06-05'),
-(17, 2, 4, 3, 5, '2021-06-24'),
-(18, 2, 7, 5, 1, '2021-05-10'),
-(19, 2, 16, 2, 3, '2021-05-27'),
-(20, 2, 4, 1, 1, '2021-05-03'),
-(21, 2, 7, 1, 3, '2021-04-28'),
-(23, 2, 9, 8, 1, '2021-04-09'),
-(24, 2, 18, 5, 3, '2021-04-01'),
-(25, 2, 4, 5, 1, '2021-03-31'),
-(27, 2, 4, 1, 1, '2021-03-29'),
-(28, 2, 1, 8, 5, '2021-03-04'),
-(29, 1, 4, 8, 2, '2021-01-11'),
-(30, 1, 9, 8, 5, '2020-12-23'),
-(32, 1, 4, 8, 3, '2020-11-25'),
-(33, 1, 4, 2, 3, '2020-10-07'),
-(34, 3, 4, 4, 5, '2021-08-18'),
-(35, 2, 4, 2, 5, '2021-08-18');
+(1, 2, 10, 8, 4, '2021-07-29'),
+(2, 2, 8, 5, 3, '2021-07-09'),
+(3, 2, 1, 1, 1, '2021-07-04'),
+(4, 2, 10, 3, 3, '2021-06-22'),
+(5, 2, 14, 3, 3, '2021-06-05'),
+(6, 2, 4, 3, 4, '2021-06-24'),
+(7, 2, 7, 5, 1, '2021-05-10'),
+(8, 2, 16, 2, 4, '2021-05-27'),
+(9, 2, 4, 1, 1, '2021-05-03'),
+(10, 2, 7, 1, 3, '2021-04-28'),
+(11, 2, 9, 8, 1, '2021-04-09'),
+(12, 2, 18, 5, 3, '2021-04-01'),
+(13, 2, 4, 5, 1, '2021-03-31'),
+(14, 2, 4, 1, 1, '2021-03-29'),
+(15, 2, 1, 8, 4, '2021-03-04'),
+(16, 1, 4, 8, 2, '2021-01-11'),
+(17, 1, 9, 8, 4, '2020-12-23'),
+(18, 1, 4, 8, 3, '2020-11-25'),
+(19, 1, 4, 2, 3, '2020-10-07'),
+(20, 3, 4, 4, 4, '2021-08-18'),
+(21, 2, 4, 2, 4, '2021-08-18'),
+(22, 1, 9, 2, 1, '2021-08-23');
 
 -- --------------------------------------------------------
 
@@ -116,7 +118,7 @@ CREATE TABLE `tb_jenis_pembayaran` (
 
 INSERT INTO `tb_jenis_pembayaran` (`id_jenis_pembayaran`, `jenis_pembayaran`) VALUES
 (1, 'DOP (Dana Operasional Pendidikan)'),
-(6, 'Tabungan Wajib');
+(2, 'Tabungan Wajib');
 
 -- --------------------------------------------------------
 
@@ -282,7 +284,7 @@ INSERT INTO `tb_tahun_ajaran` (`id_tahun_ajaran`, `nama_tahun_ajaran`, `status`)
 (1, '2020/2021 Gasal', 0),
 (2, '2020/2021 Genap', 1),
 (3, '2021/2022 Gasal', 0),
-(5, '2029/2030 Gasal', 0);
+(4, '2029/2030 Gasal', 0);
 
 -- --------------------------------------------------------
 
@@ -303,7 +305,7 @@ INSERT INTO `tb_tindakan` (`id_tindakan`, `nama_tindakan`) VALUES
 (1, 'Peringatan lisan oleh guru dan petugas ketertiban'),
 (2, 'Pembinaan oleh guru, wali kelas dan BK'),
 (3, 'Pernyataan tertulis'),
-(5, 'SP 2');
+(4, 'SP 2');
 
 -- --------------------------------------------------------
 
@@ -327,20 +329,23 @@ CREATE TABLE `tb_tunggakan_pembayaran` (
 
 INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_tahun_ajaran`, `id_siswa`, `id_jenis_pembayaran`, `bulan`, `tahun`, `biaya_pembayaran`) VALUES
 (1, 2, 1, 1, 1, 2021, 200000),
-(5, 2, 9, 1, 11, 2020, 200000),
-(8, 2, 1, 1, 5, 2021, 100000),
-(15, 2, 1, 6, 4, 2021, 50000),
-(16, 2, 1, 6, 7, 2021, 10000),
-(17, 2, 9, 6, 9, 2021, 50000),
-(18, 1, 9, 6, 10, 2021, 10000),
-(19, 1, 4, 6, 1, 2021, 30000),
-(20, 1, 4, 1, 3, 2021, 176000),
-(21, 1, 4, 6, 9, 2021, 30000),
-(22, 3, 4, 6, 2, 2021, 101010),
-(23, 3, 4, 1, 1, 2021, 1111),
-(24, 3, 4, 1, 9, 2021, 99999),
-(25, 5, 4, 6, 1, 2021, 222),
-(26, 2, 4, 1, 3, 2021, 8000);
+(2, 2, 9, 1, 11, 2020, 200000),
+(3, 2, 1, 1, 5, 2021, 100000),
+(4, 2, 1, 2, 4, 2021, 50000),
+(5, 2, 1, 2, 7, 2021, 10000),
+(6, 2, 9, 2, 9, 2021, 50000),
+(7, 1, 9, 2, 10, 2021, 10000),
+(8, 1, 4, 2, 1, 2021, 30000),
+(9, 1, 4, 1, 3, 2021, 176000),
+(10, 1, 4, 2, 9, 2021, 30000),
+(11, 3, 4, 2, 2, 2021, 101010),
+(12, 3, 4, 1, 1, 2021, 1111),
+(13, 3, 4, 1, 9, 2021, 99999),
+(14, 1, 4, 2, 1, 2021, 222),
+(15, 2, 4, 1, 3, 2021, 8000),
+(16, 2, 9, 1, 2, 2021, 30000),
+(17, 1, 9, 2, 12, 2020, 15000),
+(18, 2, 13, 1, 1, 2020, 10000);
 
 -- --------------------------------------------------------
 
@@ -362,26 +367,26 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`id_user`, `id_pegawai`, `username`, `password`, `level`) VALUES
 (1, 1, 'admin', 'admin', 'admin'),
-(4, 3, 'pita', '123', 'guru_bk'),
-(5, 4, 'indah', '456', 'staff_tu'),
-(6, 5, 'xbdp1', 'xbdp1', 'wali_kelas'),
-(7, 6, 'xbdp2', 'xbdp2', 'wali_kelas'),
-(8, 7, 'xibdp1', 'xibdp1', 'wali_kelas'),
-(9, 8, 'xibdp2', 'xibdp2', 'wali_kelas'),
-(10, 9, 'xiibdp1', 'xiibdp1', 'wali_kelas'),
-(11, 10, 'xiibdp2', 'xiibdp2', 'wali_kelas'),
-(12, 11, 'xmm1', 'xmm1', 'wali_kelas'),
-(13, 12, 'xmm2', 'xmm2', 'wali_kelas'),
-(14, 13, 'ximm1', 'ximm1', 'wali_kelas'),
-(15, 14, 'ximm2', 'ximm2', 'wali_kelas'),
-(16, 15, 'xiimm1', 'xiimm1', 'wali_kelas'),
-(17, 16, 'xiimm2', 'xiimm2', 'wali_kelas'),
-(18, 17, 'xtkkr1', 'xtkkr1', 'wali_kelas'),
-(19, 18, 'xtkkr2', 'xtkkr2', 'wali_kelas'),
-(20, 19, 'xitkkr1', 'xitkkr1', 'wali_kelas'),
-(21, 20, 'xitkkr2', 'xitkkr2', 'wali_kelas'),
-(22, 21, 'xiitkkr1', 'xiitkkr1', 'wali_kelas'),
-(23, 22, 'xiitkkr2', 'xiitkkr2', 'wali_kelas');
+(2, 3, 'pita', '123', 'guru_bk'),
+(3, 4, 'indah', '456', 'staff_tu'),
+(4, 5, 'xbdp1', 'xbdp1', 'wali_kelas'),
+(5, 6, 'xbdp2', 'xbdp2', 'wali_kelas'),
+(6, 7, 'xibdp1', 'xibdp1', 'wali_kelas'),
+(7, 8, 'xibdp2', 'xibdp2', 'wali_kelas'),
+(8, 9, 'xiibdp1', 'xiibdp1', 'wali_kelas'),
+(9, 10, 'xiibdp2', 'xiibdp2', 'wali_kelas'),
+(10, 11, 'xmm1', 'xmm1', 'wali_kelas'),
+(11, 12, 'xmm2', 'xmm2', 'wali_kelas'),
+(12, 13, 'ximm1', 'ximm1', 'wali_kelas'),
+(13, 14, 'ximm2', 'ximm2', 'wali_kelas'),
+(14, 15, 'xiimm1', 'xiimm1', 'wali_kelas'),
+(15, 16, 'xiimm2', 'xiimm2', 'wali_kelas'),
+(16, 17, 'xtkkr1', 'xtkkr1', 'wali_kelas'),
+(17, 18, 'xtkkr2', 'xtkkr2', 'wali_kelas'),
+(18, 19, 'xitkkr1', 'xitkkr1', 'wali_kelas'),
+(19, 20, 'xitkkr2', 'xitkkr2', 'wali_kelas'),
+(20, 21, 'xiitkkr1', 'xiitkkr1', 'wali_kelas'),
+(21, 22, 'xiitkkr2', 'xiitkkr2', 'wali_kelas');
 
 --
 -- Indexes for dumped tables
@@ -474,19 +479,19 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_absensi`
 --
 ALTER TABLE `tb_absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
 --
 ALTER TABLE `tb_jenis_pembayaran`
-  MODIFY `id_jenis_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_jenis_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_kelas`
@@ -516,25 +521,25 @@ ALTER TABLE `tb_siswa`
 -- AUTO_INCREMENT for table `tb_tahun_ajaran`
 --
 ALTER TABLE `tb_tahun_ajaran`
-  MODIFY `id_tahun_ajaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tahun_ajaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_tindakan`
 --
 ALTER TABLE `tb_tindakan`
-  MODIFY `id_tindakan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tindakan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_tunggakan_pembayaran`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
-  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables

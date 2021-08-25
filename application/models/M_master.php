@@ -99,4 +99,9 @@ class M_master extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+	// public function change_status($where, $data, $table)
+	// {
+	// 	$this->db->where($where);
+	// 	$this->db->update($table, $data);
+	// }
 }

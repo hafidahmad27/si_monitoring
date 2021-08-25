@@ -8,6 +8,10 @@ $(function ()
 			"http://localhost/si_monitoring/Tunggakan_Pembayaran/tambah_aksi"
 		);
 		document.getElementById('formResetData').reset();
+    $(".ta").show();
+    $("#id_tahun_ajaran").prop("type", "hidden")
+    $("#nama_ajr").prop("type", "text")
+
 	});
 
 	$(".btnEditTunggakanPembayaran").on("click", function () {
@@ -17,6 +21,9 @@ $(function ()
 			"action",
 			"http://localhost/si_monitoring/Tunggakan_Pembayaran/update"
 		);
+    $(".ta").hide();
+    $("#id_tahun_ajaran").prop("type", "hidden")
+    $("#nama_ajr").prop("type", "hidden")
 
 		const id = $(this).data("id");
 

@@ -92,19 +92,19 @@
 						<div class="form-group">
 							<input type="hidden" id="id_catatan_pelanggaran" name="id_catatan_pelanggaran" class="form-control" readonly>
 						</div>
-						<div class="form-group">
+						<div class="form-group ta">
 							<label>Tahun Ajaran</label>
-							<input type="hidden" id="id_tahun_ajaran" name="id_tahun_ajaran" value="<?= $this->session->userdata('id_tahun_ajaran'); ?>" class="form-control" readonly>
-							<input type="text" id="" name="" value="<?= $this->session->userdata('nama_tahun_ajaran'); ?>" class="form-control" readonly>
+							<input type="text" id="id_tahun_ajaran" name="id_tahun_ajaran" value="<?= $this->session->userdata('id_tahun_ajaran'); ?>" class="form-control" readonly>
+							<input type="text" id="nama_ajr" name="" value="<?= $this->session->userdata('nama_tahun_ajaran'); ?>" class="form-control" readonly>
 						</div>
 						<div class="form-group">
 							<label>Tanggal</label>
 							<input type="hidden" id="tanggal" name="tanggal" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
-							<input type="text" id="" name="" value="<?= date('d-m-Y') ?>" class="form-control" readonly>
+							<input type="text" id="tagal" name="" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label><br>
-							<select name="id_siswa" id="id_siswa" class="form-control select2" style="width: 100%;">
+							<select name="id_siswa" id="id_siswa" class="form-control" style="width: 100%;">
 								<?php foreach ($siswa as $sisw) : ?>
 									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
 								<?php endforeach; ?>

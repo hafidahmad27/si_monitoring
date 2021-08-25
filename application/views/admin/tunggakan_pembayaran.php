@@ -92,10 +92,10 @@
 						<div class="form-group">
 							<input type="hidden" id="id_tunggakan_pembayaran" name="id_tunggakan_pembayaran" class="form-control" readonly>
 						</div>
-						<div class="form-group">
+						<div class="form-group ta">
 							<label>Tahun Ajaran</label>
-							<input type="hidden" id="id_tahun_ajaran" name="id_tahun_ajaran" value="<?= $this->session->userdata('id_tahun_ajaran'); ?>" class="form-control" readonly>
-							<input type="text" id="" name="" value="<?= $this->session->userdata('nama_tahun_ajaran'); ?>" class="form-control" readonly>
+							<input type="text" id="id_tahun_ajaran" name="id_tahun_ajaran" value="<?= $this->session->userdata('id_tahun_ajaran'); ?>" class="form-control" readonly>
+							<input type="text" id="nama_ajr" name="" value="<?= $this->session->userdata('nama_tahun_ajaran'); ?>" class="form-control" readonly>
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label>

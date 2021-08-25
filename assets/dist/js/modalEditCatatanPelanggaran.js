@@ -7,6 +7,12 @@ $(function ()
 			"action",
 			"http://localhost/si_monitoring/Catatan_Pelanggaran/tambah_aksi"
 		);
+    $(".ta").show();
+    $("#id_tahun_ajaran").prop("type", "hidden")
+    $("#nama_ajr").prop("type", "text")
+    $("#tanggal").prop("type", "text");
+    $("#tagal").hide();
+
 		document.getElementById('formResetData').reset();
 	});
 
@@ -16,19 +22,26 @@ $(function ()
 		$(".modal-body form").attr(
 			"action",
 			"http://localhost/si_monitoring/Catatan_Pelanggaran/update"
-		);
+    );
+    $(".ta").hide();
+    $("#id_tahun_ajaran").prop("type", "hidden")
+    $("#nama_ajr").prop("type", "hidden")
+    $("#tanggal").prop("type", "text");
+    $("#tagal").hide();
+    // $("#tagal").removeAttribute("value");
+    document.getElementById("tagal").removeAttribute("value");
 
 		const id = $(this).data("id");
 
 		$.ajax({
-			url: "http://localhost/si_monitoring/Catatan_Pelanggaran/getUbah",
+      url: "http://localhost/si_monitoring/Catatan_Pelanggaran/getUbah",
 			data: {
-				id: id,
+        id: id,
 			},
 			method: "post",
 			dataType: "json",
 			success: function (data) {
-				console.log(data);
+        console.log(data);
 				$("#id_catatan_pelanggaran").val(data.id_catatan_pelanggaran);
 				$("#id_tahun_ajaran").val(data.id_tahun_ajaran);
 				$("#id_siswa").val(data.id_siswa);

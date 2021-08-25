@@ -67,6 +67,28 @@ class Tahun_Ajaran extends CI_Controller
 		redirect('Tahun_Ajaran');
 	}
 
+	// public function ubah_status($id_tahun_ajaran)
+	// {
+	// 	$where = array('id_tahun_ajaran' => $id_tahun_ajaran);
+	// 	$data['tahun_ajaran'] = $this->M_master->edit_data($where, 'tb_tahun_ajaran')->result();
+
+	// 	$this->load->view('templates_admin/header');
+	// 	$this->load->view('templates_admin/sidebar');
+	// 	$this->load->view('admin/tahun_ajaran', $data);
+	// 	$this->load->view('templates_admin/footer');
+
+	// 	$id_tahun_ajarane = $this->input->post('id_tahun_ajaran');
+	// 	$status = $this->input->post('status');
+
+	// 	$data = array(
+	// 		'status' => $status
+	// 	);
+
+	// 	$where = array('id_tahun_ajaran' => $id_tahun_ajarane);
+	// 	$this->M_master->change_status($where, $data, 'tb_tahun_ajaran');
+	// 	redirect('Tahun_Ajaran/index');
+	// }
+
 	public function hapus($id_tahun_ajaran)
 	{
 		$where = array('id_tahun_ajaran' => $id_tahun_ajaran);
