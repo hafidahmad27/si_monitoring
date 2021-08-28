@@ -16,7 +16,7 @@ $(function ()
 
 	$(".btnEditTunggakanPembayaran").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Transaksi Tunggakan Pembayaran Siswa");
-		$(".modal-footer button[type=submit]").html("Edit");
+		$(".modal-footer button[type=submit]").html("Update");
 		$(".modal-body form").attr(
 			"action",
 			"http://localhost/si_monitoring/Tunggakan_Pembayaran/update"

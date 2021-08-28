@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2021 at 02:17 AM
+-- Generation Time: Aug 28, 2021 at 08:10 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -50,7 +50,6 @@ INSERT INTO `tb_absensi` (`id_absensi`, `id_tahun_ajaran`, `id_siswa`, `tanggal_
 (7, 2, 13, '2021-05-17', 'Sakit', 'Pusing'),
 (8, 2, 18, '2021-05-07', 'Sakit', 'Panu'),
 (9, 2, 4, '2021-04-14', 'Alpa', '-'),
-(10, 2, 23, '2021-03-16', 'Alpa', 'tidak ada keterangan'),
 (11, 2, 16, '2021-03-10', 'Izin', 'tidur'),
 (12, 1, 4, '2021-01-18', 'Izin', 'Acara keluarga'),
 (13, 1, 22, '2020-11-19', 'Alpa', '-'),
@@ -93,7 +92,7 @@ INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_tahun_ajaran
 (13, 2, 4, 5, 1, '2021-03-31'),
 (14, 2, 4, 1, 1, '2021-03-29'),
 (15, 2, 1, 8, 4, '2021-03-04'),
-(16, 1, 4, 8, 2, '2021-01-11'),
+(16, 1, 4, 1, 2, '2021-01-11'),
 (17, 1, 9, 8, 4, '2020-12-23'),
 (18, 1, 4, 8, 3, '2020-11-25'),
 (19, 1, 4, 2, 3, '2020-10-07'),
@@ -246,7 +245,7 @@ CREATE TABLE `tb_siswa` (
 INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telp`) VALUES
 (1, 1, 1401, 'Andhika Pratama', 'Laki-Laki', 'Surabaya', '2002-04-02', 'Jalan Pesapen Utara No. 112, Surabaya', '087712345678'),
 (3, 12, 1439, 'Eva Anisawati', 'Perempuan', 'Surabaya', '1998-06-05', 'Jl. Jagir Sidomukti No. 22, Surabaya', '081234567890'),
-(4, 13, 1419, 'Ahmad Hafid Holy Saputra', 'Laki-Laki', 'Pacitan', '1999-01-27', 'Jl. Medayu Utara 1 Melati No. 3\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087834581787'),
+(4, 13, 1419, 'Ahmad Hafid Holy Saputra', 'Laki-Laki', 'Pacitan', '1999-01-27', 'Jl. Kalijudan 1 No. 24\r\nKel. Kalijudan, Kec. Genteng\r\nSurabaya, Jawa Timur', '087834581787'),
 (6, 11, 1676, 'Dinda Rahmadani Putri', 'Perempuan', 'Surabaya', '1999-01-17', 'Medokan Semampir Tengah No 75, Surabaya', '087863668900'),
 (7, 1, 1495, 'Laila Abidatul Amanah', 'Perempuan', 'Lamongan', '1999-05-05', 'Jl. Gunung Anyar Harapan VII No. 88, Surabaya', '081245675678'),
 (8, 11, 1501, 'Wahyu Atta Masruroh', 'Perempuan', 'Jombang', '1998-09-30', 'Medokan Sawah No. 33, Surabaya', '087733455656'),
@@ -256,7 +255,7 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jen
 (12, 10, 1498, 'Firdausi Rahmadani', 'Perempuan', 'Surabaya', '1998-12-23', 'Jl. Menur Pumpungan No. 3, Surabaya', '081255674321'),
 (13, 8, 1502, 'Dinivi Widyianti', 'Perempuan', 'Pacitan', '1998-11-02', 'Jl. Tanjung Sari No. 21, Pacitan', '085672131611'),
 (14, 1, 1465, 'Jonathan Sutejo', 'Laki-Laki', 'Mojokerto', '2000-10-04', 'Medokan Sawah No. 23\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087765434321'),
-(15, 1, 7765, 'Ander Herrera', 'Laki-Laki', 'Washington', '1998-08-08', 'Jemur Wonosari Gg. Lebar No. 1\r\nKel. Wonocolo, Kec. Jemursari\r\nSurabaya, Jawa Timur', '087123453452'),
+(15, 1, 7765, 'Adit Saputra', 'Laki-Laki', 'Washington', '1998-08-08', 'Jemur Wonosari Gg. Lebar No. 1\r\nKel. Wonocolo, Kec. Jemursari\r\nSurabaya, Jawa Timur', '087123453452'),
 (16, 12, 3432, 'Bowo Ardiansyah', 'Laki-Laki', 'Surabaya', '2021-04-28', 'Wiyuuuuuuuuuuuuuuuung', '087648483737'),
 (18, 12, 1595, 'Muhammad Haris Setiawan Adhi Mifta', 'Laki-Laki', 'Mojokerto', '1999-08-25', 'Jl. Raya Mojosari Pacet Kutorejo, No. 50', '087734565678'),
 (21, 11, 1999, 'Saputra Hafid Ahmad', 'Laki-Laki', 'Trenggalek', '1999-11-27', 'Jl. Kalijudan No. 1, Surabaya', '0314567890'),
@@ -284,7 +283,7 @@ INSERT INTO `tb_tahun_ajaran` (`id_tahun_ajaran`, `nama_tahun_ajaran`, `status`)
 (1, '2020/2021 Gasal', 0),
 (2, '2020/2021 Genap', 1),
 (3, '2021/2022 Gasal', 0),
-(4, '2029/2030 Gasal', 0);
+(4, '2021/2022 Genap', 0);
 
 -- --------------------------------------------------------
 
@@ -335,17 +334,16 @@ INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_tahun_ajar
 (5, 2, 1, 2, 7, 2021, 10000),
 (6, 2, 9, 2, 9, 2021, 50000),
 (7, 1, 9, 2, 10, 2021, 10000),
-(8, 1, 4, 2, 1, 2021, 30000),
+(8, 2, 4, 2, 12, 2020, 30000),
 (9, 1, 4, 1, 3, 2021, 176000),
 (10, 1, 4, 2, 9, 2021, 30000),
-(11, 3, 4, 2, 2, 2021, 101010),
-(12, 3, 4, 1, 1, 2021, 1111),
-(13, 3, 4, 1, 9, 2021, 99999),
 (14, 1, 4, 2, 1, 2021, 222),
 (15, 2, 4, 1, 3, 2021, 8000),
 (16, 2, 9, 1, 2, 2021, 30000),
 (17, 1, 9, 2, 12, 2020, 15000),
-(18, 2, 13, 1, 1, 2020, 10000);
+(18, 2, 13, 1, 1, 2020, 10000),
+(19, 2, 14, 2, 2, 2021, 30000),
+(20, 2, 3, 1, 10, 2021, 999999999);
 
 -- --------------------------------------------------------
 
@@ -479,13 +477,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_absensi`
 --
 ALTER TABLE `tb_absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
@@ -497,7 +495,7 @@ ALTER TABLE `tb_jenis_pembayaran`
 -- AUTO_INCREMENT for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tb_pegawai`
@@ -515,7 +513,7 @@ ALTER TABLE `tb_pelanggaran_tatib`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tb_tahun_ajaran`
@@ -533,7 +531,7 @@ ALTER TABLE `tb_tindakan`
 -- AUTO_INCREMENT for table `tb_tunggakan_pembayaran`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
-  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_user`

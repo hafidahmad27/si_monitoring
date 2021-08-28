@@ -35,6 +35,7 @@
 										<div class="form-group">
 											<label>Nama Siswa</label>
 											<select name="no_induk" class="form-control" style="width: 100%;">
+												<option>--Silahkan Pilih--</option>
 												<?php foreach ($pilih_no_induk as $pns) : ?>
 													<option value="<?= $pns->no_induk ?>"><?= $pns->nama_lengkap ?></option>
 												<?php endforeach; ?>
@@ -45,6 +46,7 @@
 										<div class="form-group">
 											<label>Tahun Ajaran</label>
 											<select name="nama_tahun_ajaran" class="form-control" style="width: 100%;">
+												<option>--Silahkan Pilih--</option>
 												<?php foreach ($pilih_tahun_ajaran as $pta) : ?>
 													<option value="<?= $pta->nama_tahun_ajaran ?>"><?= $pta->nama_tahun_ajaran ?></option>
 												<?php endforeach; ?>

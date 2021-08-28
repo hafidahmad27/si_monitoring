@@ -16,13 +16,13 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" background="<?= base_url() ?>assets/dist/img/smkikipsby.jpg" style="background-size: 100% 210%; background-repeat: no-repeat;">
 	<div class="login-box">
-		<div class="login-logo">
-			<a href="#"><b>Monitoring</b>System</a>
-		</div>
 		<!-- /.login-logo -->
-		<div class="card">
+		<div class="card bg-primary">
+			<div class="login-logo">
+				<a href="#" class="text-white"><b>Monitoring</b>System</a>
+			</div>
 			<div class="card-body login-card-body">
 				<p class="login-box-msg">Login Pegawai Sekolah</p>
 

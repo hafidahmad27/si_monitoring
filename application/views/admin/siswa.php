@@ -33,12 +33,12 @@
 								<thead>
 									<tr>
 										<!-- <th>No</th> -->
-										<th style="width: 1%;">No</th>
+										<th style="width: 1%;">No Ind</th>
 										<th style="width: 29%; text-align: center;">Nama Lengkap</th>
-										<th style="width: 13.3%;">Kelas</th>
+										<th style="width: 11.3%;">Kelas</th>
 										<th style="width: 1%;">Jenis Kelamin</th>
 										<th style="width: 1%;">Tempat Lahir</th>
-										<th style="width: 1%;">Tanggal Lahir</th>
+										<th style="width: 9.7%;">Tanggal Lahir</th>
 										<th style="width: 20%; text-align: center;">Alamat</th>
 										<th style="width: 1%; text-align: center;">No Telp</th>
 										<th style="width: 8.2%; text-align: center;">Aksi</th>
@@ -96,17 +96,18 @@
 						</div>
 						<div class="form-group">
 							<label>No Induk</label>
-							<input type="number" id="no_induk" name="no_induk" class="form-control">
+							<input type="number" id="no_induk" name="no_induk" min="0" max="9999999999" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label>
-							<input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control">
+							<input type="text" id="nama_lengkap" name="nama_lengkap" maxlength="50" class="form-control" required>
 						</div>
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>Kelas</label><br>
 									<select name="id_kelas" id="id_kelas" class="form-control" style="width: 100%;">
+										<option>--Silahkan Pilih--</option>
 										<?php foreach ($kelas as $kls) : ?>
 											<option value="<?= $kls->id_kelas ?>"><?= $kls->nama_kelas ?></option>
 										<?php endforeach; ?>
@@ -133,7 +134,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>Tempat Lahir</label>
-									<input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control">
+									<input type="text" id="tempat_lahir" name="tempat_lahir" maxlength="30" class="form-control">
 								</div>
 							</div>
 							<div class="col-sm-6">
@@ -145,11 +146,11 @@
 						</div>
 						<div class="form-group">
 							<label>Alamat</label>
-							<textarea id="alamat" name="alamat" cols="" rows="4" class="form-control"></textarea>
+							<textarea id="alamat" name="alamat" cols="" rows="4" maxlength="100" class="form-control"></textarea>
 						</div>
 						<div class="form-group">
 							<label>No Telp</label>
-							<input type="number" id="no_telp" name="no_telp" min="0" class="form-control">
+							<input type="number" id="no_telp" name="no_telp" min="0" max="9999999999999" class="form-control">
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

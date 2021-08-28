@@ -12,7 +12,7 @@ $(function ()
 
 	$(".btnEditTahunAjaran").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Tahun Ajaran");
-		$(".modal-footer button[type=submit]").html("Edit");
+		$(".modal-footer button[type=submit]").html("Update");
 		$(".modal-body form").attr(
 			"action",
 			"http://localhost/si_monitoring/Tahun_Ajaran/update"

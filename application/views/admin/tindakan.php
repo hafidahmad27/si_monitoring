@@ -34,7 +34,7 @@
 									<tr>
 										<th>No</th>
 										<th>Nama Tindakan</th>
-										<th style="text-align: center;">Aksi</th>
+										<th style="text-align: center; width: 10%;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -82,7 +82,7 @@
 						</div>
 						<div class="form-group">
 							<label>Nama Tindakan</label>
-							<input type="text" id="nama_tindakan" name="nama_tindakan" class="form-control">
+							<input type="text" id="nama_tindakan" name="nama_tindakan" maxlength="150" class="form-control" required>
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

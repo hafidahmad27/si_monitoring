@@ -25,7 +25,7 @@
 					<div class="card card-secondary card-outline">
 						<div class="card-body box-profile">
 							<div class="text-center">
-								<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg">
+								<img class="rounded" style="border: 2px solid #6c757d; padding: 5px;" src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg">
 							</div>
 							<div class="card-body">
 								<table class="table">

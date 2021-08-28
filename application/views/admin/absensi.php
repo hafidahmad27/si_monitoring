@@ -103,13 +103,15 @@
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label><br>
-							<select name="id_siswa" id="id_siswa" class="form-control" style="width: 100%;">
+							<select name="id_siswa" id="id_siswa" class="form-control" style="width: 100%;" required>
 								<?php if ($this->session->userdata('level') == 'admin') : ?>
+									<option value="">--Silahkan Pilih--</option>
 									<?php foreach ($siswa as $sisw) : ?>
 										<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
 									<?php endforeach; ?>
 								<?php endif; ?>
 								<?php if ($this->session->userdata('level') == 'wali_kelas') : ?>
+									<option value="">--Silahkan Pilih--</option>
 									<?php foreach ($siswaByKelas as $sisw) : ?>
 										<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
 									<?php endforeach; ?>
@@ -142,7 +144,7 @@
 						</div>
 						<div class="form-group">
 							<label>Keterangan</label>
-							<input type="text" id="keterangan" name="keterangan" class="form-control">
+							<input type="text" id="keterangan" name="keterangan" maxlength="100" class="form-control">
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

@@ -34,12 +34,12 @@
 									<tr>
 										<th style="width: 1%; text-align: center;">Tahun Ajaran</th>
 										<th style="width: 1%; text-align: center;">Tanggal</th>
-										<th style="width: 1%; text-align: center;">No</th>
+										<th style="width: 1%; text-align: center;">No Induk</th>
 										<th style="width: 17.9%; text-align: center;">Nama Lengkap</th>
 										<th style="width: 1%; text-align: center;">Kelas</th>
-										<th style="width: 19%; text-align: center;">Bentuk Pelanggaran</th>
+										<th style="width: 17.6%; text-align: center;">Bentuk Pelanggaran</th>
 										<th style="width: 1%; text-align: center;">Poin</th>
-										<th style="width: 14%; text-align: center;">Nama Tindakan</th>
+										<th style="width: 13.3%; text-align: center;">Tindakan</th>
 										<th style="width: 7.2%; text-align: center;">Aksi</th>
 									</tr>
 								</thead>
@@ -104,7 +104,8 @@
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label><br>
-							<select name="id_siswa" id="id_siswa" class="form-control" style="width: 100%;">
+							<select name="id_siswa" id="id_siswa" class="form-control" style="width: 100%;" required>
+								<option value="">--Silahkan Pilih--</option>
 								<?php foreach ($siswa as $sisw) : ?>
 									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
 								<?php endforeach; ?>
@@ -112,7 +113,8 @@
 						</div>
 						<div class="form-group">
 							<label>Bentuk Pelanggaran</label>
-							<select name="id_pelanggaran_tatib" id="id_pelanggaran_tatib" class="form-control">
+							<select name="id_pelanggaran_tatib" id="id_pelanggaran_tatib" class="form-control" required>
+								<option value="">--Silahkan Pilih--</option>
 								<?php foreach ($pelanggaran_tatib as $plg) : ?>
 									<option value="<?= $plg->id_pelanggaran_tatib ?>"><?= $plg->bentuk_pelanggaran ?></option>
 								<?php endforeach; ?>
@@ -120,7 +122,8 @@
 						</div>
 						<div class="form-group">
 							<label>Tindakan</label>
-							<select name="id_tindakan" id="id_tindakan" class="form-control">
+							<select name="id_tindakan" id="id_tindakan" class="form-control" required>
+								<option value="">--Silahkan Pilih--</option>
 								<?php foreach ($tindakan as $tnd) : ?>
 									<option value="<?= $tnd->id_tindakan ?>"><?= $tnd->nama_tindakan ?></option>
 								<?php endforeach; ?>

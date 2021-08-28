@@ -32,31 +32,56 @@
 							<table id="example1" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th style="width: 10%; text-align: center;">Tahun Ajaran</th>
+										<th style="width: 1%; text-align: center;">Tahun Ajaran</th>
 										<th style="width: 1%;">No Induk</th>
-										<th style="width: 18%; text-align: center;">Nama Lengkap</th>
-										<th style="width: 7.5%; text-align: center;">Kelas</th>
-										<th style="width: 18%; text-align: center;">Jenis Pembayaran</th>
+										<th style="width: 20%; text-align: center;">Nama Lengkap</th>
+										<th style="width: 8.9%; text-align: center;">Kelas</th>
+										<th style="width: 17.7%; text-align: center;">Jenis Pembayaran</th>
 										<th style="width: 1%; text-align: center;">Bulan</th>
-										<th style="width: 1%; text-align: center;">Tahun</th>
-										<th style="width: 10%; text-align: center;">Biaya Pembayaran</th>
+										<th style="width: 1%;">Tahun</th>
+										<th style="width: 1%; text-align: center;">Nominal</th>
 										<!-- <th>Total Tunggakan</th> -->
-										<th style="width: 4%; text-align: center;">Aksi</th>
+										<th style="width: 1%;"> Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									foreach ($tunggakan_pembayaran as $tunggakan) : ?>
 										<tr>
-											<td><?= $tunggakan->nama_tahun_ajaran ?></td>
-											<td><?= $tunggakan->no_induk ?></td>
-											<td><?= $tunggakan->nama_lengkap ?>
-											<td><?= $tunggakan->nama_kelas ?>
-											<td><?= $tunggakan->jenis_pembayaran ?>
-											<td style="text-align: center;"><?= $tunggakan->bulan ?>
-											<td style="text-align: center;"><?= $tunggakan->tahun ?>
+											<td> <?= $tunggakan->nama_tahun_ajaran ?> </td>
+											<td align=" right"> <?= $tunggakan->no_induk ?> </td>
+											<td> <?= $tunggakan->nama_lengkap ?> </td>
+											<td> <?= $tunggakan->nama_kelas ?> </td>
+											<td> <?= $tunggakan->jenis_pembayaran ?>
+											<td> <?php if ($tunggakan->bulan == 1) {
+														echo 'Januari';
+													}
+													if ($tunggakan->bulan == 2) {
+														echo 'Februari';
+													} elseif ($tunggakan->bulan == 3) {
+														echo 'Maret';
+													} elseif ($tunggakan->bulan == 4) {
+														echo 'April';
+													} elseif ($tunggakan->bulan == 5) {
+														echo 'Mei';
+													} elseif ($tunggakan->bulan == 6) {
+														echo 'Juni';
+													} elseif ($tunggakan->bulan == 7) {
+														echo 'Juli';
+													} elseif ($tunggakan->bulan == 8) {
+														echo 'Agustus';
+													} elseif ($tunggakan->bulan == 9) {
+														echo 'September';
+													} elseif ($tunggakan->bulan == 10) {
+														echo 'Oktober';
+													} elseif ($tunggakan->bulan == 11) {
+														echo 'November';
+													} elseif ($tunggakan->bulan == 12) {
+														echo 'Desember';
+													} ?>
+											</td>
+											<td> <?= $tunggakan->tahun ?> </td>
 											<td style="text-align: right;"><?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?></td>
-											<!-- <td style="text-align: right;"><?= number_format($tunggakan->total_tunggakan, 0, ',', '.') ?></td> -->
 											<td style="text-align: center; width: 7.3%;">
 												<a class="btn btn-success btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
 												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
@@ -99,7 +124,8 @@
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label>
-							<select name="id_siswa" id="id_siswa" class="form-control">
+							<select name="id_siswa" id="id_siswa" class="form-control" required>
+								<option value="">--Silahkan Pilih--</option>
 								<?php foreach ($siswa as $sisw) : ?>
 									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
 								<?php endforeach; ?>
@@ -107,7 +133,8 @@
 						</div>
 						<div class="form-group">
 							<label>Jenis Pembayaran</label>
-							<select name="id_jenis_pembayaran" id="id_jenis_pembayaran" class="form-control">
+							<select name="id_jenis_pembayaran" id="id_jenis_pembayaran" class="form-control" required>
+								<option value="">--Silahkan Pilih--</option>
 								<?php foreach ($jenis_pembayaran as $jp) : ?>
 									<option value="<?= $jp->id_jenis_pembayaran ?>"><?= $jp->jenis_pembayaran ?></option>
 								<?php endforeach; ?>
@@ -117,17 +144,33 @@
 							<div class="row">
 								<div class="col-md-5">
 									<label>Bulan</label>
-									<input type="number" id="bulan" name="bulan" min="1" max="12" class="form-control">
+									<!-- <input type="number" id="bulan" name="bulan" min="1" max="12" class="form-control"> -->
+									<!-- <label>Level</label> -->
+									<select name="bulan" id="bulan" class="form-control" required>
+										<option value="">--Silahkan Pilih--</option>
+										<option value="1">Januari</option>
+										<option value="2">Februari</option>
+										<option value="3">Maret</option>
+										<option value="4">April</option>
+										<option value="5">Mei</option>
+										<option value="6">Juni</option>
+										<option value="7">Juli</option>
+										<option value="8">Agustus</option>
+										<option value="9">September</option>
+										<option value="10">Oktober</option>
+										<option value="11">November</option>
+										<option value="12">Desember</option>
+									</select>
 								</div>
 								<div class="col-md-7">
 									<label>Tahun</label>
-									<input type="number" id="tahun" name="tahun" min="2015" max="2099" class="form-control">
+									<input type="text" id="tahun" name="tahun" maxlength="4" class="form-control" required>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<label>Biaya Pembayaran</label>
-							<input type="text" id="biaya_pembayaran" name="biaya_pembayaran" maxlength="11" class="form-control">
+							<label>Nominal</label>
+							<input type="text" id="biaya_pembayaran" name="biaya_pembayaran" maxlength="11" class="form-control" required>
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

@@ -33,8 +33,8 @@
 										<th>Tahun Ajaran</th>
 										<th>Jenis Pembayaran</th>
 										<th>Bulan</th>
-										<th>Tahun</th>
-										<th>Biaya Pembayaran</th>
+										<th width="1">Tahun</th>
+										<th style="text-align: center;">Nominal</th>
 										<!-- <th>Total Tunggakan</th> -->
 									</tr>
 								</thead>
@@ -43,12 +43,38 @@
 									$no = 1;
 									foreach ($info_tunggakan_pembayaran as $tunggakan) : ?>
 										<tr>
-											<td><?= $no++ ?></td>
-											<td><?= $tunggakan->nama_tahun_ajaran ?>
-											<td><?= $tunggakan->jenis_pembayaran ?>
-											<td style="text-align: center;"><?= $tunggakan->bulan ?>
-											<td style="text-align: center;"><?= $tunggakan->tahun ?>
-											<td style="text-align: right;"><?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?></td>
+											<td> <?= $no++ ?></td>
+											<td> <?= $tunggakan->nama_tahun_ajaran ?> </td>
+											<td> <?= $tunggakan->jenis_pembayaran ?> </td>
+											<td> <?php if ($tunggakan->bulan == 1) {
+														echo 'Januari';
+													}
+													if ($tunggakan->bulan == 2) {
+														echo 'Februari';
+													} elseif ($tunggakan->bulan == 3) {
+														echo 'Maret';
+													} elseif ($tunggakan->bulan == 4) {
+														echo 'April';
+													} elseif ($tunggakan->bulan == 5) {
+														echo 'Mei';
+													} elseif ($tunggakan->bulan == 6) {
+														echo 'Juni';
+													} elseif ($tunggakan->bulan == 7) {
+														echo 'Juli';
+													} elseif ($tunggakan->bulan == 8) {
+														echo 'Agustus';
+													} elseif ($tunggakan->bulan == 9) {
+														echo 'September';
+													} elseif ($tunggakan->bulan == 10) {
+														echo 'Oktober';
+													} elseif ($tunggakan->bulan == 11) {
+														echo 'November';
+													} elseif ($tunggakan->bulan == 12) {
+														echo 'Desember';
+													} ?>
+											</td>
+											<td> <?= $tunggakan->tahun ?> </td>
+											<td align="right"> <?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?> </td>
 										</tr>
 									<?php endforeach; ?>
 								</tbody>
@@ -74,64 +100,6 @@
 			<!-- /.col -->
 		</div>
 		<!-- /.row (main row) -->
+	</section>
 </div><!-- /.container-fluid -->
-</section>
 <!-- /.content -->
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="modal-title" id="staticBackdropLabel">Form Input Tunggakan Pembayaran Siswa</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="<?= base_url() ?>Tunggakan_Pembayaran/tambah_aksi" method="POST" id="formResetData">
-					<div class="form-group">
-						<input type="hidden" id="id_tunggakan_pembayaran" name="id_tunggakan_pembayaran" class="form-control" readonly>
-					</div>
-					<div class="form-group">
-						<label>Nama Lengkap</label>
-						<select name="id_siswa" id="id_siswa" class="form-control">
-							<?php foreach ($siswa as $sisw) : ?>
-								<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Jenis Pembayaran</label>
-						<select name="id_jenis_pembayaran" id="id_jenis_pembayaran" class="form-control">
-							<?php foreach ($jenis_pembayaran as $jp) : ?>
-								<option value="<?= $jp->id_jenis_pembayaran ?>"><?= $jp->jenis_pembayaran ?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-5">
-								<label>Bulan</label>
-								<input type="number" id="bulan" name="bulan" min="1" max="12" class="form-control">
-							</div>
-							<div class="col-md-7">
-								<label>Tahun</label>
-								<input type="number" id="tahun" name="tahun" min="2015" class="form-control">
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label>Biaya Pembayaran</label>
-						<input type="number" id="biaya_pembayaran" name="biaya_pembayaran" min="0" class="form-control">
-					</div>
-					<div class="modal-footer">
-						<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Simpan</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- /.content-wrapper -->

@@ -12,7 +12,7 @@ $(function ()
 
 	$(".btnEditUser").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit User");
-		$(".modal-footer button[type=submit]").html("Edit");
+		$(".modal-footer button[type=submit]").html("Update");
 		$(".modal-body form").attr(
 			"action",
 			"http://localhost/si_monitoring/User/update"

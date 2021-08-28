@@ -23,7 +23,7 @@
 	<center>
 		<h3 style="font-size: 12pt; line-height: 20px;">LAPORAN MONITORING SISWA TAHUN AJARAN
 			<?php
-			foreach ($identitas as $t) : ?>
+			foreach ($r_tahun_ajaran as $t) : ?>
 				<?= $t->nama_tahun_ajaran ?>
 			<?php endforeach; ?>
 		</h3>
@@ -54,7 +54,7 @@
 		<?php endforeach; ?>
 	</div>
 	<br>
-	<label style="font-weight: bold;">A. Catatan Pelanggaran</label>
+	<label style="font-weight: bold;">A. Info Pelanggaran</label>
 	<table border="1" cellspacing="0" cellpadding="5" width="100%" style="margin-top: 1%;">
 		<thead>
 			<tr>
@@ -92,7 +92,7 @@
 		</tfoot>
 	</table>
 	<br>
-	<label style="font-weight: bold;">B. Absensi</label>
+	<label style="font-weight: bold;">B. Info Absensi</label>
 	<table border="1" cellspacing="0" cellpadding="5" width="100%" style="margin-top: 1%;">
 		<thead>
 			<tr>
@@ -118,15 +118,15 @@
 		</tfoot>
 	</table>
 	<br>
-	<label style="font-weight: bold;">C. Tunggakan Pembayaran</label>
+	<label style="font-weight: bold;">C. Info Tunggakan Pembayaran</label>
 	<table border="1" cellspacing="0" cellpadding="5" width="100%" style="margin-top: 1%;">
 		<thead>
 			<tr>
-				<th>No</th>
-				<th>Jenis Pembayaran</th>
-				<th>Bulan</th>
-				<th>Tahun</th>
-				<th>Biaya Pembayaran</th>
+				<th style="width: 5%;">No</th>
+				<th style="width: 55%;">Jenis Pembayaran</th>
+				<th style="width: 10%;">Bulan</th>
+				<th style="width: 5%;">Tahun</th>
+				<th style="width: 25%;">Nominal</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -136,8 +136,34 @@
 				<tr>
 					<td align="right"><?= $no++ ?></td>
 					<td><?= $lap->jenis_pembayaran ?></td>
-					<td align="center"><?= $lap->bulan ?></td>
-					<td align="center"><?= $lap->tahun ?></td>
+					<td><?php if ($lap->bulan == 1) {
+							echo 'Januari';
+						}
+						if ($lap->bulan == 2) {
+							echo 'Februari';
+						} elseif ($lap->bulan == 3) {
+							echo 'Maret';
+						} elseif ($lap->bulan == 4) {
+							echo 'April';
+						} elseif ($lap->bulan == 5) {
+							echo 'Mei';
+						} elseif ($lap->bulan == 6) {
+							echo 'Juni';
+						} elseif ($lap->bulan == 7) {
+							echo 'Juli';
+						} elseif ($lap->bulan == 8) {
+							echo 'Agustus';
+						} elseif ($lap->bulan == 9) {
+							echo 'September';
+						} elseif ($lap->bulan == 10) {
+							echo 'Oktober';
+						} elseif ($lap->bulan == 11) {
+							echo 'November';
+						} elseif ($lap->bulan == 12) {
+							echo 'Desember';
+						} ?>
+					</td>
+					<td><?= $lap->tahun ?></td>
 					<td align="right"><?= number_format($lap->biaya_pembayaran, 0, ',', '.') ?></td>
 				</tr>
 			<?php endforeach; ?>

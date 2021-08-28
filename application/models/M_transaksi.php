@@ -224,6 +224,37 @@ class M_transaksi extends CI_Model
 		// 	redirect('login');
 	}
 
+	//------------------------------------------------------------
+
+	public function Report_TahunAjaran($no_induk, $nama_tahun_ajaran)
+	{
+		$this->db->select('nama_tahun_ajaran');
+		$this->db->from('tb_catatan_pelanggaran');
+		$this->db->join('tb_tahun_ajaran', 'tb_catatan_pelanggaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
+		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa', 'RIGHT');
+		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->where('no_induk', $no_induk);
+		$this->db->where('nama_tahun_ajaran', $nama_tahun_ajaran);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function Report_Nama_No_Kls($no_induk)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_catatan_pelanggaran');
+		$this->db->join('tb_tahun_ajaran', 'tb_catatan_pelanggaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
+		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa', 'RIGHT');
+		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
+		$this->db->where('no_induk', $no_induk);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function Report_CatatanPelanggaranBySiswaAndTa($no_induk, $nama_tahun_ajaran)
 	{
 		$this->db->select('*');
@@ -239,41 +270,6 @@ class M_transaksi extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
-
-	//jika punya pelanggaran
-	// public function Report_Nama_No_Kls($no_induk, $nama_tahun_ajaran)
-	// {
-	// 	$this->db->select('*');
-	// 	$this->db->from('tb_catatan_pelanggaran');
-	// 	$this->db->join('tb_tahun_ajaran', 'tb_catatan_pelanggaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
-	// 	$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa', 'RIGHT');
-	// 	$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
-	// 	$this->db->where('no_induk', $no_induk);
-	// 	$this->db->where('nama_tahun_ajaran', $nama_tahun_ajaran);
-	// 	$this->db->order_by('tanggal', 'DESC');
-	// 	$this->db->limit(1);
-
-	// 	$query = $this->db->get();
-	// 	return $query->result();
-	// }
-
-	//jika tidak punya pelanggaran
-	public function Report_Nama_No_Kls($no_induk, $nama_tahun_ajaran)
-	{
-		$this->db->select('*');
-		$this->db->from('tb_catatan_pelanggaran');
-		$this->db->join('tb_tahun_ajaran', 'tb_catatan_pelanggaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
-		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa', 'RIGHT');
-		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
-		$this->db->where('no_induk', $no_induk);
-		$this->db->where('nama_tahun_ajaran', $nama_tahun_ajaran);
-		$this->db->order_by('tanggal', 'DESC');
-		$this->db->limit(1);
-
-		$query = $this->db->get();
-		return $query->result();
-	}
-
 	public function getRTotalPoin($no_induk, $nama_tahun_ajaran)
 	{
 		$this->db->select('SUM(poin) as total_poin');

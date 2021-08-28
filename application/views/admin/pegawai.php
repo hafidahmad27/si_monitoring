@@ -84,11 +84,11 @@
 						</div>
 						<div class="form-group">
 							<label>Nama Pegawai</label>
-							<input type="text" id="nama_pegawai" name="nama_pegawai" class="form-control">
+							<input type="text" id="nama_pegawai" name="nama_pegawai" maxlength="50" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Telepon</label>
-							<input type="number" id="telepon" name="telepon" class="form-control">
+							<input type="text" id="telepon" name="telepon" maxlength="13" class="form-control">
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

@@ -103,6 +103,9 @@
 		// gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
 		biaya_pembayaran.value = formatRupiah(this.value);
 	});
+	$("#tahun").keyup(function() {
+		$("#tahun").val(this.value.match(/[0-9]*/));
+	});
 
 	/* Fungsi formatRupiah */
 	function formatRupiah(angka, prefix) {

@@ -30,7 +30,7 @@
 								<thead>
 									<tr>
 										<th style="width: 1%;">No</th>
-										<th style="width: 10%;">Tahun Ajaran</th>
+										<th style="width: 11.8%;">Tahun Ajaran</th>
 										<th style="width: 1%;">Tanggal</th>
 										<th style="width: 25%;">Bentuk Pelanggaran</th>
 										<th style="width: 1%;">Poin</th>
@@ -76,58 +76,5 @@
 		</div><!-- /.container-fluid -->
 	</section>
 	<!-- /.content -->
-
-	<!-- Modal -->
-	<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title" id="staticBackdropLabel">Form Input Catatan Pelanggaran Siswa</h3>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form action="<?= base_url() ?>Catatan_Pelanggaran/tambah_aksi" method="POST" id="formResetData">
-						<div class="form-group">
-							<input type="hidden" id="id_catatan_pelanggaran" name="id_catatan_pelanggaran" class="form-control" readonly>
-						</div>
-						<div class="form-group">
-							<label>Tanggal</label>
-							<input type="text" id="tanggal" name="tanggal" value="<?= date('d/m/Y') ?>" class="form-control" readonly>
-						</div>
-						<div class="form-group">
-							<label>Nama Lengkap</label><br>
-							<select name="id_siswa" id="id_siswa" class="form-control" style="width: 100%;">
-								<?php foreach ($siswa as $sisw) : ?>
-									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Bentuk Pelanggaran</label>
-							<select name="id_pelanggaran_tatib" id="id_pelanggaran_tatib" class="form-control">
-								<?php foreach ($pelanggaran_tatib as $plg) : ?>
-									<option value="<?= $plg->id_pelanggaran_tatib ?>"><?= $plg->bentuk_pelanggaran ?></option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Tindakan</label>
-							<select name="id_tindakan" id="id_tindakan" class="form-control">
-								<?php foreach ($tindakan as $tnd) : ?>
-									<option value="<?= $tnd->id_tindakan ?>"><?= $tnd->nama_tindakan ?></option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-						<div class="modal-footer">
-							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Simpan</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 <!-- /.content-wrapper -->

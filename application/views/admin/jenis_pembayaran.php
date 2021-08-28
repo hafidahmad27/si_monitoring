@@ -82,7 +82,7 @@
 						</div>
 						<div class="form-group">
 							<label>Jenis Pembayaran</label>
-							<input type="text" id="jenis_pembayaran" name="jenis_pembayaran" class="form-control">
+							<input type="text" id="jenis_pembayaran" name="jenis_pembayaran" maxlength="50" class="form-control" required>
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

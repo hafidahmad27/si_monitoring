@@ -33,9 +33,9 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Bentuk Pelanggaran</th>
+										<th style="text-align: center;">Bentuk Pelanggaran</th>
 										<th>Poin</th>
-										<th style="text-align: center;">Aksi</th>
+										<th style="width: 8%;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -84,11 +84,11 @@
 						</div>
 						<div class="form-group">
 							<label>Bentuk Pelanggaran</label>
-							<input type="text" id="bentuk_pelanggaran" name="bentuk_pelanggaran" class="form-control">
+							<textarea id="bentuk_pelanggaran" name="bentuk_pelanggaran" cols="" rows="3" maxlength="150" class="form-control" required></textarea>
 						</div>
 						<div class="form-group">
 							<label>Poin</label>
-							<input type="number" id="poin" name="poin" min="0" class="form-control">
+							<input type="number" id="poin" name="poin" min="10" max="9999" class="form-control" required>
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

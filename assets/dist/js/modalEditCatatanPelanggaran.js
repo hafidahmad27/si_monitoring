@@ -18,7 +18,7 @@ $(function ()
 
 	$(".btnEditCatatanPelanggaran").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Transaksi Catatan Pelanggaran");
-		$(".modal-footer button[type=submit]").html("Edit");
+		$(".modal-footer button[type=submit]").html("Update");
 		$(".modal-body form").attr(
 			"action",
 			"http://localhost/si_monitoring/Catatan_Pelanggaran/update"

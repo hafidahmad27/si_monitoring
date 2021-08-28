@@ -157,8 +157,8 @@
 					</li>
 				<?php endif; ?>
 
-				<li class="nav-header">LAPORAN</li>
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
+					<li class="nav-header">LAPORAN</li>
 					<li class="nav-item">
 						<a href="<?= base_url() ?>laporan" class="nav-link <?php echo $uri == 'laporan' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-file-alt"></i>

@@ -84,11 +84,12 @@
 						</div>
 						<div class="form-group">
 							<label>Nama Kelas</label>
-							<input type="text" id="nama_kelas" name="nama_kelas" class="form-control">
+							<input type="text" id="nama_kelas" name="nama_kelas" maxlength="10" class="form-control">
 						</div>
 						<div class="form-group">
 							<label>Nama Wali Kelas</label>
 							<select name="id_pegawai" id="id_pegawai" class="form-control" style="width: 100%;">
+								<option>--Silahkan Pilih--</option>
 								<?php foreach ($pegawai as $peg) : ?>
 									<option value="<?= $peg->id_pegawai ?>"><?= $peg->nama_pegawai ?></option>
 								<?php endforeach; ?>

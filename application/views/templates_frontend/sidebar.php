@@ -39,7 +39,7 @@
 					<a href="<?= base_url() ?>wali_murid/info_catatan_pelanggaran" class="nav-link <?php echo $uri == 'info_catatan_pelanggaran' ? 'active' : 'no' ?>">
 						<i class="nav-icon fas fa-user-edit"></i>
 						<p>
-							Info Catatan Pelanggaran
+							Info Pelanggaran
 						</p>
 					</a>
 				</li>

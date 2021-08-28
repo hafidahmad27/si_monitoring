@@ -18,7 +18,7 @@ $(function ()
 
 	$(".btnEditAbsensi").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Transaksi Absensi");
-		$(".modal-footer button[type=submit]").html("Edit");
+		$(".modal-footer button[type=submit]").html("Update");
 		$(".modal-body form").attr(
 			"action",
 			"http://localhost/si_monitoring/Absensi/update"

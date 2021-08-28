@@ -89,7 +89,7 @@
 						</div>
 						<div class="form-group">
 							<label>Tahun Ajaran</label>
-							<input type="text" id="nama_tahun_ajaran" name="nama_tahun_ajaran" class="form-control" maxlength="16">
+							<input type="text" id="nama_tahun_ajaran" name="nama_tahun_ajaran" maxlength="16" class="form-control">
 						</div>
 						<div class="form-group">
 							<label>Status</label>

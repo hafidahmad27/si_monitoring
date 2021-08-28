@@ -35,15 +35,15 @@ class Laporan extends CI_Controller
 		$no_induk = $this->input->post('no_induk');
 		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
 
-		//jika punya pelanggaran
-		// $data['identitas'] = $this->M_transaksi->Report_Nama_No_Kls($no_induk, $nama_tahun_ajaran);
+		$data['r_tahun_ajaran'] = $this->M_transaksi->Report_TahunAjaran($no_induk, $nama_tahun_ajaran);
 
-		//jika tidak punya pelanggaran
-		$data['identitas'] = $this->M_transaksi->Report_Nama_No_Kls($no_induk, $nama_tahun_ajaran);
+		$data['identitas'] = $this->M_transaksi->Report_Nama_No_Kls($no_induk);
 
 		$data['report_catatan_plg'] = $this->M_transaksi->Report_CatatanPelanggaranBySiswaAndTa($no_induk, $nama_tahun_ajaran);
 		$data['get_rtotal_poin'] = $this->M_transaksi->getRTotalPoin($no_induk, $nama_tahun_ajaran);
+
 		$data['report_absensi'] = $this->M_transaksi->Report_AbsensiBySiswaAndTa($no_induk, $nama_tahun_ajaran);
+
 		$data['report_tunggakan_pmbyrn'] = $this->M_transaksi->Report_TunggakanPembayaranBySiswaAndTa($no_induk, $nama_tahun_ajaran);
 		$data['get_rtotal_tunggakan'] = $this->M_transaksi->getRTotalTunggakan($no_induk, $nama_tahun_ajaran);
 

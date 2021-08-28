@@ -89,6 +89,7 @@
 						<div class="form-group">
 							<label>Nama Pegawai</label>
 							<select name="id_pegawai" id="id_pegawai" class="form-control" style="width: 100%;">
+								<option>--Silahkan Pilih--</option>
 								<?php foreach ($pegawai as $peg) : ?>
 									<option value="<?= $peg->id_pegawai ?>"><?= $peg->nama_pegawai ?></option>
 								<?php endforeach; ?>
@@ -96,15 +97,16 @@
 						</div>
 						<div class="form-group">
 							<label>Username</label>
-							<input type="text" id="username" name="username" class="form-control">
+							<input type="text" id="username" name="username" maxlength="15" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Password</label>
-							<input type="text" id="password" name="password" class="form-control">
+							<input type="text" id="password" name="password" maxlength="15" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Level</label>
-							<select name="level" id="level" class="form-control">
+							<select name="level" id="level" class="form-control" required>
+								<option>--Silahkan Pilih--</option>
 								<option value="guru_bk">Guru BK</option>
 								<option value="wali_kelas">Wali Kelas</option>
 								<option value="staff_tu">Staff TU</option>

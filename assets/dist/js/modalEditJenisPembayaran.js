@@ -12,7 +12,7 @@ $(function ()
 
 	$(".btnEditJenisPembayaran").on("click", function () {
 		$("#staticBackdropLabel").html("Form Edit Jenis Pembayaran");
-		$(".modal-footer button[type=submit]").html("Edit");
+		$(".modal-footer button[type=submit]").html("Update");
 		$(".modal-body form").attr(
 			"action",
 			"http://localhost/si_monitoring/Jenis_Pembayaran/update"
