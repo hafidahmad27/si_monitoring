@@ -35,6 +35,7 @@ class Tunggakan_Pembayaran extends CI_Controller
 		$bulan = $this->input->post('bulan');
 		$tahun = $this->input->post('tahun');
 		$biaya_pembayaran = $this->input->post('biaya_pembayaran');
+		$keterangan = $this->input->post('keterangan');
 
 		$data = array(
 			'id_tahun_ajaran' => $id_tahun_ajaran,
@@ -42,7 +43,8 @@ class Tunggakan_Pembayaran extends CI_Controller
 			'id_jenis_pembayaran' => $id_jenis_pembayaran,
 			'bulan' => $bulan,
 			'tahun' => $tahun,
-			'biaya_pembayaran' => str_replace(".", "", $biaya_pembayaran)
+			'biaya_pembayaran' => str_replace(".", "", $biaya_pembayaran),
+			'keterangan' => $keterangan
 		);
 
 		$this->M_transaksi->input_data($data, 'tb_tunggakan_pembayaran');
@@ -69,6 +71,7 @@ class Tunggakan_Pembayaran extends CI_Controller
 		$bulan = $this->input->post('bulan');
 		$tahun = $this->input->post('tahun');
 		$biaya_pembayaran = $this->input->post('biaya_pembayaran');
+		$keterangan = $this->input->post('keterangan');
 
 		$data = array(
 			'id_tahun_ajaran' => $id_tahun_ajaran,
@@ -76,7 +79,8 @@ class Tunggakan_Pembayaran extends CI_Controller
 			'id_jenis_pembayaran' => $id_jenis_pembayaran,
 			'bulan' => $bulan,
 			'tahun' => $tahun,
-			'biaya_pembayaran' => str_replace(".", "", $biaya_pembayaran)
+			'biaya_pembayaran' => str_replace(".", "", $biaya_pembayaran),
+			'keterangan' => $keterangan
 		);
 
 		$where = array(

@@ -31,7 +31,6 @@ $(function ()
 				console.log(data);
 				$("#id_tahun_ajaran").val(data.id_tahun_ajaran);
 				$("#nama_tahun_ajaran").val(data.nama_tahun_ajaran);
-				$("#status").val(data.status);
 			},
 		});
 	});

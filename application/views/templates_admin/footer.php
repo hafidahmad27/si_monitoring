@@ -24,6 +24,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url() ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="<?= base_url() ?>assets/plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="<?= base_url() ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -305,6 +307,59 @@
 			options: stackedBarChartOptions
 		})
 	})
+</script>
+<script>
+	$(function() {
+		$('.swalDefaultError').click(function(e) {
+			e.preventDefault();
+			const href = $(this).attr('href');
+			// var id = $(this).data('id');
+
+			Swal.fire({
+				title: 'Apakah anda yakin untuk menghapuz ?',
+				// text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					document.location.href = href;
+					// $.ajax({
+					// 	url: "http://localhost/si_monitoring/tahun_ajaran/hapus/",
+					// 	data: {
+					// 		id: id,
+					// 	},
+					// 	type: 'POST',
+					// 	success: function() {
+					swal.fire("Terhapus!", "Data berhasil dihapus.", "success");
+					// 	},
+					// 	error: function() {
+					// 		console.log("error bro");
+					// 		alert('Something is wrong');
+					// 	}
+					// });
+				}
+			})
+		});
+	});
+</script>
+<script>
+	$(".user_status").on("click", function() {
+		console.log("OK");
+		var id_tahun_ajaran = $(this).attr('uid'); //get attribute value in variable
+		var status = $(this).attr('ustatus'); //get attribute value in variable
+
+		$('#user_id').val(id_tahun_ajaran); //pass attribute value in ID
+		$('#user_status').val(status); //pass attribute value in ID
+
+		$('#modal_popup').modal({
+			backdrop: 'static',
+			keyboard: true,
+			show: true
+		}); //show modal popup
+	});
 </script>
 </body>
 

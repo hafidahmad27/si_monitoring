@@ -49,7 +49,7 @@
 											</td>
 											<td style="text-align: center;">
 												<a class="btn btn-success btn-xs btnEditKelas" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $kls->id_kelas; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Kelas/hapus/<?= $kls->id_kelas; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+												<a href="<?= base_url() ?>/Kelas/hapus/<?= $kls->id_kelas; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -88,8 +88,8 @@
 						</div>
 						<div class="form-group">
 							<label>Nama Wali Kelas</label>
-							<select name="id_pegawai" id="id_pegawai" class="form-control" style="width: 100%;">
-								<option>--Silahkan Pilih--</option>
+							<select name="id_pegawai" id="id_pegawai" class="form-control" style="width: 100%;" required>
+								<option value="">--Silahkan Pilih--</option>
 								<?php foreach ($pegawai as $peg) : ?>
 									<option value="<?= $peg->id_pegawai ?>"><?= $peg->nama_pegawai ?></option>
 								<?php endforeach; ?>

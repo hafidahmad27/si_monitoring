@@ -33,7 +33,7 @@
 										<th style="width: 11.8%;">Tahun Ajaran</th>
 										<th style="width: 1%;">Tanggal</th>
 										<th style="width: 25%;">Bentuk Pelanggaran</th>
-										<th style="width: 1%;">Poin</th>
+										<!-- <th style="width: 1%;">Poin</th> -->
 										<th style="width: 20%;">Nama Tindakan</th>
 									</tr>
 								</thead>
@@ -46,13 +46,13 @@
 											<td><?= $catatplg->nama_tahun_ajaran ?></td>
 											<td><?= date('d-m-Y', strtotime($catatplg->tanggal)) ?></td>
 											<td><?= $catatplg->bentuk_pelanggaran ?>
-											<td align="right"><?= $catatplg->poin ?>
+												<!-- <td align="right"><?= $catatplg->poin ?> -->
 											<td><?= $catatplg->nama_tindakan ?>
 											</td>
 										</tr>
 									<?php endforeach; ?>
 								</tbody>
-								<tfoot>
+								<!-- <tfoot>
 									<?php
 									$no = 1;
 									foreach ($get_total_poin as $tot) : ?>
@@ -63,7 +63,7 @@
 											<td></td>
 										</tr>
 									<?php endforeach; ?>
-								</tfoot>
+								</tfoot> -->
 							</table>
 						</div>
 						<!-- /.card-body -->

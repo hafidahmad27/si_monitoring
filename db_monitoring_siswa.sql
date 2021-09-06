@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2021 at 08:10 AM
+-- Generation Time: Sep 06, 2021 at 10:50 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -92,9 +92,8 @@ INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_tahun_ajaran
 (13, 2, 4, 5, 1, '2021-03-31'),
 (14, 2, 4, 1, 1, '2021-03-29'),
 (15, 2, 1, 8, 4, '2021-03-04'),
-(16, 1, 4, 1, 2, '2021-01-11'),
+(16, 1, 4, 4, 4, '2021-01-11'),
 (17, 1, 9, 8, 4, '2020-12-23'),
-(18, 1, 4, 8, 3, '2020-11-25'),
 (19, 1, 4, 2, 3, '2020-10-07'),
 (20, 3, 4, 4, 4, '2021-08-18'),
 (21, 2, 4, 2, 4, '2021-08-18'),
@@ -261,7 +260,8 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jen
 (21, 11, 1999, 'Saputra Hafid Ahmad', 'Laki-Laki', 'Trenggalek', '1999-11-27', 'Jl. Kalijudan No. 1, Surabaya', '0314567890'),
 (22, 5, 1324, 'Ikhza Ainun Fiima', 'Laki-Laki', 'Jember', '1999-01-14', 'Jl. Medokan Kampung No. 4, Surabaya', '085734234859'),
 (23, 13, 1122, 'Andre Setyanto', 'Laki-Laki', 'Semarang', '2002-02-10', 'Jl. Kapas Krampung No.4, Surabaya', '087822334545'),
-(24, 20, 1997, 'Anandita', 'Perempuan', 'Bandung', '2003-10-15', 'Jl. Gunung Anyar Timur IV No 40, Surabaya', '0312215520');
+(24, 20, 1997, 'Anandita', 'Perempuan', 'Bandung', '2003-10-15', 'Jl. Gunung Anyar Timur IV No 40, Surabaya', '0312215520'),
+(27, 14, 5643, 'Moch. Chafid', 'Laki-Laki', 'Madura', '1994-01-08', '', '');
 
 -- --------------------------------------------------------
 
@@ -281,8 +281,8 @@ CREATE TABLE `tb_tahun_ajaran` (
 
 INSERT INTO `tb_tahun_ajaran` (`id_tahun_ajaran`, `nama_tahun_ajaran`, `status`) VALUES
 (1, '2020/2021 Gasal', 0),
-(2, '2020/2021 Genap', 1),
-(3, '2021/2022 Gasal', 0),
+(2, '2020/2021 Genap', 0),
+(3, '2021/2022 Gasal', 1),
 (4, '2021/2022 Genap', 0);
 
 -- --------------------------------------------------------
@@ -319,31 +319,36 @@ CREATE TABLE `tb_tunggakan_pembayaran` (
   `id_jenis_pembayaran` int(11) NOT NULL,
   `bulan` int(2) NOT NULL,
   `tahun` int(4) NOT NULL,
-  `biaya_pembayaran` int(9) NOT NULL
+  `biaya_pembayaran` int(9) NOT NULL,
+  `keterangan` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_tunggakan_pembayaran`
 --
 
-INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_tahun_ajaran`, `id_siswa`, `id_jenis_pembayaran`, `bulan`, `tahun`, `biaya_pembayaran`) VALUES
-(1, 2, 1, 1, 1, 2021, 200000),
-(2, 2, 9, 1, 11, 2020, 200000),
-(3, 2, 1, 1, 5, 2021, 100000),
-(4, 2, 1, 2, 4, 2021, 50000),
-(5, 2, 1, 2, 7, 2021, 10000),
-(6, 2, 9, 2, 9, 2021, 50000),
-(7, 1, 9, 2, 10, 2021, 10000),
-(8, 2, 4, 2, 12, 2020, 30000),
-(9, 1, 4, 1, 3, 2021, 176000),
-(10, 1, 4, 2, 9, 2021, 30000),
-(14, 1, 4, 2, 1, 2021, 222),
-(15, 2, 4, 1, 3, 2021, 8000),
-(16, 2, 9, 1, 2, 2021, 30000),
-(17, 1, 9, 2, 12, 2020, 15000),
-(18, 2, 13, 1, 1, 2020, 10000),
-(19, 2, 14, 2, 2, 2021, 30000),
-(20, 2, 3, 1, 10, 2021, 999999999);
+INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_tahun_ajaran`, `id_siswa`, `id_jenis_pembayaran`, `bulan`, `tahun`, `biaya_pembayaran`, `keterangan`) VALUES
+(1, 2, 1, 1, 1, 2021, 200000, ''),
+(2, 2, 9, 1, 11, 2020, 200000, ''),
+(3, 2, 1, 1, 5, 2021, 100000, ''),
+(4, 2, 1, 2, 4, 2021, 50000, ''),
+(5, 2, 1, 2, 7, 2021, 10000, ''),
+(6, 2, 9, 2, 9, 2021, 50000, ''),
+(7, 1, 9, 2, 10, 2021, 10000, ''),
+(8, 2, 4, 2, 12, 2020, 30000, ''),
+(9, 1, 4, 1, 3, 2021, 176000, ''),
+(10, 1, 4, 2, 9, 2021, 30000, ''),
+(14, 1, 4, 2, 1, 2021, 222, ''),
+(15, 2, 4, 1, 3, 2021, 8000, ''),
+(16, 2, 9, 1, 2, 2021, 30000, ''),
+(17, 1, 9, 2, 12, 2020, 15000, ''),
+(18, 2, 13, 1, 1, 2020, 10000, ''),
+(19, 2, 14, 2, 2, 2021, 30000, ''),
+(20, 2, 3, 1, 10, 2021, 999999999, ''),
+(21, 3, 22, 1, 11, 2021, 40000, 'Lunas'),
+(22, 3, 22, 1, 11, 2021, 90000, 'Lunas'),
+(23, 3, 22, 1, 7, 2021, 669696, 'Lunas'),
+(24, 3, 22, 2, 12, 2021, 79000, 'Belum Lunas');
 
 -- --------------------------------------------------------
 
@@ -483,7 +488,7 @@ ALTER TABLE `tb_absensi`
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
@@ -513,7 +518,7 @@ ALTER TABLE `tb_pelanggaran_tatib`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tb_tahun_ajaran`
@@ -531,7 +536,7 @@ ALTER TABLE `tb_tindakan`
 -- AUTO_INCREMENT for table `tb_tunggakan_pembayaran`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
-  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tb_user`

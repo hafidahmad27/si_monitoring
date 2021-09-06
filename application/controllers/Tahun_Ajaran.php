@@ -26,11 +26,11 @@ class Tahun_Ajaran extends CI_Controller
 	public function tambah_aksi()
 	{
 		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
-		$status = $this->input->post('status');
+		// $status = $this->input->post('status');
 
 		$data = array(
-			'nama_tahun_ajaran' => $nama_tahun_ajaran,
-			'status' => $status
+			'nama_tahun_ajaran' => $nama_tahun_ajaran
+			// 'status' => $status
 		);
 
 		$this->M_master->input_data($data, 'tb_tahun_ajaran');
@@ -52,11 +52,11 @@ class Tahun_Ajaran extends CI_Controller
 	{
 		$id_tahun_ajaran = $this->input->post('id_tahun_ajaran');
 		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
-		$status = $this->input->post('status');
+		// $status = $this->input->post('status');
 
 		$data = array(
-			'nama_tahun_ajaran' => $nama_tahun_ajaran,
-			'status' => $status
+			'nama_tahun_ajaran' => $nama_tahun_ajaran
+			// 'status' => $status
 		);
 
 		$where = array(
@@ -67,33 +67,39 @@ class Tahun_Ajaran extends CI_Controller
 		redirect('Tahun_Ajaran');
 	}
 
-	// public function ubah_status($id_tahun_ajaran)
-	// {
-	// 	$where = array('id_tahun_ajaran' => $id_tahun_ajaran);
-	// 	$data['tahun_ajaran'] = $this->M_master->edit_data($where, 'tb_tahun_ajaran')->result();
+	public function ubah_status()
+	{
+		$id_tahun_ajaran = $this->input->post('id_tahun_ajaran');
+		$status = $this->input->post('status');
 
-	// 	$this->load->view('templates_admin/header');
-	// 	$this->load->view('templates_admin/sidebar');
-	// 	$this->load->view('admin/tahun_ajaran', $data);
-	// 	$this->load->view('templates_admin/footer');
+		if ($status == '1') {
+			$user_status = '0';
+		} else {
+			$user_status = '1';
+		}
 
-	// 	$id_tahun_ajarane = $this->input->post('id_tahun_ajaran');
-	// 	$status = $this->input->post('status');
+		$this->db->where('id_tahun_ajaran', $id_tahun_ajaran);
+		$this->db->update('tb_tahun_ajaran', ['status' => $user_status]);
 
-	// 	$data = array(
-	// 		'status' => $status
-	// 	);
+		foreach ($this->M_master->tampil_data('tb_tahun_ajaran')->result_array() as $data) {
+			if ($data['id_tahun_ajaran'] != $id_tahun_ajaran) {
+				$this->db->where('id_tahun_ajaran', $data['id_tahun_ajaran']);
+				$this->db->update('tb_tahun_ajaran', ['status' => 0]);
+				echo $data['id_tahun_ajaran'];
+			}
+		}
 
-	// 	$where = array('id_tahun_ajaran' => $id_tahun_ajarane);
-	// 	$this->M_master->change_status($where, $data, 'tb_tahun_ajaran');
-	// 	redirect('Tahun_Ajaran/index');
-	// }
+		$this->session->set_flashdata('msg', "Berhasil mengubah status tahun ajaran");
+		$this->session->set_flashdata('msg_class', 'alert-success');
+
+		redirect('Tahun_Ajaran');
+	}
 
 	public function hapus($id_tahun_ajaran)
 	{
 		$where = array('id_tahun_ajaran' => $id_tahun_ajaran);
 		$this->M_master->hapus_data($where, 'tb_tahun_ajaran');
-		redirect('Tahun_Ajaran/index');
+		redirect('Tahun_Ajaran');
 	}
 
 	public function hapus_semua()

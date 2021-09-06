@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" background="<?= base_url() ?>assets/dist/img/smkikipsby.jpg" style="background-size: 100% 210%; background-repeat: no-repeat;">
 
 	<!-- <div class="login-box">
         <div class="row">
@@ -67,8 +67,8 @@
 					<div class="card-body p-0">
 						<!-- Nested Row within Card Body -->
 						<div class="row">
-							<div class="col-lg-6 d-none d-lg-block bg-primary">
-								<div class="jumbotron jumbotron-fluid bg-primary">
+							<div class="col-lg-6 d-none d-lg-block bg-light">
+								<div class="jumbotron jumbotron-fluid bg-light">
 									<div class="container">
 										<div class="text-center">
 											<h4>Sistem Informasi Monitoring Siswa</h4>
@@ -114,7 +114,7 @@
 											Lupa Password?
 										</a><br><br> -->
 										<div class="form-group">
-											<button type="submit" name="login" value="LOGIN" class="btn btn-block btn-primary">Login</button>
+											<button type="submit" name="login" value="LOGIN" class="btn btn-block btn-dark">Login</button>
 										</div>
 									</form>
 								</div>

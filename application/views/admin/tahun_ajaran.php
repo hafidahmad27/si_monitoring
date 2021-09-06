@@ -29,6 +29,14 @@
 					</button>
 					<div class="card mt-1">
 						<div class="card-body">
+							<?php if ($error = $this->session->flashdata('msg')) { ?>
+								<div class="alert alert-success alert-dismissible fade show" role="alert">
+									<strong><?= $error; ?></strong>
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+							<?php } ?>
 							<table id="example1" class="table table-bordered table-striped">
 								<thead>
 									<tr>
@@ -48,13 +56,16 @@
 											<td><?= $thn_ajaran->status == '0' ? 'Tidak Aktif' : 'Aktif' ?>
 											</td>
 											<td style="text-align: center;">
-												<!-- <a class="btn <?= $thn_ajaran->status == 0 ? 'btn-success' : 'btn-warning disabled' ?> btn-xs" href="<?= base_url() ?>/Tahun_Ajaran/ubah_status/<?= $thn_ajaran->id_tahun_ajaran; ?>" <?php if ($thn_ajaran->status == 0) : ?> onclick="return confirm('Yakin ingin MENGAKTIFKAN Tahun Ajaran ini?')" <?php else : ?> onclick="return confirm('Yakin ingin MENONAKTIFKAN Tahun Ajaran ini?')" <?php endif; ?> <?php if ($thn_ajaran->status == 0) : ?> <i class="nav-icon fas fa-check"></i> Aktifkan
-												<?php else : ?> <i class="nav-icon fas fa-times">
-													</i> Nonaktifkan
-												<?php endif; ?>
-												</a> -->
+												<?php if ($thn_ajaran->status == '1') { ?>
+													<!-- <a href="<?= base_url() ?>/Tahun_Ajaran/ubah_status/<?= $thn_ajaran->id_tahun_ajaran; ?>" class="btn btn-danger btn-xs user_status"><i class="fas fa-times" uid="<?= $thn_ajaran->id_tahun_ajaran; ?>" ustatus="<?= $thn_ajaran->status; ?>"></i> Matikan</a> -->
+													<button class="btn btn-danger btn-xs" disabled><i class="fas fa-check-double"></i> Aktif</button>
+												<?php } else { ?>
+													<!-- <a href="<?= base_url() ?>/Tahun_Ajaran/ubah_status/<?= $thn_ajaran->id_tahun_ajaran; ?>" class="btn btn-success btn-xs user_status"><i class="fas fa-check"></i> Aktifkan</a> -->
+													<button class="btn btn-success btn-xs user_status" uid="<?= $thn_ajaran->id_tahun_ajaran; ?>" ustatus="<?= $thn_ajaran->status; ?>"><i class="fas fa-check"></i> Aktifkan</button>
+												<?php } ?>
+												&nbsp;
 												<a class="btn btn-success btn-xs btnEditTahunAjaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $thn_ajaran->id_tahun_ajaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/Tahun_Ajaran/hapus/<?= $thn_ajaran->id_tahun_ajaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+												<a href="<?= base_url() ?>Tahun_Ajaran/hapus/<?= $thn_ajaran->id_tahun_ajaran; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -91,13 +102,13 @@
 							<label>Tahun Ajaran</label>
 							<input type="text" id="nama_tahun_ajaran" name="nama_tahun_ajaran" maxlength="16" class="form-control">
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label>Status</label>
 							<select name="status" id="status" class="form-control">
 								<option value="0">Tidak Aktif</option>
 								<option value="1">Aktif</option>
 							</select>
-						</div>
+						</div> -->
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>
 							<button type="submit" class="btn btn-primary">Simpan</button>
@@ -107,5 +118,24 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="modal modal-danger fade" id="modal_popup">
+		<div class="modal-dialog modal-sm">
+			<form action="<?= base_url() ?>Tahun_Ajaran/ubah_status" method="post">
+				<div class="modal-content">
+					<div class="modal-header" style="height: 150px;">
+						<h4 style="margin-top: 50px;text-align: center;">Yakin ingin mengubah status tahun ajaran ?</h4>
+						<input type="hidden" name="id_tahun_ajaran" id="user_id" value="">
+						<input type="hidden" name="status" id="user_status" value="">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">No</button>
+						<button type="submit" name="submit" class="btn btn-success">Yes</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
 </div>
 <!-- /.content-wrapper -->

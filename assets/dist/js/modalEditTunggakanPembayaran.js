@@ -42,6 +42,7 @@ $(function ()
 				$("#bulan").val(data.bulan);
 				$("#tahun").val(data.tahun);
 				$("#biaya_pembayaran").val(data.biaya_pembayaran);
+				$("#keterangan").val(data.keterangan);
 			},
 		});
 	});

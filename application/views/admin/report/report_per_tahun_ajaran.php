@@ -61,7 +61,7 @@
 				<th style="width: 5%;">No.</th>
 				<th style="width: 15%;">Tanggal</th>
 				<th style="width: 40%;">Bentuk Pelanggaran</th>
-				<th>Poin</th>
+				<!-- <th>Poin</th> -->
 				<th style="width: 40%;">Tindakan</th>
 			</tr>
 		</thead>
@@ -73,12 +73,12 @@
 					<td align="right"><?= $no++ ?></td>
 					<td align="center"><?= date('d-m-Y', strtotime($lap->tanggal)) ?></td>
 					<td><?= $lap->bentuk_pelanggaran ?></td>
-					<td align="right"><?= $lap->poin ?></td>
+					<!-- <td align="right"><?= $lap->poin ?></td> -->
 					<td><?= $lap->nama_tindakan ?></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
-		<tfoot>
+		<!-- <tfoot>
 			<?php
 			$no = 1;
 			foreach ($get_rtotal_poin as $tot) : ?>
@@ -89,7 +89,7 @@
 					<td></td>
 				</tr>
 			<?php endforeach; ?>
-		</tfoot>
+		</tfoot> -->
 	</table>
 	<br>
 	<label style="font-weight: bold;">B. Info Absensi</label>
@@ -127,6 +127,7 @@
 				<th style="width: 10%;">Bulan</th>
 				<th style="width: 5%;">Tahun</th>
 				<th style="width: 25%;">Nominal</th>
+				<th style="width: 25%;">Keterangan</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -165,10 +166,11 @@
 					</td>
 					<td><?= $lap->tahun ?></td>
 					<td align="right"><?= number_format($lap->biaya_pembayaran, 0, ',', '.') ?></td>
+					<td><?= $lap->keterangan ?></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
-		<tfoot>
+		<!-- <tfoot>
 			<?php
 			$no = 1;
 			foreach ($get_rtotal_tunggakan as $tot) : ?>
@@ -179,7 +181,7 @@
 					</td>
 				</tr>
 			<?php endforeach; ?>
-		</tfoot>
+		</tfoot> -->
 	</table>
 	<h5 style="font-weight: normal;">Dicetak pada tanggal : <?= date('d M Y') ?>, Pukul : <?= date('H:i:s') ?></h5>
 </body>

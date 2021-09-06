@@ -49,7 +49,7 @@
 											</td>
 											<td style="text-align: center;">
 												<a class="btn btn-success btn-xs btnEditPegawai" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $peg->id_pegawai; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/pegawai/hapus/<?= $peg->id_pegawai; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+												<a href="<?= base_url() ?>/pegawai/hapus/<?= $peg->id_pegawai; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
 									<?php endforeach; ?>

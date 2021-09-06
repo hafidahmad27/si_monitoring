@@ -40,7 +40,7 @@
 										<th style="width: 1%; text-align: center;">Bulan</th>
 										<th style="width: 1%;">Tahun</th>
 										<th style="width: 1%; text-align: center;">Nominal</th>
-										<!-- <th>Total Tunggakan</th> -->
+										<th style="width: 1%; text-align: center;">Ket</th>
 										<th style="width: 1%;"> Aksi</th>
 									</tr>
 								</thead>
@@ -82,9 +82,15 @@
 											</td>
 											<td> <?= $tunggakan->tahun ?> </td>
 											<td style="text-align: right;"><?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?></td>
+											<td><?php if ($tunggakan->keterangan == 'Lunas') {
+													echo '<span class="badge badge-success">Lunas</span>';
+												} else {
+													echo '<span class="badge badge-danger">Belum Lunas</span>';
+												} ?>
+											</td>
 											<td style="text-align: center; width: 7.3%;">
-												<a class="btn btn-success btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a onclick="return confirm('Apakah anda yakin untuk menghapus?')" href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
+												<a class="btn btn-success btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>
+												<a href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -171,6 +177,14 @@
 						<div class="form-group">
 							<label>Nominal</label>
 							<input type="text" id="biaya_pembayaran" name="biaya_pembayaran" maxlength="11" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Ket</label>
+							<select id="keterangan" name="keterangan" class="form-control">
+								<!-- <option>--Silahkan Pilih--</option> -->
+								<option value="Belum Lunas">Belum Lunas</option>
+								<option value="Lunas">Lunas</option>
+							</select>
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

@@ -220,8 +220,6 @@ class M_transaksi extends CI_Model
 			);
 		}
 		$this->session->set_userdata($sess);
-		// $this->session->set_flashdata('info', 'Maaf, username atau password anda salah !');
-		// 	redirect('login');
 	}
 
 	//------------------------------------------------------------

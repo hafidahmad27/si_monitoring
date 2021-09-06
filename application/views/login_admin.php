@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page" background="<?= base_url() ?>assets/dist/img/smkikipsby.jpg" style="background-size: 100% 210%; background-repeat: no-repeat;">
+<body class="hold-transition login-page" background="<?= base_url() ?>assets/dist/img/ruang.png" style="background-size: 100% 100%; background-repeat: no-repeat;">
 	<div class="login-box">
 		<!-- /.login-logo -->
 		<div class="card bg-primary">

@@ -35,6 +35,7 @@
 										<th>Bulan</th>
 										<th width="1">Tahun</th>
 										<th style="text-align: center;">Nominal</th>
+										<th>Keterangan</th>
 										<!-- <th>Total Tunggakan</th> -->
 									</tr>
 								</thead>
@@ -75,10 +76,16 @@
 											</td>
 											<td> <?= $tunggakan->tahun ?> </td>
 											<td align="right"> <?= number_format($tunggakan->biaya_pembayaran, 0, ',', '.') ?> </td>
+											<td> <?php if ($tunggakan->keterangan == 'Lunas') {
+														echo '<span class="badge badge-success">Lunas</span>';
+													} else {
+														echo '<span class="badge badge-danger">Belum Lunas</span>';
+													} ?>
+											</td>
 										</tr>
 									<?php endforeach; ?>
 								</tbody>
-								<tfoot>
+								<!-- <tfoot>
 									<?php
 									$no = 1;
 									foreach ($get_total_tunggakan as $tot) : ?>
@@ -89,7 +96,7 @@
 											</td>
 										</tr>
 									<?php endforeach; ?>
-								</tfoot>
+								</tfoot> -->
 							</table>
 						</div>
 						<!-- /.card-body -->

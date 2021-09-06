@@ -1,66 +1,254 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Landing Page - Sistem Informasi Monitoring Siswa</title>
+<!-- Site Metas -->
+<title>SmartEDU - Education Responsive HTML5 Template</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Site Icons -->
+<link rel="shortcut icon" href="<?= base_url() ?>assets/landing_page/images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="<?= base_url() ?>assets/landing_page/images/apple-touch-icon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/landing_page/css/bootstrap.min.css">
+<!-- Site CSS -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/landing_page/style.css">
+<!-- ALL VERSION CSS -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/landing_page/css/versions.css">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/landing_page/css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/landing_page/css/custom.css">
+
+<!-- Modernizer for Portfolio -->
+<!-- <script src="<?= base_url() ?>assets/landing_page/js/modernizer.js"></script> -->
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
-<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-		<a class="navbar-brand text-white" href="#">
-			<img src="<?= base_url() ?>assets/dist/img/logo-smk-ikip.png" width="40" height="40" class="d-inline-block align-top" alt="">
-			<small>SI Monitoring Siswa</small>
-			<small>| SMK IKIP Surabaya</small>
-		</a>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav ml-auto">
-				<!-- <li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Contact</a>
-				</li> -->
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Login
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<a href="<?= base_url() ?>admin" class="dropdown-item" target="_blank">Halaman Pegawai Sekolah</a>
-						<a href="<?= base_url() ?>wali_murid/profil_siswa" class="dropdown-item" target="_blank">Halaman Wali Murid</a>
+<body class="host_version">
+
+	<!-- Modal -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header tit-up">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Customer Login</h4>
+				</div>
+				<div class="modal-body customer-box">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs">
+						<li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
+						<li><a href="#Registration" data-toggle="tab">Registration</a></li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div class="tab-pane active" id="Login">
+							<form role="form" class="form-horizontal">
+								<div class="form-group">
+									<div class="col-sm-12">
+										<input class="form-control" id="email1" placeholder="Name" type="text">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-12">
+										<input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-10">
+										<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+											Submit
+										</button>
+										<a class="for-pwd" href="javascript:;">Forgot your password?</a>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane" id="Registration">
+							<form role="form" class="form-horizontal">
+								<div class="form-group">
+									<div class="col-sm-12">
+										<input class="form-control" placeholder="Name" type="text">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-12">
+										<input class="form-control" id="email" placeholder="Email" type="email">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-12">
+										<input class="form-control" id="mobile" placeholder="Mobile" type="email">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-12">
+										<input class="form-control" id="password" placeholder="Password" type="password">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-10">
+										<button type="button" class="btn btn-light btn-radius btn-brd grd1">
+											Save &amp; Continue
+										</button>
+										<button type="button" class="btn btn-light btn-radius btn-brd grd1">
+											Cancel</button>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
-				</li>
-			</ul>
+				</div>
+			</div>
 		</div>
-	</nav>
-	<div class="jumbotron">
-		<h1 class="display-4">Sistem Informasi Monitoring Siswa</h1>
-		<p class="lead">Website untuk memonitoring putra-putri anda di sekolah</p>
-		<hr class="my-4">
-		<p class="lead">Untuk memonitoring putra-putri anda, Silahkan login dengan menekan tombol login di pojok kanan atas</p>
 	</div>
 
-	<!-- Optional JavaScript; choose one of the two! -->
+	<!-- LOADER -->
+	<div id="preloader">
+		<div class="loader-container">
+			<div class="progress-br float shadow">
+				<div class="progress__item"></div>
+			</div>
+		</div>
+	</div>
+	<!-- END LOADER -->
 
-	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="<?= base_url() ?>">
+					<img src="<?= base_url() ?>assets/landing_page/images/logo.png" alt="" />
+				</a>
+				<div class="collapse navbar-collapse" id="navbars-host">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"><a class="nav-link" href="<?= base_url() ?>">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="#overviews">About Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="#futer">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
 
-	<!-- Option 2: Separate Popper and Bootstrap JS -->
-	<!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    -->
+	<div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false">
+		<div class="carousel-inner" role="listbox">
+			<div class="carousel-item active">
+				<div id="home" class="first-section" style="background-image:url('<?= base_url() ?>assets/dist/img/smkikipsby.jpg');">
+					<div class="dtab">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12 col-sm-12 text-right">
+									<div class="big-tagline">
+										<h2><strong>MonitoringSYSTEM </strong> SMK IKIP SBY</h2>
+										<p class="lead">Website untuk memonitoring pelanggaran putra/putri anda</p>
+										<a href="<?= base_url() ?>admin" target="_blank" class="hover-btn-new"><span>Login Pegawai Sekolah</span></a>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<a href="<?= base_url() ?>wali_murid/profil_siswa" target="_blank" class="hover-btn-new"><span>Login Wali Murid</span></a>
+									</div>
+								</div>
+							</div><!-- end row -->
+						</div><!-- end container -->
+					</div>
+				</div><!-- end section -->
+			</div>
+		</div>
+	</div>
+
+	<div id="overviews" class="section wb">
+		<div class="container">
+			<div class="section-title row text-center">
+				<div class="col-md-8 offset-md-2">
+					<h3>About</h3>
+					<p class="lead">Website untuk memonitoring pelanggaran putra/putri anda</p>
+				</div>
+			</div><!-- end title -->
+
+
+		</div><!-- end container -->
+	</div><!-- end section -->
+
+	<footer id="futer" class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-xs-12">
+					<div class="widget clearfix">
+						<div class="widget-title">
+							<h3>About US</h3>
+						</div>
+						<p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
+						<div class="footer-right">
+							<ul class="footer-links-soi">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-github"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							</ul><!-- end links -->
+						</div>
+					</div><!-- end clearfix -->
+				</div><!-- end col -->
+
+				<div class="col-lg-4 col-md-4 col-xs-12">
+					<div class="widget clearfix">
+						<div class="widget-title">
+							<h3>Contact Details</h3>
+						</div>
+
+						<ul class="footer-links">
+							<li><a href="mailto:#">info@yoursite.com</a></li>
+							<li><a href="#">www.yoursite.com</a></li>
+							<li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
+							<li>+61 3 8376 6284</li>
+						</ul><!-- end links -->
+					</div><!-- end clearfix -->
+				</div><!-- end col -->
+
+			</div><!-- end row -->
+		</div><!-- end container -->
+	</footer><!-- end footer -->
+
+	<div class="copyrights">
+		<div class="container">
+			<div class="footer-distributed">
+				<div class="footer-center">
+					<p class="footer-company-name">All Rights Reserved. &copy; 2021 </p>
+				</div>
+			</div>
+		</div><!-- end container -->
+	</div><!-- end copyrights -->
+
+	<a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+	<!-- ALL JS FILES -->
+	<script src="<?= base_url() ?>assets/landing_page/js/all.js"></script>
+	<!-- ALL PLUGINS -->
+	<script src="<?= base_url() ?>assets/landing_page/js/custom.js"></script>
+	<script src="<?= base_url() ?>assets/landing_page/js/timeline.min.js"></script>
+	<script>
+		timeline(document.querySelectorAll('.timeline'), {
+			forceVerticalMode: 700,
+			mode: 'horizontal',
+			verticalStartPosition: 'left',
+			visibleItems: 4
+		});
+	</script>
 </body>
 
 </html>
