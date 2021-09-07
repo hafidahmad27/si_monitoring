@@ -30,7 +30,7 @@
 					<div class="card mt-1">
 						<div class="card-body">
 							<?php if ($error = $this->session->flashdata('msg')) { ?>
-								<div class="alert alert-success alert-dismissible fade show" role="alert">
+								<div class="alert <?= $this->session->flashdata('msg_class'); ?> alert-dismissible fade show" role="alert">
 									<strong><?= $error; ?></strong>
 									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
@@ -65,7 +65,7 @@
 												<?php } ?>
 												&nbsp;
 												<a class="btn btn-success btn-xs btnEditTahunAjaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $thn_ajaran->id_tahun_ajaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a href="<?= base_url() ?>Tahun_Ajaran/hapus/<?= $thn_ajaran->id_tahun_ajaran; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
+												<button type="button" class="btn btn-danger btn-xs swalErrorFK" data-id="<?= $thn_ajaran->id_tahun_ajaran ?>" data-url="<?= base_url() ?>Tahun_Ajaran/hapus/"><i class="fas fa-trash"></i></button>
 											</td>
 										</tr>
 									<?php endforeach; ?>

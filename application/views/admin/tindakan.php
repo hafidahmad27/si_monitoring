@@ -47,7 +47,7 @@
 											</td>
 											<td style="text-align: center;">
 												<a class="btn btn-success btn-xs btnEditTindakan" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tindak->id_tindakan; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a href="<?= base_url() ?>/Tindakan/hapus/<?= $tindak->id_tindakan; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
+												<button type="button" class="btn btn-danger btn-xs swalErrorFK" data-id="<?= $tindak->id_tindakan; ?>" data-url="<?= base_url() ?>Tindakan/hapus/"><i class="fas fa-trash"></i></button>
 											</td>
 										</tr>
 									<?php endforeach; ?>

@@ -49,7 +49,7 @@
 											</td>
 											<td style="text-align: center;">
 												<a class="btn btn-success btn-xs btnEditKelas" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $kls->id_kelas; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a href="<?= base_url() ?>/Kelas/hapus/<?= $kls->id_kelas; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
+												<button type="button" class="btn btn-danger btn-xs swalErrorFK" data-id="<?= $kls->id_kelas; ?>" data-url="<?= base_url() ?>Kelas/hapus/"><i class="fas fa-trash"></i></button>
 											</td>
 										</tr>
 									<?php endforeach; ?>

@@ -35,7 +35,7 @@ class Laporan extends CI_Controller
 		$no_induk = $this->input->post('no_induk');
 		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
 
-		$data['r_tahun_ajaran'] = $this->M_transaksi->Report_TahunAjaran($no_induk, $nama_tahun_ajaran);
+		// $data['r_tahun_ajaran'] = $this->M_transaksi->Report_TahunAjaran($no_induk, $nama_tahun_ajaran);
 
 		$data['identitas'] = $this->M_transaksi->Report_Nama_No_Kls($no_induk);
 
@@ -46,6 +46,15 @@ class Laporan extends CI_Controller
 
 		$data['report_tunggakan_pmbyrn'] = $this->M_transaksi->Report_TunggakanPembayaranBySiswaAndTa($no_induk, $nama_tahun_ajaran);
 		$data['get_rtotal_tunggakan'] = $this->M_transaksi->getRTotalTunggakan($no_induk, $nama_tahun_ajaran);
+
+		if (empty($data['r_tahun_ajaran'])) {
+			$data['r_tahun_ajaran'] = $nama_tahun_ajaran;
+			$data['status'] = 0;
+		} else {
+			$data['r_tahun_ajaran'] = $this->M_transaksi->Report_TahunAjaran($no_induk, $nama_tahun_ajaran);
+			$data['status'] = 1;
+		}
+
 
 		$html = $this->load->view('admin/report/report_per_tahun_ajaran', $data, true);
 

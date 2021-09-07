@@ -310,10 +310,48 @@
 </script>
 <script>
 	$(function() {
+		$('.swalErrorFK').click(function(e) {
+			e.preventDefault();
+			const href = $(this).attr('href');
+			var id = $(this).data('id');
+			var url = $(this).data('url');
+
+			Swal.fire({
+				title: 'Apakah anda yakin untuk menghapuz ?',
+				// text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							Swal.fire(
+								'Terhapus !',
+								'Data ini sukses dihapus.',
+								'success'
+							)
+							location.reload();
+						} else if (this.status == 500) {
+							Swal.fire({
+								icon: 'error',
+								title: 'Gagal Menghapus !',
+								text: 'Data ini terhubung di tabel lain.',
+							})
+						}
+					};
+					xhttp.open("GET", url + id, true);
+					xhttp.send();
+				}
+			})
+		});
 		$('.swalDefaultError').click(function(e) {
 			e.preventDefault();
 			const href = $(this).attr('href');
-			// var id = $(this).data('id');
+			var id = $(this).data('id');
 
 			Swal.fire({
 				title: 'Apakah anda yakin untuk menghapuz ?',
@@ -326,20 +364,11 @@
 			}).then((result) => {
 				if (result.isConfirmed) {
 					document.location.href = href;
-					// $.ajax({
-					// 	url: "http://localhost/si_monitoring/tahun_ajaran/hapus/",
-					// 	data: {
-					// 		id: id,
-					// 	},
-					// 	type: 'POST',
-					// 	success: function() {
-					swal.fire("Terhapus!", "Data berhasil dihapus.", "success");
-					// 	},
-					// 	error: function() {
-					// 		console.log("error bro");
-					// 		alert('Something is wrong');
-					// 	}
-					// });
+					Swal.fire(
+						'Deleted!',
+						'Your file has been deleted.',
+						'success'
+					)
 				}
 			})
 		});

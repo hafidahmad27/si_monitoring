@@ -183,6 +183,7 @@ class M_transaksi extends CI_Model
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
 		$this->db->where('no_induk="' . $no_induk . '" AND tanggal_lahir="' . $tanggal_lahir . '"');
+		$this->db->where('keterangan', 'Belum Lunas');
 		$this->db->order_by('tahun', 'DESC');
 
 		$query = $this->db->get();
@@ -200,6 +201,7 @@ class M_transaksi extends CI_Model
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
 		$this->db->where('no_induk="' . $no_induk . '" AND tanggal_lahir="' . $tanggal_lahir . '"');
+		$this->db->where('keterangan', 'Belum Lunas');
 		$this->db->order_by('tahun', 'DESC');
 
 		$query = $this->db->get();
@@ -213,16 +215,22 @@ class M_transaksi extends CI_Model
 		$this->db->where('status', 1);
 
 		$query = $this->db->get();
-		foreach ($query->result() as $row) {
-			$sess = array(
-				'id_tahun_ajaran' => $row->id_tahun_ajaran,
-				'nama_tahun_ajaran' => $row->nama_tahun_ajaran
-			);
+		if (empty($query->result())) {
+			$this->session->set_flashdata('msg', "Aktifkan tahun ajaran terlebih dahulu !");
+			$this->session->set_flashdata('msg_class', 'alert-danger');
+			redirect('Tahun_Ajaran');
+		} else {
+			foreach ($query->result() as $row) {
+				$sess = array(
+					'id_tahun_ajaran' => $row->id_tahun_ajaran,
+					'nama_tahun_ajaran' => $row->nama_tahun_ajaran
+				);
+			}
+			$this->session->set_userdata($sess);
 		}
-		$this->session->set_userdata($sess);
 	}
 
-	//------------------------------------------------------------
+	//-----------------------------REPORT-------------------------------
 
 	public function Report_TahunAjaran($no_induk, $nama_tahun_ajaran)
 	{
@@ -307,6 +315,7 @@ class M_transaksi extends CI_Model
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
 		$this->db->where('no_induk="' . $no_induk . '" AND nama_tahun_ajaran="' . $nama_tahun_ajaran . '"');
+		$this->db->where('keterangan', 'Belum Lunas');
 		$this->db->order_by('tahun', 'DESC');
 
 		$query = $this->db->get();
@@ -321,6 +330,7 @@ class M_transaksi extends CI_Model
 		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
 		$this->db->join('tb_jenis_pembayaran', 'tb_tunggakan_pembayaran.id_jenis_pembayaran = tb_jenis_pembayaran.id_jenis_pembayaran');
 		$this->db->where('no_induk="' . $no_induk . '" AND nama_tahun_ajaran="' . $nama_tahun_ajaran . '"');
+		$this->db->where('keterangan', 'Belum Lunas');
 		$this->db->order_by('tahun', 'DESC');
 
 		$query = $this->db->get();

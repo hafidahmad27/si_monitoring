@@ -22,10 +22,16 @@
 
 	<center>
 		<h3 style="font-size: 12pt; line-height: 20px;">LAPORAN MONITORING SISWA TAHUN AJARAN
-			<?php
-			foreach ($r_tahun_ajaran as $t) : ?>
-				<?= $t->nama_tahun_ajaran ?>
-			<?php endforeach; ?>
+			<?php if ($status == 1) : ?>
+				<?php foreach ($r_tahun_ajaran as $t) : ?>
+					<?= $t->nama_tahun_ajaran ?>
+				<?php endforeach; ?>
+			<?php else : ?>
+				<?= $r_tahun_ajaran ?>
+			<?php endif; ?>
+
+
+
 		</h3>
 	</center>
 	<div class="row">
@@ -127,7 +133,7 @@
 				<th style="width: 10%;">Bulan</th>
 				<th style="width: 5%;">Tahun</th>
 				<th style="width: 25%;">Nominal</th>
-				<th style="width: 25%;">Keterangan</th>
+				<!-- <th style="width: 25%;">Keterangan</th> -->
 			</tr>
 		</thead>
 		<tbody>
@@ -166,11 +172,11 @@
 					</td>
 					<td><?= $lap->tahun ?></td>
 					<td align="right"><?= number_format($lap->biaya_pembayaran, 0, ',', '.') ?></td>
-					<td><?= $lap->keterangan ?></td>
+					<!-- <td><?= $lap->keterangan ?></td> -->
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
-		<!-- <tfoot>
+		<tfoot>
 			<?php
 			$no = 1;
 			foreach ($get_rtotal_tunggakan as $tot) : ?>
@@ -181,7 +187,7 @@
 					</td>
 				</tr>
 			<?php endforeach; ?>
-		</tfoot> -->
+		</tfoot>
 	</table>
 	<h5 style="font-weight: normal;">Dicetak pada tanggal : <?= date('d M Y') ?>, Pukul : <?= date('H:i:s') ?></h5>
 </body>

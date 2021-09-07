@@ -61,7 +61,7 @@
 											</td>
 											<td style="text-align: center;">
 												<a class="btn btn-success btn-xs btnEditSiswa" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $sisw->id_siswa; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a href="<?= base_url() ?>/Siswa/hapus/<?= $sisw->id_siswa; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
+												<button type="button" class="btn btn-danger btn-xs swalErrorFK" data-id="<?= $sisw->id_siswa; ?>" data-url="<?= base_url() ?>Siswa/hapus/"><i class="fas fa-trash"></i></button>
 											</td>
 										</tr>
 									<?php endforeach; ?>

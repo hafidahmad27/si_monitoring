@@ -49,7 +49,7 @@
 											</td>
 											<td style="text-align: center;">
 												<a class="btn btn-success btn-xs btnEditPelanggaranTatib" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $plg_tatib->id_pelanggaran_tatib; ?>"><i class="fa fa-edit"></i></a>&nbsp;
-												<a href="<?= base_url() ?>/Pelanggaran_Tatib/hapus/<?= $plg_tatib->id_pelanggaran_tatib; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
+												<button type="button" class="btn btn-danger btn-xs swalErrorFK" data-id="<?= $plg_tatib->id_pelanggaran_tatib; ?>" data-url="<?= base_url() ?>/Pelanggaran_Tatib/hapus/"><i class="fas fa-trash"></i></button>
 											</td>
 										</tr>
 									<?php endforeach; ?>
