@@ -1,7 +1,7 @@
 $(function ()
 {
 	$(".btnTambahAbsensi").on("click", function() {
-        $("#staticBackdropLabel").html("Form Transaksi Absensi");
+        $("#staticBackdropLabel").html("Form Input Absensi");
 		$(".modal-footer button[type=submit]").html("Simpan");
 		$(".modal-body form").attr(
 			"action",
@@ -17,7 +17,7 @@ $(function ()
 	});
 
 	$(".btnEditAbsensi").on("click", function () {
-		$("#staticBackdropLabel").html("Form Edit Transaksi Absensi");
+		$("#staticBackdropLabel").html("Form Edit Absensi");
 		$(".modal-footer button[type=submit]").html("Update");
 		$(".modal-body form").attr(
 			"action",

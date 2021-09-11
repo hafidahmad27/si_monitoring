@@ -48,7 +48,7 @@
 											<td><?= $peg->telepon ?>
 											</td>
 											<td style="text-align: center;">
-												<a class="btn btn-success btn-xs btnEditPegawai" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $peg->id_pegawai; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+												<a class="btn btn-primary btn-xs btnEditPegawai" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $peg->id_pegawai; ?>"><i class="fa fa-edit"></i></a>&nbsp;
 												<button type="button" class="btn btn-danger btn-xs swalErrorFK" data-id="<?= $peg->id_pegawai; ?>" data-url="<?= base_url() ?>Pegawai/hapus/"><i class="fas fa-trash"></i></button>
 											</td>
 										</tr>

@@ -58,7 +58,7 @@
 											<td><?= $catatplg->nama_tindakan ?>
 											</td>
 											<td style="text-align: center;">
-												<a class="btn btn-success btn-xs btnEditCatatanPelanggaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $catatplg->id_catatan_pelanggaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+												<a class="btn btn-primary btn-xs btnEditCatatanPelanggaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $catatplg->id_catatan_pelanggaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
 												<a href="<?= base_url() ?>/Catatan_Pelanggaran/hapus/<?= $catatplg->id_catatan_pelanggaran; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
@@ -82,7 +82,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title" id="staticBackdropLabel">Form Input Catatan Pelanggaran Siswa</h3>
+					<h3 class="modal-title" id="staticBackdropLabel">Form Input Catatan Pelanggaran</h3>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>

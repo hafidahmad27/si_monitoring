@@ -16,6 +16,14 @@ class Laporan extends CI_Controller
 
 		if (!$this->session->userdata('level')) {
 			redirect('admin');
+		} elseif ($this->session->userdata('level') == 'guru_bk') {
+			redirect('pelanggaran_tatib');
+		} elseif ($this->session->userdata('level') == 'wali_kelas') {
+			redirect('absensi');
+		} elseif ($this->session->userdata('level') == 'staff_tu') {
+			redirect('jenis_pembayaran');
+		} elseif ($this->session->userdata('level') == 'wali_murid') {
+			redirect('profil_siswa');
 		}
 	}
 
@@ -35,15 +43,9 @@ class Laporan extends CI_Controller
 		$no_induk = $this->input->post('no_induk');
 		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
 
-		// $data['r_tahun_ajaran'] = $this->M_transaksi->Report_TahunAjaran($no_induk, $nama_tahun_ajaran);
-
 		$data['identitas'] = $this->M_transaksi->Report_Nama_No_Kls($no_induk);
-
 		$data['report_catatan_plg'] = $this->M_transaksi->Report_CatatanPelanggaranBySiswaAndTa($no_induk, $nama_tahun_ajaran);
-		$data['get_rtotal_poin'] = $this->M_transaksi->getRTotalPoin($no_induk, $nama_tahun_ajaran);
-
 		$data['report_absensi'] = $this->M_transaksi->Report_AbsensiBySiswaAndTa($no_induk, $nama_tahun_ajaran);
-
 		$data['report_tunggakan_pmbyrn'] = $this->M_transaksi->Report_TunggakanPembayaranBySiswaAndTa($no_induk, $nama_tahun_ajaran);
 		$data['get_rtotal_tunggakan'] = $this->M_transaksi->getRTotalTunggakan($no_induk, $nama_tahun_ajaran);
 
@@ -54,15 +56,12 @@ class Laporan extends CI_Controller
 			$data['r_tahun_ajaran'] = $this->M_transaksi->Report_TahunAjaran($no_induk, $nama_tahun_ajaran);
 			$data['status'] = 1;
 		}
-
-
 		$html = $this->load->view('admin/report/report_per_tahun_ajaran', $data, true);
 
 		$options = new Options();
 		$options->setIsRemoteEnabled(true);
 		$dompdf = new Dompdf($options);
 		$dompdf->setPaper('A4', 'Potrait');
-
 		$dompdf->load_html($html);
 		$dompdf->render();
 		$dompdf->stream('Laporan Monitoring Siswa_' . $nama_tahun_ajaran . '_' . $no_induk . '', array("Attachment" => false));

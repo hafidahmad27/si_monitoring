@@ -57,7 +57,7 @@
 											<td><?= $absen->keterangan ?>
 											</td>
 											<td style="text-align: center;">
-												<a class="btn btn-success btn-xs btnEditAbsensi" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $absen->id_absensi; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+												<a class="btn btn-primary btn-xs btnEditAbsensi" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $absen->id_absensi; ?>"><i class="fa fa-edit"></i></a>&nbsp;
 												<a href="<?= base_url() ?>/Absensi/hapus/<?= $absen->id_absensi; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
@@ -81,7 +81,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title" id="staticBackdropLabel">Form Input Absensi Siswa</h3>
+					<h3 class="modal-title" id="staticBackdropLabel">Form Input Absensi</h3>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>

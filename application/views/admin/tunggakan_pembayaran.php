@@ -89,7 +89,7 @@
 												} ?>
 											</td>
 											<td style="text-align: center; width: 7.3%;">
-												<a class="btn btn-success btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>
+												<a class="btn btn-primary btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>
 												<a href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
@@ -113,7 +113,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title" id="staticBackdropLabel">Form Input Tunggakan Pembayaran Siswa</h3>
+					<h3 class="modal-title" id="staticBackdropLabel">Form Input Tunggakan Pembayaran</h3>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -181,7 +181,7 @@
 						<div class="form-group">
 							<label>Ket</label>
 							<select id="keterangan" name="keterangan" class="form-control">
-								<!-- <option>--Silahkan Pilih--</option> -->
+								<option>--Silahkan Pilih--</option>
 								<option value="Belum Lunas">Belum Lunas</option>
 								<option value="Lunas">Lunas</option>
 							</select>

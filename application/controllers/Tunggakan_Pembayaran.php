@@ -11,6 +11,12 @@ class Tunggakan_Pembayaran extends CI_Controller
 
 		if (!$this->session->userdata('level')) {
 			redirect('admin');
+		} elseif ($this->session->userdata('level') == 'guru_bk') {
+			redirect('pelanggaran_tatib');
+		} elseif ($this->session->userdata('level') == 'wali_kelas') {
+			redirect('absensi');
+		} elseif ($this->session->userdata('level') == 'wali_murid') {
+			redirect('profil_siswa');
 		}
 	}
 

@@ -1,7 +1,7 @@
 $(function ()
 {
 	$(".btnTambahCatatanPelanggaran").on("click", function() {
-        $("#staticBackdropLabel").html("Form Transaksi Catatan Pelanggaran");
+        $("#staticBackdropLabel").html("Form Input Catatan Pelanggaran");
 		$(".modal-footer button[type=submit]").html("Simpan");
 		$(".modal-body form").attr(
 			"action",
@@ -17,7 +17,7 @@ $(function ()
 	});
 
 	$(".btnEditCatatanPelanggaran").on("click", function () {
-		$("#staticBackdropLabel").html("Form Edit Transaksi Catatan Pelanggaran");
+		$("#staticBackdropLabel").html("Form Edit Catatan Pelanggaran");
 		$(".modal-footer button[type=submit]").html("Update");
 		$(".modal-body form").attr(
 			"action",

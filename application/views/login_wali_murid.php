@@ -67,8 +67,8 @@
 					<div class="card-body p-0">
 						<!-- Nested Row within Card Body -->
 						<div class="row">
-							<div class="col-lg-6 d-none d-lg-block bg-light">
-								<div class="jumbotron jumbotron-fluid bg-light">
+							<div class="col-lg-6 d-none d-lg-block" style="background-color: lightyellow;">
+								<div class="jumbotron jumbotron-fluid" style="background-color: lightyellow;">
 									<div class="container">
 										<div class="text-center">
 											<h4>Sistem Informasi Monitoring Siswa</h4>

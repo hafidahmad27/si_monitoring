@@ -48,7 +48,7 @@
 											<td><?= $plg_tatib->poin ?>
 											</td>
 											<td style="text-align: center;">
-												<a class="btn btn-success btn-xs btnEditPelanggaranTatib" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $plg_tatib->id_pelanggaran_tatib; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+												<a class="btn btn-primary btn-xs btnEditPelanggaranTatib" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $plg_tatib->id_pelanggaran_tatib; ?>"><i class="fa fa-edit"></i></a>&nbsp;
 												<button type="button" class="btn btn-danger btn-xs swalErrorFK" data-id="<?= $plg_tatib->id_pelanggaran_tatib; ?>" data-url="<?= base_url() ?>/Pelanggaran_Tatib/hapus/"><i class="fas fa-trash"></i></button>
 											</td>
 										</tr>

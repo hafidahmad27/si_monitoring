@@ -29,9 +29,6 @@
 			<?php else : ?>
 				<?= $r_tahun_ajaran ?>
 			<?php endif; ?>
-
-
-
 		</h3>
 	</center>
 	<div class="row">

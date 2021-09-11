@@ -64,7 +64,7 @@
 													<button class="btn btn-success btn-xs user_status" uid="<?= $thn_ajaran->id_tahun_ajaran; ?>" ustatus="<?= $thn_ajaran->status; ?>"><i class="fas fa-check"></i> Aktifkan</button>
 												<?php } ?>
 												&nbsp;
-												<a class="btn btn-success btn-xs btnEditTahunAjaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $thn_ajaran->id_tahun_ajaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
+												<a class="btn btn-primary btn-xs btnEditTahunAjaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $thn_ajaran->id_tahun_ajaran; ?>"><i class="fa fa-edit"></i></a>&nbsp;
 												<button type="button" class="btn btn-danger btn-xs swalErrorFK" data-id="<?= $thn_ajaran->id_tahun_ajaran ?>" data-url="<?= base_url() ?>Tahun_Ajaran/hapus/"><i class="fas fa-trash"></i></button>
 											</td>
 										</tr>
