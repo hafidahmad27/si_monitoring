@@ -34,7 +34,7 @@ class Kelas extends CI_Controller
 
 	public function tambah_aksi()
 	{
-		$id_pegawai = $this->input->post('id_pegawai');
+		$id_pegawai = null;
 		$nama_kelas = $this->input->post('nama_kelas');
 
 		$data = array(
