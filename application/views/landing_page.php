@@ -157,7 +157,7 @@
 								<div class="col-md-12 col-sm-12 text-right">
 									<div class="big-tagline">
 										<h2><strong>MonitoringSYSTEM </strong> SMK IKIP SBY</h2>
-										<p class="lead">Website untuk memonitoring pelanggaran putra/putri anda</p>
+										<p class="lead">Website untuk memonitoring siswa/siswi SMK IKIP Surabaya</p>
 										<a href="<?= base_url() ?>admin" target="_blank" class="hover-btn-new"><span>Login Pegawai Sekolah</span></a>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<a href="<?= base_url() ?>wali_murid/profil_siswa" target="_blank" class="hover-btn-new"><span>Login Wali Murid</span></a>
@@ -176,7 +176,7 @@
 			<div class="section-title row text-center">
 				<div class="col-md-8 offset-md-2">
 					<h3>About</h3>
-					<p class="lead">Website untuk memonitoring pelanggaran putra/putri anda</p>
+					<p class="lead">Website untuk memonitoring siswa/siswi SMK IKIP Surabaya</p>
 				</div>
 			</div><!-- end title -->
 
@@ -190,9 +190,8 @@
 				<div class="col-lg-4 col-md-4 col-xs-12">
 					<div class="widget clearfix">
 						<div class="widget-title">
-							<h3>About US</h3>
+							<h3>Follow Me</h3>
 						</div>
-						<p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
 						<div class="footer-right">
 							<ul class="footer-links-soi">
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>

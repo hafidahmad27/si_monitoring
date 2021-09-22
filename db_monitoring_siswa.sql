@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2021 at 02:21 PM
+-- Generation Time: Sep 22, 2021 at 06:45 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -243,22 +243,22 @@ CREATE TABLE `tb_siswa` (
 
 INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_telp`) VALUES
 (1, 1, 1401, 'Andhika Pratama', 'Laki-Laki', 'Surabaya', '2002-04-02', 'Jalan Pesapen Utara No. 112, Surabaya', '087712345678'),
-(3, 2, 1439, 'Eva Anisawati', 'Perempuan', 'Surabaya', '1998-06-05', 'Jl. Jagir Sidomukti No. 22, Surabaya', '081234567890'),
-(4, 11, 1419, 'Ahmad Hafid Holy Saputra', 'Laki-Laki', 'Pacitan', '1999-06-19', 'Jl. Sepanjang Aspal Raya No. 23, Surabaya', '087834581787'),
-(6, 13, 1676, 'Dinda Rahmadani Putri', 'Perempuan', 'Surabaya', '1999-01-17', 'Medokan Semampir Tengah No 75, Surabaya', '087863668900'),
-(7, 11, 1495, 'Laila Abidatul Amanah', 'Perempuan', 'Lamongan', '1999-05-05', 'Jl. Gunung Anyar Harapan VII No. 88, Surabaya', '081245675678'),
-(8, 14, 1501, 'Wahyu Atta Masruroh', 'Perempuan', 'Jombang', '1998-09-30', 'Medokan Sawah No. 33, Surabaya', '087733455656'),
+(3, 2, 1439, 'Eva Purnamasari', 'Perempuan', 'Surabaya', '1998-06-05', 'Jl. Jagir Sidomukti No. 22, Surabaya', '081234567890'),
+(4, 11, 1419, 'Ahmad Hafid', 'Laki-Laki', 'Sidoarjo', '1999-06-19', 'Jl. Sepanjang Aspal Raya No. 23, Surabaya', '087834581787'),
+(6, 13, 1676, 'Dinda Putri Rahmadani', 'Perempuan', 'Surabaya', '1999-01-17', 'Medokan Semampir Tengah No 75, Surabaya', '087863668900'),
+(7, 11, 1495, 'Layla Permatasari', 'Perempuan', 'Lamongan', '1999-05-05', 'Jl. Gunung Anyar Harapan VII No. 88, Surabaya', '081245675678'),
+(8, 14, 1501, 'Devi Fadhillah', 'Perempuan', 'Jombang', '1998-09-30', 'Medokan Sawah No. 33, Surabaya', '087733455656'),
 (9, 7, 1578, 'Raditya Pratama', 'Laki-Laki', 'Surabaya', '2000-01-01', 'Medayu Utara XXX, No. 69, Surabaya', '0881361851'),
 (10, 7, 1503, 'Chandra Wardhana', 'Laki-Laki', 'Sidoarjo', '1999-04-24', 'Pondok Candra Wardana Indah No. 21, Sidoarjo', '08823456789'),
-(11, 6, 1983, 'Muhammad Farezra', 'Laki-Laki', 'Sidoarjo', '1999-05-25', 'Jl. Sedati Agung 25, Sidoarjo', '087645452323'),
+(11, 6, 1983, 'Muhammad Fachreza', 'Laki-Laki', 'Sidoarjo', '1999-05-25', 'Jl. Sedati Agung 25, Sidoarjo', '087645452323'),
 (12, 4, 1498, 'Rahma Firdausi', 'Perempuan', 'Surabaya', '1998-12-23', 'Jl. Menur Pumpungan No. 3, Surabaya', '081255674321'),
-(13, 8, 1502, 'Dinivi Widyianti', 'Perempuan', 'Pacitan', '1998-11-02', 'Jl. Tanjung Sari No. 21, Pacitan', '085672131611'),
-(14, 8, 1465, 'Jonathan Sutejo', 'Laki-Laki', 'Mojokerto', '2000-10-04', 'Medokan Sawah No. 23\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087765434321'),
+(13, 8, 1502, 'Denny Angga', 'Perempuan', 'Jombang', '1998-11-02', 'Jl. Sidosermo 24, Surabaya', '085672131611'),
+(14, 8, 1465, 'Johnny Araihan', 'Laki-Laki', 'Mojokerto', '2000-10-04', 'Medokan Sawah No. 23\r\nKel. Medokan Ayu, Kec. Rungkut\r\nSurabaya, Jawa Timur', '087765434321'),
 (15, 3, 7765, 'Adit Saputra', 'Laki-Laki', 'Washington', '1998-08-08', 'Jemur Wonosari Gg. Lebar No. 1\r\nKel. Wonocolo, Kec. Jemursari\r\nSurabaya, Jawa Timur', '087123453452'),
 (16, 1, 3432, 'Bowo Ardiansyah', 'Laki-Laki', 'Surabaya', '2021-04-28', 'Wiyuuuuuuuuuuuuuuuung', '087648483737'),
-(18, 3, 1595, 'Muhammad Haris Setiawan Adhi Mifta', 'Laki-Laki', 'Mojokerto', '1999-08-25', 'Jl. Raya Mojosari Pacet Kutorejo, No. 50', '087734565678'),
-(21, 13, 1999, 'Saputra Hafid Ahmad', 'Laki-Laki', 'Trenggalek', '1999-11-27', 'Jl. Kalijudan No. 1, Surabaya', '0314567890'),
-(22, 12, 1324, 'Ikhza Ainun Fiima', 'Laki-Laki', 'Jember', '1999-01-14', 'Jl. Medokan Kampung No. 4, Surabaya', '085734234859');
+(18, 3, 1595, 'Haris Setiawan', 'Laki-Laki', 'Mojokerto', '1999-08-25', 'Jl. Raya Mojosari Pacet Kutorejo, No. 50', '087734565678'),
+(21, 13, 1999, 'Ahmad Nur Riski', 'Laki-Laki', 'Trenggalek', '1999-11-27', 'Jl. Kalijudan No. 1, Surabaya', '0314567890'),
+(22, 12, 1324, 'Yusril Ihza F', 'Laki-Laki', 'Jember', '1999-01-14', 'Jl. Medokan Kampung No. 4, Surabaya', '085734234859');
 
 -- --------------------------------------------------------
 
@@ -518,7 +518,7 @@ ALTER TABLE `tb_pelanggaran_tatib`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_tahun_ajaran`
