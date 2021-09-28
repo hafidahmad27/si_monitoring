@@ -35,12 +35,12 @@
 										<th style="width: 1%; text-align: center;">Tahun Ajaran</th>
 										<th style="width: 1%; text-align: center;">Tanggal</th>
 										<th style="width: 1%; text-align: center;">No Induk</th>
-										<th style="width: 17.9%; text-align: center;">Nama Lengkap</th>
+										<th style="width: 17%; text-align: center;">Nama Lengkap</th>
 										<th style="width: 1%; text-align: center;">Kelas</th>
 										<th style="width: 17.6%; text-align: center;">Bentuk Pelanggaran</th>
 										<th style="width: 1%; text-align: center;">Poin</th>
 										<th style="width: 13.3%; text-align: center;">Tindakan</th>
-										<th style="width: 7.2%; text-align: center;">Aksi</th>
+										<th style="width: 6.5%; text-align: center;">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>

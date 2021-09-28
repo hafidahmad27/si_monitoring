@@ -27,7 +27,7 @@
                with font-awesome or any other icon font library -->
 
 				<li class="nav-item">
-					<a href="<?= base_url() ?>wali_murid/profil_siswa" class="nav-link <?php echo $uri == 'profil_siswa' ? 'active' : 'no' ?>">
+					<a href="<?= base_url() ?>Wali_Murid/profil_siswa" class="nav-link <?php echo $uri == 'profil_siswa' ? 'active' : 'no' ?>">
 						<i class="nav-icon fas fa-tachometer-alt"></i>
 						<p>
 							Profil Siswa
@@ -36,7 +36,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a href="<?= base_url() ?>wali_murid/info_catatan_pelanggaran" class="nav-link <?php echo $uri == 'info_catatan_pelanggaran' ? 'active' : 'no' ?>">
+					<a href="<?= base_url() ?>Wali_Murid/info_catatan_pelanggaran" class="nav-link <?php echo $uri == 'info_catatan_pelanggaran' ? 'active' : 'no' ?>">
 						<i class="nav-icon fas fa-user-edit"></i>
 						<p>
 							Info Pelanggaran
@@ -45,7 +45,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a href="<?= base_url() ?>wali_murid/info_absensi" class="nav-link <?php echo $uri == 'info_absensi' ? 'active' : 'no' ?>">
+					<a href="<?= base_url() ?>Wali_Murid/info_absensi" class="nav-link <?php echo $uri == 'info_absensi' ? 'active' : 'no' ?>">
 						<i class="nav-icon fas fa-clipboard-list"></i>
 						<p>
 							Info Absensi
@@ -54,7 +54,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a href="<?= base_url() ?>wali_murid/info_tunggakan_pembayaran" class="nav-link <?php echo $uri == 'info_tunggakan_pembayaran' ? 'active' : 'no' ?>">
+					<a href="<?= base_url() ?>Wali_Murid/info_tunggakan_pembayaran" class="nav-link <?php echo $uri == 'info_tunggakan_pembayaran' ? 'active' : 'no' ?>">
 						<i class="nav-icon fas fa-file-invoice-dollar"></i>
 						<p>
 							Info Tunggakan

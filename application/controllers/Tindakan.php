@@ -9,13 +9,13 @@ class Tindakan extends CI_Controller
 		$this->load->model('M_master');
 
 		if (!$this->session->userdata('level')) {
-			redirect('admin');
+			redirect('Admin');
 		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('absensi');
+			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'staff_tu') {
-			redirect('jenis_pembayaran');
+			redirect('Jenis_Pembayaran');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {
-			redirect('profil_siswa');
+			redirect('Profil_Siswa');
 		}
 	}
 
@@ -38,7 +38,7 @@ class Tindakan extends CI_Controller
 		);
 
 		$this->M_master->input_data($data, 'tb_tindakan');
-		redirect('tindakan/index');
+		redirect('Tindakan/index');
 	}
 
 	public function edit($id_tindakan)
@@ -66,20 +66,20 @@ class Tindakan extends CI_Controller
 		);
 
 		$this->M_master->update_data($where, $data, 'tb_tindakan');
-		redirect('tindakan/index');
+		redirect('Tindakan/index');
 	}
 
 	public function hapus($id_tindakan)
 	{
 		$where = array('id_tindakan' => $id_tindakan);
 		$this->M_master->hapus_data($where, 'tb_tindakan');
-		redirect('tindakan/index');
+		redirect('Tindakan/index');
 	}
 
 	public function hapus_semua()
 	{
 		$this->M_master->hapus_semua_data('tb_tindakan');
-		redirect('tindakan/index');
+		redirect('Tindakan/index');
 	}
 
 	public function getUbah()

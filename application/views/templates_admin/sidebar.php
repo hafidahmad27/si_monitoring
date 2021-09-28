@@ -26,7 +26,7 @@
                with font-awesome or any other icon font library -->
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>admin/dashboard" class="nav-link <?php echo $this->uri->segment(2) == 'dashboard' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Admin/dashboard" class="nav-link <?php echo $this->uri->segment(2) == 'dashboard' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-tachometer-alt"></i>
 							<p>
 								Dashboard
@@ -38,7 +38,7 @@
 				<li id="nav-master" class="nav-header">MASTER DATA</li>
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>tahun_ajaran" class="nav-link <?php echo $uri == 'tahun_ajaran' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Tahun_Ajaran" class="nav-link <?php echo $uri == 'Tahun_Ajaran' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-calendar-week"></i>
 							<p>
 								Tahun Ajaran
@@ -46,7 +46,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>kelas" class="nav-link <?php echo $uri == 'kelas' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Kelas" class="nav-link <?php echo $uri == 'Kelas' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-door-open"></i>
 							<p>
 								Kelas
@@ -54,7 +54,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>siswa" class="nav-link <?php echo $uri == 'siswa' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Siswa" class="nav-link <?php echo $uri == 'Siswa' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-id-card"></i>
 							<p>
 								Siswa
@@ -65,7 +65,7 @@
 
 				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'guru_bk') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>pelanggaran_tatib" class="nav-link <?php echo $uri == 'pelanggaran_tatib' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Pelanggaran_Tatib" class="nav-link <?php echo $uri == 'Pelanggaran_Tatib' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-book-open"></i>
 							<p>
 								Pelanggaran Tata Tertib
@@ -73,7 +73,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>tindakan" class="nav-link <?php echo $uri == 'tindakan' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Tindakan" class="nav-link <?php echo $uri == 'Tindakan' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-gavel"></i>
 							<p>
 								Tindakan
@@ -84,7 +84,7 @@
 
 				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'staff_tu') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>jenis_pembayaran" class="nav-link <?php echo $uri == 'jenis_pembayaran' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Jenis_Pembayaran" class="nav-link <?php echo $uri == 'Jenis_Pembayaran' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-funnel-dollar"></i>
 							<p>
 								Jenis Pembayaran
@@ -95,7 +95,7 @@
 
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>pegawai" class="nav-link <?php echo $uri == 'pegawai' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Pegawai" class="nav-link <?php echo $uri == 'Pegawai' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-user-tie"></i>
 							<p>
 								Pegawai
@@ -106,7 +106,7 @@
 
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>user" class="nav-link <?php echo $uri == 'user' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>User" class="nav-link <?php echo $uri == 'User' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-user-lock"></i>
 							<p>
 								User
@@ -118,7 +118,7 @@
 				<li class="nav-header">TRANSAKSI</li>
 				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'guru_bk') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>catatan_pelanggaran" class="nav-link <?php echo $uri == 'catatan_pelanggaran' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Catatan_Pelanggaran" class="nav-link <?php echo $uri == 'Catatan_Pelanggaran' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-user-edit"></i>
 							<p>
 								Catatan Pelanggaran
@@ -129,7 +129,7 @@
 
 				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'wali_kelas') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>absensi" class="nav-link <?php echo $uri == 'absensi' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Absensi" class="nav-link <?php echo $uri == 'Absensi' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-clipboard-list"></i>
 							<p>
 								Absensi
@@ -148,7 +148,7 @@
 
 				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'staff_tu') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>tunggakan_pembayaran" class="nav-link <?php echo $uri == 'tunggakan_pembayaran' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Tunggakan_Pembayaran" class="nav-link <?php echo $uri == 'Tunggakan_Pembayaran' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-file-invoice-dollar"></i>
 							<p>
 								Tunggakan Pembayaran
@@ -160,7 +160,7 @@
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-header">LAPORAN</li>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>laporan" class="nav-link <?php echo $uri == 'laporan' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Laporan" class="nav-link <?php echo $uri == 'Laporan' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-file-alt"></i>
 							<p>
 								Laporan Monitoring

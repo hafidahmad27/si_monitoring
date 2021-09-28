@@ -26,7 +26,7 @@
 			<div class="card-body login-card-body">
 				<p class="login-box-msg">Login Pegawai Sekolah</p>
 
-				<form action="<?= base_url() ?>admin/prosesLogin" method="post">
+				<form action="<?= base_url() ?>Admin/prosesLogin" method="post">
 					<span class="badge badge-danger"><?php $info = $this->session->flashdata('info');
 														if (!empty($info)) {
 															echo $info;

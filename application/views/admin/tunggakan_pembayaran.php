@@ -90,7 +90,7 @@
 											</td>
 											<td style="text-align: center; width: 7.3%;">
 												<a class="btn btn-primary btn-xs btnEditTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $tunggakan->id_tunggakan_pembayaran; ?>"><i class="fa fa-edit"></i></a>
-												<a href="<?= base_url() ?>/tunggakan_pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
+												<a href="<?= base_url() ?>/Tunggakan_Pembayaran/hapus/<?= $tunggakan->id_tunggakan_pembayaran; ?>" class="btn btn-danger btn-xs swalDefaultError"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -181,7 +181,6 @@
 						<div class="form-group">
 							<label>Ket</label>
 							<select id="keterangan" name="keterangan" class="form-control">
-								<option>--Silahkan Pilih--</option>
 								<option value="Belum Lunas">Belum Lunas</option>
 								<option value="Lunas">Lunas</option>
 							</select>

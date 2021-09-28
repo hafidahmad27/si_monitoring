@@ -107,6 +107,7 @@
 							<label>Level</label>
 							<select name="level" id="level" class="form-control" required>
 								<option value="">--Silahkan Pilih--</option>
+								<option value="admin">Admin</option>
 								<option value="guru_bk">Guru BK</option>
 								<option value="wali_kelas">Wali Kelas</option>
 								<option value="staff_tu">Staff TU</option>

@@ -32,30 +32,30 @@ class Admin extends CI_Controller
 			$this->session->set_userdata($sess);
 
 			if ($row->level == 'admin') {
-				redirect('admin/dashboard');
+				redirect('Admin/dashboard');
 			} elseif ($row->level == 'guru_bk') {
-				redirect('catatan_pelanggaran');
+				redirect('Catatan_Pelanggaran');
 			} elseif ($row->level == 'wali_kelas') {
-				redirect('absensi');
+				redirect('Absensi');
 			} elseif ($row->level == 'staff_tu') {
-				redirect('tunggakan_pembayaran');
+				redirect('Tunggakan_Pembayaran');
 			}
 		} else {
 			$this->session->set_flashdata('info', 'Maaf, username atau password anda salah !');
-			redirect('admin');
+			redirect('Admin');
 		}
 	}
 
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('admin');
+		redirect('Admin');
 	}
 
 	public function dashboard()
 	{
 		if (!$this->session->userdata('level')) {
-			redirect('admin');
+			redirect('Admin');
 		}
 
 		$this->load->view('templates_admin/header');

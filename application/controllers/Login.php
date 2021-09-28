@@ -35,16 +35,16 @@ class Login extends CI_Controller
 				);
 			}
 			$this->session->set_userdata($sess);
-			redirect('wali_murid/profil_siswa');
+			redirect('Wali_Murid/profil_siswa');
 		} else {
 			$this->session->set_flashdata('info', 'Maaf, username atau password anda salah !');
-			redirect('login');
+			redirect('Login');
 		}
 	}
 
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('login');
+		redirect('Login');
 	}
 }

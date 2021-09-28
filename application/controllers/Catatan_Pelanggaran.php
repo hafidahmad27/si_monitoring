@@ -10,13 +10,13 @@ class Catatan_Pelanggaran extends CI_Controller
 		$this->load->model('M_transaksi');
 
 		if (!$this->session->userdata('level')) {
-			redirect('admin');
+			redirect('Admin');
 		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('absensi');
+			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'staff_tu') {
-			redirect('jenis_pembayaran');
+			redirect('Jenis_Pembayaran');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {
-			redirect('profil_siswa');
+			redirect('Profil_Siswa');
 		}
 	}
 
@@ -87,20 +87,20 @@ class Catatan_Pelanggaran extends CI_Controller
 		);
 
 		$this->M_transaksi->update_data($where, $data, 'tb_catatan_pelanggaran');
-		redirect('catatan_pelanggaran/index');
+		redirect('Catatan_Pelanggaran/index');
 	}
 
 	public function hapus($id_catatan_pelanggaran)
 	{
 		$where = array('id_catatan_pelanggaran' => $id_catatan_pelanggaran);
 		$this->M_transaksi->hapus_data($where, 'tb_catatan_pelanggaran');
-		redirect('catatan_pelanggaran/index');
+		redirect('Catatan_Pelanggaran/index');
 	}
 
 	public function hapus_semua()
 	{
 		$this->M_transaksi->hapus_semua_data('tb_catatan_pelanggaran');
-		redirect('catatan_pelanggaran/index');
+		redirect('Catatan_Pelanggaran/index');
 	}
 
 	public function getUbah()

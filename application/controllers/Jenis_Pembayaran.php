@@ -9,13 +9,13 @@ class Jenis_Pembayaran extends CI_Controller
 		$this->load->model('M_master');
 
 		if (!$this->session->userdata('level')) {
-			redirect('admin');
+			redirect('Admin');
 		} elseif ($this->session->userdata('level') == 'guru_bk') {
-			redirect('pelanggaran_tatib');
+			redirect('Pelanggaran_Tatib');
 		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('absensi');
+			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {
-			redirect('profil_siswa');
+			redirect('Profil_Siswa');
 		}
 	}
 

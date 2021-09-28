@@ -9,7 +9,7 @@ class Wali_Murid extends CI_Controller
 		$this->load->model('M_transaksi');
 
 		if (!$this->session->userdata('no_induk')) {
-			redirect('login');
+			redirect('Login');
 		}
 	}
 

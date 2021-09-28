@@ -9,15 +9,15 @@ class User extends CI_Controller
 		$this->load->model('M_master');
 
 		if (!$this->session->userdata('level')) {
-			redirect('admin');
+			redirect('Admin');
 		} elseif ($this->session->userdata('level') == 'guru_bk') {
-			redirect('pelanggaran_tatib');
+			redirect('Pelanggaran_Tatib');
 		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('absensi');
+			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'staff_tu') {
-			redirect('jenis_pembayaran');
+			redirect('Jenis_Pembayaran');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {
-			redirect('profil_siswa');
+			redirect('Profil_Siswa');
 		}
 	}
 
@@ -47,7 +47,7 @@ class User extends CI_Controller
 		);
 
 		$this->M_master->input_data($data, 'tb_user');
-		redirect('user/index');
+		redirect('User/index');
 	}
 
 	public function edit($id_user)
@@ -81,20 +81,20 @@ class User extends CI_Controller
 		);
 
 		$this->M_master->update_data($where, $data, 'tb_user');
-		redirect('user/index');
+		redirect('User/index');
 	}
 
 	public function hapus($id_user)
 	{
 		$where = array('id_user' => $id_user);
 		$this->M_master->hapus_data($where, 'tb_user');
-		redirect('user/index');
+		redirect('User/index');
 	}
 
 	public function hapus_semua()
 	{
 		$this->M_master->hapus_semua_data('tb_user');
-		redirect('user/index');
+		redirect('User/index');
 	}
 
 	public function getUbah()

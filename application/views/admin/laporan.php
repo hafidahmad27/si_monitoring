@@ -29,7 +29,7 @@
 							<h3 class="card-title">Laporan per tahun ajaran berdasarkan siswa</h3>
 						</div>
 						<div class="card-body">
-							<form action="<?= base_url() ?>laporan/print_pdf" method="POST" id="">
+							<form action="<?= base_url() ?>Laporan/print_pdf" method="POST" id="">
 								<div class="row">
 									<div class="col-sm-5">
 										<div class="form-group">

@@ -9,13 +9,13 @@ class Pelanggaran_Tatib extends CI_Controller
 		$this->load->model('M_master');
 
 		if (!$this->session->userdata('level')) {
-			redirect('admin');
+			redirect('Admin');
 		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('absensi');
+			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'staff_tu') {
-			redirect('jenis_pembayaran');
+			redirect('Jenis_Pembayaran');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {
-			redirect('profil_siswa');
+			redirect('Profil_Siswa');
 		}
 	}
 
