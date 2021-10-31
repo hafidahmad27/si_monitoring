@@ -18,6 +18,8 @@
 <link rel="shortcut icon" href="<?= base_url() ?>assets/landing_page/images/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="<?= base_url() ?>assets/landing_page/images/apple-touch-icon.png">
 
+<!-- Font Awesome -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/plugins/fontawesome-free/css/all.min.css">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="<?= base_url() ?>assets/landing_page/css/bootstrap.min.css">
 <!-- Site CSS -->
@@ -158,9 +160,9 @@
 									<div class="big-tagline">
 										<h2><strong>MonitoringSYSTEM </strong> SMK IKIP SBY</h2>
 										<p class="lead">Website untuk memonitoring siswa/siswi SMK IKIP Surabaya</p>
-										<a href="<?= base_url() ?>admin" target="_blank" class="hover-btn-new"><span>Login Pegawai Sekolah</span></a>
+										<a href="<?= base_url() ?>Admin" target="_blank" class="hover-btn-new"><span>Login Pegawai Sekolah</span></a>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<a href="<?= base_url() ?>wali_murid/profil_siswa" target="_blank" class="hover-btn-new"><span>Login Wali Murid</span></a>
+										<a href="<?= base_url() ?>Wali_Murid/profil_siswa" target="_blank" class="hover-btn-new"><span>Login Wali Murid</span></a>
 									</div>
 								</div>
 							</div><!-- end row -->
@@ -176,7 +178,7 @@
 			<div class="section-title row text-center">
 				<div class="col-md-8 offset-md-2">
 					<h3>About</h3>
-					<p class="lead">Website untuk memonitoring siswa/siswi SMK IKIP Surabaya</p>
+					<p class="lead" style="text-align: justify;">SMK IKIP Surabaya adalah sekolah menengah kejuruan IKIP dibawah naungan yayasan pembina Universitas Negeri Surabaya yang terletak di jalan Kawung no.9 Surabaya, sebelum menjadi sekolah gedung SMK IKIP Surabaya adalah kampus Institut Keguruan dan Ilmu Pendidikan Negeri (IKIP) Fakultas Pendidikan Olahraga dan Kesehatan (FPOK). Sekolah ini berdiri pada tahun 1999 dan hanya membuka satu Program keahlian, yaitu Perdagangan. SMK IKIP Surabaya mulai pertama kali berdiri di kepalai oleh Ibu Dra. Martini 1998 s/d 1999, kemudian Bapak Jusuf Djunaidi, S.Pd 1999, Bapak Teguh Tjahjono, S.Pd 1999-2006, kemudian pada tahun 2006 berganti ke Ibu Dian Widyastuti, S.Pd sampai saat ini. </p>
 				</div>
 			</div><!-- end title -->
 
@@ -194,11 +196,11 @@
 						</div>
 						<div class="footer-right">
 							<ul class="footer-links-soi">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-github"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+								<li><a href="https://www.facebook.com/smklabschoolunesa1"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://www.instagram.com/smklabschoolunesa1/"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="https://t.me/smkikipsby"><i class="fab fa-telegram"></i></a></li>
+								<li><a href="https://wa.me/6282229020803"><i class="fab fa-whatsapp"></i></a></li>
+								<li><a href="https://www.tiktok.com/@smklabschoolunesa1"><i class="fab fa-tiktok"></i></a></li>
 							</ul><!-- end links -->
 						</div>
 					</div><!-- end clearfix -->
@@ -211,10 +213,10 @@
 						</div>
 
 						<ul class="footer-links">
-							<li><a href="mailto:#">info@yoursite.com</a></li>
-							<li><a href="#">www.yoursite.com</a></li>
-							<li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
-							<li>+61 3 8376 6284</li>
+							<li><a href="mailto:smkikipsby@gmail.com">smkikipsby@gmail.com</a></li>
+							<li><a href="https://smkikipsby.sch.id/" target="_blank">www.smkikipsby.sch.id</a></li>
+							<li>Kode pos 60131</li>
+							<li>03199445639 / <a href="https://wa.me/6282229020803">082229020803 (WA)</a> </li>
 						</ul><!-- end links -->
 					</div><!-- end clearfix -->
 				</div><!-- end col -->

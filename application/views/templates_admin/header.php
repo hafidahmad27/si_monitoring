@@ -82,7 +82,7 @@
 					<!-- <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
 						<i class="fas fa-th-large"></i>
 					</a> -->
-					<a href="<?= base_url() ?>admin/logout" class="btn btn-primary btn-block"><i class="fas fa-sign-out-alt"></i> Log out</a>
+					<a href="<?= base_url() ?>Admin/logout" class="btn btn-primary btn-block"><i class="fas fa-sign-out-alt"></i> Log out</a>
 				</li>
 			</ul>
 		</nav>

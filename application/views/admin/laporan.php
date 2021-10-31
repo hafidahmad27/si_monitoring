@@ -65,7 +65,7 @@
 									<div class="col-sm-2">
 										<div class="form-group"><br>
 											<button type="submit" class="btn btn-primary form-control mt-2" formtarget="blank"><i class="fa fa-file-pdf"></i> Cetak</button>
-											<!-- <a href="<?= base_url() . 'laporan/print_pdf/?no_induk=' . set_value('no_induk') . '&nama_tahun_ajaran=' . set_value('nama_tahun_ajaran') ?> " class="btn btn-primary form-control mt-2" target="blank"><i class="fa fa-file-pdf"></i> Cetak</a> -->
+											<!-- <a href="<?= base_url() . 'Laporan/print_pdf/?no_induk=' . set_value('no_induk') . '&nama_tahun_ajaran=' . set_value('nama_tahun_ajaran') ?> " class="btn btn-primary form-control mt-2" target="blank"><i class="fa fa-file-pdf"></i> Cetak</a> -->
 										</div>
 									</div>
 								</div>
