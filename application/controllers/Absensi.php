@@ -11,8 +11,6 @@ class Absensi extends CI_Controller
 
 		if (!$this->session->userdata('level')) {
 			redirect('Admin');
-		} elseif ($this->session->userdata('level') == 'guru_bk') {
-			redirect('Pelanggaran_Tatib');
 		} elseif ($this->session->userdata('level') == 'staff_tu') {
 			redirect('Jenis_Pembayaran');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {
@@ -22,11 +20,11 @@ class Absensi extends CI_Controller
 
 	public function index()
 	{
-		if ($this->session->userdata('level') == 'admin') {
-			$data['siswa'] = $this->M_master->tampil_data('tb_siswa')->result();
-		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			$data['siswaByKelas'] = $this->M_transaksi->getSiswaByKelas();
-		}
+		// elseif ($this->session->userdata('level') == 'wali_kelas') {
+		// 	$data['siswaByKelas'] = $this->M_transaksi->getSiswaByKelas();
+		// }
+		$data['siswa'] = $this->M_master->tampil_data('tb_siswa')->result();
+		$data['siswa'] = $this->M_master->getSiswa();
 		$data['absensi'] = $this->M_transaksi->getAbsensiSiswa();
 		$this->M_transaksi->getStatusTahunAjaran();
 

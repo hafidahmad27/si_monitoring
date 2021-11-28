@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2021 at 06:45 AM
+-- Generation Time: Nov 28, 2021 at 02:59 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -47,7 +47,7 @@ INSERT INTO `tb_absensi` (`id_absensi`, `id_tahun_ajaran`, `id_siswa`, `tanggal_
 (4, 2, 11, '2021-06-07', 'Izin', 'Perpanjangan SIM'),
 (5, 2, 6, '2021-06-04', 'Sakit', 'cedera, dirawat di rumah'),
 (6, 2, 9, '2021-05-31', 'Sakit', 'Asma, dirawat di rumah'),
-(7, 2, 13, '2021-05-17', 'Sakit', 'Pusing'),
+(7, 2, 13, '2021-11-01', 'Alpa', 'tanpa keterangan'),
 (8, 2, 18, '2021-05-07', 'Sakit', 'Panu'),
 (9, 2, 4, '2021-04-14', 'Alpa', '-'),
 (10, 2, 16, '2021-03-10', 'Izin', 'tidur'),
@@ -56,7 +56,13 @@ INSERT INTO `tb_absensi` (`id_absensi`, `id_tahun_ajaran`, `id_siswa`, `tanggal_
 (13, 1, 4, '2020-10-05', 'Sakit', 'panas, rawat inap'),
 (14, 1, 9, '2021-08-23', 'Sakit', 'Asma'),
 (15, 2, 12, '2021-09-07', 'Sakit', 'fanas'),
-(16, 3, 4, '2021-09-09', 'Izin', 'acara keluarga');
+(16, 3, 4, '2021-09-09', 'Izin', 'acara keluarga'),
+(17, 2, 11, '2021-11-27', 'Izin', 'dsgfds'),
+(18, 3, 18, '2021-11-11', 'Alpa', 'gk tau'),
+(19, 3, 6, '2021-11-13', 'Izin', 'acara internasional'),
+(20, 3, 15, '2021-11-17', 'Sakit', 'kecetit'),
+(21, 3, 13, '2021-11-28', 'Alpa', '-'),
+(22, 3, 13, '2021-11-28', 'Izin', 'keperluan keluarga');
 
 -- --------------------------------------------------------
 
@@ -94,10 +100,14 @@ INSERT INTO `tb_catatan_pelanggaran` (`id_catatan_pelanggaran`, `id_tahun_ajaran
 (14, 2, 4, 4, 2, '2021-03-29'),
 (15, 2, 1, 8, 2, '2021-03-04'),
 (16, 1, 9, 8, 1, '2020-12-23'),
-(17, 1, 4, 1, 1, '2020-10-07'),
-(18, 1, 9, 2, 1, '2021-08-23'),
+(17, 1, 4, 1, 1, '2020-10-06'),
+(18, 1, 9, 2, 1, '2021-08-18'),
 (19, 1, 12, 5, 1, '2021-09-07'),
-(20, 2, 12, 7, 2, '2021-09-07');
+(20, 2, 12, 7, 2, '2021-09-07'),
+(21, 3, 21, 7, 1, '2021-11-26'),
+(22, 3, 22, 6, 1, '2021-10-28'),
+(23, 3, 13, 5, 2, '2021-11-12'),
+(24, 3, 13, 8, 3, '2021-11-28');
 
 -- --------------------------------------------------------
 
@@ -126,7 +136,6 @@ INSERT INTO `tb_jenis_pembayaran` (`id_jenis_pembayaran`, `jenis_pembayaran`) VA
 
 CREATE TABLE `tb_kelas` (
   `id_kelas` int(11) NOT NULL,
-  `id_pegawai` int(11) DEFAULT NULL,
   `nama_kelas` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -134,64 +143,25 @@ CREATE TABLE `tb_kelas` (
 -- Dumping data for table `tb_kelas`
 --
 
-INSERT INTO `tb_kelas` (`id_kelas`, `id_pegawai`, `nama_kelas`) VALUES
-(1, 4, 'X BDP 1'),
-(2, 5, 'X BDP 2'),
-(3, 6, 'XI BDP 1'),
-(4, 7, 'XI BDP 2'),
-(5, 8, 'XII BDP 1'),
-(6, 9, 'XII BDP 2'),
-(7, 10, 'X MM 1'),
-(8, 11, 'X MM 2'),
-(9, 12, 'XI MM 1'),
-(10, 13, 'XI MM 2'),
-(11, 14, 'XII MM 1'),
-(12, 15, 'XII MM 2'),
-(13, 16, 'X TKKR 1'),
-(14, 17, 'X TKKR 2'),
-(15, 18, 'XI TKKR 1'),
-(16, 19, 'XI TKKR 2'),
-(17, 20, 'XII TKKR 1'),
-(18, 21, 'XII TKKR 2');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_pegawai`
---
-
-CREATE TABLE `tb_pegawai` (
-  `id_pegawai` int(11) NOT NULL,
-  `nama_pegawai` varchar(50) NOT NULL,
-  `telepon` varchar(13) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tb_pegawai`
---
-
-INSERT INTO `tb_pegawai` (`id_pegawai`, `nama_pegawai`, `telepon`) VALUES
-(1, 'Admin', '08170483572'),
-(2, 'Guru BK', '088822224456'),
-(3, 'Staff TU', '087745465657'),
-(4, 'wali kelas x bdp 1', '082134561234'),
-(5, 'wali kelas x bdp 2', '08165373'),
-(6, 'wali kelas xi bdp 1', '08125235'),
-(7, 'wali kelas xi bdp 2', '08172425'),
-(8, 'wali kelas xii bdp 1', '08127425'),
-(9, 'wali kelas xii bdp 2', '087565732'),
-(10, 'wali kelas x mm 1', '081241432'),
-(11, 'wali kelas x mm 2', '087412582'),
-(12, 'wali kelas xi mm 1', '08122152'),
-(13, 'wali kelas xi mm 2', '081252159'),
-(14, 'wali kelas xii mm 1', '08332852'),
-(15, 'wali kelas xii mm 2', '08212583'),
-(16, 'wali kelas x tkkr 1', '03109525'),
-(17, 'wali kelas x tkkr 2', '03145678'),
-(18, 'wali kelas xi tkkr 1', '087675353'),
-(19, 'wali kelas xi tkkr 2', '03125329'),
-(20, 'wali kelas xii tkkr 1', '0314284254'),
-(21, 'wali kelas xii tkkr 2', '085632748');
+INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
+(1, 'X BDP 1'),
+(2, 'X BDP 2'),
+(3, 'XI BDP 1'),
+(4, 'XI BDP 2'),
+(5, 'XII BDP 1'),
+(6, 'XII BDP 2'),
+(7, 'X MM 1'),
+(8, 'X MM 2'),
+(9, 'XI MM 1'),
+(10, 'XI MM 2'),
+(11, 'XII MM 1'),
+(12, 'XII MM 2'),
+(13, 'X TKKR 1'),
+(14, 'X TKKR 2'),
+(15, 'XI TKKR 1'),
+(16, 'XI TKKR 2'),
+(17, 'XII TKKR 1'),
+(18, 'XII TKKR 2');
 
 -- --------------------------------------------------------
 
@@ -201,23 +171,22 @@ INSERT INTO `tb_pegawai` (`id_pegawai`, `nama_pegawai`, `telepon`) VALUES
 
 CREATE TABLE `tb_pelanggaran_tatib` (
   `id_pelanggaran_tatib` int(11) NOT NULL,
-  `bentuk_pelanggaran` varchar(150) NOT NULL,
-  `poin` int(4) NOT NULL
+  `bentuk_pelanggaran` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_pelanggaran_tatib`
 --
 
-INSERT INTO `tb_pelanggaran_tatib` (`id_pelanggaran_tatib`, `bentuk_pelanggaran`, `poin`) VALUES
-(1, 'Terlambat masuk sekolah', 10),
-(2, 'Membolos/tidak masuk tanpa keterangan 1 hari', 20),
-(3, 'Tidak mengikuti pelajaran tanpa ijin', 30),
-(4, 'Mencuri barang milik orang lain', 50),
-(5, 'Pakaian seragam tidak sesuai ketentuan yang ditetapkan oleh sekolah', 20),
-(6, 'Potongan rambut tidak sesuai dengan aturan sekolah', 10),
-(7, 'Menjadi pelaku perkelahian/provokator', 50),
-(8, 'Merokok di area sekolah', 40);
+INSERT INTO `tb_pelanggaran_tatib` (`id_pelanggaran_tatib`, `bentuk_pelanggaran`) VALUES
+(1, 'Terlambat masuk sekolah'),
+(2, 'Membolos/tidak masuk tanpa keterangan 1 hari'),
+(3, 'Tidak mengikuti pelajaran tanpa ijin'),
+(4, 'Mencuri barang milik orang lain'),
+(5, 'Pakaian seragam tidak sesuai ketentuan yang ditetapkan oleh sekolah'),
+(6, 'Potongan rambut tidak sesuai dengan aturan sekolah'),
+(7, 'Menjadi pelaku perkelahian/provokator'),
+(8, 'Merokok di area sekolah');
 
 -- --------------------------------------------------------
 
@@ -258,7 +227,8 @@ INSERT INTO `tb_siswa` (`id_siswa`, `id_kelas`, `no_induk`, `nama_lengkap`, `jen
 (16, 1, 3432, 'Bowo Ardiansyah', 'Laki-Laki', 'Surabaya', '2021-04-28', 'Wiyuuuuuuuuuuuuuuuung', '087648483737'),
 (18, 3, 1595, 'Haris Setiawan', 'Laki-Laki', 'Mojokerto', '1999-08-25', 'Jl. Raya Mojosari Pacet Kutorejo, No. 50', '087734565678'),
 (21, 13, 1999, 'Ahmad Nur Riski', 'Laki-Laki', 'Trenggalek', '1999-11-27', 'Jl. Kalijudan No. 1, Surabaya', '0314567890'),
-(22, 12, 1324, 'Yusril Ihza F', 'Laki-Laki', 'Jember', '1999-01-14', 'Jl. Medokan Kampung No. 4, Surabaya', '085734234859');
+(22, 12, 1324, 'Yusril Ihza F', 'Laki-Laki', 'Jember', '1999-01-14', 'Jl. Medokan Kampung No. 4, Surabaya', '085734234859'),
+(23, 7, 1256, 'Jonathan', 'Laki-Laki', 'Mojokerto', '2003-10-14', 'Jl. Jetis wetan no 23, Mojokerto.', '081723454321');
 
 -- --------------------------------------------------------
 
@@ -329,26 +299,28 @@ INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_tahun_ajar
 (4, 2, 1, 2, 4, 2021, 50000, 'Belum Lunas'),
 (5, 2, 1, 2, 7, 2021, 10000, 'Belum Lunas'),
 (6, 2, 9, 2, 9, 2021, 50000, 'Belum Lunas'),
-(7, 1, 9, 2, 10, 2021, 10000, 'Belum Lunas'),
+(7, 3, 9, 2, 10, 2021, 50000, 'Belum Lunas'),
 (8, 2, 4, 2, 12, 2020, 30000, 'Belum Lunas'),
-(9, 1, 4, 1, 3, 2021, 176000, 'Belum Lunas'),
-(10, 1, 4, 2, 9, 2021, 30000, 'Belum Lunas'),
-(11, 3, 4, 2, 1, 2021, 222, 'Lunas'),
-(12, 2, 4, 1, 3, 2021, 8000, 'Belum Lunas'),
+(9, 3, 4, 1, 3, 2021, 200000, 'Belum Lunas'),
 (13, 2, 9, 1, 2, 2021, 30000, 'Belum Lunas'),
-(14, 1, 9, 2, 12, 2020, 15000, 'Belum Lunas'),
-(15, 2, 13, 1, 1, 2020, 10000, 'Belum Lunas'),
+(14, 3, 9, 2, 12, 2020, 15000, 'Lunas'),
 (16, 2, 14, 2, 2, 2021, 30000, 'Belum Lunas'),
-(17, 2, 3, 1, 10, 2021, 999999999, 'Belum Lunas'),
+(17, 3, 3, 1, 10, 2021, 15000, 'Belum Lunas'),
 (18, 3, 22, 1, 11, 2021, 40000, 'Lunas'),
 (19, 3, 22, 1, 11, 2021, 90000, 'Lunas'),
-(20, 3, 22, 1, 7, 2021, 669696, 'Lunas'),
-(21, 3, 22, 2, 12, 2021, 79000, 'Belum Lunas'),
+(21, 3, 22, 2, 12, 2021, 200000, 'Lunas'),
 (22, 2, 12, 1, 8, 2020, 200000, 'Lunas'),
 (23, 2, 12, 2, 12, 2021, 50000, 'Lunas'),
 (24, 2, 12, 1, 12, 2021, 100000, 'Lunas'),
 (25, 2, 12, 2, 12, 2021, 50005, 'Lunas'),
-(29, 1, 12, 1, 11, 2021, 140000, 'Lunas');
+(30, 3, 16, 1, 8, 2021, 49000, 'Lunas'),
+(31, 3, 4, 2, 7, 2021, 50000, 'Belum Lunas'),
+(32, 3, 22, 1, 11, 2021, 50000, 'Belum Lunas'),
+(33, 3, 18, 1, 12, 2000, 150000, 'Belum Lunas'),
+(34, 3, 7, 1, 12, 2021, 100000, 'Belum Lunas'),
+(35, 3, 23, 1, 10, 2021, 150000, 'Belum Lunas'),
+(36, 3, 13, 2, 12, 2021, 50000, 'Belum Lunas'),
+(37, 3, 13, 1, 12, 2021, 250000, 'Belum Lunas');
 
 -- --------------------------------------------------------
 
@@ -358,7 +330,7 @@ INSERT INTO `tb_tunggakan_pembayaran` (`id_tunggakan_pembayaran`, `id_tahun_ajar
 
 CREATE TABLE `tb_user` (
   `id_user` int(11) NOT NULL,
-  `id_pegawai` int(11) NOT NULL,
+  `nama_user` varchar(50) NOT NULL,
   `username` varchar(15) NOT NULL,
   `password` varchar(15) NOT NULL,
   `level` varchar(10) NOT NULL
@@ -368,28 +340,10 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `id_pegawai`, `username`, `password`, `level`) VALUES
-(1, 1, 'admin', 'admin', 'admin'),
-(2, 2, 'gurubk', 'gurubk', 'guru_bk'),
-(3, 3, 'stafftu', 'stafftu', 'staff_tu'),
-(4, 4, 'xbdp1', 'xbdp1', 'wali_kelas'),
-(5, 5, 'xbdp2', 'xbdp2', 'wali_kelas'),
-(6, 6, 'xibdp1', 'xibdp1', 'wali_kelas'),
-(7, 7, 'xibdp2', 'xibdp2', 'wali_kelas'),
-(8, 8, 'xiibdp1', 'xiibdp1', 'wali_kelas'),
-(9, 9, 'xiibdp2', 'xiibdp2', 'wali_kelas'),
-(10, 10, 'xmm1', 'xmm1', 'wali_kelas'),
-(11, 11, 'xmm2', 'xmm2', 'wali_kelas'),
-(12, 12, 'ximm1', 'ximm1', 'wali_kelas'),
-(13, 13, 'ximm2', 'ximm2', 'wali_kelas'),
-(14, 14, 'xiimm1', 'xiimm1', 'wali_kelas'),
-(15, 15, 'xiimm2', 'xiimm2', 'wali_kelas'),
-(16, 16, 'xtkkr1', 'xtkkr1', 'wali_kelas'),
-(17, 17, 'xtkkr2', 'xtkkr2', 'wali_kelas'),
-(18, 18, 'xitkkr1', 'xitkkr1', 'wali_kelas'),
-(19, 19, 'xitkkr2', 'xitkkr2', 'wali_kelas'),
-(20, 20, 'xiitkkr1', 'xiitkkr1', 'wali_kelas'),
-(21, 21, 'xiitkkr2', 'xiitkkr2', 'wali_kelas');
+INSERT INTO `tb_user` (`id_user`, `nama_user`, `username`, `password`, `level`) VALUES
+(1, 'Admin', 'admin', 'admin', 'admin'),
+(2, 'Guru BK', 'gurubk', 'gurubk', 'guru_bk'),
+(3, 'Staff TU', 'stafftu', 'stafftu', 'staff_tu');
 
 --
 -- Indexes for dumped tables
@@ -423,14 +377,7 @@ ALTER TABLE `tb_jenis_pembayaran`
 -- Indexes for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  ADD PRIMARY KEY (`id_kelas`),
-  ADD KEY `id_pegawai` (`id_pegawai`);
-
---
--- Indexes for table `tb_pegawai`
---
-ALTER TABLE `tb_pegawai`
-  ADD PRIMARY KEY (`id_pegawai`);
+  ADD PRIMARY KEY (`id_kelas`);
 
 --
 -- Indexes for table `tb_pelanggaran_tatib`
@@ -471,8 +418,7 @@ ALTER TABLE `tb_tunggakan_pembayaran`
 -- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `id_pegawai` (`id_pegawai`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -482,13 +428,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_absensi`
 --
 ALTER TABLE `tb_absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tb_catatan_pelanggaran`
 --
 ALTER TABLE `tb_catatan_pelanggaran`
-  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_catatan_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tb_jenis_pembayaran`
@@ -503,12 +449,6 @@ ALTER TABLE `tb_kelas`
   MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `tb_pegawai`
---
-ALTER TABLE `tb_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
 -- AUTO_INCREMENT for table `tb_pelanggaran_tatib`
 --
 ALTER TABLE `tb_pelanggaran_tatib`
@@ -518,7 +458,7 @@ ALTER TABLE `tb_pelanggaran_tatib`
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_tahun_ajaran`
@@ -536,13 +476,13 @@ ALTER TABLE `tb_tindakan`
 -- AUTO_INCREMENT for table `tb_tunggakan_pembayaran`
 --
 ALTER TABLE `tb_tunggakan_pembayaran`
-  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_tunggakan_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -565,12 +505,6 @@ ALTER TABLE `tb_catatan_pelanggaran`
   ADD CONSTRAINT `tb_catatan_pelanggaran_ibfk_4` FOREIGN KEY (`id_tahun_ajaran`) REFERENCES `tb_tahun_ajaran` (`id_tahun_ajaran`);
 
 --
--- Constraints for table `tb_kelas`
---
-ALTER TABLE `tb_kelas`
-  ADD CONSTRAINT `tb_kelas_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `tb_pegawai` (`id_pegawai`);
-
---
 -- Constraints for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
@@ -583,12 +517,6 @@ ALTER TABLE `tb_tunggakan_pembayaran`
   ADD CONSTRAINT `tb_tunggakan_pembayaran_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `tb_siswa` (`id_siswa`),
   ADD CONSTRAINT `tb_tunggakan_pembayaran_ibfk_2` FOREIGN KEY (`id_jenis_pembayaran`) REFERENCES `tb_jenis_pembayaran` (`id_jenis_pembayaran`),
   ADD CONSTRAINT `tb_tunggakan_pembayaran_ibfk_3` FOREIGN KEY (`id_tahun_ajaran`) REFERENCES `tb_tahun_ajaran` (`id_tahun_ajaran`);
-
---
--- Constraints for table `tb_user`
---
-ALTER TABLE `tb_user`
-  ADD CONSTRAINT `tb_user_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `tb_pegawai` (`id_pegawai`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

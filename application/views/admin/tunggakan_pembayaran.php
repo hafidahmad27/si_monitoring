@@ -24,6 +24,37 @@
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
 				<div class="col-12">
+					<form action="<?= base_url() ?>Tunggakan_Pembayaran/print_pdf2" method="POST" id="">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Kelas</label>
+									<select name="nama_kelas" class="form-control" style="width: 100%;" required>
+										<option value="">--Silahkan Pilih--</option>
+										<?php foreach ($pilih_kelas as $pk) : ?>
+											<option value="<?= $pk->nama_kelas ?>"><?= $pk->nama_kelas ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Tahun Ajaran</label>
+									<select name="nama_tahun_ajaran" class="form-control" style="width: 100%;" required>
+										<option value="">--Silahkan Pilih--</option>
+										<?php foreach ($pilih_tahun_ajaran as $pta) : ?>
+											<option value="<?= $pta->nama_tahun_ajaran ?>"><?= $pta->nama_tahun_ajaran ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group"><br>
+									<button type="submit" class="btn btn-primary form-control mt-2" formtarget="blank"><i class="fa fa-file-pdf"></i> Cetak</button>
+								</div>
+							</div>
+						</div>
+					</form>
 					<button type="button" class="btn btn-primary btnTambahTunggakanPembayaran" data-toggle="modal" data-target="#staticBackdrop">
 						<i class="fa fa-plus"></i> Tambah
 					</button>
@@ -133,7 +164,7 @@
 							<select name="id_siswa" id="id_siswa" class="form-control" required>
 								<option value="">--Silahkan Pilih--</option>
 								<?php foreach ($siswa as $sisw) : ?>
-									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
+									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?> - <?= $sisw->nama_kelas ?></option>
 								<?php endforeach; ?>
 							</select>
 						</div>

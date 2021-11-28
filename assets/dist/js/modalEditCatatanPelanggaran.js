@@ -10,8 +10,8 @@ $(function ()
     $(".ta").show();
     $("#id_tahun_ajaran").prop("type", "hidden")
     $("#nama_ajr").prop("type", "text")
-    $("#tanggal").prop("type", "text");
-    $("#tagal").hide();
+    // $("#tanggal").prop("type", "text");
+    // $("#tagal").hide();
 
 		document.getElementById('formResetData').reset();
 	});
@@ -26,10 +26,9 @@ $(function ()
     $(".ta").hide();
     $("#id_tahun_ajaran").prop("type", "hidden")
     $("#nama_ajr").prop("type", "hidden")
-    $("#tanggal").prop("type", "text");
-    $("#tagal").hide();
-    // $("#tagal").removeAttribute("value");
-    document.getElementById("tagal").removeAttribute("value");
+    // $("#tanggal").prop("type", "text");
+    // $("#tagal").hide();
+    // document.getElementById("tagal").removeAttribute("value");
 
 		const id = $(this).data("id");
 

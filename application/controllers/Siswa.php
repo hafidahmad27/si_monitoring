@@ -12,8 +12,6 @@ class Siswa extends CI_Controller
 			redirect('Admin');
 		} elseif ($this->session->userdata('level') == 'guru_bk') {
 			redirect('Pelanggaran_Tatib');
-		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'staff_tu') {
 			redirect('Jenis_Pembayaran');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {

@@ -34,7 +34,6 @@
 									<tr>
 										<th>No</th>
 										<th style="text-align: center;">Bentuk Pelanggaran</th>
-										<th>Poin</th>
 										<th style="width: 8%;">Aksi</th>
 									</tr>
 								</thead>
@@ -45,7 +44,6 @@
 										<tr>
 											<td><?= $no++ ?></td>
 											<td><?= $plg_tatib->bentuk_pelanggaran ?>
-											<td><?= $plg_tatib->poin ?>
 											</td>
 											<td style="text-align: center;">
 												<a class="btn btn-primary btn-xs btnEditPelanggaranTatib" data-toggle="modal" data-target="#staticBackdrop" data-id="<?= $plg_tatib->id_pelanggaran_tatib; ?>"><i class="fa fa-edit"></i></a>&nbsp;
@@ -85,10 +83,6 @@
 						<div class="form-group">
 							<label>Bentuk Pelanggaran</label>
 							<textarea id="bentuk_pelanggaran" name="bentuk_pelanggaran" cols="" rows="3" maxlength="150" class="form-control" required></textarea>
-						</div>
-						<div class="form-group">
-							<label>Poin</label>
-							<input type="number" id="poin" name="poin" min="10" max="9999" class="form-control" required>
 						</div>
 						<div class="modal-footer">
 							<button type="close" class="btn btn-danger" data-dismiss="modal">Close</button>

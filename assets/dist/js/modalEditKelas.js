@@ -7,7 +7,6 @@ $(function ()
 			"action",
 			"http://localhost/si_monitoring/Kelas/tambah_aksi"
 		);
-    $(".klas").hide();
 		document.getElementById('formResetData').reset();
 	});
 
@@ -18,8 +17,6 @@ $(function ()
 			"action",
 			"http://localhost/si_monitoring/Kelas/update"
 		);
-    $(".klas").show();
-    console.log("Oke");
 
 		const id = $(this).data("id");
 

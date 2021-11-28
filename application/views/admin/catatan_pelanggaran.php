@@ -38,7 +38,6 @@
 										<th style="width: 17%; text-align: center;">Nama Lengkap</th>
 										<th style="width: 1%; text-align: center;">Kelas</th>
 										<th style="width: 17.6%; text-align: center;">Bentuk Pelanggaran</th>
-										<th style="width: 1%; text-align: center;">Poin</th>
 										<th style="width: 13.3%; text-align: center;">Tindakan</th>
 										<th style="width: 6.5%; text-align: center;">Aksi</th>
 									</tr>
@@ -54,7 +53,6 @@
 											<td><?= $catatplg->nama_lengkap ?> </td>
 											<td><?= $catatplg->nama_kelas ?> </td>
 											<td><?= $catatplg->bentuk_pelanggaran ?> </td>
-											<td style="float: right;"><?= $catatplg->poin ?> </td>
 											<td><?= $catatplg->nama_tindakan ?>
 											</td>
 											<td style="text-align: center;">
@@ -99,15 +97,16 @@
 						</div>
 						<div class="form-group">
 							<label>Tanggal</label>
-							<input type="hidden" id="tanggal" name="tanggal" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
-							<input type="text" id="tagal" name="" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
+							<input type="date" id="tanggal" name="tanggal" value="<?= date('Y-m-d') ?>" class="form-control">
+							<!-- <input type="hidden" id="tanggal" name="tanggal" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
+							<input type="text" id="tagal" name="" value="<?= date('Y-m-d') ?>" class="form-control" readonly> -->
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label><br>
 							<select name="id_siswa" id="id_siswa" class="form-control" style="width: 100%;" required>
 								<option value="">--Silahkan Pilih--</option>
 								<?php foreach ($siswa as $sisw) : ?>
-									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
+									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?> - <?= $sisw->nama_kelas ?></option>
 								<?php endforeach; ?>
 							</select>
 						</div>

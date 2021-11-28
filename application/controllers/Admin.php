@@ -23,7 +23,7 @@ class Admin extends CI_Controller
 		if ($cek->num_rows() > 0) {
 			foreach ($cek->result() as $row) {
 				$sess = array(
-					'nama_pegawai' => $row->nama_pegawai,
+					'nama_user' => $row->nama_user,
 					'username' => $row->username,
 					'password' => $row->password,
 					'level' => $row->level
@@ -35,8 +35,6 @@ class Admin extends CI_Controller
 				redirect('Admin/dashboard');
 			} elseif ($row->level == 'guru_bk') {
 				redirect('Catatan_Pelanggaran');
-			} elseif ($row->level == 'wali_kelas') {
-				redirect('Absensi');
 			} elseif ($row->level == 'staff_tu') {
 				redirect('Tunggakan_Pembayaran');
 			}

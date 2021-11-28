@@ -12,8 +12,6 @@ class Kelas extends CI_Controller
 			redirect('Admin');
 		} elseif ($this->session->userdata('level') == 'guru_bk') {
 			redirect('Pelanggaran_Tatib');
-		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'staff_tu') {
 			redirect('Jenis_Pembayaran');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {
@@ -23,7 +21,6 @@ class Kelas extends CI_Controller
 
 	public function index()
 	{
-		$data['pegawai'] = $this->M_master->tampil_data('tb_pegawai')->result();
 		$data['kelas'] = $this->M_master->getKelas();
 
 		$this->load->view('templates_admin/header');
@@ -34,11 +31,9 @@ class Kelas extends CI_Controller
 
 	public function tambah_aksi()
 	{
-		$id_pegawai = null;
 		$nama_kelas = $this->input->post('nama_kelas');
 
 		$data = array(
-			'id_pegawai' => $id_pegawai,
 			'nama_kelas' => $nama_kelas
 		);
 
@@ -60,11 +55,9 @@ class Kelas extends CI_Controller
 	public function update()
 	{
 		$id_kelas = $this->input->post('id_kelas');
-		$id_pegawai = $this->input->post('id_pegawai');
 		$nama_kelas = $this->input->post('nama_kelas');
 
 		$data = array(
-			'id_pegawai' => $id_pegawai,
 			'nama_kelas' => $nama_kelas
 		);
 

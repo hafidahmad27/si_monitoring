@@ -98,24 +98,17 @@
 						</div>
 						<div class="form-group">
 							<label>Tanggal</label>
-							<input type="hidden" id="tanggal_absensi" name="tanggal_absensi" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
-							<input type="text" id="tagal" name="" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
+							<input type="date" id="tanggal_absensi" value="<?= date('Y-m-d') ?>" name="tanggal_absensi" class="form-control">
+							<!-- <input type="hidden" id="tanggal_absensi" name="tanggal_absensi" value="<?= date('Y-m-d') ?>" class="form-control" readonly>
+							<input type="text" id="tagal" name="" value="<?= date('Y-m-d') ?>" class="form-control" readonly> -->
 						</div>
 						<div class="form-group">
 							<label>Nama Lengkap</label><br>
 							<select name="id_siswa" id="id_siswa" class="form-control" style="width: 100%;" required>
-								<?php if ($this->session->userdata('level') == 'admin') : ?>
-									<option value="">--Silahkan Pilih--</option>
-									<?php foreach ($siswa as $sisw) : ?>
-										<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
-									<?php endforeach; ?>
-								<?php endif; ?>
-								<?php if ($this->session->userdata('level') == 'wali_kelas') : ?>
-									<option value="">--Silahkan Pilih--</option>
-									<?php foreach ($siswaByKelas as $sisw) : ?>
-										<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?></option>
-									<?php endforeach; ?>
-								<?php endif; ?>
+								<option value="">--Silahkan Pilih--</option>
+								<?php foreach ($siswa as $sisw) : ?>
+									<option value="<?= $sisw->id_siswa ?>"><?= $sisw->nama_lengkap ?> - <?= $sisw->nama_kelas ?></option>
+								<?php endforeach; ?>
 							</select>
 						</div>
 						<div class="form-group">

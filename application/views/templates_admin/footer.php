@@ -72,7 +72,6 @@
 <script src="<?= base_url() ?>assets/dist/js/modalEditPelanggaranTatib.js"></script>
 <script src="<?= base_url() ?>assets/dist/js/modalEditTindakan.js"></script>
 <script src="<?= base_url() ?>assets/dist/js/modalEditJenisPembayaran.js"></script>
-<script src="<?= base_url() ?>assets/dist/js/modalEditPegawai.js"></script>
 <script src="<?= base_url() ?>assets/dist/js/modalEditUser.js"></script>
 <script src="<?= base_url() ?>assets/dist/js/modalEditCatatanPelanggaran.js"></script>
 <script src="<?= base_url() ?>assets/dist/js/modalEditAbsensi.js"></script>

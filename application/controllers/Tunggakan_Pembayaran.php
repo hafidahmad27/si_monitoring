@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use Dompdf\dompdf;
+use Dompdf\Options;
+use phpDocumentor\Reflection\Types\This;
+
 class Tunggakan_Pembayaran extends CI_Controller
 {
 	public function __construct()
@@ -13,8 +17,6 @@ class Tunggakan_Pembayaran extends CI_Controller
 			redirect('Admin');
 		} elseif ($this->session->userdata('level') == 'guru_bk') {
 			redirect('Pelanggaran_Tatib');
-		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {
 			redirect('Profil_Siswa');
 		}
@@ -25,6 +27,8 @@ class Tunggakan_Pembayaran extends CI_Controller
 		$data['jenis_pembayaran'] = $this->M_master->tampil_data('tb_jenis_pembayaran')->result();
 		$data['siswa'] = $this->M_master->getSiswa();
 		$data['tunggakan_pembayaran'] = $this->M_transaksi->getTunggakanPembayaranSiswa();
+		$data['pilih_kelas'] = $this->M_master->tampil_data('tb_kelas')->result();
+		$data['pilih_tahun_ajaran'] = $this->M_master->tampil_data('tb_tahun_ajaran')->result();
 		$this->M_transaksi->getStatusTahunAjaran();
 
 		$this->load->view('templates_admin/header');
@@ -95,6 +99,37 @@ class Tunggakan_Pembayaran extends CI_Controller
 
 		$this->M_transaksi->update_data($where, $data, 'tb_tunggakan_pembayaran');
 		redirect('Tunggakan_Pembayaran/index');
+	}
+
+	public function print_pdf2()
+	{
+		// $nama_kelas = 'XII MM 1';
+		// $nama_tahun_ajaran = '2021/2022 Gasal';
+
+		$nama_kelas = $this->input->post('nama_kelas');
+		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
+
+		$data['identitas'] = $this->M_transaksi->Report_Kls($nama_kelas);
+		// $data['report_catatan_plg'] = $this->M_transaksi->Report_CatatanPelanggaranBySiswaAndTa($nama_kelas, $nama_tahun_ajaran);
+		// $data['report_absensi'] = $this->M_transaksi->Report_AbsensiBySiswaAndTa($nama_kelas, $nama_tahun_ajaran);
+		$data['report_tunggakan_pmbyrn'] = $this->M_transaksi->Report_TunggakanPembayaranSiswa($nama_kelas, $nama_tahun_ajaran);
+
+		if (empty($data['r_tahun_ajaran'])) {
+			$data['r_tahun_ajaran'] = $nama_tahun_ajaran;
+			$data['status'] = 0;
+		} else {
+			$data['r_tahun_ajaran'] = $this->M_transaksi->Report_TahunAjaran($nama_kelas, $nama_tahun_ajaran);
+			$data['status'] = 1;
+		}
+		$html = $this->load->view('admin/report/report_tunggakan_all', $data, true);
+
+		$options = new Options();
+		$options->setIsRemoteEnabled(true);
+		$dompdf = new Dompdf($options);
+		$dompdf->setPaper('A4', 'Potrait');
+		$dompdf->load_html($html);
+		$dompdf->render();
+		$dompdf->stream('Laporan Tunggakan_' . $nama_tahun_ajaran . '_' . $nama_kelas . '', array("Attachment" => false));
 	}
 
 	public function hapus($id_tunggakan_pembayaran)

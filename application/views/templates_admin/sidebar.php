@@ -14,7 +14,7 @@
 				<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
 			</div>
 			<div class="info">
-				<a href="#" class="d-block"><?= $this->session->userdata('nama_pegawai'); ?> (<?= $this->session->userdata('level'); ?>)</a>
+				<a href="#" class="d-block"><?= $this->session->userdata('nama_user'); ?> (<?= $this->session->userdata('level'); ?>)</a>
 			</div>
 		</div>
 
@@ -95,17 +95,6 @@
 
 				<?php if ($this->session->userdata('level') == 'admin') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>Pegawai" class="nav-link <?php echo $uri == 'Pegawai' ? 'active' : 'no' ?>">
-							<i class="nav-icon fas fa-user-tie"></i>
-							<p>
-								Pegawai
-							</p>
-						</a>
-					</li>
-				<?php endif; ?>
-
-				<?php if ($this->session->userdata('level') == 'admin') : ?>
-					<li class="nav-item">
 						<a href="<?= base_url() ?>User" class="nav-link <?php echo $uri == 'User' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-user-lock"></i>
 							<p>
@@ -127,7 +116,7 @@
 					</li>
 				<?php endif; ?>
 
-				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'wali_kelas') : ?>
+				<?php if ($this->session->userdata('level') == 'admin' ||  $this->session->userdata('level') == 'guru_bk') : ?>
 					<li class="nav-item">
 						<a href="<?= base_url() ?>Absensi" class="nav-link <?php echo $uri == 'Absensi' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-clipboard-list"></i>
@@ -136,14 +125,6 @@
 							</p>
 						</a>
 					</li>
-					<?php if ($this->session->userdata('level') == 'wali_kelas') : ?>
-						<script>
-							var list = document.getElementById("nav-master");
-							if (list.hasChildNodes()) {
-								list.removeChild(list.childNodes[0]);
-							}
-						</script>
-					<?php endif; ?>
 				<?php endif; ?>
 
 				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'staff_tu') : ?>
@@ -157,13 +138,24 @@
 					</li>
 				<?php endif; ?>
 
-				<?php if ($this->session->userdata('level') == 'admin') : ?>
-					<li class="nav-header">LAPORAN</li>
+				<li class="nav-header">LAPORAN</li>
+				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'guru_bk') : ?>
 					<li class="nav-item">
-						<a href="<?= base_url() ?>Laporan" class="nav-link <?php echo $uri == 'Laporan' ? 'active' : 'no' ?>">
+						<a href="<?= base_url() ?>Laporan_Pelanggaran_Absensi" class="nav-link <?php echo $uri == 'Laporan_Pelanggaran_Absensi' ? 'active' : 'no' ?>">
 							<i class="nav-icon fas fa-file-alt"></i>
 							<p>
-								Laporan Monitoring
+								Lap. Pelanggaran & &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Absensi
+							</p>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'staff_tu') : ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>Laporan_Tunggakan" class="nav-link <?php echo $uri == 'Laporan_Tunggakan' ? 'active' : 'no' ?>">
+							<i class="nav-icon fas fa-file-alt"></i>
+							<p>
+								Lap. Tunggakan
 							</p>
 						</a>
 					</li>

@@ -10,8 +10,6 @@ class Pelanggaran_Tatib extends CI_Controller
 
 		if (!$this->session->userdata('level')) {
 			redirect('Admin');
-		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'staff_tu') {
 			redirect('Jenis_Pembayaran');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {

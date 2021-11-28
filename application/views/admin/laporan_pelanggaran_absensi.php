@@ -5,7 +5,7 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0">Manage Laporan</h1>
+					<h1 class="m-0">Manage Laporan Pelanggaran & Absensi</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<!-- <ol class="breadcrumb float-sm-right">
@@ -29,7 +29,7 @@
 							<h3 class="card-title">Laporan per tahun ajaran berdasarkan siswa</h3>
 						</div>
 						<div class="card-body">
-							<form action="<?= base_url() ?>Laporan/print_pdf" method="POST" id="">
+							<form action="<?= base_url() ?>Laporan_Pelanggaran_Absensi/print_pdf" method="POST" id="">
 								<div class="row">
 									<div class="col-sm-5">
 										<div class="form-group">
@@ -37,7 +37,7 @@
 											<select name="no_induk" class="form-control" style="width: 100%;" required>
 												<option value="">--Silahkan Pilih--</option>
 												<?php foreach ($pilih_no_induk as $pns) : ?>
-													<option value="<?= $pns->no_induk ?>"><?= $pns->nama_lengkap ?></option>
+													<option value="<?= $pns->no_induk ?>"><?= $pns->nama_lengkap ?> - <?= $pns->nama_kelas ?></option>
 												<?php endforeach; ?>
 											</select>
 										</div>

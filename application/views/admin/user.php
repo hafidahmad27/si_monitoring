@@ -33,7 +33,7 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Nama Pegawai</th>
+										<th>Nama User</th>
 										<th>Username</th>
 										<th>Password</th>
 										<th>Level</th>
@@ -46,7 +46,7 @@
 									foreach ($user as $usr) : ?>
 										<tr>
 											<td><?= $no++ ?></td>
-											<td><?= $usr->nama_pegawai ?>
+											<td><?= $usr->nama_user ?>
 											<td><?= $usr->username ?>
 											<td><?= $usr->password ?>
 											<td><?= $usr->level ?>
@@ -87,13 +87,8 @@
 							<input type="hidden" id="id_user" name="id_user" class="form-control" readonly>
 						</div>
 						<div class="form-group">
-							<label>Nama Pegawai</label>
-							<select name="id_pegawai" id="id_pegawai" class="form-control" style="width: 100%;" required>
-								<option value="">--Silahkan Pilih--</option>
-								<?php foreach ($pegawai as $peg) : ?>
-									<option value="<?= $peg->id_pegawai ?>"><?= $peg->nama_pegawai ?></option>
-								<?php endforeach; ?>
-							</select>
+							<label>Nama User</label>
+							<input type="text" id="nama_user" name="nama_user" maxlength="50" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Username</label>
@@ -109,7 +104,6 @@
 								<option value="">--Silahkan Pilih--</option>
 								<option value="admin">Admin</option>
 								<option value="guru_bk">Guru BK</option>
-								<option value="wali_kelas">Wali Kelas</option>
 								<option value="staff_tu">Staff TU</option>
 							</select>
 						</div>

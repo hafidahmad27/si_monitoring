@@ -7,7 +7,6 @@ class M_auth extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('tb_user');
-		$this->db->join('tb_pegawai', 'tb_user.id_pegawai = tb_pegawai.id_pegawai');
 		$this->db->where('username', $username);
 		$this->db->where('password', $password);
 

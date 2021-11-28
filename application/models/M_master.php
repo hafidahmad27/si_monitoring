@@ -68,10 +68,6 @@ class M_master extends CI_Model
 	{
 		return $this->db->get_where('tb_user', array('id_user' => $id_user))->row();
 	}
-	public function getPegawaiById($id_pegawai)
-	{
-		return $this->db->get_where('tb_pegawai', array('id_pegawai' => $id_pegawai))->row();
-	}
 
 	public function getSiswa()
 	{
@@ -86,7 +82,6 @@ class M_master extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('tb_kelas');
-		$this->db->join('tb_pegawai', 'tb_kelas.id_pegawai = tb_pegawai.id_pegawai', 'LEFT');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -95,7 +90,6 @@ class M_master extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('tb_user');
-		$this->db->join('tb_pegawai', 'tb_user.id_pegawai = tb_pegawai.id_pegawai');
 		$query = $this->db->get();
 		return $query->result();
 	}

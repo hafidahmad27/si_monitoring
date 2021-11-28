@@ -30,7 +30,7 @@ $(function ()
 			success: function (data) {
 				console.log(data);
 				$("#id_user").val(data.id_user);
-				$("#id_pegawai").val(data.id_pegawai);
+				$("#nama_user").val(data.nama_user);
 				$("#username").val(data.username);
 				$("#password").val(data.password);
 				$("#level").val(data.level);

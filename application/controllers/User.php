@@ -12,8 +12,6 @@ class User extends CI_Controller
 			redirect('Admin');
 		} elseif ($this->session->userdata('level') == 'guru_bk') {
 			redirect('Pelanggaran_Tatib');
-		} elseif ($this->session->userdata('level') == 'wali_kelas') {
-			redirect('Absensi');
 		} elseif ($this->session->userdata('level') == 'staff_tu') {
 			redirect('Jenis_Pembayaran');
 		} elseif ($this->session->userdata('level') == 'wali_murid') {
@@ -23,7 +21,6 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		$data['pegawai'] = $this->M_master->tampil_data('tb_pegawai')->result();
 		$data['user'] = $this->M_master->getUser();
 
 		$this->load->view('templates_admin/header');
@@ -34,13 +31,13 @@ class User extends CI_Controller
 
 	public function tambah_aksi()
 	{
-		$id_pegawai = $this->input->post('id_pegawai');
+		$nama_user = $this->input->post('nama_user');
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$level = $this->input->post('level');
 
 		$data = array(
-			'id_pegawai' => $id_pegawai,
+			'nama_user' => $nama_user,
 			'username' => $username,
 			'password' => $password,
 			'level' => $level
@@ -64,13 +61,13 @@ class User extends CI_Controller
 	public function update()
 	{
 		$id_user = $this->input->post('id_user');
-		$id_pegawai = $this->input->post('id_pegawai');
+		$nama_user = $this->input->post('nama_user');
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$level = $this->input->post('level');
 
 		$data = array(
-			'id_pegawai' => $id_pegawai,
+			'nama_user' => $nama_user,
 			'username' => $username,
 			'password' => $password,
 			'level' => $level
