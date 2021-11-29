@@ -122,23 +122,6 @@ class M_transaksi extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
-	public function getTotalPoin()
-	{
-		$no_induk = $this->session->userdata('no_induk');
-		$tanggal_lahir = $this->session->userdata('tanggal_lahir');
-
-		$this->db->select('SUM(poin) as total_poin');
-		$this->db->from('tb_catatan_pelanggaran');
-		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa');
-		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
-		$this->db->join('tb_pelanggaran_tatib', 'tb_catatan_pelanggaran.id_pelanggaran_tatib = tb_pelanggaran_tatib.id_pelanggaran_tatib');
-		$this->db->join('tb_tindakan', 'tb_catatan_pelanggaran.id_tindakan = tb_tindakan.id_tindakan');
-		$this->db->where('no_induk="' . $no_induk . '" AND tanggal_lahir="' . $tanggal_lahir . '"');
-		$this->db->order_by('tanggal', 'DESC');
-
-		$query = $this->db->get();
-		return $query->result();
-	}
 
 	public function getInfoAbsensi()
 	{
@@ -262,21 +245,6 @@ class M_transaksi extends CI_Model
 	public function Report_CatatanPelanggaranBySiswaAndTa($no_induk, $nama_tahun_ajaran)
 	{
 		$this->db->select('*');
-		$this->db->from('tb_catatan_pelanggaran');
-		$this->db->join('tb_tahun_ajaran', 'tb_catatan_pelanggaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
-		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa');
-		$this->db->join('tb_kelas', 'tb_siswa.id_kelas = tb_kelas.id_kelas');
-		$this->db->join('tb_pelanggaran_tatib', 'tb_catatan_pelanggaran.id_pelanggaran_tatib = tb_pelanggaran_tatib.id_pelanggaran_tatib');
-		$this->db->join('tb_tindakan', 'tb_catatan_pelanggaran.id_tindakan = tb_tindakan.id_tindakan');
-		$this->db->where('no_induk="' . $no_induk . '" AND nama_tahun_ajaran="' . $nama_tahun_ajaran . '"');
-		$this->db->order_by('tanggal', 'DESC');
-
-		$query = $this->db->get();
-		return $query->result();
-	}
-	public function getRTotalPoin($no_induk, $nama_tahun_ajaran)
-	{
-		$this->db->select('SUM(poin) as total_poin');
 		$this->db->from('tb_catatan_pelanggaran');
 		$this->db->join('tb_tahun_ajaran', 'tb_catatan_pelanggaran.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran');
 		$this->db->join('tb_siswa', 'tb_catatan_pelanggaran.id_siswa = tb_siswa.id_siswa');

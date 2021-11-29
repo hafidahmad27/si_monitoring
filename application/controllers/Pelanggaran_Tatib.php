@@ -30,11 +30,9 @@ class Pelanggaran_Tatib extends CI_Controller
 	public function tambah_aksi()
 	{
 		$bentuk_pelanggaran = $this->input->post('bentuk_pelanggaran');
-		$poin = $this->input->post('poin');
 
 		$data = array(
-			'bentuk_pelanggaran' => $bentuk_pelanggaran,
-			'poin' => $poin
+			'bentuk_pelanggaran' => $bentuk_pelanggaran
 		);
 
 		$this->M_master->input_data($data, 'tb_pelanggaran_tatib');
@@ -56,11 +54,9 @@ class Pelanggaran_Tatib extends CI_Controller
 	{
 		$id_pelanggaran_tatib = $this->input->post('id_pelanggaran_tatib');
 		$bentuk_pelanggaran = $this->input->post('bentuk_pelanggaran');
-		$poin = $this->input->post('poin');
 
 		$data = array(
-			'bentuk_pelanggaran' => $bentuk_pelanggaran,
-			'poin' => $poin
+			'bentuk_pelanggaran' => $bentuk_pelanggaran
 		);
 
 		$where = array(

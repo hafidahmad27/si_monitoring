@@ -45,8 +45,6 @@ class Laporan_Tunggakan extends CI_Controller
 		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
 
 		$data['identitas'] = $this->M_transaksi->Report_Nama_No_Kls($no_induk);
-		// $data['report_catatan_plg'] = $this->M_transaksi->Report_CatatanPelanggaranBySiswaAndTa($no_induk, $nama_tahun_ajaran);
-		// $data['report_absensi'] = $this->M_transaksi->Report_AbsensiBySiswaAndTa($no_induk, $nama_tahun_ajaran);
 		$data['report_tunggakan_pmbyrn'] = $this->M_transaksi->Report_TunggakanPembayaranBySiswaAndTa($no_induk, $nama_tahun_ajaran);
 		$data['get_rtotal_tunggakan'] = $this->M_transaksi->getRTotalTunggakan($no_induk, $nama_tahun_ajaran);
 

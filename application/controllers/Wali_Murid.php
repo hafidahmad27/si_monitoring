@@ -24,7 +24,6 @@ class Wali_Murid extends CI_Controller
 	public function Info_Catatan_Pelanggaran()
 	{
 		$data['catatan_pelanggaran'] = $this->M_transaksi->getInfoCatatanPelanggaran();
-		$data['get_total_poin'] = $this->M_transaksi->getTotalPoin();
 
 		$this->load->view('templates_frontend/header');
 		$this->load->view('templates_frontend/sidebar');

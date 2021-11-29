@@ -32,11 +32,9 @@ class Tahun_Ajaran extends CI_Controller
 	public function tambah_aksi()
 	{
 		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
-		// $status = $this->input->post('status');
 
 		$data = array(
 			'nama_tahun_ajaran' => $nama_tahun_ajaran
-			// 'status' => $status
 		);
 
 		$this->M_master->input_data($data, 'tb_tahun_ajaran');
@@ -58,11 +56,9 @@ class Tahun_Ajaran extends CI_Controller
 	{
 		$id_tahun_ajaran = $this->input->post('id_tahun_ajaran');
 		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
-		// $status = $this->input->post('status');
 
 		$data = array(
 			'nama_tahun_ajaran' => $nama_tahun_ajaran
-			// 'status' => $status
 		);
 
 		$where = array(

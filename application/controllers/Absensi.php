@@ -20,9 +20,6 @@ class Absensi extends CI_Controller
 
 	public function index()
 	{
-		// elseif ($this->session->userdata('level') == 'wali_kelas') {
-		// 	$data['siswaByKelas'] = $this->M_transaksi->getSiswaByKelas();
-		// }
 		$data['siswa'] = $this->M_master->tampil_data('tb_siswa')->result();
 		$data['siswa'] = $this->M_master->getSiswa();
 		$data['absensi'] = $this->M_transaksi->getAbsensiSiswa();

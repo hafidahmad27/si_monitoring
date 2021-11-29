@@ -103,15 +103,10 @@ class Tunggakan_Pembayaran extends CI_Controller
 
 	public function print_pdf2()
 	{
-		// $nama_kelas = 'XII MM 1';
-		// $nama_tahun_ajaran = '2021/2022 Gasal';
-
 		$nama_kelas = $this->input->post('nama_kelas');
 		$nama_tahun_ajaran = $this->input->post('nama_tahun_ajaran');
 
 		$data['identitas'] = $this->M_transaksi->Report_Kls($nama_kelas);
-		// $data['report_catatan_plg'] = $this->M_transaksi->Report_CatatanPelanggaranBySiswaAndTa($nama_kelas, $nama_tahun_ajaran);
-		// $data['report_absensi'] = $this->M_transaksi->Report_AbsensiBySiswaAndTa($nama_kelas, $nama_tahun_ajaran);
 		$data['report_tunggakan_pmbyrn'] = $this->M_transaksi->Report_TunggakanPembayaranSiswa($nama_kelas, $nama_tahun_ajaran);
 
 		if (empty($data['r_tahun_ajaran'])) {
